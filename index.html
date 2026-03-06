@@ -181,14 +181,16 @@
                     respond with a proposed roadmap for collaboration.</p>
             </div>
 
-            <form id="consultationForm" action="https://formspree.io/f/pewahl@gmail.com" method="POST">
+            <form id="consultationForm"
+                action="https://script.google.com/macros/s/AKfycbwq84vea4PnyO1OIKlhTggoGIuepktem5qeQcmY3RRSuZqv6bH1LKEoZp_EZD1d-Jk/exec"
+                method="POST">
                 <!-- Professional Subject Line -->
                 <input type="hidden" name="_subject" value="New Strategic Inquiry from pew256.github.io">
 
                 <div id="formFields" class="form-grid">
                     <div class="form-group">
                         <label for="name">Full Name</label>
-                        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                        <input type="text" id="name" name="full-name" placeholder="Enter your full name" required>
                     </div>
                     <div class="form-group">
                         <label for="email">Professional Email</label>
@@ -273,23 +275,17 @@
             errorMsg.style.display = 'none';
 
             try {
-                const response = await fetch(event.target.action, {
+                await fetch(event.target.action, {
                     method: form.method,
                     body: data,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
+                    mode: 'no-cors'
                 });
 
-                if (response.ok) {
-                    document.getElementById('consultationForm').style.display = 'none';
-                    document.getElementById('modalHeader').style.display = 'none';
-                    document.getElementById('successMessage').style.display = 'block';
-                    form.reset();
-                } else {
-                    const errorData = await response.json();
-                    throw new Error(errorData.error || 'Submission failed');
-                }
+                // With no-cors, we assume success if the network request didn't throw an error
+                document.getElementById('consultationForm').style.display = 'none';
+                document.getElementById('modalHeader').style.display = 'none';
+                document.getElementById('successMessage').style.display = 'block';
+                form.reset();
             } catch (error) {
                 console.error("Submission Error:", error);
                 errorMsg.style.display = 'block';
