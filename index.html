@@ -234,9 +234,9 @@
                     </svg>
                 </div>
                 <h2>Strategic Inquiry Received.</h2>
-                <p>Thank you for reaching out. We have received your briefing regarding your organization. Our team is
-                    currently reviewing your requirements; you can expect a response from a senior advisor within 24–48
-                    hours.</p>
+                <p id="successText">Thank you for reaching out. We have received your briefing regarding your
+                    organization. Our team is currently reviewing your requirements; you can expect a response from a
+                    senior advisor within 24–48 hours.</p>
                 <button type="button" class="btn btn-high-contrast" onclick="closeModal()">Return to Home</button>
             </div>
         </div>
@@ -280,6 +280,12 @@
                     body: data,
                     mode: 'no-cors'
                 });
+
+                // Extract name and org for personalized message
+                const submittedName = data.get('full-name') || 'there';
+                const submittedOrg = data.get('organization') || 'your organization';
+                const successText = document.getElementById('successText');
+                successText.textContent = `Thank you ${submittedName} for reaching out. We have received your briefing regarding ${submittedOrg}. Our team is currently reviewing your requirements; you can expect a response from a senior advisor within 24–48 hours.`;
 
                 // With no-cors, we assume success if the network request didn't throw an error
                 document.getElementById('consultationForm').style.display = 'none';
