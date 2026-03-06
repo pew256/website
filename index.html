@@ -1,86 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>pew256 | Personal Website</title>
-    <meta name="description" content="Personal website of pew256. Creative developer and designer.">
+    <title>pew256 | Blockchain Infrastructure</title>
+    <meta name="description"
+        content="Innovating Blockchain Infrastructure for Today's Businesses. pew256 provides strategic blockchain solutions.">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <div class="background-blobs">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-        <div class="blob blob-3"></div>
-    </div>
+    <div id="particles-js"></div>
 
     <nav>
-        <div class="container">
+        <div class="container nav-content">
             <div class="logo">pew<span>256</span></div>
-            <ul>
+            <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
+                <li><a href="#about">About us</a></li>
+                <li><a href="#services">Services</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <header id="home">
-        <div class="container hero">
-            <h1 class="fade-in">Hi, I'm <span class="highlight">pew256</span></h1>
-            <p class="subtitle fade-in-delay">Creating digital experiences that blend <br><strong>aesthetics</strong> and <strong>innovation</strong>.</p>
-            <div class="cta-group fade-in-delay-2">
-                <a href="#projects" class="btn btn-primary">View Projects</a>
-                <a href="#contact" class="btn btn-secondary">Get in Touch</a>
-            </div>
-        </div>
-    </header>
-
-    <section id="about" class="glass-section">
-        <div class="container">
-            <h2>About Me</h2>
-            <p>Welcome to my digital space. I'm pew256, a passion-driven developer focusing on building high-performance, visually stunning web applications. I believe in the power of clean code and minimalist design.</p>
-        </div>
-    </section>
-
-    <section id="projects">
-        <div class="container">
-            <h2>Featured Work</h2>
-            <div class="project-grid">
-                <div class="project-card glass">
-                    <div class="project-image" id="img-1"></div>
-                    <div class="project-content">
-                        <h3>Project One</h3>
-                        <p>A sophisticated web application built with modern frameworks.</p>
-                    </div>
+    <main>
+        <section id="hero">
+            <div class="container">
+                <div class="hero-header">
+                    <h1 class="fade-in">Innovating Blockchain Infrastructure for Today's Businesses</h1>
+                    <p class="fade-in-delay">Founded in Switzerland by Pierre-Edouard Wahl, an award winning expert and
+                        former PwC Head of Blockchain, pew256 is renowned for a sharp no-nonsense approach to developing
+                        strategic blockchain infrastructure.</p>
                 </div>
-                <div class="project-card glass">
-                    <div class="project-image" id="img-2"></div>
-                    <div class="project-content">
-                        <h3>Project Two</h3>
-                        <p>Innovative design solutions for digital interactions.</p>
+
+                <div class="service-cards grid-3 fade-in-delay-2">
+                    <div class="card glass-card">
+                        <div class="card-icon">⚖️</div>
+                        <h3>Regulatory Compliance</h3>
+                        <p>Discover how we can help your business use blockchain technology in a compliant and secure
+                            way.</p>
+                    </div>
+                    <div class="card glass-card">
+                        <div class="card-icon">📈</div>
+                        <h3>Maximise Value</h3>
+                        <p>With our strategic insights and technical expertise, we provide you the tools and knowledge
+                            to succeed in the exciting world of blockchain.</p>
+                    </div>
+                    <div class="card glass-card">
+                        <div class="card-icon">🛡️</div>
+                        <h3>Mitigate Risks</h3>
+                        <p>We are constantly thinking about potential attack vectors and identifying any single points
+                            of failure to ensure the utmost security for our customers.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <footer id="contact">
-        <div class="container">
-            <p>&copy; 2026 pew256. All rights reserved.</p>
-            <div class="social-links">
-                <a href="https://github.com/pew256" target="_blank">GitHub</a>
-                <a href="#">Twitter</a>
-                <a href="#">LinkedIn</a>
+        <section id="strengthening" class="glow-section">
+            <div class="container split-layout">
+                <div class="illustration-container">
+                    <img src="pew256_hero_illustration.png" alt="Blockchain Infrastructure Illustration"
+                        class="hero-illustration">
+                </div>
+                <div class="text-content">
+                    <span class="label">Welcome to pew256</span>
+                    <h2>Strengthening your blockchain investments</h2>
+                    <p>Empowering your blockchain investments means enabling you to make informed and confident
+                        decisions when it comes to investing in blockchain technologies. At our consulting service, we
+                        understand that the blockchain space is constantly evolving, and it can be difficult to navigate
+                        without the right expertise. That's why we offer a range of services to help you identify
+                        opportunities, mitigate risks, and maximize returns on your blockchain strategy.</p>
+                    <a href="#contact" class="btn btn-primary">Book a meeting</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="services">
+            <div class="container">
+                <h2>Streamlining blockchain for your business.</h2>
+                <p class="section-subtitle">Security is paramount, but flexible security solutions prioritizing
+                    customers requirements based on targeted needs is a must.</p>
+
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <div class="feature-icon">💼</div>
+                        <div class="feature-text">
+                            <h3>Wallet Solutions</h3>
+                            <p>We specialize in providing top-notch wallet solutions tailored to meet your digital asset
+                                needs. Our comprehensive and compliant wallet solutions guarantee efficient management
+                                of your valuable digital assets.</p>
+                            <a href="#" class="read-more">Read More →</a>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">⛓️</div>
+                        <div class="feature-text">
+                            <h3>Layer 2 + protocols</h3>
+                            <p>We are a dedicated team of experts specializing in conducting meticulous use case
+                                analysis and developing secure L2 protocols for your digital assets. Our focus is on
+                                providing tailored solutions that precisely meet your unique needs.</p>
+                            <a href="#" class="read-more">Read More →</a>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">✅</div>
+                        <div class="feature-text">
+                            <h3>Regulatory Compliance</h3>
+                            <p>Our custodial services & protocols comply with the licensing requirements set by
+                                regulatory authorities. We will ensure that your compliance journey is as smooth and
+                                worry-free as possible.</p>
+                            <a href="#" class="read-more">Read More →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-left">
+                <div class="logo">pew<span>256</span></div>
+            </div>
+            <div class="footer-center">
+                <a href="#">Privacy Policy</a>
+            </div>
+            <div class="footer-right">
+                <p>Copyright © 2026 – All rights reserved.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Particles.js for the constellation effect -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#ffffff" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.2, "random": false },
+                "size": { "value": 3, "random": true },
+                "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.1, "width": 1 },
+                "move": { "enable": true, "speed": 1, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
+                "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 1 } }, "push": { "particles_nb": 4 } }
+            },
+            "retina_detect": true
+        });
+
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -91,4 +167,5 @@
         });
     </script>
 </body>
+
 </html>
