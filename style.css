@@ -603,9 +603,11 @@ footer {
 .profile-img {
     width: 100%;
     height: auto;
-    border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    object-fit: cover;
+    aspect-ratio: 3/4;
+    border-radius: 4px;
+    box-shadow: 0 40px 60px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     display: block;
 }
 
@@ -617,8 +619,48 @@ footer {
 .bio-content p {
     color: var(--secondary);
     line-height: 1.8;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     font-size: 1.05rem;
+}
+
+.bio-content .bio-intro {
+    font-size: 1.25rem;
+    color: var(--text);
+    font-weight: 400;
+}
+
+.highlights-container {
+    margin-top: 6rem;
+}
+
+.highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    padding-top: 4rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.highlight-item h4 {
+    font-size: 1.2rem;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.highlight-item p {
+    color: var(--secondary);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.final-cta-container {
+    margin-top: 6rem;
+    text-align: center;
+}
+
+.cta-large {
+    font-size: 1.1rem;
+    padding: 1.2rem 3rem;
 }
 
 /* Mobile */
@@ -665,5 +707,9 @@ footer {
     .bio-grid {
         grid-template-columns: 1fr;
         gap: 2.5rem;
+    }
+
+    .highlights-grid {
+        grid-template-columns: 1fr 1fr;
     }
 }
