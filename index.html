@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pew256 | Personal Website</title>
+    <meta name="description" content="Personal website of pew256. Creative developer and designer.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <nav>
+        <div class="container">
+            <div class="logo">pew<span>256</span></div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header id="home">
+        <div class="container hero">
+            <h1 class="fade-in">Hi, I'm <span class="highlight">pew256</span></h1>
+            <p class="subtitle fade-in-delay">Creating digital experiences that blend <br><strong>aesthetics</strong> and <strong>innovation</strong>.</p>
+            <div class="cta-group fade-in-delay-2">
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+                <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="glass-section">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>Welcome to my digital space. I'm pew256, a passion-driven developer focusing on building high-performance, visually stunning web applications. I believe in the power of clean code and minimalist design.</p>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2>Featured Work</h2>
+            <div class="project-grid">
+                <div class="project-card glass">
+                    <div class="project-image" id="img-1"></div>
+                    <div class="project-content">
+                        <h3>Project One</h3>
+                        <p>A sophisticated web application built with modern frameworks.</p>
+                    </div>
+                </div>
+                <div class="project-card glass">
+                    <div class="project-image" id="img-2"></div>
+                    <div class="project-content">
+                        <h3>Project Two</h3>
+                        <p>Innovative design solutions for digital interactions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <p>&copy; 2026 pew256. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://github.com/pew256" target="_blank">GitHub</a>
+                <a href="#">Twitter</a>
+                <a href="#">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
