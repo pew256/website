@@ -19,7 +19,7 @@ body {
     background-color: var(--bg);
     color: var(--primary);
     font-family: var(--geist-sans);
-    line-height: 1.5;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
 }
@@ -185,6 +185,57 @@ nav {
     transition: transform 0.1s ease-out;
 }
 
+/* Trust Bar */
+.trust-bar {
+    padding: 6rem 0 4rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+}
+
+.trust-heading {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+    color: var(--secondary);
+    opacity: 0.8;
+    margin-bottom: 3rem;
+    font-weight: 600;
+}
+
+.trust-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+}
+
+.trust-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--secondary);
+    opacity: 0.6;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    cursor: default;
+}
+
+.trust-item:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+.trust-item svg {
+    width: 32px;
+    height: 32px;
+}
+
+.trust-item span {
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
 /* Bento Grid */
 .bento-section {
     padding: 100px 0;
@@ -192,76 +243,66 @@ nav {
 
 .section-title {
     font-size: 2.5rem;
-    margin-bottom: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
     text-align: center;
 }
 
-.bento-grid {
+.section-subtitle {
+    color: var(--secondary);
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    font-size: 1.1rem;
+}
+
+/* Service Grid */
+.services-section {
+    padding: 100px 0;
+}
+
+.service-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 200px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+    align-items: stretch;
+}
+
+.service-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 3rem;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
     gap: 1.5rem;
 }
 
-.bento-box {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    position: relative;
-    overflow: hidden;
-    padding: 2rem;
-    transition: border-color 0.3s, background 0.3s;
-}
-
-.bento-box:hover {
+.service-card:hover {
+    background: rgba(255, 255, 255, 0.05);
     border-color: rgba(255, 255, 255, 0.2);
-    background: rgba(30, 30, 32, 0.8);
+    transform: translateY(-5px);
 }
 
-.bento-large {
-    grid-column: span 2;
-    grid-row: span 2;
+.service-icon {
+    width: 48px;
+    height: 48px;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
 }
 
-.bento-medium {
-    grid-row: span 2;
-}
-
-.bento-content {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.box-tag {
-    font-size: 0.75rem;
-    color: var(--accent);
-    font-weight: 700;
-    text-transform: uppercase;
-    margin-bottom: 1rem;
-}
-
-.bento-box h3 {
+.service-card h3 {
     font-size: 1.5rem;
-    margin-bottom: 1rem;
+    font-weight: 700;
+    margin: 0;
 }
 
-.bento-box p {
+.service-card p {
+    font-size: 1rem;
+    line-height: 1.6;
     color: var(--secondary);
-    max-width: 400px;
-}
-
-.bento-icon {
-    position: absolute;
-    bottom: -20px;
-    right: -20px;
-    width: 180px;
-    opacity: 0.6;
-    mix-blend-mode: screen;
-}
-
-.highlight-box {
-    background: linear-gradient(135deg, rgba(109, 40, 217, 0.1) 0%, transparent 100%);
+    margin: 0;
 }
 
 /* Mission Section */
@@ -279,6 +320,7 @@ nav {
 
 .mission-text h2 {
     font-size: 2.5rem;
+    font-weight: 700;
     margin-bottom: 2rem;
 }
 
@@ -354,11 +396,28 @@ footer {
 }
 
 .modal-content {
-    max-width: 500px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 3rem;
     width: 90%;
-    background: var(--bg) !important;
-    border: 1px solid var(--border) !important;
-    box-shadow: 0 0 50px rgba(109, 40, 217, 0.2);
+    max-width: 800px;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+    text-align: left;
+}
+
+.modal-content h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.modal-content p {
+    color: var(--secondary);
+    margin-bottom: 2rem;
+    line-height: 1.6;
 }
 
 .close {
@@ -389,6 +448,7 @@ footer {
 }
 
 .form-group input,
+.form-group select,
 .form-group textarea {
     width: 100%;
     background: var(--card-bg);
@@ -399,11 +459,89 @@ footer {
     font-family: var(--geist-sans);
     outline: none;
     transition: border-color 0.2s;
+    appearance: none;
+}
+
+.form-group select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgba(161, 161, 170, 0.5)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.8rem center;
+    background-size: 1.2rem;
+    padding-right: 2.5rem;
 }
 
 .form-group input:focus,
+.form-group select:focus,
 .form-group textarea:focus {
     border-color: rgba(255, 255, 255, 0.3);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.full-width-field {
+    grid-column: span 2;
+}
+
+.btn-high-contrast {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+    border: none;
+    padding: 1rem;
+    font-size: 1.1rem;
+}
+
+.btn-high-contrast:hover {
+    background: #E4E4E7 !important;
+    transform: translateY(-2px);
+}
+
+.success-state {
+    text-align: center;
+    padding: 3rem 1rem;
+}
+
+.error-message {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    border-radius: 8px;
+    padding: 0.75rem;
+    margin-bottom: 1.5rem;
+    color: #ef4444;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.success-icon {
+    font-size: 4rem;
+    color: #10B981;
+    margin-bottom: 1.5rem;
+}
+
+.success-state h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.success-state h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.success-state p {
+    color: var(--secondary);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.success-state .btn-high-contrast {
+    min-width: 200px;
 }
 
 .full-width {
@@ -437,6 +575,52 @@ footer {
     }
 }
 
+/* Bio Section (About Page) */
+.bio-section {
+    padding: 4rem 0 6rem;
+}
+
+.back-link {
+    display: inline-block;
+    color: var(--secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: var(--primary);
+}
+
+.bio-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.profile-img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: block;
+}
+
+.bio-text-col h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.bio-content p {
+    color: var(--secondary);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+}
+
 /* Mobile */
 @media (max-width: 768px) {
     .hero h1 {
@@ -460,5 +644,26 @@ footer {
 
     .mission-inner {
         grid-template-columns: 1fr;
+    }
+
+    .service-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .full-width-field {
+        grid-column: span 1;
+    }
+
+    .trust-grid {
+        gap: 2rem;
+    }
+
+    .bio-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
     }
 }

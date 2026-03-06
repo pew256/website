@@ -21,9 +21,9 @@
         <div class="container nav-content">
             <div class="logo">pew<span>256</span></div>
             <div class="nav-links">
-                <a href="#about">About</a>
+                <a href="about.html">About</a>
                 <a href="#services">Services</a>
-                <a href="#contact" class="nav-btn" onclick="openModal()">Contact</a>
+                <a href="#contact" class="nav-btn" onclick="openModal(); return false;">Contact</a>
             </div>
         </div>
     </nav>
@@ -46,63 +46,118 @@
             </div>
         </header>
 
-        <section id="services" class="bento-section">
+        <section id="trust-bar" class="trust-bar">
             <div class="container">
-                <h2 class="section-title">Strategic Solutions</h2>
-                <div class="bento-grid">
-                    <div class="bento-box bento-large">
-                        <div class="bento-content">
-                            <span class="box-tag">Core Expertise</span>
-                            <h3>Strategic Advisory</h3>
-                            <p>We provide a sharp, no-nonsense approach to developing blockchain ecosystems for
-                                enterprises and institutions.</p>
-                            <img src="icon-network.png" alt="Strategy Icon" class="bento-icon">
-                        </div>
+                <p class="trust-heading">Strategic Experience Across Global Sectors</p>
+                <div class="trust-grid">
+                    <div class="trust-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 21h18M3 10h18M5 10v11M9 10v11M15 10v11M19 10v11M1.5 10l10.5-9 10.5 9" />
+                        </svg>
+                        <span>Banking & Capital Markets</span>
                     </div>
-                    <div class="bento-box bento-medium">
-                        <div class="bento-content">
-                            <span class="box-tag">Security</span>
-                            <h3>Regulatory Compliance</h3>
-                            <p>Helping you navigate complex licensing and custodial requirements with ease and
-                                confidence.</p>
-                            <img src="icon-security.png" alt="Security Icon" class="bento-icon">
-                        </div>
+                    <div class="trust-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="9" height="9" />
+                            <rect x="13" y="2" width="9" height="9" />
+                            <rect x="2" y="13" width="9" height="9" />
+                            <rect x="13" y="13" width="9" height="9" />
+                        </svg>
+                        <span>Big Four Advisory</span>
                     </div>
-                    <div class="bento-box bento-small">
-                        <div class="bento-content">
-                            <h3>Wallet Solutions</h3>
-                            <p>Top-notch, secure, and compliant wallet architectures for digital assets.</p>
-                        </div>
+                    <div class="trust-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                            <path d="M12 8v4M12 16h.01" />
+                        </svg>
+                        <span>Regulatory Bodies</span>
                     </div>
-                    <div class="bento-box bento-small highlight-box">
-                        <div class="bento-content">
-                            <h3>L2 Protocols</h3>
-                            <p>Developing secure, high-performance L2 protocols tailored to specific use cases.</p>
-                        </div>
+                    <div class="trust-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2l10 5v10l-10 5-10-5V7l10-5z" />
+                            <path d="M12 22V12M22 7l-10 5M2 7l10 5" />
+                        </svg>
+                        <span>Web3 Infrastructure</span>
+                    </div>
+                    <div class="trust-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                            <circle cx="9" cy="7" r="4" />
+                            <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                        </svg>
+                        <span>Asset Management</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="about" class="mission-section">
-            <div class="container mission-inner">
-                <div class="mission-text">
-                    <h2>Our Mission</h2>
-                    <p>At pew256, we believe in the power of clean code and minimalist, robust design. We empower our
-                        clients to make informed, confident decisions in a rapidly evolving technological landscape.</p>
-                </div>
-                <div class="mission-stats">
-                    <div class="stat-item">
-                        <span class="stat-num">10+</span>
-                        <span class="stat-label">Years Experience</span>
+        <section id="services" class="services-section">
+            <div class="container">
+                <h2 class="section-title">Institutional Blockchain Strategy</h2>
+                <div class="service-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                <path d="M12 8v4M12 16h.01" />
+                            </svg>
+                        </div>
+                        <h3>Strategic Advisory</h3>
+                        <p>We translate complex decentralized architectures into actionable enterprise roadmaps. From
+                            incentive engineering and tokenomics to governance modeling, we align blockchain
+                            infrastructure with institutional objectives to drive sustainable ecosystem growth.</p>
                     </div>
-                    <div class="stat-item">
-                        <span class="stat-num">Global</span>
-                        <span class="stat-label">Client Network</span>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M12 8v4l3 3" />
+                            </svg>
+                        </div>
+                        <h3>Regulatory Compliance</h3>
+                        <p>Navigate the global shift in digital asset oversight with confidence. We implement
+                            'Compliance-by-Design' frameworks tailored for MiCA standards and VASP licensing, ensuring
+                            your project meets the highest bars of institutional-grade risk management.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                            </svg>
+                        </div>
+                        <h3>Wallet & Custody Solutions</h3>
+                        <p>Engineering high-assurance custodial and non-custodial wallet architectures. We design robust
+                            storage and transaction frameworks—utilizing MPC and hardware-level security—to meet the
+                            most stringent institutional requirements for asset safety.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="16 18 22 12 16 6" />
+                                <polyline points="8 6 2 12 8 18" />
+                            </svg>
+                        </div>
+                        <h3>Protocol Engineering</h3>
+                        <p>Custom Layer-2 scaling solutions architected for performance. We optimize protocols for
+                            throughput, privacy, and cost-efficiency, either building from the ground up or refining
+                            existing stacks to support enterprise-scale adoption.</p>
                     </div>
                 </div>
             </div>
         </section>
+
+
     </main>
 
     <footer>
@@ -117,27 +172,71 @@
 
     <!-- Contact Modal -->
     <div id="contactModal" class="modal">
-        <div class="modal-content bento-box">
+        <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
-            <span class="box-tag">Consultation</span>
-            <h3>Start a Conversation</h3>
-            <p>Tell us a bit about your project and we'll get back to you shortly.</p>
+            <div id="modalHeader">
+                <span class="box-tag">Strategic Intake Briefing</span>
+                <h3>Start a Strategic Conversation</h3>
+                <p>Brief us on your project goals and institutional requirements. We will review your inquiry and
+                    respond with a proposed roadmap for collaboration.</p>
+            </div>
 
-            <form id="consultationForm" onsubmit="handleFormSubmit(event)">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" placeholder="Your Name" required>
+            <form id="consultationForm" action="https://formspree.io/f/pewahl@gmail.com" method="POST">
+                <!-- Professional Subject Line -->
+                <input type="hidden" name="_subject" value="New Strategic Inquiry from pew256.github.io">
+
+                <div id="formFields" class="form-grid">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Professional Email</label>
+                        <input type="email" id="email" name="email" placeholder="name@company.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="organization">Organization / Project Name</label>
+                        <input type="text" id="organization" name="organization"
+                            placeholder="Your company or decentralized project name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="inquiryType">Nature of Inquiry</label>
+                        <select id="inquiryType" name="inquiry-type" required>
+                            <option value="" disabled selected>Select an option</option>
+                            <option value="Strategic Advisory">Strategic Advisory</option>
+                            <option value="Regulatory & Compliance">Regulatory & Compliance</option>
+                            <option value="Protocol Engineering">Protocol Engineering</option>
+                            <option value="Wallet/Custody Solutions">Wallet/Custody Solutions</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width-field">
+                        <label for="message">Strategic Briefing</label>
+                        <textarea id="message" name="message" rows="4"
+                            placeholder="Describe your current infrastructure challenges or strategic goals..."
+                            required></textarea>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" placeholder="you@example.com" required>
+                <div id="form-error" class="error-message"
+                    style="display: none; margin-bottom: 1rem; color: #ef4444; font-size: 0.9rem;">
+                    Submission failed. Please try again or email directly.
                 </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" rows="4" placeholder="How can we help?" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary full-width">Send Inquiry</button>
+                <button type="submit" id="submitBtn" class="btn btn-primary btn-high-contrast full-width">Submit
+                    Strategic Inquiry</button>
             </form>
+            <div id="successMessage" class="success-state" style="display: none;">
+                <div class="success-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                </div>
+                <h2>Strategic Inquiry Received.</h2>
+                <p>Thank you for reaching out. We have received your briefing regarding your organization. Our team is
+                    currently reviewing your requirements; you can expect a response from a senior advisor within 24–48
+                    hours.</p>
+                <button type="button" class="btn btn-high-contrast" onclick="closeModal()">Return to Home</button>
+            </div>
         </div>
     </div>
 
@@ -160,19 +259,46 @@
             }
         }
 
-        function handleFormSubmit(e) {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
+        const form = document.getElementById("consultationForm");
+        const submitBtn = document.getElementById("submitBtn");
+        const errorMsg = document.getElementById("form-error");
 
-            const subject = encodeURIComponent("pew256 inquiry");
-            const body = encodeURIComponent(`Inquiry from: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+        async function handleFormSubmit(event) {
+            event.preventDefault();
+            const data = new FormData(event.target);
 
-            window.location.href = `mailto:pewahl@gmail.com?subject=${subject}&body=${body}`;
+            // UI State: Processing
+            submitBtn.textContent = "Processing...";
+            submitBtn.disabled = true;
+            errorMsg.style.display = 'none';
 
-            closeModal();
+            try {
+                const response = await fetch(event.target.action, {
+                    method: form.method,
+                    body: data,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    document.getElementById('consultationForm').style.display = 'none';
+                    document.getElementById('modalHeader').style.display = 'none';
+                    document.getElementById('successMessage').style.display = 'block';
+                    form.reset();
+                } else {
+                    const errorData = await response.json();
+                    throw new Error(errorData.error || 'Submission failed');
+                }
+            } catch (error) {
+                console.error("Submission Error:", error);
+                errorMsg.style.display = 'block';
+                submitBtn.textContent = "Submit Strategic Inquiry";
+                submitBtn.disabled = false;
+            }
         }
+
+        form.addEventListener("submit", handleFormSubmit);
 
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
