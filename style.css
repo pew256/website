@@ -323,7 +323,7 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 4rem;
+    gap: 2.5rem;
     flex-wrap: wrap;
 }
 
@@ -377,6 +377,10 @@ nav {
 
 .logo-strip-item.pwc:hover .pwc-shape-3 {
     fill: #D93954;
+}
+
+.logo-strip-item.creditsuisse:hover {
+    color: #002D5A;
 }
 
 .section-title {
