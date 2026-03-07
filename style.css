@@ -294,11 +294,6 @@ nav {
     color: var(--primary);
 }
 
-/* Bento Grid */
-.bento-section {
-    padding: 100px 0;
-}
-
 .section-title {
     font-size: 2.5rem;
     font-weight: 700;
@@ -409,51 +404,6 @@ nav {
 
 .why-partner-section strong {
     color: var(--primary);
-}
-
-/* Mission Section */
-.mission-section {
-    padding: 100px 0;
-    border-top: 1px solid var(--border);
-}
-
-.mission-inner {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 4rem;
-    align-items: center;
-}
-
-.mission-text h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 2rem;
-}
-
-.mission-text p {
-    font-size: 1.25rem;
-    color: var(--secondary);
-}
-
-.mission-stats {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-}
-
-.stat-item {
-    display: flex;
-    flex-direction: column;
-}
-
-.stat-num {
-    font-size: 3rem;
-    font-weight: 800;
-}
-
-.stat-label {
-    color: var(--secondary);
-    font-weight: 500;
 }
 
 /* Footer */
@@ -777,21 +727,6 @@ footer {
 
     .hero-sub {
         font-size: 1.1rem;
-    }
-
-    .bento-grid {
-        grid-template-columns: 1fr;
-        grid-auto-rows: auto;
-    }
-
-    .bento-large,
-    .bento-medium {
-        grid-column: span 1;
-        grid-row: span 1;
-    }
-
-    .mission-inner {
-        grid-template-columns: 1fr;
     }
 
     .service-grid {
