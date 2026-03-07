@@ -308,58 +308,71 @@ nav {
     padding: 0 0 100px 0;
 }
 
-.media-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-}
-
-.media-card {
-    background: #FFFFFF;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 2.5rem 2rem;
-    text-decoration: none;
-    color: var(--text);
-    transition: all 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    overflow: hidden;
-}
-
-.media-card:hover {
-    background: #FFFFFF;
-    border-color: var(--accent);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.05), 0 2px 4px -1px rgba(15, 23, 42, 0.03);
-}
-
-.media-card p {
-    font-size: 0.95rem;
-    line-height: 1.5;
+.logo-strip-caption {
+    text-align: center;
+    font-size: 0.75rem;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
     color: var(--secondary);
-    margin: 0;
-    flex-grow: 1;
+    opacity: 0.7;
+    margin-bottom: 2rem;
+    font-weight: 600;
 }
 
-.media-link-icon {
-    position: absolute;
-    top: 2rem;
-    right: 2rem;
+.logo-strip {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+}
+
+.logo-strip-item {
     color: var(--secondary);
     opacity: 0.5;
-    transition: opacity 0.3s ease, color 0.3s ease;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.media-link-icon svg {
-    width: 20px;
-    height: 20px;
+.logo-strip-item svg {
+    height: 30px;
+    width: auto;
 }
 
-.media-card:hover .media-link-icon {
+.logo-strip-item:hover {
     opacity: 1;
-    color: var(--primary);
+}
+
+/* Hover Colors */
+.logo-strip-item.techcrunch:hover {
+    color: #00A651;
+}
+
+.logo-strip-item.cointelegraph:hover {
+    color: #FABF2C;
+}
+
+.logo-strip-item.yahoofinance:hover {
+    color: #430297;
+}
+
+.logo-strip-item.pwc:hover {
+    color: #E0301E;
+    /* Main text color on hover */
+}
+
+.logo-strip-item.pwc:hover .pwc-shape-1 {
+    fill: #E0301E;
+}
+
+.logo-strip-item.pwc:hover .pwc-shape-2 {
+    fill: #EB8C00;
+}
+
+.logo-strip-item.pwc:hover .pwc-shape-3 {
+    fill: #D93954;
 }
 
 .section-title {
