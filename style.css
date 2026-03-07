@@ -334,11 +334,15 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    cursor: pointer;
+    z-index: 10;
 }
 
 .logo-strip-item svg {
     height: 30px;
     width: auto;
+    display: block;
 }
 
 .logo-strip-item:hover {
