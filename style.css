@@ -754,7 +754,7 @@ footer {
         font-size: 1.1rem;
     }
 
-    .service-grid {
+    .interactive-service-grid {
         grid-template-columns: 1fr;
     }
 
