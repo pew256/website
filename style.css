@@ -384,16 +384,6 @@ nav {
     /* Primary Navy */
 }
 
-.logo-strip-item.creditsuisse:hover .cs-sail-left {
-    fill: #004275;
-    /* Accent Blue */
-}
-
-.logo-strip-item.creditsuisse:hover .cs-sail-right {
-    fill: #002147;
-    /* Primary Navy */
-}
-
 .section-title {
     font-size: 2.5rem;
     font-weight: 700;
