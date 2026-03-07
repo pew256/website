@@ -345,60 +345,120 @@ nav {
     padding: 100px 0;
 }
 
-.radiant-services-layout {
+/* Interactive Service Grid */
+.interactive-service-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
     margin-top: 4rem;
 }
 
-.radiant-globe-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.radiant-globe {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    border-radius: 50%;
-    filter: drop-shadow(0 20px 40px rgba(184, 84, 229, 0.1));
-}
-
-.radiant-services-list {
+.interactive-card {
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(184, 84, 229, 0.15);
+    border-radius: 20px;
+    padding: 2.5rem;
+    text-align: left;
+    backdrop-filter: blur(10px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 10px 40px rgba(184, 84, 229, 0.05);
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-}
-
-.radiant-service-item {
-    padding: 1.5rem 0 1.5rem 1.5rem;
-    border-bottom: 1px solid var(--border);
-    transition: all 0.3s ease;
-    border-left: 3px solid transparent;
+    overflow: hidden;
     cursor: default;
+    position: relative;
 }
 
-.radiant-service-item:hover,
-.radiant-service-item.active {
-    border-left: 3px solid var(--accent);
-    background: linear-gradient(90deg, var(--accent-glow) 0%, transparent 100%);
+.interactive-card:hover {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(184, 84, 229, 0.4);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 50px rgba(184, 84, 229, 0.15);
 }
 
-.radiant-service-item h3 {
-    font-size: 1.4rem;
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 0;
+    transition: margin-bottom 0.4s ease;
+}
+
+.interactive-card:hover .card-header {
+    margin-bottom: 1.5rem;
+}
+
+.service-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(82, 196, 255, 0.1) 0%, rgba(184, 84, 229, 0.1) 100%);
+    border-radius: 12px;
+    color: var(--accent);
+    flex-shrink: 0;
+}
+
+.service-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.card-header h3 {
+    font-size: 1.35rem;
     font-weight: 700;
-    margin-bottom: 0.5rem;
+    margin: 0;
     color: var(--primary);
+    line-height: 1.3;
 }
 
-.radiant-service-item p {
+.card-reveal {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    visibility: hidden;
+}
+
+.interactive-card:hover .card-reveal {
+    max-height: 1000px;
+    opacity: 1;
+    visibility: visible;
+}
+
+.card-reveal p {
     font-size: 1rem;
     color: var(--secondary);
-    line-height: 1.5;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.service-list {
+    list-style: none;
+    padding: 0;
     margin: 0;
+}
+
+.service-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--secondary);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.service-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: bold;
+}
+
+.service-list strong {
+    color: var(--primary);
 }
 
 .why-partner-section {
