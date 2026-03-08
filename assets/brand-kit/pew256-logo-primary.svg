@@ -1,0 +1,23 @@
+<svg width="220" height="48" viewBox="0 0 220 48" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&amp;display=swap');
+        </style>
+    </defs>
+    <g id="icon-distilled" transform="translate(0, 4)" fill="none" stroke="#506684" stroke-width="1.5">
+        <path d="M6 35 V15 Q15 6 24 15 V35" />
+        <path d="M12 35 V20 Q15 15 18 20 V35" />
+        <line x1="15" y1="6" x2="15" y2="15" />
+        <g id="nodes-balanced">
+            <line x1="15" y1="15" x2="6" y2="15" />
+            <line x1="15" y1="15" x2="24" y2="15" />
+            <circle cx="6" cy="15" r="2" fill="#506684" stroke="none" />
+            <circle cx="24" cy="15" r="2" fill="#506684" stroke="none" />
+            <circle cx="15" cy="6" r="2" fill="#506684" stroke="none" />
+            <circle cx="15" cy="15" r="2" fill="#506684" stroke="none" />
+        </g>
+    </g>
+    <text x="36" y="32" font-family="Montserrat, Lato, sans-serif" font-size="24" fill="#506684">
+        <tspan font-weight="300">pew</tspan><tspan font-weight="600">256</tspan>
+    </text>
+</svg>

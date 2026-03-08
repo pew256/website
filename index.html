@@ -20,12 +20,11 @@
     <!-- Speed Optimizations: Preconnect & Preload -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="image" href="assets/light_glass_nodes_bg.png">
 
     <!-- OpenGraph / LinkedIn Optimization -->
     <meta property="og:title" content="pew256 | Precision in Blockchain Strategy">
     <meta property="og:description" content="Strategic advisory and infrastructure for the decentralized future.">
-    <meta property="og:image" content="https://pew256.github.io/website/assets/pew-profile.jpg">
+    <meta property="og:image" content="https://pew256.github.io/website/assets/brand-kit/og-image.png">
     <meta property="og:url" content="https://pew256.github.io/website/">
     <meta property="og:type" content="website">
 
@@ -34,18 +33,18 @@
 
     <link rel="stylesheet" href="style.css">
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
-    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-    <link rel="icon" type="image/png" href="assets/favicon.ico">
-    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/brand-kit/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/brand-kit/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="assets/brand-kit/apple-touch-icon.png">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body>
     <nav>
         <div class="container nav-content">
-            <a href="index.html" class="logo"><img src="assets/pew256-logo.svg" alt="pew256 logo"></a>
+            <a href="index.html" class="logo"><img src="assets/brand-kit/pew256-logo-primary.svg" alt="pew256 logo"></a>
             <div class="nav-links">
                 <a href="about.html">About</a>
                 <a href="#services">Services</a>
@@ -143,7 +142,6 @@
                     </div>
                 </div>
             </div>
-        </section>
         </section>
 
         <section id="services" class="services-section">
@@ -459,7 +457,7 @@
 
     <footer>
         <div class="container footer-inner">
-            <div class="footer-logo"><img src="assets/pew256-logo-white.svg" alt="pew256 logo"></div>
+            <div class="footer-logo"><img src="assets/brand-kit/pew256-logo-knockout.svg" alt="pew256 logo"></div>
             <p>&copy; 2026 pew256. Precision in Blockchain.</p>
             <div class="footer-links">
                 <a href="#">Privacy</a>
@@ -749,13 +747,6 @@
                     behavior: 'smooth'
                 });
             });
-        });
-
-        // Simple parallax for hero img
-        window.addEventListener('scroll', () => {
-            const img = document.querySelector('.hero-img');
-            const scroll = window.pageYOffset;
-            img.style.transform = `translateY(${scroll * 0.1}px) rotateX(${scroll * 0.01}deg)`;
         });
     </script>
 </body>
