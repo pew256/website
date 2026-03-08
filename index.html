@@ -313,8 +313,6 @@
                                 </svg>
                                 Unlock Report Summary
                             </button>
-                            <span class="report-title-hidden" style="display: none;">March 2026 Global Regulatory
-                                Compliance Guide</span>
                         </div>
                         <!-- Item 1 -->
                         <div class="report-card">
@@ -520,7 +518,7 @@
                     style="display: none; margin-bottom: 1rem; color: #ef4444; font-size: 0.9rem;">
                     Submission failed. Please try again or email directly.
                 </div>
-                <button type="submit" id="submitBtn" class="btn btn-primary btn-high-contrast full-width">Submit
+                <button type="submit" id="submitBtn" class="btn btn-primary full-width">Submit
                     Strategic Inquiry</button>
             </form>
             <div id="successMessage" class="success-state" style="display: none;">
@@ -534,7 +532,7 @@
                 <p id="successText">Thank you for reaching out. We have received your briefing regarding your
                     organization. Our team is currently reviewing your requirements; you can expect a response from a
                     senior advisor within 24–48 hours.</p>
-                <button type="button" class="btn btn-high-contrast" onclick="closeModal()">Return to Home</button>
+                <button type="button" class="btn btn-primary full-width" onclick="closeModal()">Return to Home</button>
             </div>
         </div>
     </div>
@@ -594,7 +592,7 @@
                     you, we will send the summary shortly.</p>
                 <button type="button" class="btn full-width"
                     style="background-color: transparent; border: 1px solid #506684; color: #506684;"
-                    onclick="closeReportModal()">Close</button>
+                    onclick="closeReportModal()">Back</button>
             </div>
         </div>
     </div>
@@ -660,6 +658,22 @@
                 body: formData
             })
                 .then(response => {
+                    const reportSuccessHeader = document.querySelector('#reportSuccess h3');
+                    const reportSuccessText = document.querySelector('#reportSuccess p');
+
+                    if (currentReportButton) {
+                        const hiddenTitleEl = currentReportButton.parentElement.querySelector('.report-title-hidden');
+                        const reportTitle = hiddenTitleEl ? hiddenTitleEl.innerText : currentReportButton.parentElement.querySelector('.report-title').innerText;
+
+                        if (reportTitle === 'March 2026 Global Regulatory Compliance Guide' || reportTitle === 'Digital Assets: Regulatory Compliance Guide') {
+                            reportSuccessHeader.innerText = 'Thank you for your interest in the report: ' + reportTitle;
+                            reportSuccessText.innerHTML = `Please find a short summary of our report on ${reportTitle} to download here: <br><br><a href='https://drive.google.com/file/d/18y8LYd4oxXvIrd-eykMOMqv06j-ydVKL/view?usp=sharing' target='_blank' style='color: #506684; font-weight: 600; text-decoration: underline;'>Download Report Summary</a>`;
+                        } else {
+                            reportSuccessHeader.innerText = 'Request Sent';
+                            reportSuccessText.innerText = 'Thank you, we will send the summary shortly.';
+                        }
+                    }
+
                     document.getElementById('reportRequestForm').style.display = 'none';
                     document.getElementById('reportModalHeader').style.display = 'none';
                     document.getElementById('reportSuccess').style.display = 'block';
