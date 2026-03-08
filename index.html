@@ -295,32 +295,20 @@
 
                     <div class="intelligence-grid">
                         <!-- High-Impact Item -->
-                        <div class="report-card"
-                            style="border: 1px solid rgba(46, 139, 87, 0.4); box-shadow: 0 4px 20px rgba(46, 139, 87, 0.1);">
-                            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem;">
-                                <span class="report-badge"
-                                    style="background-color: rgba(46, 139, 87, 0.15); color: #2E8B57; border: 1px solid rgba(46, 139, 87, 0.3); margin-bottom: 0;">2026
-                                    FORECAST</span>
-                                <span class="report-badge"
-                                    style="background-color: rgba(80, 102, 132, 0.1); color: #506684; border: 1px solid rgba(80, 102, 132, 0.3); margin-bottom: 0;">INSTITUTIONAL
-                                    GRADE</span>
-                                <span class="report-badge"
-                                    style="background-color: rgba(239, 68, 68, 0.1); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.3); margin-bottom: 0;">URGENT
-                                    COMPLIANCE</span>
-                            </div>
-                            <h4
-                                style="font-size: 1.25rem; font-weight: 700; color: var(--text); margin: 0 0 0.5rem; font-family: 'Outfit', sans-serif;">
-                                GLOBAL Blockchain & Digital Assets: Regulatory Compliance Guide (MARCH 2026)</h4>
-                            <p style="color: #2E8B57; font-weight: 600; font-size: 0.95rem; margin-bottom: 0.5rem;">The
-                                Pivot to Production: Operational Blueprints for the Post-Clarity Era.</p>
-                            <p class="report-teaser">The start of 2026 marks a 'pivot to production.' Regulators have
-                                moved past high-level warnings and are now issuing specific operational blueprints. This
-                                forecast covers the final MiCA implementation phase, the US GENIUS Act mandates, and the
-                                zero-threshold FATF Travel Rule requirements.</p>
+                        <div class="report-card">
+                            <span class="report-badge">Reports: 2026 Forecast</span>
+                            <h4 class="report-title">GLOBAL Blockchain & Digital Assets: Regulatory Compliance Guide
+                            </h4>
+                            <p class="report-teaser"
+                                style="font-style: italic; color: var(--secondary); margin-bottom: 0.5rem;">The Pivot to
+                                Production: Operational Blueprints for the Post-Clarity Era.</p>
+                            <p class="report-teaser">Regulators have moved past high-level warnings and are now issuing
+                                specific operational blueprints. This forecast covers the final MiCA implementation
+                                phase, the US GENIUS Act mandates, and the zero-threshold FATF Travel Rule requirements.
+                            </p>
                             <button class="report-btn" onclick="openGatingModal(this)">
-                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                    style="margin-right: 8px; vertical-align: text-bottom;">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
                                     <circle cx="12" cy="12" r="10"></circle>
                                     <line x1="2" y1="12" x2="22" y2="12"></line>
                                     <path
@@ -329,8 +317,8 @@
                                 </svg>
                                 Request Industrial Intelligence Report
                             </button>
-                            <span class="report-title" style="display: none;">March 2026 Global Regulatory Compliance
-                                Guide</span>
+                            <span class="report-title-hidden" style="display: none;">March 2026 Global Regulatory
+                                Compliance Guide</span>
                         </div>
                         <!-- Item 1 -->
                         <div class="report-card">
@@ -632,7 +620,8 @@
 
         function openGatingModal(btn) {
             currentReportButton = btn;
-            const reportTitle = btn.parentElement.querySelector('.report-title').innerText;
+            const hiddenTitleEl = btn.parentElement.querySelector('.report-title-hidden');
+            const reportTitle = hiddenTitleEl ? hiddenTitleEl.innerText : btn.parentElement.querySelector('.report-title').innerText;
             document.getElementById('reportTitleInput').value = reportTitle;
             document.getElementById('reportModalSubtitle').innerText = "Requesting: " + reportTitle;
 
