@@ -909,4 +909,9 @@ footer {
     .highlights-grid {
         grid-template-columns: 1fr 1fr;
     }
+
+    .logo img,
+    .footer-logo img {
+        height: 30px;
+    }
 }
