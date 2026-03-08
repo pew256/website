@@ -262,6 +262,101 @@
                     </div>
                 </div>
 
+                <div class="intelligence-suite-section" style="margin-top: 6rem; margin-bottom: 2rem;"
+                    id="intelligence">
+                    <div style="text-align: center; margin-bottom: 3rem;">
+                        <span class="box-tag">Strategic Research</span>
+                        <h2 style="font-size: 2.5rem; color: var(--primary); margin: 1rem 0;">2026 Industrial
+                            Intelligence Suite</h2>
+                        <p
+                            style="color: var(--secondary); max-width: 600px; margin: 0 auto; font-size: 1.1rem; line-height: 1.6;">
+                            Deep-dive technical reports equipping institutional leaders with actionable foresight for
+                            the decentralized industrial transition.</p>
+                    </div>
+
+                    <div class="intelligence-grid">
+                        <!-- Item 1 -->
+                        <div class="report-card">
+                            <span class="report-badge">Reports: 2026 Forecast</span>
+                            <h4 class="report-title">The 2026 Legacy-to-Cloud Integration Audit</h4>
+                            <p class="report-teaser">Examine the critical vulnerabilities and latency bottlenecks when
+                                bridging legacy mainframes to decentralized cloud infrastructures. This report provides
+                                a blueprint for zero-downtime integration.</p>
+                            <button class="report-btn" onclick="openGatingModal(this)">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                </svg>
+                                Unlock Report Summary
+                            </button>
+                        </div>
+                        <!-- Item 2 -->
+                        <div class="report-card">
+                            <span class="report-badge">Reports: 2026 Forecast</span>
+                            <h4 class="report-title">Edge Computing & AI Inference for S7-300 Workflows</h4>
+                            <p class="report-teaser">An analysis of deploying lightweight LLMs and deterministic AI
+                                models directly on edge devices to optimize the classic Siemens S7-300 logic cycle.</p>
+                            <button class="report-btn" onclick="openGatingModal(this)">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                </svg>
+                                Unlock Report Summary
+                            </button>
+                        </div>
+                        <!-- Item 3 -->
+                        <div class="report-card">
+                            <span class="report-badge">Reports: 2026 Forecast</span>
+                            <h4 class="report-title">Preemptive Cybersecurity for Industrial Modules</h4>
+                            <p class="report-teaser">A review of quantum-resistant cryptographic standards and
+                                zero-trust verification models necessary to secure modular industrial deployments
+                                against next-gen threats.</p>
+                            <button class="report-btn" onclick="openGatingModal(this)">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                </svg>
+                                Unlock Report Summary
+                            </button>
+                        </div>
+                        <!-- Item 4 -->
+                        <div class="report-card">
+                            <span class="report-badge">Reports: 2026 Forecast</span>
+                            <h4 class="report-title">The Agentic Reality in PLC Programming</h4>
+                            <p class="report-teaser">Discover how autonomous AI agents are transitioning from
+                                code-assistants to primary controllers, rewriting Programmable Logic Controller
+                                paradigms in real-time.</p>
+                            <button class="report-btn" onclick="openGatingModal(this)">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                </svg>
+                                Unlock Report Summary
+                            </button>
+                        </div>
+                        <!-- Item 5 -->
+                        <div class="report-card">
+                            <span class="report-badge">Reports: 2026 Forecast</span>
+                            <h4 class="report-title">Labor Shift: The Augmented Technician</h4>
+                            <p class="report-teaser">A strategic forecast on the changing role of floor technicians as
+                                AR overlays and spatial computing become standard issue for complex diagnostic routines.
+                            </p>
+                            <button class="report-btn" onclick="openGatingModal(this)">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                </svg>
+                                Unlock Report Summary
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="why-partner-section" style="margin-top: 5rem;">
                     <h3>Strategic Delivery Model</h3>
                     <p>At pew256, we leverage a high-impact delivery model tailored to the specific complexities of each
@@ -419,8 +514,44 @@
         </div>
     </div>
 
+    <!-- Gating Modal -->
+    <div id="gatingModal" class="modal">
+        <div class="modal-content" style="max-width: 500px; text-align: center;">
+            <span class="close" onclick="closeGatingModal()">&times;</span>
+            <div id="gatingHeader">
+                <span class="box-tag" style="margin-bottom: 1rem; display: inline-block;">Access Restricted</span>
+                <h3 style="margin-bottom: 0.5rem;">Unlock the 2026 Forecast</h3>
+                <p style="color: var(--secondary); margin-bottom: 2rem;">Access the Pew256 Intelligence Suite. Get
+                    immediate access to our first 5 technical reports for 2026.</p>
+            </div>
+
+            <form id="gatingForm" onsubmit="handleGatingSubmit(event)">
+                <div class="form-group" style="text-align: left;">
+                    <label for="gatingEmail">Professional Email</label>
+                    <input type="email" id="gatingEmail" name="email" placeholder="name@company.com" required>
+                </div>
+                <button type="submit" id="gatingSubmitBtn" class="btn btn-primary btn-high-contrast full-width"
+                    style="margin-top: 1rem;">Get Access</button>
+            </form>
+
+            <div id="gatingSuccess" class="success-state" style="display: none;">
+                <div class="success-icon" style="margin: 0 auto 1.5rem;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                </div>
+                <h3 style="margin-bottom: 0.5rem;">Access Granted</h3>
+                <p style="color: var(--secondary); margin-bottom: 2rem;">Your email has been registered. You can now
+                    download the full reports.</p>
+                <button type="button" class="btn btn-high-contrast full-width" onclick="closeGatingModal()">View
+                    Reports</button>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // Modal logic
+        // Contact Modal logic
         function openModal() {
             document.getElementById('contactModal').style.display = "flex";
             document.body.style.overflow = "hidden"; // Prevent scroll
@@ -431,10 +562,48 @@
             document.body.style.overflow = "auto";
         }
 
+        // Gating Modal logic
+        function openGatingModal(btn) {
+            document.getElementById('gatingModal').style.display = "flex";
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeGatingModal() {
+            document.getElementById('gatingModal').style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+
+        function handleGatingSubmit(event) {
+            event.preventDefault();
+            const emailInput = document.getElementById('gatingEmail').value;
+            if (emailInput) {
+                // Determine success state
+                document.getElementById('gatingForm').style.display = 'none';
+                document.getElementById('gatingHeader').style.display = 'none';
+                document.getElementById('gatingSuccess').style.display = 'block';
+
+                // Update ALL buttons to unlocked state
+                const allButtons = document.querySelectorAll('.report-btn');
+                allButtons.forEach(btn => {
+                    btn.classList.add('unlocked');
+                    btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg> Download PDF';
+                    btn.onclick = function () {
+                        const title = btn.parentElement.querySelector('.report-title').innerText;
+                        alert("Initiating secure PDF download for: " + title);
+                    };
+                    btn.parentElement.classList.add('unlocked-card');
+                });
+            }
+        }
+
         window.onclick = function (event) {
-            let modal = document.getElementById('contactModal');
-            if (event.target == modal) {
+            let contactModal = document.getElementById('contactModal');
+            let gatingModal = document.getElementById('gatingModal');
+            if (event.target == contactModal) {
                 closeModal();
+            }
+            if (event.target == gatingModal) {
+                closeGatingModal();
             }
         }
 
