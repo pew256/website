@@ -31,7 +31,7 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
 
-    <link rel="stylesheet" href="assets/coding_assets/style.css">
+    <link rel="stylesheet" href="assets/coding_assets/style.css?v=3">
     <link
         href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
@@ -328,108 +328,134 @@
                             the decentralized industrial transition.</p>
                     </div>
 
-                    <div class="intelligence-grid">
-                        <!-- High-Impact Item -->
-                        <div class="report-card">
-                            <span class="report-badge">Reports: 2026 Forecast</span>
-                            <h4 class="report-title">Digital Assets: Regulatory Compliance Guide</h4>
-                            <p class="report-teaser"
-                                style="font-style: italic; color: var(--secondary); margin-bottom: 0.5rem;">The Pivot to
-                                Production: Operational Blueprints for the Post-Clarity Era.</p>
-                            <p class="report-teaser">Regulators are now issuing specific operational blueprints. This
-                                forecast covers the final MiCA implementation phase, the US GENIUS Act mandates amongst
-                                others.</p>
-                            <button class="report-btn" onclick="openGatingModal(this)">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <line x1="2" y1="12" x2="22" y2="12"></line>
-                                    <path
-                                        d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
-                                    </path>
-                                </svg>
-                                Unlock Report Summary
-                            </button>
+                    <div class="carousel-container">
+                        <button class="carousel-nav carousel-prev" onclick="moveCarousel(-1)"
+                            aria-label="Previous reports">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="15 18 9 12 15 6"></polyline>
+                            </svg>
+                        </button>
+                        <div class="carousel-track-container">
+                            <div class="carousel-track" id="intelligenceTrack">
+                                <!-- High-Impact Item -->
+                                <div class="report-card">
+                                    <span class="report-badge">Reports: 2026 Forecast</span>
+                                    <h4 class="report-title">Digital Assets: Regulatory Compliance Guide</h4>
+                                    <p class="report-teaser"
+                                        style="font-style: italic; color: var(--secondary); margin-bottom: 0.5rem;">The
+                                        Pivot to
+                                        Production: Operational Blueprints for the Post-Clarity Era.</p>
+                                    <p class="report-teaser">Regulators are now issuing specific operational blueprints.
+                                        This
+                                        forecast covers the final MiCA implementation phase, the US GENIUS Act mandates
+                                        amongst
+                                        others.</p>
+                                    <button class="report-btn" onclick="openGatingModal(this)">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="12" r="10"></circle>
+                                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                                            <path
+                                                d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                                            </path>
+                                        </svg>
+                                        Unlock Report Summary
+                                    </button>
+                                </div>
+                                <!-- Item 1 -->
+                                <div class="report-card">
+                                    <span class="report-badge">Reports: 2026 Forecast</span>
+                                    <h4 class="report-title">The 2026 Legacy-to-Cloud Integration Audit</h4>
+                                    <p class="report-teaser">Examine the critical vulnerabilities and latency
+                                        bottlenecks when
+                                        bridging legacy mainframes to decentralized cloud infrastructures. This report
+                                        provides
+                                        a blueprint for zero-downtime integration.</p>
+                                    <button class="report-btn" onclick="openGatingModal(this)">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                        </svg>
+                                        Unlock Report Summary
+                                    </button>
+                                </div>
+                                <!-- Item 2 -->
+                                <div class="report-card">
+                                    <span class="report-badge">Reports: 2026 Forecast</span>
+                                    <h4 class="report-title">Edge Computing & AI Inference for S7-300 Workflows</h4>
+                                    <p class="report-teaser">An analysis of deploying lightweight LLMs and deterministic
+                                        AI Inference models directly on edge devices to optimize the classic Siemens
+                                        S7-300 logic cycle.</p>
+                                    <button class="report-btn" onclick="openGatingModal(this)">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                        </svg>
+                                        Unlock Report Summary
+                                    </button>
+                                </div>
+                                <!-- Item 3 -->
+                                <div class="report-card">
+                                    <span class="report-badge">Reports: 2026 Forecast</span>
+                                    <h4 class="report-title">Preemptive Cybersecurity for Industrial Modules</h4>
+                                    <p class="report-teaser">A review of quantum-resistant cryptographic standards and
+                                        zero-trust verification models necessary to secure modular industrial
+                                        deployments
+                                        against next-gen threats.</p>
+                                    <button class="report-btn" onclick="openGatingModal(this)">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                        </svg>
+                                        Unlock Report Summary
+                                    </button>
+                                </div>
+                                <!-- Item 4 -->
+                                <div class="report-card">
+                                    <span class="report-badge">Reports: 2026 Forecast</span>
+                                    <h4 class="report-title">The Agentic Reality in PLC Programming</h4>
+                                    <p class="report-teaser">Discover how autonomous AI agents are transitioning from
+                                        code-assistants to primary controllers, rewriting Programmable Logic Controller
+                                        paradigms in real-time.</p>
+                                    <button class="report-btn" onclick="openGatingModal(this)">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                        </svg>
+                                        Unlock Report Summary
+                                    </button>
+                                </div>
+                                <!-- Item 5 -->
+                                <div class="report-card">
+                                    <span class="report-badge">Reports: 2026 Forecast</span>
+                                    <h4 class="report-title">Labor Shift: The Augmented Technician</h4>
+                                    <p class="report-teaser">A strategic forecast on the changing role of floor
+                                        technicians as
+                                        AR overlays and spatial computing become standard issue for complex diagnostic
+                                        routines.
+                                    </p>
+                                    <button class="report-btn" onclick="openGatingModal(this)">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                        </svg>
+                                        Unlock Report Summary
+                                    </button>
+                                </div>
+                            </div>
                         </div>
-                        <!-- Item 1 -->
-                        <div class="report-card">
-                            <span class="report-badge">Reports: 2026 Forecast</span>
-                            <h4 class="report-title">The 2026 Legacy-to-Cloud Integration Audit</h4>
-                            <p class="report-teaser">Examine the critical vulnerabilities and latency bottlenecks when
-                                bridging legacy mainframes to decentralized cloud infrastructures. This report provides
-                                a blueprint for zero-downtime integration.</p>
-                            <button class="report-btn" onclick="openGatingModal(this)">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round">
-                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                                </svg>
-                                Unlock Report Summary
-                            </button>
-                        </div>
-                        <!-- Item 2 -->
-                        <div class="report-card">
-                            <span class="report-badge">Reports: 2026 Forecast</span>
-                            <h4 class="report-title">Edge Computing & AI Inference for S7-300 Workflows</h4>
-                            <p class="report-teaser">An analysis of deploying lightweight LLMs and deterministic AI
-                                models directly on edge devices to optimize the classic Siemens S7-300 logic cycle.</p>
-                            <button class="report-btn" onclick="openGatingModal(this)">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round">
-                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                                </svg>
-                                Unlock Report Summary
-                            </button>
-                        </div>
-                        <!-- Item 3 -->
-                        <div class="report-card">
-                            <span class="report-badge">Reports: 2026 Forecast</span>
-                            <h4 class="report-title">Preemptive Cybersecurity for Industrial Modules</h4>
-                            <p class="report-teaser">A review of quantum-resistant cryptographic standards and
-                                zero-trust verification models necessary to secure modular industrial deployments
-                                against next-gen threats.</p>
-                            <button class="report-btn" onclick="openGatingModal(this)">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round">
-                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                                </svg>
-                                Unlock Report Summary
-                            </button>
-                        </div>
-                        <!-- Item 4 -->
-                        <div class="report-card">
-                            <span class="report-badge">Reports: 2026 Forecast</span>
-                            <h4 class="report-title">The Agentic Reality in PLC Programming</h4>
-                            <p class="report-teaser">Discover how autonomous AI agents are transitioning from
-                                code-assistants to primary controllers, rewriting Programmable Logic Controller
-                                paradigms in real-time.</p>
-                            <button class="report-btn" onclick="openGatingModal(this)">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round">
-                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                                </svg>
-                                Unlock Report Summary
-                            </button>
-                        </div>
-                        <!-- Item 5 -->
-                        <div class="report-card">
-                            <span class="report-badge">Reports: 2026 Forecast</span>
-                            <h4 class="report-title">Labor Shift: The Augmented Technician</h4>
-                            <p class="report-teaser">A strategic forecast on the changing role of floor technicians as
-                                AR overlays and spatial computing become standard issue for complex diagnostic routines.
-                            </p>
-                            <button class="report-btn" onclick="openGatingModal(this)">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round">
-                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                                </svg>
-                                Unlock Report Summary
-                            </button>
-                        </div>
+                        <button class="carousel-nav carousel-next" onclick="moveCarousel(1)" aria-label="Next reports">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </button>
                     </div>
                 </div>
 
@@ -637,6 +663,37 @@
     </div>
 
     <script>
+        // Carousel Logic
+        let currentSlide = 0;
+        const track = document.getElementById('intelligenceTrack');
+
+        function moveCarousel(direction) {
+            const cards = document.querySelectorAll('.report-card');
+            const totalCards = cards.length;
+            const isMobile = window.innerWidth < 768;
+            const cardsPerView = isMobile ? 1 : 3;
+            const maxSlide = totalCards - cardsPerView;
+
+            currentSlide += direction;
+            if (currentSlide < 0) currentSlide = 0;
+            if (currentSlide > maxSlide) currentSlide = maxSlide;
+
+            const cardWidth = cards[0].getBoundingClientRect().width;
+            const gap = parseFloat(window.getComputedStyle(track).gap) || 0;
+
+            track.style.transform = `translateX(-${currentSlide * (cardWidth + gap)}px)`;
+
+            // Update button states
+            document.querySelector('.carousel-prev').style.opacity = currentSlide === 0 ? '0.5' : '1';
+            document.querySelector('.carousel-prev').style.pointerEvents = currentSlide === 0 ? 'none' : 'auto';
+            document.querySelector('.carousel-next').style.opacity = currentSlide >= maxSlide ? '0.5' : '1';
+            document.querySelector('.carousel-next').style.pointerEvents = currentSlide >= maxSlide ? 'none' : 'auto';
+        }
+
+        // Initialize carousel bounds
+        window.addEventListener('resize', () => moveCarousel(0));
+        setTimeout(() => moveCarousel(0), 100);
+
         // Contact Modal logic
         function openModal() {
             document.getElementById('contactModal').style.display = "flex";
