@@ -514,38 +514,60 @@
         </div>
     </div>
 
-    <!-- Gating Modal -->
-    <div id="gatingModal" class="modal">
-        <div class="modal-content" style="max-width: 500px; text-align: center;">
-            <span class="close" onclick="closeGatingModal()">&times;</span>
-            <div id="gatingHeader">
-                <span class="box-tag" style="margin-bottom: 1rem; display: inline-block;">Access Restricted</span>
-                <h3 style="margin-bottom: 0.5rem;">Unlock the 2026 Forecast</h3>
-                <p style="color: var(--secondary); margin-bottom: 2rem;">Access the Pew256 Intelligence Suite. Get
-                    immediate access to our first 5 technical reports for 2026.</p>
+    <!-- Report Request Modal -->
+    <div id="reportRequestModal" class="modal"
+        style="backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); background-color: rgba(255, 255, 255, 0.4);">
+        <div class="modal-content"
+            style="max-width: 500px; text-align: center; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); border: 1px solid rgba(80, 102, 132, 0.2); box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+            <span class="close" onclick="closeReportModal()">&times;</span>
+            <div id="reportModalHeader">
+                <span class="box-tag"
+                    style="margin-bottom: 1rem; display: inline-block; background-color: rgba(80, 102, 132, 0.1); color: var(--primary);">Intelligence
+                    Suite</span>
+                <h3 style="margin-bottom: 0.5rem; color: var(--text);">Request Report Summary</h3>
+                <p id="reportModalSubtitle"
+                    style="color: var(--secondary); margin-bottom: 2rem; font-family: 'Montserrat', sans-serif;">Enter
+                    your details to receive the report.</p>
             </div>
 
-            <form id="gatingForm" onsubmit="handleGatingSubmit(event)">
-                <div class="form-group" style="text-align: left;">
-                    <label for="gatingEmail">Professional Email</label>
-                    <input type="email" id="gatingEmail" name="email" placeholder="name@company.com" required>
+            <form id="reportRequestForm" onsubmit="handleReportSubmit(event)">
+                <input type="hidden" id="reportTitleInput" name="reportTitle" value="">
+                <div class="form-group" style="text-align: left; margin-bottom: 1.2rem;">
+                    <label for="reportName" style="color: var(--primary); font-family: 'Montserrat', sans-serif;">Full
+                        Name</label>
+                    <input type="text" id="reportName" name="userName" placeholder="John Doe" required
+                        style="border: 1px solid #506684; border-radius: 4px; padding: 10px; width: 100%;">
                 </div>
-                <button type="submit" id="gatingSubmitBtn" class="btn btn-primary btn-high-contrast full-width"
-                    style="margin-top: 1rem;">Get Access</button>
+                <div class="form-group" style="text-align: left; margin-bottom: 1.2rem;">
+                    <label for="reportEmail"
+                        style="color: var(--primary); font-family: 'Montserrat', sans-serif;">Professional Email</label>
+                    <input type="email" id="reportEmail" name="userEmail" placeholder="name@company.com" required
+                        style="border: 1px solid #506684; border-radius: 4px; padding: 10px; width: 100%;">
+                </div>
+                <div class="form-group" style="text-align: left; margin-bottom: 1.5rem;">
+                    <label for="reportCompany"
+                        style="color: var(--primary); font-family: 'Montserrat', sans-serif;">Company</label>
+                    <input type="text" id="reportCompany" name="company" placeholder="Acme Corp" required
+                        style="border: 1px solid #506684; border-radius: 4px; padding: 10px; width: 100%;">
+                </div>
+                <button type="submit" id="reportSubmitBtn" class="btn btn-primary full-width"
+                    style="margin-top: 1rem; background-color: #506684; border: none; font-family: 'Montserrat', sans-serif;">Request
+                    Report</button>
             </form>
 
-            <div id="gatingSuccess" class="success-state" style="display: none;">
-                <div class="success-icon" style="margin: 0 auto 1.5rem;">
+            <div id="reportSuccess" class="success-state" style="display: none;">
+                <div class="success-icon" style="margin: 0 auto 1.5rem; color: #506684;">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
-                        stroke-linejoin="round">
+                        stroke-linejoin="round" width="48" height="48">
                         <polyline points="20 6 9 17 4 12"></polyline>
                     </svg>
                 </div>
-                <h3 style="margin-bottom: 0.5rem;">Access Granted</h3>
-                <p style="color: var(--secondary); margin-bottom: 2rem;">Your email has been registered. You can now
-                    download the full reports.</p>
-                <button type="button" class="btn btn-high-contrast full-width" onclick="closeGatingModal()">View
-                    Reports</button>
+                <h3 style="margin-bottom: 0.5rem; color: var(--text);">Request Sent</h3>
+                <p style="color: var(--secondary); margin-bottom: 2rem; font-family: 'Montserrat', sans-serif;">Thank
+                    you, we will send the summary shortly.</p>
+                <button type="button" class="btn full-width"
+                    style="background-color: transparent; border: 1px solid #506684; color: #506684;"
+                    onclick="closeReportModal()">Close</button>
             </div>
         </div>
     </div>
@@ -562,48 +584,74 @@
             document.body.style.overflow = "auto";
         }
 
-        // Gating Modal logic
+        // Report Request Modal logic
+        let currentReportButton = null;
+
         function openGatingModal(btn) {
-            document.getElementById('gatingModal').style.display = "flex";
+            currentReportButton = btn;
+            const reportTitle = btn.parentElement.querySelector('.report-title').innerText;
+            document.getElementById('reportTitleInput').value = reportTitle;
+            document.getElementById('reportModalSubtitle').innerText = "Requesting: " + reportTitle;
+
+            // Reset form
+            document.getElementById('reportRequestForm').style.display = 'block';
+            document.getElementById('reportModalHeader').style.display = 'block';
+            document.getElementById('reportSuccess').style.display = 'none';
+            document.getElementById('reportRequestForm').reset();
+            document.getElementById('reportSubmitBtn').innerText = 'Request Report';
+            document.getElementById('reportSubmitBtn').disabled = false;
+
+            document.getElementById('reportRequestModal').style.display = "flex";
             document.body.style.overflow = "hidden";
         }
 
-        function closeGatingModal() {
-            document.getElementById('gatingModal').style.display = "none";
+        function closeReportModal() {
+            document.getElementById('reportRequestModal').style.display = "none";
             document.body.style.overflow = "auto";
         }
 
-        function handleGatingSubmit(event) {
+        function handleReportSubmit(event) {
             event.preventDefault();
-            const emailInput = document.getElementById('gatingEmail').value;
-            if (emailInput) {
-                // Determine success state
-                document.getElementById('gatingForm').style.display = 'none';
-                document.getElementById('gatingHeader').style.display = 'none';
-                document.getElementById('gatingSuccess').style.display = 'block';
+            const btn = document.getElementById('reportSubmitBtn');
+            btn.innerText = 'Sending...';
+            btn.disabled = true;
 
-                // Update ALL buttons to unlocked state
-                const allButtons = document.querySelectorAll('.report-btn');
-                allButtons.forEach(btn => {
-                    btn.classList.add('unlocked');
-                    btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg> Download PDF';
-                    btn.onclick = function () {
-                        const title = btn.parentElement.querySelector('.report-title').innerText;
-                        alert("Initiating secure PDF download for: " + title);
-                    };
-                    btn.parentElement.classList.add('unlocked-card');
+            const form = document.getElementById('reportRequestForm');
+            const formData = new FormData(form);
+
+            fetch('https://script.google.com/macros/s/AKfycbwz6gOpaTXC3RQGk1cZ9IG8YLRIpb8CmkC1zWonyYR5nVOFKBMoQrHtYbsVmBBo4hJItQ/exec', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => {
+                    document.getElementById('reportRequestForm').style.display = 'none';
+                    document.getElementById('reportModalHeader').style.display = 'none';
+                    document.getElementById('reportSuccess').style.display = 'block';
+
+                    if (currentReportButton) {
+                        currentReportButton.innerText = 'Request Sent';
+                        currentReportButton.onclick = null;
+                        currentReportButton.style.backgroundColor = 'rgba(80, 102, 132, 0.1)';
+                        currentReportButton.style.color = '#506684';
+                        currentReportButton.style.border = '1px solid #506684';
+                        currentReportButton.disabled = true;
+                    }
+                })
+                .catch(error => {
+                    btn.innerText = 'Error. Try Again.';
+                    btn.disabled = false;
+                    console.error('Error!', error.message);
                 });
-            }
         }
 
         window.onclick = function (event) {
             let contactModal = document.getElementById('contactModal');
-            let gatingModal = document.getElementById('gatingModal');
+            let reportModal = document.getElementById('reportRequestModal');
             if (event.target == contactModal) {
                 closeModal();
             }
-            if (event.target == gatingModal) {
-                closeGatingModal();
+            if (event.target == reportModal) {
+                closeReportModal();
             }
         }
 
