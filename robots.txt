@@ -1,4 +1,5 @@
 User-agent: *
+Disallow: /assets/trash/
 Allow: /
 
-Sitemap: https://pew256.github.io/website/sitemap.xml
+Sitemap: https://pew256.com/sitemap.xml
