@@ -24,12 +24,13 @@
     <!-- OpenGraph / LinkedIn Optimization -->
     <meta property="og:title" content="pew256 | Precision in Blockchain Strategy">
     <meta property="og:description" content="Strategic advisory and infrastructure for the decentralized future.">
-    <meta property="og:image" content="https://pew256.com/assets/brand-kit/og-image.png">
+    <meta property="og:image" content="https://pew256.com/assets/brand-kit/og_social_preview_1.png">
     <meta property="og:url" content="https://pew256.com/">
     <meta property="og:type" content="website">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://pew256.com/assets/brand-kit/og_social_preview_1.png">
 
     <link rel="stylesheet" href="assets/coding_assets/style.css?v=5">
     <link
@@ -42,14 +43,28 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "pew256",
-      "url": "https://pew256.com",
-      "logo": "https://pew256.github.io/website/assets/brand-kit/pew256-logo.svg",
-      "description": "Strategic advisory and protocol engineering for global institutions. We translate complex decentralized architectures into actionable enterprise roadmaps.",
-      "telephone": "",
-      "sameAs": [
-        "https://www.linkedin.com/in/pierre-edouard-wahl"
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://pew256.com/#website",
+          "url": "https://pew256.com",
+          "name": "pew256",
+          "publisher": {
+            "@id": "https://pew256.com/#organization"
+          }
+        },
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://pew256.com/#organization",
+          "name": "pew256",
+          "url": "https://pew256.com",
+          "logo": "https://pew256.com/assets/brand-kit/pew256-logo.svg",
+          "description": "Strategic advisory and protocol engineering for global institutions. We translate complex decentralized architectures into actionable enterprise roadmaps.",
+          "sameAs": [
+            "https://linkedin.com/company/pew256",
+            "https://github.com/pew256"
+          ]
+        }
       ]
     }
     </script>
