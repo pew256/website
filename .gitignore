@@ -1,2 +1,8 @@
 .agents/
 .venv/
+admin.html
+server.py
+server.log
+data/
+briefings/
+journal/draft-*
