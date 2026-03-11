@@ -717,6 +717,11 @@ nav {
     min-height: 48px;
 }
 
+.report-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
 @media (hover: hover) {
     .report-btn:hover {
         background: #f8fafc;
