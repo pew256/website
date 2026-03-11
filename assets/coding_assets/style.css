@@ -540,46 +540,82 @@ nav {
 .carousel-track {
     display: flex;
     gap: 2rem;
-    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-    will-change: transform;
     min-width: 100%;
 
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-    /* Firefox */
-    -ms-overflow-style: none;
-    /* IE 10+ */
+    scroll-padding: 2rem;
+    scroll-behavior: smooth;
+    scroll-marker-group: after;
 }
 
-.carousel-track::-webkit-scrollbar {
-    display: none;
-    /* Chrome/Safari */
-}
-
-.carousel-nav {
+.carousel-track::scroll-button(inline-start),
+.carousel-track::scroll-button(inline-end) {
+    content: "";
     flex: 0 0 48px;
     height: 48px;
-    background: transparent;
+    width: 48px;
+    background-color: var(--bg);
     border: 2px solid var(--border);
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--primary);
     cursor: pointer;
     transition: all 0.3s ease;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 24px 24px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
 }
 
-.carousel-nav:hover {
-    background: var(--primary);
-    color: white;
+.carousel-track::scroll-button(inline-start) {
+    left: 1rem;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' stroke='%230f172a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='15 18 9 12 15 6'%3E%3C/polyline%3E%3C/svg%3E");
+}
+
+.carousel-track::scroll-button(inline-end) {
+    right: 1rem;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' stroke='%230f172a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='9 18 15 12 9 6'%3E%3C/polyline%3E%3C/svg%3E");
+}
+
+.carousel-track::scroll-button(inline-start):hover,
+.carousel-track::scroll-button(inline-end):hover {
+    background-color: var(--primary);
     border-color: var(--primary);
 }
 
-.carousel-nav svg {
-    width: 24px;
-    height: 24px;
+.carousel-track::scroll-button(inline-start):hover {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='15 18 9 12 15 6'%3E%3C/polyline%3E%3C/svg%3E");
+}
+
+.carousel-track::scroll-button(inline-end):hover {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='9 18 15 12 9 6'%3E%3C/polyline%3E%3C/svg%3E");
+}
+
+.carousel-track::scroll-marker-group {
+    display: flex;
+    justify-content: center;
+    padding-top: 1rem;
+}
+
+.report-card::scroll-marker {
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin: 4px;
+    background-color: var(--secondary);
+    border-radius: 50%;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+    cursor: pointer;
+}
+
+.report-card::scroll-marker:target-current {
+    opacity: 1;
+    background-color: var(--primary);
 }
 
 .report-card {

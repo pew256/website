@@ -124,7 +124,8 @@
                     Institutional Era.
                 </h1>
                 <p class="hero-sub fade-in-delay" style="margin: 0 0 3rem 0; text-align: left; max-width: 600px;">
-                    Translating complex decentralized architectures into actionable enterprise roadmaps.</p>
+                    We build predictable Institutional On-Ramps. Combining protocol engineering with
+                    compliance-by-design to deliver zero-downtime ledger integrations under MiCA and the GENIUS Act.</p>
                 <div class="hero-actions fade-in-delay-2" style="justify-content: flex-start;">
                     <button class="btn btn-primary" onclick="openModal()">Request Consultation</button>
                 </div>
@@ -135,12 +136,20 @@
             <div class="container">
                 <h2 class="section-title" style="font-size: 1.5rem; color: var(--secondary); margin-bottom: 1rem;">What
                     is Institutional Blockchain Infrastructure?</h2>
+				<p><iframe 
+  src="https://notebooklm.google.com/notebook/7db4a4a0-a3d3-42f1-9b69-b80c0f875e58?artifactId=6398dd31-76a4-46d4-8126-55e993b1b303" 
+  width="100%" 
+  height="700px" 
+  style="border:none;" 
+  allow="clipboard-write"
+  title="NotebookLM Chat">
+</iframe></p>
                 <p
                     style="text-align: center; max-width: 800px; margin: 0 auto 3rem auto; color: var(--secondary); line-height: 1.6;">
-                    Institutional blockchain infrastructure provides the enterprise-grade security, digital asset
-                    custody solutions, and regulatory-compliant frameworks (like MiCA and the GENIUS Act) necessary for
-                    banks and global organizations to safely integrate decentralized networks and Layer-2 protocols into
-                    their core operations.</p>
+                    Institutional blockchain infrastructure provides the enterprise-grade cryptographic security,
+                    custody gateways, and mandatory compliance layers (such as MiCA and DAC8) required for global banks.
+                    It guarantees zero-downtime Layer-2 protocol integrations while acting as a sovereign protective
+                    moat against offshore liquidity risks.</p>
                 <div class="stats-grid">
                     <div class="stat-item fade-in">
                         <div class="stat-number">5<span>+</span></div>
@@ -286,10 +295,10 @@
                             <h3>Protocol Engineering: Tailored for Payment & Asset Tokenization</h3>
                         </div>
                         <div class="card-reveal">
-                            <p>The true power of blockchain for financial services lies in the ability to build custom
-                                logic for specific use cases. We architect high-performance Layer-2 scaling solutions
-                                designed to handle enterprise-level throughput for the two most critical drivers of
-                                2026: Payments and RWA (Real-World Asset) Tokenization.</p>
+                            <p>Legacy-to-Cloud integrations experience a 40% failure rate without embedded cryptographic
+                                compliance protocols. We mitigate these risks entirely through our proprietary
+                                "Zero-Downtime Compliance Bridge" transitions for the S7-300 logic cycle, architecting
+                                high-performance Layer-2 scaling solutions that handle enterprise throughput.</p>
                             <ul class="service-list">
                                 <li><strong>Asset Tokenization:</strong> Engineering the lifecycle of tokenized Assets.
                                     From bonds to real estate, and private equity—turning illiquid assets into
@@ -316,8 +325,9 @@
                         </div>
                         <div class="card-reveal">
                             <p>Compliance is no longer a legal hurdle—it is core infrastructure. With the July 1, 2026,
-                                MiCA enforcement deadline, institutions must transition from "good faith" efforts to
-                                auditable, real-time monitoring. We implement frameworks that ensure your digital asset
+                                MiCA enforcement deadline, institutions must view MiCA not as a constraint, but as a
+                                sovereign protective moat against offshore liquidity drains. We implement frameworks
+                                that ensure your digital asset
                                 operations meet the highest global standards from day one.</p>
                             <ul class="service-list">
                                 <li><strong>MiCA & VASP Licensing:</strong> End-to-end support for obtaining and
@@ -361,13 +371,6 @@
                     </div>
 
                     <div class="carousel-container">
-                        <button class="carousel-nav carousel-prev" onclick="moveCarousel(-1)"
-                            aria-label="Previous reports">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="15 18 9 12 15 6"></polyline>
-                            </svg>
-                        </button>
                         <div class="carousel-track-container">
                             <div class="carousel-track" id="intelligenceTrack">
                                 <!-- High-Impact Item -->
@@ -482,12 +485,6 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="carousel-nav carousel-next" onclick="moveCarousel(1)" aria-label="Next reports">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="9 18 15 12 9 6"></polyline>
-                            </svg>
-                        </button>
                     </div>
                 </div>
 
@@ -633,7 +630,6 @@
             </div>
         </div>
     </div>
-
     <!-- Report Request Modal -->
     <div id="reportRequestModal" class="modal"
         style="backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); background-color: rgba(255, 255, 255, 0.4);">
@@ -695,42 +691,6 @@
     </div>
 
     <script>
-        // Carousel Logic
-        let currentSlide = 0;
-        const track = document.getElementById('intelligenceTrack');
-
-        function moveCarousel(direction) {
-            const cards = document.querySelectorAll('.report-card');
-            const totalCards = cards.length;
-            const width = window.innerWidth;
-            let cardsPerView = 3;
-            if (width < 768) {
-                cardsPerView = 1;
-            } else if (width <= 1200) {
-                cardsPerView = 2;
-            }
-            const maxSlide = totalCards - cardsPerView;
-
-            currentSlide += direction;
-            if (currentSlide < 0) currentSlide = 0;
-            if (currentSlide > maxSlide) currentSlide = maxSlide;
-
-            const cardWidth = cards[0].getBoundingClientRect().width;
-            const gap = parseFloat(window.getComputedStyle(track).gap) || 0;
-
-            track.style.transform = `translateX(-${currentSlide * (cardWidth + gap)}px)`;
-
-            // Update button states
-            document.querySelector('.carousel-prev').style.opacity = currentSlide === 0 ? '0.5' : '1';
-            document.querySelector('.carousel-prev').style.pointerEvents = currentSlide === 0 ? 'none' : 'auto';
-            document.querySelector('.carousel-next').style.opacity = currentSlide >= maxSlide ? '0.5' : '1';
-            document.querySelector('.carousel-next').style.pointerEvents = currentSlide >= maxSlide ? 'none' : 'auto';
-        }
-
-        // Initialize carousel bounds
-        window.addEventListener('resize', () => moveCarousel(0));
-        setTimeout(() => moveCarousel(0), 100);
-
         // Contact Modal logic
         function openModal() {
             document.getElementById('contactModal').style.display = "flex";
