@@ -77,10 +77,14 @@ nav {
     font-size: 0.9rem;
     font-weight: 500;
     transition: color 0.2s;
+    padding: 12px;
+    display: inline-block;
 }
 
-.nav-links a:hover {
-    color: var(--primary);
+@media (hover: hover) {
+    .nav-links a:hover {
+        color: var(--primary);
+    }
 }
 
 .nav-btn {
@@ -168,9 +172,11 @@ nav {
     box-shadow: 0 4px 6px -1px var(--accent-glow), 0 2px 4px -1px var(--accent-glow);
 }
 
-.btn-primary:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 10px 15px -3px var(--accent-glow), 0 4px 6px -2px var(--accent-glow);
+@media (hover: hover) {
+    .btn-primary:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 10px 15px -3px var(--accent-glow), 0 4px 6px -2px var(--accent-glow);
+    }
 }
 
 .btn.pill {
@@ -338,6 +344,8 @@ nav {
     position: relative;
     cursor: pointer;
     z-index: 10;
+    min-width: 48px;
+    min-height: 48px;
 }
 
 .logo-strip-item svg {
@@ -636,6 +644,26 @@ nav {
     scroll-snap-align: center;
 }
 
+@media (max-width: 768px) {
+    .report-card {
+        flex: 0 0 calc(100vw - 4rem);
+        width: calc(100vw - 4rem);
+        margin: 0;
+    }
+    
+    .carousel-track {
+        scroll-padding: 1rem;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+    
+    .logo-strip {
+        gap: 1rem;
+    }
+}
+
 .report-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 12px 20px -5px rgba(15, 23, 42, 0.1);
@@ -686,26 +714,18 @@ nav {
     color: #506684;
     cursor: pointer;
     transition: all 0.2s ease;
+    min-height: 48px;
 }
 
-.report-btn:hover {
-    background: #f8fafc;
-    border-color: #cbd5e1;
-}
-
-.report-btn svg {
-    width: 16px;
-    height: 16px;
-}
-
-.report-btn.unlocked {
-    background: #506684;
-    color: #FFFFFF;
-    border-color: #506684;
-}
-
-.report-btn.unlocked:hover {
-    background: #3b4c63;
+@media (hover: hover) {
+    .report-btn:hover {
+        background: #f8fafc;
+        border-color: #cbd5e1;
+    }
+    
+    .report-btn.unlocked:hover {
+        background: #3b4c63;
+    }
 }
 
 .why-partner-section {
@@ -787,7 +807,7 @@ footer {
     border: 1px solid var(--border);
     border-radius: 8px;
     padding: 3rem;
-    width: 90%;
+    width: 95%;
     max-width: 800px;
     position: relative;
     max-height: 90vh;
@@ -809,12 +829,18 @@ footer {
 
 .close {
     position: absolute;
-    right: 2rem;
+    right: 1.5rem;
     top: 1.5rem;
     font-size: 2rem;
     color: var(--secondary);
     cursor: pointer;
     line-height: 1;
+    min-width: 48px;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
 }
 
 .close:hover {
@@ -844,6 +870,7 @@ footer {
     padding: 0.8rem;
     color: var(--primary);
     font-family: var(--font-body);
+    font-size: 16px;
     outline: none;
     transition: border-color 0.2s;
     appearance: none;
