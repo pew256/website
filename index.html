@@ -118,6 +118,10 @@
         .bear-case { border-top: 3px solid #ef4444; }
         .bear-case h4 { color: #ef4444; }
         
+        .single-take { border-top: 3px solid #3b82f6; }
+        .single-take h4 { color: #3b82f6; }
+        .single-take .copy-link-btn:hover { color: #3b82f6; }
+        
         .empty-journal { text-align: center; padding: 4rem 2rem; color: var(--secondary); }
         
         .copy-link-btn { background: none; border: none; cursor: pointer; color: #94a3b8; font-size: 1rem; padding: 0.25rem; transition: color 0.2s; display: inline-flex; align-items: center; justify-content: center; }
@@ -936,21 +940,26 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="journal-content">
-                            <div class="take-box bull-case" id="pro-${item.timestamp}">
+                        <div class="journal-content" style="${(item.published_takes === 'bull' || item.published_takes === 'bear') ? 'grid-template-columns: 1fr; max-width: 800px; margin: 0 auto;' : ''}">
+                            ${(item.published_takes === 'both' || item.published_takes === 'bull' || !item.published_takes) ? `
+                            <div class="take-box ${(item.published_takes === 'bull' || item.published_takes === 'bear') ? 'single-take' : 'bull-case'}" id="pro-${item.timestamp}">
                                 <h4 style="display: flex; justify-content: space-between; align-items: center;">
-                                    The Bull Case (Pro)
+                                    ${(item.published_takes === 'bull') ? 'The Bull Case' : 'The Bull Case (Pro)'}
                                     <button class="copy-link-btn" onclick="copyJournalLink(event, 'pro-${item.timestamp}')" title="Copy direct link">🔗</button>
                                 </h4>
                                 <p>${item.bull_case}</p>
                             </div>
-                            <div class="take-box bear-case" id="con-${item.timestamp}">
+                            ` : ''}
+                            
+                            ${(item.published_takes === 'both' || item.published_takes === 'bear' || !item.published_takes) ? `
+                            <div class="take-box ${(item.published_takes === 'bull' || item.published_takes === 'bear') ? 'single-take' : 'bear-case'}" id="con-${item.timestamp}">
                                 <h4 style="display: flex; justify-content: space-between; align-items: center;">
-                                    The Bear Case (Con)
+                                    ${(item.published_takes === 'bear') ? 'The Bear Case' : 'The Bear Case (Con)'}
                                     <button class="copy-link-btn" onclick="copyJournalLink(event, 'con-${item.timestamp}')" title="Copy direct link">🔗</button>
                                 </h4>
                                 <p>${item.bear_case}</p>
                             </div>
+                            ` : ''}
                         </div>
                     </div>
                     `;
