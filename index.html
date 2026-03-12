@@ -100,6 +100,30 @@
       ]
     }
     </script>
+    <style>
+        .journal-feed { max-width: 900px; margin: 0 auto; padding: 2rem 1rem; }
+        .journal-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 2rem; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); }
+        .journal-header { padding: 1.5rem 2rem; border-bottom: 1px solid var(--border); background: #f8fafc; }
+        .journal-title { margin: 0; color: var(--text); font-family: 'Montserrat', sans-serif; font-size: 1.4rem; padding-bottom: 0.5rem;}
+        .journal-meta { font-size: 0.85rem; color: var(--secondary); display: flex; justify-content: space-between; align-items: center;}
+        .journal-content { padding: 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        @media (max-width: 768px) { .journal-content { grid-template-columns: 1fr; gap: 1.5rem; } }
+        
+        .take-box { padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border); background: #fff; height: 100%; box-sizing: border-box; }
+        .take-box h4 { margin-top: 0; margin-bottom: 1rem; font-size: 1.1rem; }
+        .take-box p { margin: 0; font-size: 0.95rem; line-height: 1.6; color: var(--secondary); }
+        
+        .bull-case { border-top: 3px solid #10b981; }
+        .bull-case h4 { color: #10b981; }
+        .bear-case { border-top: 3px solid #ef4444; }
+        .bear-case h4 { color: #ef4444; }
+        
+        .empty-journal { text-align: center; padding: 4rem 2rem; color: var(--secondary); }
+        
+        .copy-link-btn { background: none; border: none; cursor: pointer; color: #94a3b8; font-size: 1rem; padding: 0.25rem; transition: color 0.2s; display: inline-flex; align-items: center; justify-content: center; }
+        .bull-case .copy-link-btn:hover { color: #10b981; }
+        .bear-case .copy-link-btn:hover { color: #ef4444; }
+    </style>
 </head>
 
 <body>
@@ -109,6 +133,7 @@
                     alt="pew256 logo - Resilient Bridge icon for institutional blockchain infrastructure." width="375"
                     height="75" style="width: 375px; height: auto; max-width: 100%; object-fit: contain;"></a>
             <div class="nav-links">
+                <a href="#journal" style="color: var(--primary); font-weight: 700;">Journal</a>
                 <a href="about.html">About</a>
                 <a href="#services">Services</a>
                 <a href="#contact" class="nav-btn" onclick="openModal(); return false;">Contact</a>
@@ -537,6 +562,22 @@
 
     </main>
 
+    <section id="journal" class="journal-section" style="padding: 40px 0; background-color: #f1f5f9; border-top: 1px solid var(--border);">
+        <div class="container" style="max-width: 900px; margin-bottom: 2rem;">
+            <div style="text-align: center;">
+                <h2>Strategic Journal</h2>
+                <span class="box-tag" style="margin-bottom: 2rem; display: inline-block; font-weight: 700;">Contrarian Perspectives on the Digital Transition</span>
+            </div>
+
+            <div id="journal-feed-container" class="journal-feed">
+                <div class="empty-journal">
+                    <div class="spinner" style="border-top-color: var(--primary);"></div>
+                    <p>Loading published insights...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <div class="container footer-inner">
             <div class="footer-logo"><img src="assets/brand-kit/pew256-logo-knockout.svg"
@@ -847,6 +888,99 @@
                 });
             });
         });
+
+        // Journal Logic
+        document.addEventListener('DOMContentLoaded', async () => {
+            const container = document.getElementById('journal-feed-container');
+            try {
+                // Add cache busting
+                const response = await fetch('/assets/published_journal.json?t=' + new Date().getTime());
+                if (!response.ok) throw new Error('Failed to load journal data');
+                const takes = await response.json();
+                
+                if (!takes || takes.length === 0) {
+                    container.innerHTML = '<div class="empty-journal"><p>No published insights available at this time.</p></div>';
+                    return;
+                }
+                
+                // Sort by timestamp descending
+                takes.sort((a, b) => b.timestamp - a.timestamp);
+                
+                let html = '';
+                takes.forEach(item => {
+                    const ts = String(item.timestamp);
+                    let formattedDate = ts;
+                    if(ts.length >= 8) {
+                        const y = ts.substring(0,4);
+                        const mo = parseInt(ts.substring(4,6)) - 1;
+                        const d = ts.substring(6,8);
+                        const dateObj = new Date(y, mo, d);
+                        formattedDate = dateObj.toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' });
+                    }
+                    
+                    html += `
+                    <div class="journal-card">
+                        <div class="journal-header">
+                            <h3 class="journal-title">${item.subject}</h3>
+                            <div class="journal-meta">
+                                <span>Published: ${formattedDate}</span>
+                                <span>Project: ${item.project}</span>
+                            </div>
+                        </div>
+                        <div class="journal-content">
+                            <div class="take-box bull-case" id="pro-${item.timestamp}">
+                                <h4 style="display: flex; justify-content: space-between; align-items: center;">
+                                    The Bull Case (Pro)
+                                    <button class="copy-link-btn" onclick="copyJournalLink(event, 'pro-${item.timestamp}')" title="Copy direct link">🔗</button>
+                                </h4>
+                                <p>${item.bull_case}</p>
+                            </div>
+                            <div class="take-box bear-case" id="con-${item.timestamp}">
+                                <h4 style="display: flex; justify-content: space-between; align-items: center;">
+                                    The Bear Case (Con)
+                                    <button class="copy-link-btn" onclick="copyJournalLink(event, 'con-${item.timestamp}')" title="Copy direct link">🔗</button>
+                                </h4>
+                                <p>${item.bear_case}</p>
+                            </div>
+                        </div>
+                    </div>
+                    `;
+                });
+                
+                container.innerHTML = html;
+                
+                // Handle hash link auto-scroll
+                if (window.location.hash) {
+                    setTimeout(() => {
+                        const hashId = window.location.hash.substring(1);
+                        const el = document.getElementById(hashId);
+                        if (el) {
+                            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            el.style.transition = 'box-shadow 0.3s, background-color 0.3s';
+                            el.style.backgroundColor = '#f1f5f9';
+                            setTimeout(() => {
+                                el.style.backgroundColor = '#fff';
+                            }, 1500);
+                        }
+                    }, 300);
+                }
+                
+            } catch (err) {
+                console.error("Error loading journal:", err);
+                container.innerHTML = '<div class="empty-journal"><p>Failed to load published insights. Please try again later.</p></div>';
+            }
+        });
+        
+        function copyJournalLink(event, id) {
+            const url = window.location.origin + window.location.pathname + '#' + id;
+            navigator.clipboard.writeText(url).then(() => {
+                const btn = event.currentTarget;
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '✅';
+                setTimeout(() => { btn.innerHTML = originalText; }, 1500);
+            });
+            window.history.replaceState(null, null, '#' + id);
+        }
     </script>
 </body>
 
