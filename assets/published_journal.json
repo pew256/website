@@ -16,19 +16,19 @@
     "published_takes": "both"
   },
   {
-    "timestamp": "20260312_100223",
-    "project": "Bitcoin trends",
-    "subject": "Regulatory Unity: A Centralization Trap",
-    "bull_case": "The SEC and CFTC's joint oversight agreement is a Trojan horse. While framed as resolving \"turf wars\" and providing clarity, it actually consolidates regulatory power, paving the way for a more restrictive, centralized crypto ecosystem. This isn't innovation-friendly regulation; it's a strategic move to bring decentralized assets under direct government control, squeezing out true permissionless innovation under the guise of stability and order.",
-    "bear_case": "Mainstream adoption, exemplified by Wells Fargo's stablecoin exploration and Ripple's expansive licensing drive, signals the corporatization of crypto, not its decentralization. This trend sees traditional finance co-opting blockchain's efficiency for existing structures, creating a controlled, compliant version of digital assets. Far from realizing a permissionless future, this ensures crypto assets remain within the bounds of a surveilled, centralized financial system, betraying their original promise.",
-    "published_takes": "both"
-  },
-  {
     "timestamp": "20260312_145429",
     "project": "Bitcoin trends",
     "subject": "Unified Regulation: Chokehold, Not Clarity",
     "bull_case": "The SEC and CFTC's \"unified crypto oversight\" isn't a boon for market clarity but a shrewd power play. By coordinating enforcement and approvals, these agencies form a regulatory cartel, effectively building a controlled on-ramp for traditional finance while sidelining decentralized innovation. This consolidation curates rather than unleashes, transforming crypto's disruptive potential into a regulated product for incumbents.",
     "bear_case": "While BlackRock's staked ETH ETF and Wells Fargo's stablecoin hint at institutional adoption, this is assimilation, not genuine embrace. These moves financialize crypto assets within traditional frameworks, diverting focus from decentralization and self-custody. The true contrarian view sees this as a dilution of crypto's core ethos, creating familiar financial products atop revolutionary tech, rather than adopting the revolution itself.",
+    "published_takes": "bull"
+  },
+  {
+    "timestamp": "20260312_100223",
+    "project": "Bitcoin trends",
+    "subject": "Regulatory Unity: A Centralization Trap",
+    "bull_case": "The SEC and CFTC's joint oversight agreement is a Trojan horse. While framed as resolving \"turf wars\" and providing clarity, it actually consolidates regulatory power, paving the way for a more restrictive, centralized crypto ecosystem. This isn't innovation-friendly regulation; it's a strategic move to bring decentralized assets under direct government control, squeezing out true permissionless innovation under the guise of stability and order.",
+    "bear_case": "Mainstream adoption, exemplified by Wells Fargo's stablecoin exploration and Ripple's expansive licensing drive, signals the corporatization of crypto, not its decentralization. This trend sees traditional finance co-opting blockchain's efficiency for existing structures, creating a controlled, compliant version of digital assets. Far from realizing a permissionless future, this ensures crypto assets remain within the bounds of a surveilled, centralized financial system, betraying their original promise.",
     "published_takes": "bull"
   }
 ]
