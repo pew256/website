@@ -303,22 +303,7 @@ class AdminServer(SimpleHTTPRequestHandler):
                         with open(pub_file, "w") as f:
                             json.dump(pub_data, f, indent=2)
                             
-                        # Re-generate OpenGraph image to reflect edits on Public page OG
-                        for item in pub_data:
-                            if str(item.get("timestamp")) == str(timestamp):
-                                try:
-                                    import subprocess
-                                    subprocess.run(["python3", "scripts/generate_og_image.py", 
-                                                    "--timestamp", str(timestamp), 
-                                                    "--project", project_name, 
-                                                    "--takes", item.get("published_takes", "both"),
-                                                    "--subject", item["subject"], 
-                                                    "--bull", item["bull_case"], 
-                                                    "--bear", item["bear_case"]], check=True)
-                                except Exception as e:
-                                    print(f"Failed to generate OG image on edit: {e}")
-                                break
-                                
+                        # The diffusion asset generator below will handle all OG image creation natively
                 try:
                     import subprocess
                     subprocess.Popen(["python3", "scripts/generate_diffusion_assets.py", "--id", str(timestamp), "--project", project_name])
@@ -523,18 +508,7 @@ class AdminServer(SimpleHTTPRequestHandler):
                     "published_takes": published_takes
                 })
                 
-                # Generate OpenGraph image
-                try:
-                    subprocess.run(["python3", "scripts/generate_og_image.py", 
-                                    "--timestamp", str(timestamp), 
-                                    "--project", project_name, 
-                                    "--takes", published_takes,
-                                    "--subject", subject, 
-                                    "--bull", bull_case, 
-                                    "--bear", bear_case], check=True)
-                except Exception as e:
-                    print(f"Failed to generate OG image: {e}")
-
+                # The new Playwright asset generator handles OpenGraph image creation natively (called below)
                 # Determine specific image path to use based on target take
                 target_img_prefix = f"insight-{timestamp}"
                 if published_takes == "bear":
