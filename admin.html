@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sources Admin Panel | pew256</title>
+    <link rel="stylesheet" href="/assets/coding_assets/style.css">
+    <style>
+        body { padding: 0; margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f1f5f9; height: 100vh; overflow: hidden; display: flex; }
+        
+        /* Dashboard Layout */
+        .sidebar { width: 280px; background: white; border-right: 1px solid var(--border); display: flex; flex-direction: column; overflow-y: auto; }
+        .sidebar-header { padding: 1.5rem; border-bottom: 1px solid var(--border); }
+        .sidebar-header h1 { margin: 0; font-size: 1.25rem; color: #0f172a; }
+        .nav-links { list-style: none; padding: 1rem 0; margin: 0; display: flex; flex-direction: column; }
+        .nav-item { padding: 0.75rem 1.5rem; cursor: pointer; color: #475569; font-weight: 500; display: flex; align-items: center; gap: 0.75rem; transition: background 0.2s, color 0.2s; }
+        .nav-item:hover { background: #f8fafc; color: var(--primary); }
+        .nav-item.active { background: #eff6ff; color: var(--primary); border-right: 3px solid var(--primary); }
+        
+        .main-content { flex: 1; display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
+        .top-bar { padding: 1rem 2rem; background: white; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+        .content-area { flex: 1; padding: 2rem; overflow-y: auto; scroll-behavior: smooth; }
+        
+        /* Tab Sections */
+        .tab-section { display: none; }
+        .tab-section.active { display: block; }
+        
+        .panel-section { background: white; padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border); margin-bottom: 1.5rem; }
+        #status-msg { margin-bottom: 1rem; padding: 1rem; border-radius: 4px; display: none; }
+        .success { background: #dcfce7; color: #166534; }
+        .error { background: #fee2e2; color: #991b1b; }
+        .processing { background: #e0f2fe; color: #075985; }
+        
+        /* Data Tables */
+        .source-table-header { display: grid; grid-template-columns: 3fr 1fr 1fr; padding: 0.75rem 1rem; background: #f8fafc; border: 1px solid var(--border); border-bottom: none; border-radius: 6px 6px 0 0; font-weight: 600; color: #475569; font-size: 0.85rem; }
+        .source-item { display: grid; grid-template-columns: 3fr 1fr 1fr; align-items: center; padding: 1rem; border-bottom: 1px solid var(--border); gap: 1rem; background: white; transition: background 0.1s; }
+        .source-item:hover { background: #f8fafc; }
+        .source-item:last-child { border-bottom: none; border-radius: 0 0 6px 6px; }
+        .source-list { border: 1px solid var(--border); border-top: 1px solid var(--border); border-radius: 0 0 6px 6px; list-style: none; padding: 0; margin: 0; }
+        
+        /* Status Badge */
+        .badge { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.75rem; font-weight: 500; width: max-content; }
+        .badge-active { background: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
+        .badge-active::before { content: ""; display: block; width: 6px; height: 6px; border-radius: 50%; background: #16a34a; }
+        
+        /* Loading Modal */
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.4); backdrop-filter: blur(4px); z-index: 1000; align-items: center; justify-content: center; }
+        .modal-content { background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); text-align: center; max-width: 400px; width: 100%; border: 1px solid var(--border); }
+        .spinner { width: 40px; height: 40px; border: 3px solid #e2e8f0; border-top-color: var(--primary); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 1.5rem auto; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .modal-title { font-size: 1.25rem; font-weight: 600; color: #0f172a; margin-bottom: 0.5rem; margin-top: 0; }
+        .modal-subtitle { color: #64748b; font-size: 0.95rem; margin: 0; }
+        
+        /* History Lists */
+        .history-list { list-style: none; padding: 0; margin: 0; }
+        .history-item { background: white; border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; margin-bottom: 1rem; cursor: pointer; transition: transform 0.1s, box-shadow 0.1s; display: flex; justify-content: space-between; align-items: flex-start; }
+        .history-item:hover { transform: translateY(-2px); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
+        .history-item-content { flex: 1; }
+        .history-date { font-weight: 600; color: #0f172a; margin-bottom: 0.5rem; display: block; }
+        .history-preview { color: #64748b; font-size: 0.9rem; margin: 0; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .history-item.active { border-color: var(--primary); box-shadow: 0 0 0 2px rgba(59,130,246,0.1); }
+        
+        /* Split Layouts (Master-Detail) */
+        .split-view { display: flex; gap: 1.5rem; height: calc(100vh - 140px); }
+        .split-list { flex: 0 0 320px; height: 100%; overflow-y: auto; padding-right: 0.5rem; }
+        /* Fix scrollbar for split list */
+        .split-list::-webkit-scrollbar { width: 6px; }
+        .split-list::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+        .split-detail { flex: 1; height: 100%; overflow-y: auto; background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 2rem; position: relative; }
+        .empty-state { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; color: #94a3b8; text-align: center; }
+
+        /* Detail Views */
+        .back-btn { margin-bottom: 1.5rem; color: var(--primary); background: none; border: none; font-weight: 500; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; padding: 0; font-size: 1rem; }
+        .back-btn:hover { text-decoration: underline; }
+        .result-box { background: #f8fafc; padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border); margin-bottom: 1.5rem; }
+        .result-box h3 { margin-top: 0; color: #0f172a; display: flex; justify-content: space-between; align-items: center; }
+        .raw-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 0.95rem; color: #334155; max-height: 70vh; overflow-y: auto; background: white; padding: 1.5rem; border: 1px solid #e2e8f0; border-radius: 6px; }
+        .atomic-answer { font-size: 1.1rem; line-height: 1.6; color: #1e293b; font-weight: 500; border-left: 4px solid var(--primary); padding-left: 1rem; margin: 1rem 0; }
+        
+        /* Markdown generated HTML styles */
+        .raw-text h1, .raw-text h2, .raw-text h3 { margin-top: 1.5rem; margin-bottom: 0.5rem; color: #1e293b; }
+        .raw-text p { margin-bottom: 1rem; line-height: 1.5; color: #475569; }
+        .raw-text a { color: var(--primary); text-decoration: none; }
+        .raw-text ul, .raw-text ol { padding-left: 2rem; margin-bottom: 1rem; color: #475569; }
+        .raw-text blockquote { border-left: 3px solid #cbd5e1; padding-left: 1rem; color: #64748b; font-style: italic; }
+        
+        /* Toggle Switch UI */
+        .toggle-switch { position: relative; display: inline-block; width: 44px; height: 24px; vertical-align: middle; }
+        .toggle-switch input { opacity: 0; width: 0; height: 0; }
+        .toggle-slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #cbd5e1; transition: .3s; border-radius: 24px; }
+        .toggle-slider:before { position: absolute; content: ""; height: 18px; width: 18px; left: 3px; bottom: 3px; background-color: white; transition: .3s; border-radius: 50%; }
+        input:checked + .toggle-slider { background-color: #10b981; }
+        input:checked + .toggle-slider:before { transform: translateX(20px); }
+        input:disabled + .toggle-slider { opacity: 0.5; cursor: not-allowed; }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header" style="padding-bottom: 0;">
+            <a href="/" style="display: block; text-decoration: none;">
+                <img src="/assets/brand-kit/pew256-logo.svg" alt="pew256 logo" style="height: 38px; width: auto; max-width: 100%; object-fit: contain;">
+            </a>
+        </div>
+        <div style="padding: 0 1.5rem 1rem 1.5rem; border-bottom: 1px solid var(--border); margin-bottom: 1rem;">
+            <label style="font-size: 0.8rem; color: #64748b; font-weight: 600; text-transform: uppercase;">Project</label>
+            <div style="display: flex; gap: 0.5rem; margin-top: 0.25rem;">
+                <select id="project-selector" style="flex: 1; padding: 0.4rem; border-radius: 4px; border: 1px solid var(--border); background: var(--surface); color: var(--text);" onchange="changeProject(this.value)">
+                    <option value="Bitcoin trends">Bitcoin trends</option>
+                </select>
+                <button onclick="createNewProject()" class="btn btn-primary" style="padding: 0.4rem 0.6rem; min-width: auto; line-height: 1;">+</button>
+            </div>
+        </div>
+        <ul class="nav-links">
+            <li class="nav-item active" onclick="switchTab('dashboard')" id="tab-dashboard">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                Dashboard
+            </li>
+            <li class="nav-item" onclick="switchTab('sources')" id="tab-sources">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path></svg>
+                Data Sources
+            </li>
+            <div id="sources-subnav" style="padding-left: 3.5rem; margin-top: -0.25rem; margin-bottom: 0.5rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                <div style="cursor: pointer; color: #64748b; font-size: 0.85rem; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='#64748b'" onclick="document.getElementById('panel-web').scrollIntoView({behavior: 'smooth'})">Web Crawls</div>
+                <div style="cursor: pointer; color: #64748b; font-size: 0.85rem; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='#64748b'" onclick="document.getElementById('panel-rss').scrollIntoView({behavior: 'smooth'})">RSS Feeds</div>
+                <div style="cursor: pointer; color: #64748b; font-size: 0.85rem; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='#64748b'" onclick="document.getElementById('panel-twitter').scrollIntoView({behavior: 'smooth'})">X Profiles</div>
+                <div style="cursor: pointer; color: #64748b; font-size: 0.85rem; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='#64748b'" onclick="document.getElementById('panel-lists').scrollIntoView({behavior: 'smooth'})">X Lists</div>
+            </div>
+            <li class="nav-item" onclick="switchTab('history')" id="tab-history">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                History & Insights
+            </li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="top-bar">
+            <h2 id="page-title" style="margin: 0; font-size: 1.25rem;">Data Sources</h2>
+            <button id="run-engine" class="btn btn-primary btn-high-contrast" onclick="runEngine()">Run Extraction Engine &nbsp; ⚡</button>
+        </div>
+        
+        <div class="content-area">
+            <div id="status-msg"></div>
+
+            <!-- DASHBOARD TAB -->
+            <div id="section-dashboard" class="tab-section active">
+                <div class="split-detail" style="border:none; padding: 0; background: transparent;">
+                    
+                    <div id="dashboard-empty-state" class="empty-state" style="display:none; height: 300px; border: 1px dashed var(--border); border-radius: 8px;">
+                        <svg width="48" height="48" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="margin-bottom:1rem;opacity:0.5;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <p>No historical takes found for this project. Run the engine to generate insights.</p>
+                    </div>
+                    
+                    <div id="dashboard-history-feed" style="display: flex; flex-direction: column; gap: 2.5rem;">
+                        <!-- JS populated feed -->
+                    </div>
+
+                </div>
+            </div>
+            
+            <!-- SOURCES TAB -->
+            <div id="section-sources" class="tab-section">
+                <div class="panel-section" id="panel-web">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                        <h3 style="margin: 0;">Web Crawls</h3>
+                        <button class="remove-btn" style="font-size: 0.85rem;" onclick="clearSources('web_crawls')">Clear All</button>
+                    </div>
+                    <div class="add-form" style="margin-top: 0; margin-bottom: 1.5rem;">
+                        <input type="text" id="new-web" placeholder="e.g. blog.example.com" onkeypress="if(event.key === 'Enter') this.nextElementSibling.click()">
+                        <button class="btn btn-primary" onclick="addSource('web_crawls', 'new-web')">Add Site</button>
+                    </div>
+                    <div class="source-table-header">
+                        <div>Source URL</div>
+                        <div>Status</div>
+                        <div style="text-align: right;">Actions</div>
+                    </div>
+                    <ul id="web-list" class="source-list"></ul>
+                </div>
+
+                <div class="panel-section" id="panel-rss">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                        <h3 style="margin: 0;">RSS Feeds</h3>
+                        <button class="remove-btn" style="font-size: 0.85rem;" onclick="clearSources('rss_feeds')">Clear All</button>
+                    </div>
+                    <div class="add-form" style="margin-top: 0; margin-bottom: 1.5rem;">
+                        <input type="text" id="new-rss" placeholder="e.g. blog.example.com/feed.xml" onkeypress="if(event.key === 'Enter') this.nextElementSibling.click()">
+                        <button class="btn btn-primary" onclick="addSource('rss_feeds', 'new-rss')">Add Feed</button>
+                    </div>
+                    <div class="source-table-header">
+                        <div>Source Feed</div>
+                        <div>Status</div>
+                        <div style="text-align: right;">Actions</div>
+                    </div>
+                    <ul id="rss-list" class="source-list"></ul>
+                </div>
+
+                <div class="panel-section" id="panel-twitter">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                        <h3 style="margin: 0;">Twitter / X Profiles</h3>
+                        <button class="remove-btn" style="font-size: 0.85rem;" onclick="clearSources('twitter_profiles')">Clear All</button>
+                    </div>
+                    <div class="add-form" style="margin-top: 0; margin-bottom: 1.5rem;">
+                        <input type="text" id="new-twitter" placeholder="e.g. @OpenAI or username" onkeypress="if(event.key === 'Enter') this.nextElementSibling.click()">
+                        <button class="btn btn-primary" onclick="addSource('twitter_profiles', 'new-twitter')">Add Profile</button>
+                    </div>
+                    <div class="source-table-header">
+                        <div>X Profile Handle</div>
+                        <div>Status</div>
+                        <div style="text-align: right;">Actions</div>
+                    </div>
+                    <ul id="twitter-list" class="source-list"></ul>
+                </div>
+
+                <div class="panel-section" id="panel-lists">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                        <h3 style="margin: 0;">Twitter / X Lists</h3>
+                        <button class="remove-btn" style="font-size: 0.85rem;" onclick="clearSources('twitter_lists')">Clear All</button>
+                    </div>
+                    <p style="font-size: 0.9em; color: #64748b; margin-top: 0; margin-bottom: 1rem;">Extracts all list members and grabs their past 7 days of tweets.</p>
+                    <div class="add-form" style="margin-top: 0; margin-bottom: 1.5rem;">
+                        <input type="text" id="new-twitter-list" placeholder="e.g. https://x.com/i/lists/1546029449191342080" onkeypress="if(event.key === 'Enter') this.nextElementSibling.click()">
+                        <button class="btn btn-primary" onclick="addSource('twitter_lists', 'new-twitter-list')">Add List</button>
+                    </div>
+                    <div class="source-table-header">
+                        <div>X List URL</div>
+                        <div>Status</div>
+                        <div style="text-align: right;">Actions</div>
+                    </div>
+                    <ul id="twitter-lists-list" class="source-list"></ul>
+                </div>
+            </div>
+
+            <!-- HISTORY TAB -->
+            <div id="section-history" class="tab-section">
+                <div class="split-view">
+                    <div class="split-list" id="history-list-view">
+                        <ul id="history-list" class="history-list">
+                            <!-- Populated by JS -->
+                        </ul>
+                    </div>
+                    <div class="split-detail" id="history-detail-view">
+                        <div id="history-empty-state" class="empty-state">
+                            <svg width="48" height="48" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="margin-bottom:1rem;opacity:0.5;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <p>Select an item from the history on the left to view details.</p>
+                        </div>
+                        
+                        <div id="history-content-area" style="display: none;">
+                            <h2 id="history-detail-title" style="margin-top: 0; color: #0f172a; margin-bottom: 0.5rem;">Insight Details</h2>
+                            <p style="font-size: 0.9rem; color: #64748b; margin-top: 0; margin-bottom: 2rem;">Generated: <span id="history-detail-date"></span></p>
+
+                            <!-- Takes Section (Top) -->
+                            <div class="result-box">
+                                <h3>Contrarian Take</h3>
+                                <p style="font-size: 0.85rem; color: #64748b; margin-top: -0.5rem; margin-bottom: 1rem;">Draft saved to: <span id="takes-detail-path"></span></p>
+                                <div id="takes-detail-content" class="atomic-answer" style="margin: 0; border: none; padding: 0;"></div>
+                            </div>
+
+                            <!-- Extractions Section (Bottom) -->
+                            <div class="result-box" style="margin-top: 2rem;">
+                                <h3>Raw Extractions</h3>
+                                <p style="font-size: 0.85rem; color: #64748b; margin-top: -0.5rem; margin-bottom: 1rem;">Log saved to: <span id="extractions-detail-path"></span></p>
+                                <div class="raw-text" id="extractions-detail-content" style="max-height: none; background: transparent; border: none; padding: 0;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Modal -->
+    <div id="loading-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="spinner"></div>
+            <h3 class="modal-title">Running Extraction Engine</h3>
+            <p class="modal-subtitle">Crawling tracked sources via Playwright. This takes a few minutes.</p>
+        </div>
+    </div>
+
+    <script>
+        let currentProject = "Bitcoin trends";
+
+        async function fetchProjects() {
+            try {
+                const response = await fetch('/api/projects');
+                const data = await response.json();
+                if(data.status === 'success') {
+                    const select = document.getElementById('project-selector');
+                    select.innerHTML = '';
+                    data.projects.forEach(p => {
+                        const opt = document.createElement('option');
+                        opt.value = p;
+                        opt.textContent = p;
+                        if(p === currentProject) opt.selected = true;
+                        select.appendChild(opt);
+                    });
+                }
+            } catch(e) { console.error(e); }
+        }
+
+        async function createNewProject() {
+            const name = prompt("Enter new project name:");
+            if(name && name.trim()) {
+                await fetch('/api/projects/create', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({name: name.trim()})
+                });
+                currentProject = name.trim();
+                await fetchProjects();
+                refreshData();
+            }
+        }
+
+        function changeProject(proj) {
+            currentProject = proj;
+            refreshData();
+        }
+
+        function refreshData() {
+            fetchDashboard();
+            fetchSources();
+            fetchHistory();
+            document.getElementById('history-content-area').style.display = 'none';
+            document.getElementById('history-empty-state').style.display = 'flex';
+        }        // --- Tab Navigation ---
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-section').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+            document.getElementById('section-' + tabId).classList.add('active');
+            document.getElementById('tab-' + tabId).classList.add('active');
+            
+            if (tabId === 'sources') {
+                document.getElementById('sources-subnav').style.display = 'flex';
+                document.getElementById('page-title').textContent = "Data Sources";
+            } else {
+                document.getElementById('sources-subnav').style.display = 'none';
+                document.getElementById('page-title').textContent = tabId === 'dashboard' ? "Dashboard" : "History & Insights";
+            }
+        }
+
+        // Initialize state
+        document.getElementById('sources-subnav').style.display = 'none';
+        document.getElementById('page-title').textContent = "Dashboard";
+
+        // --- Dashboard Logic ---
+        async function fetchDashboard() {
+            try {
+                const response = await fetch('/api/latest?project=' + encodeURIComponent(currentProject));
+                const data = await response.json();
+                
+                const contentArea = document.getElementById('dashboard-content-area');
+                const emptyState = document.getElementById('dashboard-empty-state');
+                
+                if (!data.draft_file) {
+                    contentArea.style.display = 'none';
+                    emptyState.style.display = 'flex';
+                    return;
+                }
+                
+                contentArea.style.display = 'block';
+                emptyState.style.display = 'none';
+                
+                document.getElementById('dashboard-subject').textContent = data.subject || "Contrarian Draft";
+                document.getElementById('dashboard-takes-content').innerHTML = data.atomic_answer || "";
+                
+                const extractsDiv = document.getElementById('dashboard-extractions-content');
+                if (data.extractions) {
+                    extractsDiv.innerHTML = formatExtractions(data.extractions);
+                } else {
+                    extractsDiv.innerHTML = '<p style="color:#64748b; font-style: italic;">No current extractions log found. Run the engine to generate fresh extractions.</p>';
+                }
+            } catch (e) { console.error('Error fetching dashboard', e); }
+        }
+
+        // --- Data Sources Logic ---
+        async function fetchSources() {
+            try {
+                const response = await fetch('/api/sources?project=' + encodeURIComponent(currentProject));
+                const data = await response.json();
+                renderList('twitter-list', data.twitter_profiles, 'twitter_profiles');
+                renderList('twitter-lists-list', data.twitter_lists || [], 'twitter_lists');
+                renderList('web-list', data.web_crawls, 'web_crawls');
+                renderList('rss-list', data.rss_feeds, 'rss_feeds');
+            } catch (e) { console.error('Error fetching sources', e); }
+        }
+
+        function renderList(elementId, items, type) {
+            const ul = document.getElementById(elementId);
+            if (!items || items.length === 0) {
+                ul.innerHTML = `<li style="padding: 1rem; color: #64748b; text-align: center; border: 1px dashed var(--border); border-top: none; border-radius: 0 0 6px 6px;">No sources tracked.</li>`;
+                return;
+            }
+            ul.innerHTML = items.map(item => `
+                <li class="source-item" style="border-right: none; border-left: none;">
+                    <span style="font-weight: 500; color: var(--primary); font-size: 0.95rem; display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="${item}">${item}</span>
+                    <div><span class="badge badge-active">Active</span></div>
+                    <div style="text-align: right; display: flex; gap: 0.5rem; justify-content: flex-end;">
+                        ${type === 'twitter_profiles' ? `<button class="btn btn-outline" style="font-size: 0.85rem; padding: 0.25rem 0.5rem; border-color: var(--border);" onclick="editSource('${type}', '${item}')">Edit</button>` : ''}
+                        <button class="remove-btn" style="font-size: 0.85rem;" onclick="removeSource('${type}', '${item}')">
+                            <span style="display: flex; align-items: center; justify-content: flex-end; gap: 0.25rem;">
+                                <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                                Delete
+                            </span>
+                        </button>
+                    </div>
+                </li>
+            `).join('');
+        }
+
+        async function updateSources(action, type, item, newItem = null) {
+            try {
+                const payload = { project: currentProject, type, item, action, newItem };
+                
+                const response = await fetch('/api/sources', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                if (response.ok) {
+                    fetchSources();
+                } else if (response.status === 400) {
+                    const res = await response.json();
+                    alert(res.message);
+                }
+            } catch (e) { console.error('Error updating sources', e); }
+        }
+
+        function editSource(type, oldItem) {
+            const newItem = prompt(`Edit profile:`, oldItem);
+            if (newItem !== null && newItem.trim() !== '' && newItem !== oldItem) {
+                if (type === 'twitter_profiles' && newItem.trim().startsWith('#')) {
+                    alert('X.com blocks unauthenticated hashtag searches. Please use User Profiles instead.');
+                    return;
+                }
+                updateSources('edit', type, oldItem, newItem.trim());
+            }
+        }
+
+        function addSource(type, inputId) {
+            const input = document.getElementById(inputId);
+            const value = input.value.trim();
+            if (value) {
+                if (type === 'twitter_profiles' && value.startsWith('#')) {
+                    alert('X.com blocks unauthenticated hashtag searches. Please use User Profiles instead.');
+                    return;
+                }
+                updateSources('add', type, value);
+                input.value = '';
+            }
+        }
+
+        function removeSource(type, item) {
+            updateSources('remove', type, item);
+        }
+
+        function clearSources(type) {
+            if(confirm(`Are you sure you want to remove all tracked items for this category?`)) {
+                updateSources('clear', type, null);
+            }
+        }
+
+        async function runEngine() {
+            const status = document.getElementById('status-msg');
+            const btn = document.getElementById('run-engine');
+            const modal = document.getElementById('loading-modal');
+            
+            modal.style.display = 'flex';
+            btn.disabled = true;
+            status.style.display = 'none'; // hide old message text
+
+            try {
+                const response = await fetch('/api/run', { 
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({project: currentProject})
+                });
+                const result = await response.json();
+                
+                modal.style.display = 'none';
+                
+                if (response.ok) {
+                    status.textContent = `Success! New insights generated.`;
+                    status.className = 'success';
+                    status.style.display = 'block';
+                    await fetchHistory();
+                    switchTab('takes'); // Auto-switch to see results
+                } else {
+                    status.textContent = `Error: ${result.error}`;
+                    status.className = 'error';
+                    status.style.display = 'block';
+                    btn.disabled = false;
+                }
+            } catch (e) {
+                modal.style.display = 'none';
+                status.textContent = 'Network or server error running the engine.';
+                status.className = 'error';
+                status.style.display = 'block';
+                btn.disabled = false;
+                console.error(e);
+            }
+        }
+
+        // --- History & Dashboard Logic ---
+        let historyData = [];
+
+        async function fetchHistory() {
+            try {
+                const response = await fetch('/api/history?project=' + encodeURIComponent(currentProject));
+                const data = await response.json();
+                if (data.status === 'success') {
+                    historyData = data.history;
+                    renderHistory();
+                }
+            } catch (e) { console.error('Error fetching history', e); }
+        }
+
+        function formatDateReadable(timestampStr) {
+            // YYYYMMDD_HHMMSS -> Readable String
+            if(timestampStr.length !== 15) return timestampStr;
+            const y = timestampStr.substring(0,4);
+            const mo = timestampStr.substring(4,6) - 1;
+            const d = timestampStr.substring(6,8);
+            const h = timestampStr.substring(9,11);
+            const min = timestampStr.substring(11,13);
+            const date = new Date(y, mo, d, h, min);
+            return date.toLocaleString();
+        }
+
+        function renderHistory() {
+            const ul = document.getElementById('history-list');
+            const feed = document.getElementById('dashboard-history-feed');
+            const feedEmpty = document.getElementById('dashboard-empty-state');
+            
+            if (historyData.length === 0) {
+                ul.innerHTML = '<li class="history-item"><div class="history-item-content">No data generated yet.</div></li>';
+                if (feed) feed.style.display = 'none';
+                if (feedEmpty) feedEmpty.style.display = 'flex';
+                return;
+            }
+            
+            if (feed) feed.style.display = 'flex';
+            if (feedEmpty) feedEmpty.style.display = 'none';
+            
+            ul.innerHTML = historyData.map((item, idx) => {
+                let subject = item.subject || "Contrarian Draft";
+                return `
+                <li class="history-item" id="history-item-${idx}" onclick="viewHistoryItem(${idx})">
+                    <div class="history-item-content">
+                        <span class="history-subject" style="font-weight: 600; color: #0f172a; margin-bottom: 0.25rem; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; font-size: 0.95rem; line-height: 1.4;">${subject}</span>
+                        <span class="history-date" style="color: #64748b; font-size: 0.8rem; font-weight: normal; display: block;">${formatDateReadable(item.timestamp)}</span>
+                    </div>
+                </li>
+            `}).join('');
+            
+            if (feed) {
+                feed.innerHTML = historyData.map((item, idx) => {
+                    let subject = item.subject || "Contrarian Draft";
+                    let bull = item.bull_case || "No bull case generated.";
+                    let bear = item.bear_case || "No bear case generated.";
+                    let date = formatDateReadable(item.timestamp);
+                    
+                    return `
+                    <div style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                            <div style="display: flex; align-items: baseline;">
+                                <h3 style="margin: 0; color: #0f172a; font-size: 1.35rem; line-height: 1.4; cursor: pointer;" onclick="openHistoryFromDashboard(${idx})" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">${subject}</h3>
+                                <span style="color: #64748b; font-size: 0.85rem; white-space: nowrap; margin-left: 1rem;">${date}</span>
+                            </div>
+                            <div style="display: flex; align-items: center; justify-content: flex-end;">
+                                <span id="publish-status-${item.timestamp}" style="font-size: 0.85rem; margin-right: 0.75rem; color: ${(item.published_takes && item.published_takes !== 'none') ? '#10b981' : '#64748b'}; font-weight: 600;">${(item.published_takes && item.published_takes !== 'none') ? 'Published' : 'Private'}</span>
+                            </div>
+                        </div>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+                            <div id="pro-${item.timestamp}" style="padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border); border-top: 3px solid #10b981; background: #f8fafc; height: 100%;">
+                                <h4 style="margin-top: 0; color: #10b981; margin-bottom: 0.75rem; font-size: 1.05rem; display: flex; justify-content: space-between; align-items: center;">
+                                    The Bull Case (Pro)
+                                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                                        <label class="toggle-switch" title="Publish Bull Case">
+                                            <input type="checkbox" id="publish-bull-${item.timestamp}" ${(item.published_takes === 'bull' || item.published_takes === 'both') ? 'checked' : ''} onchange="togglePublish('${item.timestamp}', 'bull', this.checked)">
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                        <button onclick="copyLink(event, 'pro-${item.timestamp}')" style="background: none; border: none; cursor: pointer; color: #94a3b8; font-size: 1rem; padding: 0.25rem; transition: color 0.2s;" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='#94a3b8'" title="Copy direct link">🔗</button>
+                                    </div>
+                                </h4>
+                                <p style="margin: 0; font-size: 0.95rem; line-height: 1.6; color: #334155; display: -webkit-box; -webkit-line-clamp: 6; line-clamp: 6; -webkit-box-orient: vertical; overflow: hidden; cursor: pointer;" onclick="openHistoryFromDashboard(${idx})">${bull}</p>
+                            </div>
+                            <div id="con-${item.timestamp}" style="padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border); border-top: 3px solid #ef4444; background: #f8fafc; height: 100%;">
+                                <h4 style="margin-top: 0; color: #ef4444; margin-bottom: 0.75rem; font-size: 1.05rem; display: flex; justify-content: space-between; align-items: center;">
+                                    The Bear Case (Con)
+                                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                                        <label class="toggle-switch" title="Publish Bear Case">
+                                            <input type="checkbox" id="publish-bear-${item.timestamp}" ${(item.published_takes === 'bear' || item.published_takes === 'both') ? 'checked' : ''} onchange="togglePublish('${item.timestamp}', 'bear', this.checked)">
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                        <button onclick="copyLink(event, 'con-${item.timestamp}')" style="background: none; border: none; cursor: pointer; color: #94a3b8; font-size: 1rem; padding: 0.25rem; transition: color 0.2s;" onmouseover="this.style.color='#ef4444'" onmouseout="this.style.color='#94a3b8'" title="Copy direct link">🔗</button>
+                                    </div>
+                                </h4>
+                                <p style="margin: 0; font-size: 0.95rem; line-height: 1.6; color: #334155; display: -webkit-box; -webkit-line-clamp: 6; line-clamp: 6; -webkit-box-orient: vertical; overflow: hidden; cursor: pointer;" onclick="openHistoryFromDashboard(${idx})">${bear}</p>
+                            </div>
+                        </div>
+                    </div>
+                    `;
+                }).join('');
+            }
+            
+            // Handle scrolling to hash anchor on load
+            if (window.location.hash) {
+                setTimeout(() => {
+                    const hashId = window.location.hash.substring(1);
+                    const el = document.getElementById(hashId);
+                    if (el) {
+                        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        el.style.transition = 'box-shadow 0.3s, background-color 0.3s';
+                        el.style.backgroundColor = '#fff';
+                        el.style.boxShadow = '0 0 0 3px rgba(59, 130, 246, 0.3)';
+                        setTimeout(() => {
+                            el.style.backgroundColor = '#f8fafc';
+                            el.style.boxShadow = 'none';
+                        }, 2500);
+                    }
+                }, 200);
+            }
+        }
+        
+        function copyLink(event, id) {
+            event.stopPropagation();
+            const baseUrl = window.location.origin + window.location.pathname;
+            const url = baseUrl + '#' + id;
+            navigator.clipboard.writeText(url).then(() => {
+                const btn = event.currentTarget;
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '✅';
+                setTimeout(() => { btn.innerHTML = originalText; }, 1500);
+            });
+            window.history.replaceState(null, null, '#' + id);
+        }
+
+        // Publish Toggle
+        async function togglePublish(timestamp, takeType, isChecked) {
+            const statusEl = document.getElementById(`publish-status-${timestamp}`);
+            const bullInput = document.getElementById(`publish-bull-${timestamp}`);
+            const bearInput = document.getElementById(`publish-bear-${timestamp}`);
+            
+            if (bullInput) bullInput.disabled = true;
+            if (bearInput) bearInput.disabled = true;
+            if (statusEl) {
+                statusEl.textContent = "Publishing git...";
+                statusEl.style.color = "#eab308"; // yellow processing
+            }
+            
+            // Determine combined state
+            let newState = 'none';
+            const isBullChecked = bullInput ? bullInput.checked : false;
+            const isBearChecked = bearInput ? bearInput.checked : false;
+            
+            if (isBullChecked && isBearChecked) newState = 'both';
+            else if (isBullChecked) newState = 'bull';
+            else if (isBearChecked) newState = 'bear';
+            
+            try {
+                const response = await fetch('/api/publish', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        project: currentProject,
+                        timestamp: timestamp,
+                        publish_state: newState
+                    })
+                });
+                
+                const data = await response.json();
+                if (data.status === 'success') {
+                    if (statusEl) {
+                        statusEl.textContent = newState !== 'none' ? "Published" : "Private";
+                        statusEl.style.color = newState !== 'none' ? "#10b981" : "#64748b";
+                    }
+                    
+                    const idx = historyData.findIndex(h => h.timestamp === timestamp);
+                    if(idx !== -1) historyData[idx].published_takes = newState;
+                } else {
+                    throw new Error(data.error || "Server Error");
+                }
+            } catch (err) {
+                console.error("Publishing error:", err);
+                alert("Failed to update publish state: " + err.message);
+                
+                // revert toggle
+                if (takeType === 'bull' && bullInput) bullInput.checked = !isChecked;
+                if (takeType === 'bear' && bearInput) bearInput.checked = !isChecked;
+                
+                // Recalculate original state for UI revert
+                let oldState = 'none';
+                if (bullInput?.checked && bearInput?.checked) oldState = 'both';
+                else if (bullInput?.checked) oldState = 'bull';
+                else if (bearInput?.checked) oldState = 'bear';
+                
+                if (statusEl) {
+                    statusEl.textContent = oldState !== 'none' ? "Published" : "Private";
+                    statusEl.style.color = oldState !== 'none' ? "#10b981" : "#64748b";
+                }
+            } finally {
+                if (bullInput) bullInput.disabled = false;
+                if (bearInput) bearInput.disabled = false;
+            }
+        }
+
+        
+        function openHistoryFromDashboard(idx) {
+            switchTab('history');
+            viewHistoryItem(idx);
+        }
+
+        async function viewHistoryItem(idx) {
+            const item = historyData[idx];
+            
+            // UI Selection State
+            document.querySelectorAll('#history-list .history-item').forEach(el => el.classList.remove('active'));
+            if(document.getElementById(`history-item-${idx}`)) {
+                document.getElementById(`history-item-${idx}`).classList.add('active');
+            }
+            
+            document.getElementById('history-empty-state').style.display = 'none';
+            document.getElementById('history-content-area').style.display = 'block';
+            
+            document.getElementById('history-detail-title').textContent = item.subject || "Contrarian Draft";
+            document.getElementById('history-detail-date').textContent = formatDateReadable(item.timestamp);
+            document.getElementById('takes-detail-path').textContent = item.draft_file;
+            document.getElementById('takes-detail-content').innerHTML = item.atomic_answer;
+            
+            document.getElementById('extractions-detail-path').textContent = item.extracts_file || "File no longer available";
+            
+            const contentDiv = document.getElementById('extractions-detail-content');
+            
+            if (!item.extracts_file) {
+                contentDiv.innerHTML = '<p style="color:#64748b; font-style: italic; padding: 1rem 0;">Historical extraction data is not available for this item (it may have been generated before historical logging was enabled).</p>';
+                return;
+            }
+            
+            contentDiv.innerHTML = '<p style="color:#64748b;">Loading large crawl log...</p>';
+            
+            try {
+                // Fetch the static text file
+                const response = await fetch('/' + item.extracts_file);
+                if (response.ok) {
+                    const text = await response.text();
+                    contentDiv.innerHTML = formatExtractions(text);
+                } else {
+                    contentDiv.innerHTML = '<p style="color:#ef4444;">Error: Could not load extraction log file. It may have been generated prior to history logging.</p>';
+                }
+            } catch(e) {
+                contentDiv.innerHTML = '<p style="color:#ef4444;">Error: Could not fetch file from server.</p>';
+            }
+        }
+
+        function formatExtractions(text) {
+            if (!text) return "No extractions returned.";
+            const regex = /(--- From (.*?) ---)|(\*\*\* Article: (.*?) \*\*\*)|(\*\*\* Tweet (\d+) \*\*\*)/g;
+            let sourceCount = 0;
+            let articleCount = 0;
+            let tweetCount = 0;
+            
+            let tocSections = { web: [], rss: [], twitter_profiles: [], twitter_lists: [] };
+            let currentCategory = null;
+            
+            for (const match of text.matchAll(regex)) {
+                if (match[1]) {
+                    sourceCount++;
+                    let sourceName = match[2];
+                    if (sourceName.startsWith("RSS Feed")) {
+                        currentCategory = 'rss';
+                        tocSections.rss.push({type: 'source', name: sourceName.replace("RSS Feed ", ""), id: sourceCount});
+                    } else if (sourceName.startsWith("Twitter source")) {
+                        currentCategory = 'twitter_profiles';
+                        tocSections.twitter_profiles.push({type: 'source', name: sourceName.replace("Twitter source ", ""), id: sourceCount});
+                    } else if (sourceName.startsWith("X List")) {
+                        currentCategory = 'twitter_lists';
+                        tocSections.twitter_lists.push({type: 'source', name: sourceName.replace("X List ", ""), id: sourceCount});
+                    } else {
+                        currentCategory = 'web';
+                        tocSections.web.push({type: 'source', name: sourceName, id: sourceCount});
+                    }
+                } else if (match[3]) {
+                    articleCount++;
+                    if (currentCategory) tocSections[currentCategory].push({type: 'article', name: match[4], id: articleCount});
+                } else if (match[5]) {
+                    tweetCount++;
+                    if (currentCategory) tocSections[currentCategory].push({type: 'tweet', name: match[6], id: tweetCount});
+                }
+            }
+            
+            let toc = "<div style='background: #f8fafc; padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border); margin-bottom: 2rem;'>\n\n## 📑 Table of Contents\n\n";
+            
+            if (tocSections.web.length > 0) {
+                toc += "- **Web Crawls**\n";
+                tocSections.web.forEach(item => {
+                    if (item.type === 'source') toc += `  - [🌐 ${item.name}](#source-${item.id})\n`;
+                });
+            }
+            if (tocSections.rss.length > 0) {
+                toc += "- **RSS Feeds**\n";
+                tocSections.rss.forEach(item => {
+                    if (item.type === 'source') toc += `  - [📰 ${item.name}](#source-${item.id})\n`;
+                    else if (item.type === 'article') toc += `    - [📄 ${item.name}](#article-${item.id})\n`;
+                });
+            }
+            if (tocSections.twitter_profiles.length > 0) {
+                toc += "- **X Profiles**\n";
+                tocSections.twitter_profiles.forEach(item => {
+                    if (item.type === 'source') toc += `  - [👤 ${item.name}](#source-${item.id})\n`;
+                    else if (item.type === 'tweet') toc += `    - [🐦 Tweet ${item.name}](#tweet-${item.id})\n`;
+                });
+            }
+            if (tocSections.twitter_lists.length > 0) {
+                toc += "- **X Lists**\n";
+                tocSections.twitter_lists.forEach(item => {
+                    if (item.type === 'source') toc += `  - [📋 ${item.name}](#source-${item.id})\n`;
+                    else if (item.type === 'tweet') toc += `    - [🐦 Tweet ${item.name}](#tweet-${item.id})\n`;
+                });
+            }
+            
+            toc += "\n</div>\n\n";
+            
+            let mdText = text;
+            sourceCount = 0;
+            mdText = mdText.replace(/--- From (.*?) ---/g, (m, p1) => {
+                sourceCount++;
+                return `<a id="source-${sourceCount}"></a>\n\n## &#128269; Source: ${p1}`;
+            });
+            
+            articleCount = 0;
+            mdText = mdText.replace(/\*\*\* Article: (.*?) \*\*\*/g, (m, p1) => {
+                articleCount++;
+                return `<a id="article-${articleCount}"></a>\n\n### &#128196; ${p1}`;
+            });
+            
+            tweetCount = 0;
+            mdText = mdText.replace(/\*\*\* Tweet (\d+) \*\*\*/g, (m, p1) => {
+                tweetCount++;
+                return `<a id="tweet-${tweetCount}"></a>\n\n### &#128038; Tweet ${p1}`;
+            });
+            
+            return marked.parse(toc + mdText);
+        }
+
+        // Init
+        fetchProjects().then(() => {
+            fetchDashboard();
+            fetchSources();
+            fetchHistory();
+        });
+    </script>
+</body>
+</html>
