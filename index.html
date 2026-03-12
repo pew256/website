@@ -1006,11 +1006,11 @@
         
         function renderShareIcons(timestamp, subject, bodyQuote = '', publishedTakes = '') {
             const base = window.location.origin + '/insights/';
-            let imgPrefix = \`insight-\${timestamp}\`;
+            let imgPrefix = `insight-${timestamp}`;
             if (publishedTakes === 'bear') {
-                imgPrefix = \`con-\${timestamp}\`;
+                imgPrefix = `con-${timestamp}`;
             } else if (publishedTakes === 'bull') {
-                imgPrefix = \`pro-\${timestamp}\`;
+                imgPrefix = `pro-${timestamp}`;
             }
             
             const urls = {
