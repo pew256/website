@@ -1,13 +1,5 @@
 [
   {
-    "timestamp": "20260312_130026",
-    "project": "News",
-    "subject": "Oil Release Flops: Crisis Is Deeper",
-    "bull_case": "The unprecedented release of 400 million barrels of oil reserves, intended to stabilize markets post-Iran conflict, has conspicuously failed to prevent oil prices from surging over 7%. This stark inefficiency signals that market anxieties are rooted deeper than immediate supply disruptions. It exposes a fundamental doubt in the efficacy of traditional interventions and highlights persistent underlying supply-demand imbalances, suggesting the crisis is structural, not merely event-driven.",
-    "bear_case": "Public discourse fixates on the \"Iran war\" as the sole driver of looming inflation and food price shocks. While conflict exacerbates costs, this narrative conveniently overlooks pre-existing global inflationary pressures and fragile supply chains. The \"war\" provides a convenient, visible scapegoat for economic woes that were already brewing, potentially distracting from long-term systemic vulnerabilities that require deeper, non-military policy interventions.",
-    "published_takes": "both"
-  },
-  {
     "timestamp": "20260312_010304",
     "project": "Bitcoin trends",
     "subject": "On the surface, the narrative is focused on Bitcoin mining m...",
@@ -29,6 +21,14 @@
     "subject": "Regulatory Unity: A Centralization Trap",
     "bull_case": "The SEC and CFTC's joint oversight agreement is a Trojan horse. While framed as resolving \"turf wars\" and providing clarity, it actually consolidates regulatory power, paving the way for a more restrictive, centralized crypto ecosystem. This isn't innovation-friendly regulation; it's a strategic move to bring decentralized assets under direct government control, squeezing out true permissionless innovation under the guise of stability and order.",
     "bear_case": "Mainstream adoption, exemplified by Wells Fargo's stablecoin exploration and Ripple's expansive licensing drive, signals the corporatization of crypto, not its decentralization. This trend sees traditional finance co-opting blockchain's efficiency for existing structures, creating a controlled, compliant version of digital assets. Far from realizing a permissionless future, this ensures crypto assets remain within the bounds of a surveilled, centralized financial system, betraying their original promise.",
+    "published_takes": "both"
+  },
+  {
+    "timestamp": "20260312_130026",
+    "project": "News",
+    "subject": "Oil Release Flops: Crisis Is Deeper",
+    "bull_case": "The unprecedented release of 400 million barrels of oil reserves, intended to stabilize markets post-Iran conflict, has conspicuously failed to prevent oil prices from surging over 7%. This stark inefficiency signals that market anxieties are rooted deeper than immediate supply disruptions. It exposes a fundamental doubt in the efficacy of traditional interventions and highlights persistent underlying supply-demand imbalances, suggesting the crisis is structural, not merely event-driven.",
+    "bear_case": "Public discourse fixates on the \"Iran war\" as the sole driver of looming inflation and food price shocks. While conflict exacerbates costs, this narrative conveniently overlooks pre-existing global inflationary pressures and fragile supply chains. The \"war\" provides a convenient, visible scapegoat for economic woes that were already brewing, potentially distracting from long-term systemic vulnerabilities that require deeper, non-military policy interventions.",
     "published_takes": "both"
   }
 ]
