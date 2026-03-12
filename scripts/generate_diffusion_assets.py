@@ -44,7 +44,7 @@ def main():
                 
                 const target = document.getElementById('{target_id}');
                 if(target) {{
-                    const entry = target.closest('.journal-entry');
+                    const entry = target.closest('.journal-card');
                     if(entry) {{
                         Array.from(entry.parentNode.children).forEach(sibling => {{
                             if(sibling !== entry) sibling.style.display = 'none';
@@ -52,7 +52,9 @@ def main():
                         
                         const takes = entry.querySelectorAll('.take-box');
                         takes.forEach(take => {{
-                            if(take.id !== '{target_id}') take.style.display = 'none';
+                            if(('{target_id}'.startsWith('pro-') || '{target_id}'.startsWith('con-')) && take.id !== '{target_id}') {{
+                                take.style.display = 'none';
+                            }}
                         }});
                         
                         document.body.style.display = 'flex';
