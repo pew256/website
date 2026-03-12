@@ -162,21 +162,23 @@ def generate_html(timestamp, project, takes, subject, bull_case, bear_case):
     
     if show_bull:
         box_class = "single-box" if is_single else "bull-box"
-        title_class = "single-title" if is_single else "bull-title"
-        title_text = "The Bull Case" if is_single else "The Bull Case"
         html += f"""
-                <div class="case-box {box_class}">
-                    <h3 class="case-title {title_class}">{title_text}</h3>
+                <div class="case-box {box_class}">"""
+        if not is_single:
+            html += f"""
+                    <h3 class="case-title bull-title">The Bull Case</h3>"""
+        html += f"""
                     <p class="case-text">{bull_case}</p>
                 </div>"""
                 
     if show_bear:
         box_class = "single-box" if is_single else "bear-box"
-        title_class = "single-title" if is_single else "bear-title"
-        title_text = "The Bear Case" if is_single else "The Bear Case"
         html += f"""
-                <div class="case-box {box_class}">
-                    <h3 class="case-title {title_class}">{title_text}</h3>
+                <div class="case-box {box_class}">"""
+        if not is_single:
+            html += f"""
+                    <h3 class="case-title bear-title">The Bear Case</h3>"""
+        html += f"""
                     <p class="case-text">{bear_case}</p>
                 </div>"""
 
