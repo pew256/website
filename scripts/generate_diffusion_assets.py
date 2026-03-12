@@ -213,6 +213,35 @@ def generate_html(formatted_date, project, subject, bull, bear, mode, is_square=
     </html>
     """
 
+def apply_diagonal_watermark(base_img):
+    wm_path = os.path.join(os.getcwd(), "assets/brand-kit/pew256-logo-knockout.png")
+    if os.path.exists(wm_path):
+        with Image.open(wm_path) as wm:
+            wm = wm.convert("RGBA")
+            import math
+            # Calculate diagonal length
+            diag_length = math.hypot(base_img.width, base_img.height)
+            # Make the watermark span 80% of the diagonal
+            target_wm_width = int(diag_length * 0.8)
+            wm_ratio = wm.height / wm.width
+            target_wm_height = int(target_wm_width * wm_ratio)
+            
+            wm = wm.resize((target_wm_width, target_wm_height), Image.Resampling.LANCZOS)
+            
+            # Reduce opacity
+            alpha = wm.split()[3]
+            alpha = alpha.point(lambda p: p * 0.04)
+            wm.putalpha(alpha)
+            
+            # Calculate rotation angle based on image dimensions
+            angle = math.degrees(math.atan2(base_img.height, base_img.width))
+            wm = wm.rotate(angle, expand=True, resample=Image.Resampling.BICUBIC)
+            
+            wm_x = (base_img.width - wm.width) // 2
+            wm_y = (base_img.height - wm.height) // 2
+            base_img.paste(wm, (wm_x, wm_y), wm)
+    return base_img
+
 def process_image(timestamp, mode, raw_natural_path, raw_square_path):
     # Prefix files with mode-timestamp
     file_prefix = f"insight-{timestamp}" if mode == 'both' else f"{mode}-{timestamp}"
@@ -240,24 +269,8 @@ def process_image(timestamp, mode, raw_natural_path, raw_square_path):
             padded_img = Image.new("RGBA", (new_width, new_height), (248, 250, 252, 255))
             padded_img.paste(img, (50, 50), img)
             
-            # Add Watermark
-            wm_path = os.path.join(os.getcwd(), "assets/brand-kit/pew256-logo-knockout.png")
-            if os.path.exists(wm_path):
-                with Image.open(wm_path) as wm:
-                    wm = wm.convert("RGBA")
-                    wm_ratio = wm.height / wm.width
-                    new_wm_width = int(padded_img.width * 0.4)
-                    new_wm_height = int(new_wm_width * wm_ratio)
-                    wm = wm.resize((new_wm_width, new_wm_height), Image.Resampling.LANCZOS)
-                    
-                    alpha = wm.split()[3]
-                    alpha = alpha.point(lambda p: p * 0.05)
-                    wm.putalpha(alpha)
-                    
-                    wm_x = (padded_img.width - new_wm_width) // 2
-                    wm_y = (padded_img.height - new_wm_height) // 2
-                    padded_img.paste(wm, (wm_x, wm_y), wm)
-
+            # Apply diagonal watermark
+            padded_img = apply_diagonal_watermark(padded_img)
             padded_img.save(out_natural, "PNG")
 
         # 2. Square Raw Journal Asset (using the new sq html capture)
@@ -268,6 +281,9 @@ def process_image(timestamp, mode, raw_natural_path, raw_square_path):
             sq_x = (sq_size - sq_img_raw.width) // 2
             sq_y = (sq_size - sq_img_raw.height) // 2
             square_img.paste(sq_img_raw, (sq_x, sq_y), sq_img_raw)
+            
+            # Apply diagonal watermark
+            square_img = apply_diagonal_watermark(square_img)
             square_img.save(out_square_raw, "PNG")
 
             # --- DIFFUSION CROP ASSETS --- #
