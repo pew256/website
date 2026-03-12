@@ -91,6 +91,29 @@ def main():
 
     try:
         with Image.open(capture_4k) as img:
+            # Add watermark
+            try:
+                logo_path = os.path.join(os.getcwd(), "assets/brand-kit/pew256-logo-knockout.png")
+                with Image.open(logo_path) as logo:
+                    # Resize logo to be roughly 50% of the image width
+                    logo_width = int(img.width * 0.5)
+                    logo_ratio = logo_width / float(logo.width)
+                    logo_height = int(logo.height * logo_ratio)
+                    logo = logo.resize((logo_width, logo_height), Image.Resampling.LANCZOS)
+                    
+                    # Make it translucent (15% opacity)
+                    if logo.mode != 'RGBA':
+                        logo = logo.convert('RGBA')
+                    alpha = logo.split()[3]
+                    alpha = alpha.point(lambda p: p * 0.15)
+                    logo.putalpha(alpha)
+                    
+                    # Center the watermark
+                    offset = ((img.width - logo_width) // 2, (img.height - logo_height) // 2)
+                    img.paste(logo, offset, logo)
+            except Exception as e:
+                print(f"Failed to apply watermark: {e}")
+
             # Landscape (1200x630 - OG/LinkedIn/WhatsApp)
             land_img = img.copy()
             ratio = 1200 / float(img.width)
