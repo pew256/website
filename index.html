@@ -935,7 +935,7 @@
                             <div class="journal-meta">
                                 <span>Published: ${formattedDate} &nbsp;&bull;&nbsp; ${item.project}</span>
                                 <div class="share-actions">
-                                    ${renderShareIcons(item.timestamp, item.subject, item.bull_case || item.bear_case || '')}
+                                    ${renderShareIcons(item.timestamp, item.subject, item.bull_case || item.bear_case || '', item.published_takes)}
                                 </div>
                             </div>
                         </div>
@@ -1004,15 +1004,22 @@
             }
         });
         
-        function renderShareIcons(timestamp, subject, bodyQuote = '') {
+        function renderShareIcons(timestamp, subject, bodyQuote = '', publishedTakes = '') {
             const base = window.location.origin + '/insights/';
+            let imgPrefix = \`insight-\${timestamp}\`;
+            if (publishedTakes === 'bear') {
+                imgPrefix = \`con-\${timestamp}\`;
+            } else if (publishedTakes === 'bull') {
+                imgPrefix = \`pro-\${timestamp}\`;
+            }
+            
             const urls = {
-                x: encodeURIComponent(base + 'x-' + timestamp + '.html'),
-                in: encodeURIComponent(base + 'og-' + timestamp + '.html'),
-                wa: encodeURIComponent(base + 'og-' + timestamp + '.html'),
-                tg: encodeURIComponent(base + 'og-' + timestamp + '.html'),
-                wc: base + 'wechat-' + timestamp + '.html',
-                ig: base + 'ig-' + timestamp + '.html'
+                x: encodeURIComponent(base + 'x-' + imgPrefix + '.html'),
+                in: encodeURIComponent(base + 'og-' + imgPrefix + '.html'),
+                wa: encodeURIComponent(base + 'og-' + imgPrefix + '.html'),
+                tg: encodeURIComponent(base + 'og-' + imgPrefix + '.html'),
+                wc: base + 'wechat-' + imgPrefix + '.html',
+                ig: base + 'ig-' + imgPrefix + '.html'
             };
             
             // Truncate quote for preview
