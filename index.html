@@ -925,9 +925,12 @@
                     }
                     
                     html += `
-                    <div class="journal-card">
+                    <div class="journal-card" id="insight-${item.timestamp}">
                         <div class="journal-header">
-                            <h3 class="journal-title">${item.subject}</h3>
+                            <h3 class="journal-title" style="display: flex; align-items: center; justify-content: space-between;">
+                                <span>${item.subject}</span>
+                                <button class="copy-link-btn" onclick="copyJournalLink(event, 'insight-${item.timestamp}')" title="Copy direct link" style="font-size: 1.2rem;">🔗</button>
+                            </h3>
                             <div class="journal-meta">
                                 <span>Published: ${formattedDate} &nbsp;&bull;&nbsp; Project: ${item.project}</span>
                                 <div class="share-actions">
@@ -937,18 +940,12 @@
                             </div>
                         </div>
                         <div class="journal-content">
-                            <div class="take-box bull-case" id="pro-${item.timestamp}">
-                                <h4 style="display: flex; justify-content: space-between; align-items: center;">
-                                    The Bull Case (Pro)
-                                    <button class="copy-link-btn" onclick="copyJournalLink(event, 'pro-${item.timestamp}')" title="Copy direct link">🔗</button>
-                                </h4>
+                            <div class="take-box bull-case">
+                                <h4>The Bull Case (Pro)</h4>
                                 <p>${item.bull_case}</p>
                             </div>
-                            <div class="take-box bear-case" id="con-${item.timestamp}">
-                                <h4 style="display: flex; justify-content: space-between; align-items: center;">
-                                    The Bear Case (Con)
-                                    <button class="copy-link-btn" onclick="copyJournalLink(event, 'con-${item.timestamp}')" title="Copy direct link">🔗</button>
-                                </h4>
+                            <div class="take-box bear-case">
+                                <h4>The Bear Case (Con)</h4>
                                 <p>${item.bear_case}</p>
                             </div>
                         </div>
