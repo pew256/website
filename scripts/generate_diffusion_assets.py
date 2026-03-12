@@ -81,7 +81,7 @@ def fetch_content_for_id(target_id, project):
         
     return timestamp, formatted_date, project, subject, bull, bear
 
-def generate_html(formatted_date, project, subject, bull, bear, mode):
+def generate_html(formatted_date, project, subject, bull, bear, mode, is_square=False):
     
     content_class = "single-column" if mode in ['bull', 'bear'] else ""
     bull_html = ""
@@ -107,6 +107,15 @@ def generate_html(formatted_date, project, subject, bull, bear, mode):
         </div>
         """
         
+    square_css = """
+        aspect-ratio: 1 / 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        max-width: 800px;
+        min-height: 800px;
+    """ if is_square else "max-width: 900px;"
+
     return f"""
     <!DOCTYPE html>
     <html>
@@ -132,7 +141,7 @@ def generate_html(formatted_date, project, subject, bull, bear, mode):
         padding: 2.5rem;
         box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.05);
         width: 100%;
-        max-width: 900px;
+        {square_css}
     }}
     .journal-header {{
         margin-bottom: 2rem;
@@ -204,7 +213,7 @@ def generate_html(formatted_date, project, subject, bull, bear, mode):
     </html>
     """
 
-def process_image(timestamp, mode, raw_screenshot_path):
+def process_image(timestamp, mode, raw_natural_path, raw_square_path):
     # Prefix files with mode-timestamp
     file_prefix = f"insight-{timestamp}" if mode == 'both' else f"{mode}-{timestamp}"
     
@@ -222,10 +231,10 @@ def process_image(timestamp, mode, raw_screenshot_path):
     out_vertical = os.path.join(shares_dir, f"{file_prefix}_vertical.png")
 
     try:
-        with Image.open(raw_screenshot_path) as img:
+        # 1. Natural Raw Journal Asset
+        with Image.open(raw_natural_path) as img:
             img = img.convert("RGBA")
 
-            # 1. Natural Raw Journal Asset
             new_width = img.width + 100
             new_height = img.height + 100
             padded_img = Image.new("RGBA", (new_width, new_height), (248, 250, 252, 255))
@@ -251,12 +260,14 @@ def process_image(timestamp, mode, raw_screenshot_path):
 
             padded_img.save(out_natural, "PNG")
 
-            # 2. Square Raw Journal Asset
-            sq_size = max(padded_img.width, padded_img.height) + 100
+        # 2. Square Raw Journal Asset (using the new sq html capture)
+        with Image.open(raw_square_path) as sq_img_raw:
+            sq_img_raw = sq_img_raw.convert("RGBA")
+            sq_size = max(sq_img_raw.width, sq_img_raw.height) + 100
             square_img = Image.new("RGBA", (sq_size, sq_size), (248, 250, 252, 255))
-            sq_x = (sq_size - padded_img.width) // 2
-            sq_y = (sq_size - padded_img.height) // 2
-            square_img.paste(padded_img, (sq_x, sq_y), padded_img)
+            sq_x = (sq_size - sq_img_raw.width) // 2
+            sq_y = (sq_size - sq_img_raw.height) // 2
+            square_img.paste(sq_img_raw, (sq_x, sq_y), sq_img_raw)
             square_img.save(out_square_raw, "PNG")
 
             # --- DIFFUSION CROP ASSETS --- #
@@ -312,28 +323,35 @@ def main():
         
         for mode in modes_to_run:
             print(f"Generating preview for mode: {mode}...")
-            html = generate_html(formatted_date, project, subject, bull, bear, mode)
             
-            # Navigate to generic localhost block to allow font remote loading
+            # --- 1. Natural Capture ---
+            html_natural = generate_html(formatted_date, project, subject, bull, bear, mode, is_square=False)
             page.goto("http://localhost:8085/404.html", wait_until="domcontentloaded")
-            page.set_content(html)
-            
-            # Wait for Google Fonts to load
+            page.set_content(html_natural)
             page.evaluate("document.fonts.ready")
-            page.wait_for_timeout(500) # give it a small buffer for layout jumping
+            page.wait_for_timeout(500)
             
             card = page.locator("#card")
-            temp_path = os.path.join(os.getcwd(), f"temp_{timestamp}_{mode}.png")
+            temp_path_nat = os.path.join(os.getcwd(), f"temp_{timestamp}_{mode}_nat.png")
+            card.screenshot(path=temp_path_nat, type="png")
             
-            # Capture strictly the boundaries of the card
-            card.screenshot(path=temp_path, type="png")
+            # --- 2. Square Tile Capture ---
+            html_square = generate_html(formatted_date, project, subject, bull, bear, mode, is_square=True)
+            page.set_content(html_square)
+            page.evaluate("document.fonts.ready")
+            page.wait_for_timeout(500)
             
-            print(f"Captured clean node screenshot. Watermarking and cropping diffusion assets for {mode}...")
-            process_image(timestamp, mode, temp_path)
+            temp_path_sq = os.path.join(os.getcwd(), f"temp_{timestamp}_{mode}_sq.png")
+            card.screenshot(path=temp_path_sq, type="png")
             
-            # Purge temp frame
-            if os.path.exists(temp_path):
-                os.remove(temp_path)
+            print(f"Captured clean screenshots. Watermarking and cropping diffusion assets for {mode}...")
+            process_image(timestamp, mode, temp_path_nat, temp_path_sq)
+            
+            # Purge temp frames
+            if os.path.exists(temp_path_nat):
+                os.remove(temp_path_nat)
+            if os.path.exists(temp_path_sq):
+                os.remove(temp_path_sq)
                 
         browser.close()
         print(f"Successfully generated all raw and diffusion assets for {timestamp}!")
