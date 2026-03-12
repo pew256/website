@@ -20,9 +20,14 @@ def main():
     
     # Paths
     shares_dir = os.path.join(os.getcwd(), "assets/shares")
+    journal_dir = os.path.join(os.getcwd(), "assets/journal")
     os.makedirs(shares_dir, exist_ok=True)
+    os.makedirs(journal_dir, exist_ok=True)
     
-    capture_4k = os.path.join(shares_dir, f"{target_id}_4k.png")
+    capture_4k = os.path.join(journal_dir, f"{target_id}_temp_4k.png")
+    out_natural = os.path.join(journal_dir, f"{target_id}_natural.png")
+    out_square_raw = os.path.join(journal_dir, f"{target_id}_square.png")
+    
     out_landscape = os.path.join(shares_dir, f"{target_id}_og.png")
     out_twitter = os.path.join(shares_dir, f"{target_id}_twitter.png")
     out_square = os.path.join(shares_dir, f"{target_id}_square.png")
@@ -116,6 +121,10 @@ def main():
             except Exception as e:
                 print(f"Failed to apply watermark: {e}")
 
+            # Save Raw Natural Journal Asset
+            img.save(out_natural)
+            print(f"Saved Raw Natural Asset: {out_natural}")
+
             # Landscape (1200x630 - OG/LinkedIn/WhatsApp)
             land_img = img.copy()
             ratio = 1200 / float(img.width)
@@ -129,13 +138,14 @@ def main():
             twitter_img.save(out_twitter)
             print(f"Saved Twitter Summary (1200x675): {out_twitter}")
 
-            # Square
+            # Square (for both Journal Raw and WeChat Diffusion)
             sq_img = img.copy()
             ratio_sq = 1080 / float(img.height) # fits height to 1080
             sq_img = sq_img.resize((int(img.width * ratio_sq), 1080), Image.Resampling.LANCZOS)
             sq_crop = crop_center(sq_img, 1080, 1080)
+            sq_crop.save(out_square_raw)
             sq_crop.save(out_square)
-            print(f"Saved Square (1080x1080): {out_square}")
+            print(f"Saved Square Raw and Diffusion (1080x1080): {out_square}")
 
             # Vertical
             vert_img = Image.new("RGB", (1080, 1920), (15, 23, 42)) # Matches page bg
@@ -143,6 +153,10 @@ def main():
             vert_img.paste(sq_crop, offset)
             vert_img.save(out_vertical)
             print(f"Saved Vertical (1080x1920): {out_vertical}")
+
+        # Clean up huge 50MB temp file 
+        if os.path.exists(capture_4k):
+            os.remove(capture_4k)
 
     except Exception as e:
         print(f"Image processing failed: {e}")

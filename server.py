@@ -617,7 +617,7 @@ class AdminServer(SimpleHTTPRequestHandler):
 
             # Git operations
             try:
-                subprocess.run("git add assets/published_journal.json insights/ assets/shares/", shell=True, check=True)
+                subprocess.run("git add assets/published_journal.json insights/ assets/shares/ assets/journal/", shell=True, check=True)
                 subprocess.run("git commit -m 'Auto-publish insight to Journal'", shell=True, check=True)
                 subprocess.run("git push -u origin main", shell=True, check=True)
             except Exception as e:
