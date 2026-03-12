@@ -6,3 +6,4 @@ server.log
 data/
 briefings/
 journal/draft-*
+.env

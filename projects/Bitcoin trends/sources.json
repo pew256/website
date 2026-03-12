@@ -1,0 +1,17 @@
+{
+  "twitter_profiles": [
+    "@blockstream",
+    "@coindesk",
+    "@cointelegraph",
+    "@MicroStrategy"
+  ],
+  "twitter_lists": [],
+  "web_crawls": [
+    "https://www.coindesk.com/policy/2026/03/11/sec-cftc-end-years-of-rivalry-with-deal-that-will-mean-combined-crypto-oversight"
+  ],
+  "rss_feeds": [
+    "https://bitcoincore.org/en/releasesrss.xml",
+    "https://bitcoincore.org/en/rss.xml"
+  ],
+  "mailing_lists": []
+}
