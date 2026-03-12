@@ -24,6 +24,7 @@ def main():
     
     capture_4k = os.path.join(shares_dir, f"{target_id}_4k.png")
     out_landscape = os.path.join(shares_dir, f"{target_id}_og.png")
+    out_twitter = os.path.join(shares_dir, f"{target_id}_twitter.png")
     out_square = os.path.join(shares_dir, f"{target_id}_square.png")
     out_vertical = os.path.join(shares_dir, f"{target_id}_vertical.png")
 
@@ -90,17 +91,18 @@ def main():
 
     try:
         with Image.open(capture_4k) as img:
-            # Landscape
+            # Landscape (1200x630 - OG/LinkedIn/WhatsApp)
             land_img = img.copy()
-            land_img.thumbnail((3840, 1200), Image.Resampling.LANCZOS)
-            # If thumbnail makes it width 1200, height is ~675. 
-            # Or if it makes height 1200, width is 2133.
-            # We want to crop to 1200x630. Let's just resize to 1200 width, then crop 630 height.
             ratio = 1200 / float(img.width)
-            land_img = img.resize((1200, int(img.height * ratio)), Image.Resampling.LANCZOS)
-            land_img = crop_center(land_img, 1200, 630)
-            land_img.save(out_landscape)
+            land_img = land_img.resize((1200, int(img.height * ratio)), Image.Resampling.LANCZOS)
+            land_img_og = crop_center(land_img, 1200, 630)
+            land_img_og.save(out_landscape)
             print(f"Saved Landscape (1200x630): {out_landscape}")
+            
+            # Twitter (1200x675 - 16:9)
+            twitter_img = crop_center(land_img, 1200, 675)
+            twitter_img.save(out_twitter)
+            print(f"Saved Twitter Summary (1200x675): {out_twitter}")
 
             # Square
             sq_img = img.copy()
