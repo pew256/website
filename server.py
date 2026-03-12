@@ -319,6 +319,12 @@ class AdminServer(SimpleHTTPRequestHandler):
                                     print(f"Failed to generate OG image on edit: {e}")
                                 break
                                 
+                try:
+                    import subprocess
+                    subprocess.Popen(["python3", "scripts/generate_diffusion_assets.py", "--id", str(timestamp), "--project", project_name])
+                except Exception as e:
+                    print(f"Failed to generate diffusion assets on edit: {e}")
+                    
                 self.send_response(200)
                 self.end_headers()
                 self.wfile.write(b'{"status":"success"}')
@@ -611,7 +617,7 @@ class AdminServer(SimpleHTTPRequestHandler):
             if published_takes and published_takes != 'none':
                 try:
                     import subprocess
-                    subprocess.Popen(["python3", "scripts/generate_diffusion_assets.py", "--id", target_img_prefix])
+                    subprocess.Popen(["python3", "scripts/generate_diffusion_assets.py", "--id", str(timestamp), "--project", project_name, "--mode", published_takes])
                 except Exception as e:
                     print(f"Failed to generate diffusion assets: {e}")
 
