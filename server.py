@@ -557,7 +557,7 @@ class AdminServer(SimpleHTTPRequestHandler):
                 }
                 
                 for plat, img_suffix in platforms.items():
-                    plat_html_path = os.path.join(insights_dir, f"{plat}-{timestamp}.html")
+                    plat_html_path = os.path.join(insights_dir, f"{plat}-{target_img_prefix}.html")
                     static_html = f'''<!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns#">
 <head>
@@ -569,7 +569,7 @@ class AdminServer(SimpleHTTPRequestHandler):
     <meta property="og:title" content="{subject} | pew256">
     <meta property="og:description" content="{dynamic_desc.replace('"', '&quot;')}">
     <meta property="og:image" content="https://pew256.com/assets/shares/{img_suffix}">
-    <meta property="og:url" content="https://pew256.com/insights/{plat}-{timestamp}.html">
+    <meta property="og:url" content="https://pew256.com/insights/{plat}-{target_img_prefix}.html">
     <meta property="og:type" content="article">
     
     <!-- Twitter -->
@@ -585,13 +585,10 @@ class AdminServer(SimpleHTTPRequestHandler):
             window.location.replace('https://pew256.com/');
         }}, 2500);
     </script>
-    <noscript>
-        <meta http-equiv="refresh" content="0;url=https://pew256.com/index.html#{target_img_prefix}">
-    </noscript>
 </head>
 <body>
-    <p>Redirecting to the journal... <a href="https://pew256.com/index.html#{target_img_prefix}">Click here if not redirected automatically.</a></p>
-    <p>If the insight is no longer available, <a href="https://pew256.com/">return to the pew256.com homepage</a>.</p>
+    <p>Redirecting to the journal...</p>
+    <p>If you are not redirected automatically, <a href="https://pew256.com/index.html#{target_img_prefix}">click here to read the insight</a>.</p>
 </body>
 </html>'''
                     with open(plat_html_path, "w") as f:
@@ -609,6 +606,14 @@ class AdminServer(SimpleHTTPRequestHandler):
 
             with open(pub_file, "w") as f:
                 json.dump(pub_data, f, indent=2)
+
+            # Generate diffusion assets (4K, Square, Vertical, Twitter, OG) organically
+            if published_takes and published_takes != 'none':
+                try:
+                    import subprocess
+                    subprocess.Popen(["python3", "scripts/generate_diffusion_assets.py", "--id", target_img_prefix])
+                except Exception as e:
+                    print(f"Failed to generate diffusion assets: {e}")
 
             # Git operations
             try:
