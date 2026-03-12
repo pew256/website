@@ -107,14 +107,7 @@ def generate_html(formatted_date, project, subject, bull, bear, mode, is_square=
         </div>
         """
         
-    square_css = """
-        aspect-ratio: 1 / 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        max-width: 800px;
-        min-height: 800px;
-    """ if is_square else "max-width: 900px;"
+    square_css = "max-width: 650px;" if is_square else "max-width: 900px;"
 
     return f"""
     <!DOCTYPE html>
