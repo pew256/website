@@ -1,13 +1,5 @@
 [
   {
-    "timestamp": "20260312_130026",
-    "project": "News",
-    "subject": "Oil Release Flops: Crisis Is Deeper",
-    "bull_case": "The unprecedented release of 400 million barrels of oil reserves, intended to stabilize markets post-Iran conflict, has conspicuously failed to prevent oil prices from surging over 7%. This stark inefficiency signals that market anxieties are rooted deeper than immediate supply disruptions. It exposes a fundamental doubt in the efficacy of traditional interventions and highlights persistent underlying supply-demand imbalances, suggesting the crisis is structural, not merely event-driven.",
-    "bear_case": "Public discourse fixates on the \"Iran war\" as the sole driver of looming inflation and food price shocks. While conflict exacerbates costs, this narrative conveniently overlooks pre-existing global inflationary pressures and fragile supply chains. The \"war\" provides a convenient, visible scapegoat for economic woes that were already brewing, potentially distracting from long-term systemic vulnerabilities that require deeper, non-military policy interventions.",
-    "published_takes": "both"
-  },
-  {
     "timestamp": "20260312_145429",
     "project": "Bitcoin trends",
     "subject": "Unified Regulation: Chokehold, Not Clarity",
@@ -32,11 +24,11 @@
     "published_takes": "bull"
   },
   {
-    "timestamp": "20260312_013456",
-    "project": "Bitcoin trends",
-    "subject": "Custody, Not Price: Cryptos Real War",
-    "bull_case": "Ignore the retail hype around Bitcoin reaching 20 million mined or macro price predictions. The true institutional signal is the aggressive integration of open-source hardware (like Blockstream Jade) into collaborative custody vaults. As regulatory friction increases, holding keys collaboratively is becoming more important than just holding the asset itself.",
-    "bear_case": "Contrary to the belief that traditional finance will simply adopt Bitcoin, moves like Wells Fargo's trademark for \"WFUSD\" indicate an impending battle between permissioned bank-issued stablecoins and permissionless transfer networks. Institutions are building closed-loop systems to combat capital flight to open networks like Ripple's expanding APAC infrastructure.",
-    "published_takes": "bull"
+    "timestamp": "20260312_130026",
+    "project": "News",
+    "subject": "Oil Release Flops: Crisis Is Deeper",
+    "bull_case": "The unprecedented release of 400 million barrels of oil reserves, intended to stabilize markets post-Iran conflict, has conspicuously failed to prevent oil prices from surging over 7%. This stark inefficiency signals that market anxieties are rooted deeper than immediate supply disruptions. It exposes a fundamental doubt in the efficacy of traditional interventions and highlights persistent underlying supply-demand imbalances, suggesting the crisis is structural, not merely event-driven.",
+    "bear_case": "Public discourse fixates on the \"Iran war\" as the sole driver of looming inflation and food price shocks. While conflict exacerbates costs, this narrative conveniently overlooks pre-existing global inflationary pressures and fragile supply chains. The \"war\" provides a convenient, visible scapegoat for economic woes that were already brewing, potentially distracting from long-term systemic vulnerabilities that require deeper, non-military policy interventions.",
+    "published_takes": "both"
   }
 ]
