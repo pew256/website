@@ -123,6 +123,12 @@
         .copy-link-btn { background: none; border: none; cursor: pointer; color: #94a3b8; font-size: 1rem; padding: 0.25rem; transition: color 0.2s; display: inline-flex; align-items: center; justify-content: center; }
         .bull-case .copy-link-btn:hover { color: #10b981; }
         .bear-case .copy-link-btn:hover { color: #ef4444; }
+        
+        .share-actions { display: flex; gap: 0.75rem; align-items: center; }
+        .share-btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.75rem; font-weight: 700; text-decoration: none; transition: opacity 0.2s; color: #fff; }
+        .share-btn:hover { opacity: 0.9; }
+        .x-share { background-color: #0f1419; }
+        .in-share { background-color: #0a66c2; }
     </style>
 </head>
 
@@ -923,8 +929,11 @@
                         <div class="journal-header">
                             <h3 class="journal-title">${item.subject}</h3>
                             <div class="journal-meta">
-                                <span>Published: ${formattedDate}</span>
-                                <span>Project: ${item.project}</span>
+                                <span>Published: ${formattedDate} &nbsp;&bull;&nbsp; Project: ${item.project}</span>
+                                <div class="share-actions">
+                                    <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fpew256.com%2Finsights%2F${item.timestamp}.html&text=${encodeURIComponent(item.subject + ' | pew256 Insight')}" target="_blank" rel="noopener noreferrer" class="share-btn x-share">𝕏 Post</a>
+                                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fpew256.com%2Finsights%2F${item.timestamp}.html" target="_blank" rel="noopener noreferrer" class="share-btn in-share">in Share</a>
+                                </div>
                             </div>
                         </div>
                         <div class="journal-content">
