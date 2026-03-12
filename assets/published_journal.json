@@ -12,5 +12,12 @@
     "subject": "Custody, Not Price: Cryptos Real War",
     "bull_case": "Ignore the retail hype around Bitcoin reaching 20 million mined or macro price predictions. The true institutional signal is the aggressive integration of open-source hardware (like Blockstream Jade) into collaborative custody vaults. As regulatory friction increases, holding keys collaboratively is becoming more important than just holding the asset itself.",
     "bear_case": "Contrary to the belief that traditional finance will simply adopt Bitcoin, moves like Wells Fargo's trademark for \"WFUSD\" indicate an impending battle between permissioned bank-issued stablecoins and permissionless transfer networks. Institutions are building closed-loop systems to combat capital flight to open networks like Ripple's expanding APAC infrastructure."
+  },
+  {
+    "timestamp": "20260312_100223",
+    "project": "Bitcoin trends",
+    "subject": "Regulatory Unity: A Centralization Trap",
+    "bull_case": "The SEC and CFTC's joint oversight agreement is a Trojan horse. While framed as resolving \"turf wars\" and providing clarity, it actually consolidates regulatory power, paving the way for a more restrictive, centralized crypto ecosystem. This isn't innovation-friendly regulation; it's a strategic move to bring decentralized assets under direct government control, squeezing out true permissionless innovation under the guise of stability and order.",
+    "bear_case": "Mainstream adoption, exemplified by Wells Fargo's stablecoin exploration and Ripple's expansive licensing drive, signals the corporatization of crypto, not its decentralization. This trend sees traditional finance co-opting blockchain's efficiency for existing structures, creating a controlled, compliant version of digital assets. Far from realizing a permissionless future, this ensures crypto assets remain within the bounds of a surveilled, centralized financial system, betraying their original promise."
   }
 ]
