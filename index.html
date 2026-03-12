@@ -142,11 +142,15 @@
             <a href="index.html" class="logo"><img src="assets/brand-kit/pew256-logo.svg"
                     alt="pew256 logo - Resilient Bridge icon for institutional blockchain infrastructure." width="375"
                     height="75" style="width: 375px; height: auto; max-width: 100%; object-fit: contain;"></a>
-            <div class="nav-links">
+            <div class="nav-links" id="main-nav-links">
                 <a href="#journal" style="color: var(--primary); font-weight: 700;">Journal</a>
                 <a href="about.html">About</a>
                 <a href="#services">Services</a>
-                <a href="admin.html">Dashboard</a>
+                <script>
+                    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                        document.write('<a href="admin.html">Dashboard</a>');
+                    }
+                </script>
                 <a href="#contact" class="nav-btn" onclick="openModal(); return false;">Contact</a>
             </div>
         </div>
