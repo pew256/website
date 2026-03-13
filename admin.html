@@ -1204,28 +1204,26 @@
         }
         
         function navigateToProjectPublish(project, timestamp) {
-            if (confirm("Navigate to the Publish(ed) section to view this insight in detail?")) {
-                window.location.hash = 'card-' + timestamp;
-                if (currentProject !== project) {
-                    const select = document.getElementById('project-selector');
-                    if (select) select.value = project;
-                    changeProject(project); 
-                } else {
-                    const targetId = 'card-' + timestamp;
-                    const el = document.getElementById(targetId);
-                    if (el) {
-                        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                        el.style.transition = 'box-shadow 0.3s, background-color 0.3s';
-                        el.style.backgroundColor = '#fff';
-                        el.style.boxShadow = '0 0 0 3px rgba(59, 130, 246, 0.3)';
-                        setTimeout(() => {
-                            el.style.backgroundColor = '';
-                            el.style.boxShadow = 'none';
-                        }, 2500);
-                    }
+            window.location.hash = 'card-' + timestamp;
+            if (currentProject !== project) {
+                const select = document.getElementById('project-selector');
+                if (select) select.value = project;
+                changeProject(project); 
+            } else {
+                const targetId = 'card-' + timestamp;
+                const el = document.getElementById(targetId);
+                if (el) {
+                    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    el.style.transition = 'box-shadow 0.3s, background-color 0.3s';
+                    el.style.backgroundColor = '#fff';
+                    el.style.boxShadow = '0 0 0 3px rgba(59, 130, 246, 0.3)';
+                    setTimeout(() => {
+                        el.style.backgroundColor = '';
+                        el.style.boxShadow = 'none';
+                    }, 2500);
                 }
-                switchTab('publish');
             }
+            switchTab('publish');
         }
         
         function renderGlobalDashboard() {
