@@ -162,15 +162,15 @@ def generate_html(formatted_date, project, subject, bull, bear, mode, target_wid
         display: flex;
         flex-direction: column;
         justify-content: center;
-    }}
+        container-type: inline-size;
     }}
     .journal-header {{
         margin-bottom: 2rem;
     }}
     .journal-title {{
-        font-size: 2rem;
+        font-size: clamp(2rem, 5cqi, 3.5rem);
         font-weight: 700;
-        line-height: 1.3;
+        line-height: 1.2;
         color: #506684;
         margin-bottom: 1rem;
         font-family: 'Montserrat', sans-serif;
@@ -180,7 +180,7 @@ def generate_html(formatted_date, project, subject, bull, bear, mode, target_wid
         justify-content: flex-start;
         align-items: center;
         color: #64748b;
-        font-size: 0.95rem;
+        font-size: clamp(0.95rem, 2cqi, 1.2rem);
     }}
     .journal-content {{
         display: grid;
@@ -195,7 +195,7 @@ def generate_html(formatted_date, project, subject, bull, bear, mode, target_wid
         width: 100%;
     }}
     .take-box {{
-        padding: 2.5rem;
+        padding: clamp(1.5rem, 4cqi, 3rem);
         border-radius: 16px;
         border: 1px solid #E2E8F0;
         background: #f8fafc;
@@ -203,6 +203,7 @@ def generate_html(formatted_date, project, subject, bull, bear, mode, target_wid
         display: flex;
         flex-direction: column;
         justify-content: center;
+        container-type: inline-size;
     }}
     .bull-case {{ border-top: 3px solid #10b981; }}
     .bear-case {{ border-top: 3px solid #ef4444; }}
@@ -210,7 +211,7 @@ def generate_html(formatted_date, project, subject, bull, bear, mode, target_wid
 
     .take-box h4 {{
         margin-bottom: 1rem;
-        font-size: 1.1rem;
+        font-size: clamp(1.2rem, 6cqi, 2rem);
         font-family: 'Montserrat', sans-serif;
     }}
     .bull-case h4 {{ color: #10b981; }}
@@ -218,8 +219,8 @@ def generate_html(formatted_date, project, subject, bull, bear, mode, target_wid
     .single-take h4 {{ color: #506684 !important; }}
     .take-box p {{
         color: #334155;
-        line-height: 1.7;
-        font-size: 1.05rem;
+        line-height: 1.6;
+        font-size: clamp(1.05rem, 4.5cqi, 1.8rem);
     }}
     </style>
     </head>
