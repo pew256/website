@@ -1,19 +1,19 @@
 [
   {
-    "timestamp": "20260313_132904",
-    "project": "Bitcoin trends",
-    "subject": "Regulation's Fa\u00e7ade: Freedom's Iron Cage",
-    "bull_case": "While BlackRock's ETH ETF and SEC's tokenized security recommendations are lauded as crypto's mainstream arrival, they signal institutional capture, not liberation. This \"progress\" molds decentralized tech to traditional finance's control mechanisms, prioritizing surveillance-friendly efficiency over genuine financial autonomy. The system welcomes compliant layers while stifling the privacy tools that embody crypto's foundational ethos, creating a veneer of legitimacy over a fundamentally compromised vision.",
-    "bear_case": "While the mainstream narrative celebrates cryptocurrency's growing institutional adoption and technical scaling, the foundational promise of digital sovereignty and privacy is undergoing a severe and intentional assault. The incarceration of Samourai Wallet's developer, Keonne Rodriguez, for building privacy-enhancing software, alongside increasing regulatory clampdowns and sanctions, reveals a stark reality: the state\u2019s power to control and surveil transcends technological advancement. The \"progress\" hailed by ETFs and payment integrations merely masks an escalating war on the very ethos of censorship resistance and individual financial liberty. This apparent paradox\u2014market capitalization soaring while privacy advocates are jailed\u2014is not a sign of maturity but rather the co-option and domestication of a revolutionary technology. Institutions and governments are shaping crypto into a compliant, traceable system, fundamentally at odds with its original cypherpunk vision. The enthusiasm for Layer-2 solutions and mainstream integration blinds many to the chilling effect these state actions have on decentralized innovation and the fundamental right to financial privacy, suggesting that genuine freedom is being sacrificed for perceived legitimacy.",
-    "published_takes": "bear",
-    "pinned": false
-  },
-  {
     "timestamp": "20260313_163926",
     "project": "Bitcoin trends",
     "subject": "Privacy Jailed: Market Gains Are Superficial",
     "bull_case": "The celebrated institutional embrace of crypto, from BlackRock ETFs to CashApp integrations, directly obscures the escalating war on privacy-preserving tools. While Wall Street profits, developers like Samourai Wallet's Keonne Rodriguez are imprisoned for upholding digital sovereignty. This isn't market maturity; it's the co-option of a revolutionary technology, where \"legitimacy\" demands the explicit sacrifice of fundamental individual financial privacy.",
     "bear_case": "Hallo",
+    "published_takes": "bear",
+    "pinned": true
+  },
+  {
+    "timestamp": "20260313_132904",
+    "project": "Bitcoin trends",
+    "subject": "Regulation's Fa\u00e7ade: Freedom's Iron Cage",
+    "bull_case": "While BlackRock's ETH ETF and SEC's tokenized security recommendations are lauded as crypto's mainstream arrival, they signal institutional capture, not liberation. This \"progress\" molds decentralized tech to traditional finance's control mechanisms, prioritizing surveillance-friendly efficiency over genuine financial autonomy. The system welcomes compliant layers while stifling the privacy tools that embody crypto's foundational ethos, creating a veneer of legitimacy over a fundamentally compromised vision.",
+    "bear_case": "While the mainstream narrative celebrates cryptocurrency's growing institutional adoption and technical scaling, the foundational promise of digital sovereignty and privacy is undergoing a severe and intentional assault. The incarceration of Samourai Wallet's developer, Keonne Rodriguez, for building privacy-enhancing software, alongside increasing regulatory clampdowns and sanctions, reveals a stark reality: the state\u2019s power to control and surveil transcends technological advancement. The \"progress\" hailed by ETFs and payment integrations merely masks an escalating war on the very ethos of censorship resistance and individual financial liberty. This apparent paradox\u2014market capitalization soaring while privacy advocates are jailed\u2014is not a sign of maturity but rather the co-option and domestication of a revolutionary technology. Institutions and governments are shaping crypto into a compliant, traceable system, fundamentally at odds with its original cypherpunk vision. The enthusiasm for Layer-2 solutions and mainstream integration blinds many to the chilling effect these state actions have on decentralized innovation and the fundamental right to financial privacy, suggesting that genuine freedom is being sacrificed for perceived legitimacy.",
     "published_takes": "bear",
     "pinned": false
   },
