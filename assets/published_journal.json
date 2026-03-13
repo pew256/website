@@ -38,5 +38,13 @@
     "bull_case": "",
     "bear_case": "",
     "published_takes": "bull"
+  },
+  {
+    "timestamp": "test_fc7fa179",
+    "project": "Bitcoin trends",
+    "subject": "Contrarian Draft",
+    "bull_case": "",
+    "bear_case": "",
+    "published_takes": "bear"
   }
 ]
