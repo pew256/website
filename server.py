@@ -602,7 +602,11 @@ class AdminServer(SimpleHTTPRequestHandler):
     <!-- Platform Specific Image Prioritization -->
 """
                             
-                            # Custom layout optimizations based on platform
+                            # Custom layout optimizations based on platform.
+                            # Different social media platforms have unique, mutually exclusive layout requirements:
+                            # 1. Twitter (tx) strictly expects 'twitter:card' and 'twitter:image' for its 16:9 crop.
+                            # 2. LinkedIn, WhatsApp, WeChat, etc. natively expect standard 'og:image' tags.
+                            # 3. Mixing tags can cause metadata bleeding or fallback errors, so we strictly partition them.
                             if plat == "tx":
                                 html_template += f"""    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{subject} | pew256">
@@ -636,7 +640,11 @@ class AdminServer(SimpleHTTPRequestHandler):
                             with open(f"insights/{plat}-{target_img_prefix}.html", "w") as f:
                                 f.write(html_template)
                                 
-                            # Strict structural validation to prevent regressions during publish
+                            # Strict structural validation to prevent regressions during publish.
+                            # The server explicitly checks the HTML template it just wrote to disk to guarantee 
+                            # that no future developer accidentally removes the mandated platform constraints.
+                            # If a rule is violated, this raises a ValueError causing the server to return 500,
+                            # fundamentally blocking an improperly-tagged proxy file from being pushed to GitHub Pages.
                             if plat == "tx":
                                 if "name=\"twitter:card\"" not in html_template or "name=\"twitter:image\"" not in html_template:
                                     raise ValueError(f"CRITICAL ERROR: Generated Twitter HTML Proxy {plat}-{target_img_prefix}.html is missing strictly required platform tags. Aborting deploy.")

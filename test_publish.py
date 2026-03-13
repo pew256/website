@@ -88,6 +88,9 @@ def test_publish_toggle(target_state):
                     return False
 
                 # Platform specific assertions
+                # These tests guarantee the layout structure is perfectly maintained for bots
+                # 1. Twitter ('tx') proxies must explicitly declare 'twitter:card' and 'twitter:image'
+                # 2. LinkedIn/WhatsApp ('og') proxies must explicitly declare 'property=\"og:image\"'
                 if plat == "tx":
                     if "name=\"twitter:card\"" not in content:
                         print(f"❌ Failed! {html_path} is missing twitter:card meta tag")
