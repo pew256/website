@@ -92,8 +92,83 @@
         input:checked + .toggle-slider { background-color: #10b981; }
         input:checked + .toggle-slider:before { transform: translateX(20px); }
         input:disabled + .toggle-slider { opacity: 0.5; cursor: not-allowed; }
+        
+        /* Dashboard Grid Layout (New) */
+        .dashboard-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; padding: 0.5rem; max-width: 1200px; margin: 0 auto; }
+        .dashboard-card { background: white; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.2s, box-shadow 0.2s; position: relative; cursor: grab; }
+        .dashboard-card:active { cursor: grabbing; }
+        .dashboard-card:hover { transform: translateY(-3px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+        .dashboard-card.sortable-ghost { opacity: 0.4; background: #e2e8f0; }
+        .dashboard-card.pinned { border-top: 3px solid var(--primary); }
+        /* Base utility */
+        .pin-btn { background: none; border: none; font-size: 1.25rem; cursor: pointer; color: #cbd5e1; transition: color 0.2s; padding: 0; }
+        .pin-btn:hover { color: #94a3b8; }
+        .pin-btn.active { color: var(--primary); }
+
+        /* Dashboard Grid Layout (Social Image Style) */
+        .dashboard-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.5rem; padding: 0.5rem; max-width: 1400px; margin: 0 auto; }
+        .dashboard-grid .dashboard-card { background: white; border: 2px solid #e2e8f0; border-radius: 12px; padding: 1.75rem; position: relative; display: flex; flex-direction: column; transition: transform 0.2s, box-shadow 0.2s; cursor: grab; }
+        .dashboard-grid .dashboard-card:hover { transform: translateY(-3px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+        .dashboard-grid .dashboard-card.pinned { border-color: #fef08a; background: #fefce8; }
+        .dashboard-grid .card-image { display: none; } /* Hide image completely in grid, the card *is* the image layout */
+        .dashboard-grid .card-content { display: flex; flex-direction: column; flex: 1; padding: 0; }
+        .dashboard-grid .pin-btn { position: absolute; top: 1rem; right: 1rem; }
+        .dashboard-grid .card-title { font-size: 1.35rem; font-weight: 800; color: #1e3a8a; margin: 0 0 0.25rem 0; line-height: 1.3; padding-right: 2rem; }
+        .dashboard-grid .card-meta { display: flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; color: #64748b; margin-bottom: 1.25rem; }
+        .dashboard-grid .meta-label, .dashboard-grid .card-date, .dashboard-grid .card-tag { font-weight: 500; }
+        .dashboard-grid .meta-dot { font-size: 0.6rem; opacity: 0.5; }
+        .dashboard-grid .meta-badge { display: none; } /* Omit takes badge in grid or place it elsewhere */
+        .dashboard-grid .card-inner-box { border: 1px solid #cbd5e1; border-radius: 12px; padding: 1.5rem; background: #ffffff; color: #334155; margin-bottom: 1rem; flex: 1; display: flex; align-items: flex-start; }
+        .dashboard-grid .card-desc { font-size: 1rem; margin: 0; line-height: 1.6; white-space: pre-wrap; }
+        .dashboard-grid .card-footer { display: flex; justify-content: flex-end; margin-top: auto; padding: 0; border: none; }
+        .dashboard-grid .watermark { font-size: 0.9rem; color: #94a3b8; font-weight: 600; }
+
+        /* Dashboard List Layout (Stacked Inbox Feed Style) */
+        .dashboard-list { display: flex; flex-direction: column; gap: 1rem; padding: 0.5rem; max-width: 1200px; margin: 0 auto; }
+        .dashboard-list .dashboard-card { 
+            background: white; 
+            border: 1px solid var(--border); 
+            border-radius: 8px; 
+            padding: 1rem 1.25rem; 
+            display: flex; 
+            flex-direction: column; 
+            gap: 0.5rem; 
+            transition: background 0.1s; 
+            cursor: pointer; 
+        }
+        .dashboard-list .dashboard-card:hover { background: #f8fafc; }
+        .dashboard-list .dashboard-card.pinned { background: #fefce8; border-color: #fef08a; }
+        
+        .dashboard-list .card-image { width: 42px; height: 42px; min-width: 42px; border-radius: 6px; border: 1px solid var(--border); aspect-ratio: 1/1; object-fit: cover; display: block; margin-bottom: 0.25rem; }
+        
+        /* Omit unneeded elements in list view */
+        .dashboard-list .pin-btn,
+        .dashboard-list .meta-label, 
+        .dashboard-list .meta-dot, 
+        .dashboard-list .card-date,
+        .dashboard-list .meta-badge,
+        .dashboard-list .card-footer,
+        .dashboard-list .card-meta { display: none; }
+        
+        /* Elements stack naturally in column */
+        .dashboard-list .card-content { display: flex; flex-direction: column; gap: 0.25rem; } 
+        .dashboard-list .card-inner-box { display: block; }
+        
+        .dashboard-list .card-tag { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; color: var(--primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; margin-top: 0.25rem; }
+        
+        .dashboard-list .card-title { font-size: 1rem; margin: 0; font-weight: 700; color: #0f172a; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        
+        .dashboard-list .card-desc { font-size: 0.9rem; margin: 0; padding-top: 0.25rem; color: #475569; display: -webkit-box; -webkit-line-clamp: 3; line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.5; }
+        .dashboard-list .card-desc br { display: none; }
+        
+        .dashboard-list .list-age { font-size: 0.8rem; font-weight: 500; color: #94a3b8; display: block; margin-top: 0.5rem; }
+
+        .view-toggle-btn { padding: 0.4rem 0.8rem; background: var(--surface); border: 1px solid var(--border); color: #64748b; font-size: 0.85rem; font-weight: 600; cursor: pointer; border-radius: 4px; transition: 0.2s; }
+        .view-toggle-btn.active { background: #f1f5f9; color: var(--primary); border-color: var(--primary); }
+        .view-toggle-group { display: flex; gap: 0.5rem; }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
 </head>
 <body>
     <div class="sidebar">
@@ -102,30 +177,35 @@
                 <img src="/assets/brand-kit/pew256-logo.svg" alt="pew256 logo" style="height: 38px; width: auto; max-width: 100%; object-fit: contain;">
             </a>
         </div>
-        <div style="padding: 0 1.5rem 1rem 1.5rem; border-bottom: 1px solid var(--border); margin-bottom: 1rem;">
-            <label style="font-size: 0.8rem; color: #64748b; font-weight: 600; text-transform: uppercase;">Project</label>
+        
+        <!-- Project Selector (Moved logically under the Publishing pipeline flow) -->
+        <div id="sidebar-project-selector" style="padding: 1rem 1.5rem 0.5rem 1.5rem; display: block;">
+            <label style="font-size: 0.8rem; color: #64748b; font-weight: 600; text-transform: uppercase;">Active Project</label>
             <div style="display: flex; gap: 0.5rem; margin-top: 0.25rem;">
                 <select id="project-selector" style="flex: 1; padding: 0.4rem; border-radius: 4px; border: 1px solid var(--border); background: var(--surface); color: var(--text);" onchange="changeProject(this.value)">
                     <option value="Bitcoin trends">Bitcoin trends</option>
                 </select>
-                <button onclick="createNewProject()" class="btn btn-primary" style="padding: 0.4rem 0.6rem; min-width: auto; line-height: 1;">+</button>
+                <button onclick="createNewProject()" class="btn btn-primary" style="padding: 0.4rem 0.6rem; min-width: auto; line-height: 1;" title="Create New Project">+</button>
             </div>
         </div>
+
         <ul class="nav-links">
-            <li class="nav-item active" onclick="switchTab('dashboard')" id="tab-dashboard">
-                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+            <li class="nav-item active" onclick="switchTab('global-dashboard')" id="tab-global-dashboard">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
                 Dashboard
             </li>
+            
+            <hr style="border: 0; border-top: 1px solid var(--border); margin: 0.5rem 1.5rem;">
+            <div style="padding: 0.5rem 1.5rem; font-size: 0.75rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em;">Drafting & Publishing</div>
+
+            <li class="nav-item" onclick="switchTab('publish')" id="tab-publish">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                Publish(ed)
+            </li>
             <li class="nav-item" onclick="switchTab('sources')" id="tab-sources">
-                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path></svg>
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
                 Data Sources
             </li>
-            <div id="sources-subnav" style="padding-left: 3.5rem; margin-top: -0.25rem; margin-bottom: 0.5rem; display: flex; flex-direction: column; gap: 0.5rem;">
-                <div style="cursor: pointer; color: #64748b; font-size: 0.85rem; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='#64748b'" onclick="document.getElementById('panel-web').scrollIntoView({behavior: 'smooth'})">Web Crawls</div>
-                <div style="cursor: pointer; color: #64748b; font-size: 0.85rem; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='#64748b'" onclick="document.getElementById('panel-rss').scrollIntoView({behavior: 'smooth'})">RSS Feeds</div>
-                <div style="cursor: pointer; color: #64748b; font-size: 0.85rem; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='#64748b'" onclick="document.getElementById('panel-twitter').scrollIntoView({behavior: 'smooth'})">X Profiles</div>
-                <div style="cursor: pointer; color: #64748b; font-size: 0.85rem; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='#64748b'" onclick="document.getElementById('panel-lists').scrollIntoView({behavior: 'smooth'})">X Lists</div>
-            </div>
             <li class="nav-item" onclick="switchTab('history')" id="tab-history">
                 <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 History & Insights
@@ -135,17 +215,52 @@
 
     <div class="main-content">
         <div class="top-bar">
-            <h2 id="page-title" style="margin: 0; font-size: 1.25rem;">Data Sources</h2>
+            <h2 id="page-title" style="margin: 0; font-size: 1.25rem;">Dashboard</h2>
             <button id="run-engine" class="btn btn-primary btn-high-contrast" onclick="runEngine()">Run Extraction Engine &nbsp; ⚡</button>
         </div>
         
         <div class="content-area">
             <div id="status-msg"></div>
 
-            <!-- DASHBOARD TAB -->
-            <div id="section-dashboard" class="tab-section active">
-                <div class="split-detail" style="border:none; padding: 0; background: transparent;">
+            <!-- GLOBAL DASHBOARD TAB (NEW) -->
+            <div id="section-global-dashboard" class="tab-section active">
+                <div id="global-dashboard-empty" class="empty-state" style="display:none; height: 300px; border: 1px dashed var(--border); border-radius: 8px;">
+                    <svg width="48" height="48" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="margin-bottom:1rem;opacity:0.5;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                    <p>No published insights found across any projects yet.</p>
+                </div>
+                <div id="sidebar-global-search" style="margin-bottom: 2rem; display: block;">
+                    <input type="text" id="dashboard-search" placeholder="Search insights..." onkeyup="filterDashboardGrid()" style="width: 100%; padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border); box-sizing: border-box; font-size: 1rem; margin-bottom: 1rem;">
                     
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: space-between;">
+                        <div style="display: flex; gap: 1rem; flex: 1; min-width: 250px;">
+                            <select id="dashboard-filter" onchange="filterDashboardGrid()" style="flex: 1; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 0.95rem;">
+                                <option value="all">All Projects</option>
+                            </select>
+                            <select id="dashboard-sort" onchange="sortDashboardGrid()" style="flex: 1; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 0.95rem;">
+                                <option value="custom">Custom Order</option>
+                                <option value="newest">Newest First</option>
+                                <option value="oldest">Oldest First</option>
+                            </select>
+                        </div>
+                        <div class="view-toggle-group" style="align-items: center;">
+                            <button class="view-toggle-btn active" id="btn-view-grid" onclick="toggleViewMode('grid')" title="Grid View" style="display:flex; align-items:center; justify-content:center; height: 100%;">
+                                <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+                            </button>
+                            <button class="view-toggle-btn" id="btn-view-list" onclick="toggleViewMode('list')" title="List View" style="display:flex; align-items:center; justify-content:center; height: 100%;">
+                                <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="dashboard-grid" class="dashboard-grid">
+                    <!-- Populated by JS and SortableJS -->
+                </div>
+            </div>
+
+            <!-- PUBLISH(ED) TAB (Formerly Dashboard) -->
+            <div id="section-publish" class="tab-section">
+                    <div id="dashboard-content-area" style="display: none;"></div>
                     <div id="dashboard-empty-state" class="empty-state" style="display:none; height: 300px; border: 1px dashed var(--border); border-radius: 8px;">
                         <svg width="48" height="48" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="margin-bottom:1rem;opacity:0.5;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         <p>No historical takes found for this project. Run the engine to generate insights.</p>
@@ -161,7 +276,6 @@
                     <div id="dashboard-history-feed" style="display: flex; flex-direction: column; gap: 2.5rem;">
                         <!-- JS populated feed -->
                     </div>
-
                 </div>
             </div>
             
@@ -339,23 +453,40 @@
             document.getElementById('history-content-area').style.display = 'none';
             document.getElementById('history-empty-state').style.display = 'flex';
         }        // --- Tab Navigation ---
+        let currentTab = 'global-dashboard';
         function switchTab(tabId) {
+            currentTab = tabId;
             document.querySelectorAll('.tab-section').forEach(el => el.classList.remove('active'));
             document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
             document.getElementById('section-' + tabId).classList.add('active');
             document.getElementById('tab-' + tabId).classList.add('active');
             
-            if (tabId === 'sources') {
-                document.getElementById('sources-subnav').style.display = 'flex';
+            const projectSelector = document.getElementById('sidebar-project-selector');
+            const globalSearch = document.getElementById('sidebar-global-search');
+            const sourcesNav = document.getElementById('sources-subnav');
+            
+            projectSelector.style.display = 'none';
+            if (globalSearch) globalSearch.style.display = 'none';
+            if (sourcesNav) sourcesNav.style.display = 'none';
+            
+            if (tabId === 'global-dashboard') {
+                document.getElementById('page-title').textContent = "Dashboard";
+                globalSearch.style.display = 'block';
+                fetchGlobalDashboard();
+            } else if (tabId === 'publish') {
+                document.getElementById('page-title').textContent = "Publish(ed)";
+                projectSelector.style.display = 'block';
+            } else if (tabId === 'sources') {
                 document.getElementById('page-title').textContent = "Data Sources";
-            } else {
-                document.getElementById('sources-subnav').style.display = 'none';
-                document.getElementById('page-title').textContent = tabId === 'dashboard' ? "Dashboard" : "History & Insights";
+                projectSelector.style.display = 'block';
+                sourcesNav.style.display = 'flex';
+            } else if (tabId === 'history') {
+                document.getElementById('page-title').textContent = "History & Insights";
+                projectSelector.style.display = 'block';
             }
         }
 
         // Initialize state
-        document.getElementById('sources-subnav').style.display = 'none';
         document.getElementById('page-title').textContent = "Dashboard";
 
         // --- Dashboard Logic ---
@@ -376,14 +507,18 @@
                 contentArea.style.display = 'block';
                 emptyState.style.display = 'none';
                 
-                document.getElementById('dashboard-subject').textContent = data.subject || "Contrarian Draft";
-                document.getElementById('dashboard-takes-content').innerHTML = data.atomic_answer || "";
+                const subjEl = document.getElementById('dashboard-subject');
+                const contentEl = document.getElementById('dashboard-takes-content');
+                if(subjEl) subjEl.textContent = data.subject || "Contrarian Draft";
+                if(contentEl) contentEl.innerHTML = data.atomic_answer || "";
                 
                 const extractsDiv = document.getElementById('dashboard-extractions-content');
-                if (data.extractions) {
-                    extractsDiv.innerHTML = formatExtractions(data.extractions);
-                } else {
-                    extractsDiv.innerHTML = '<p style="color:#64748b; font-style: italic;">No current extractions log found. Run the engine to generate fresh extractions.</p>';
+                if (extractsDiv) {
+                    if (data.extractions) {
+                        extractsDiv.innerHTML = formatExtractions(data.extractions);
+                    } else {
+                        extractsDiv.innerHTML = '<p style="color:#64748b; font-style: italic;">No current extractions log found. Run the engine to generate fresh extractions.</p>';
+                    }
                 }
             } catch (e) { console.error('Error fetching dashboard', e); }
         }
@@ -999,7 +1134,251 @@
             return marked.parse(toc + mdText);
         }
 
+        // --- Global Dashboard Logic ---
+        let globalDashboardData = [];
+        let sortableInstance = null;
+        
+        async function fetchGlobalDashboard() {
+            console.log(">>> fetchGlobalDashboard START <<<");
+            try {
+                console.log(">>> BEFORE FETCH <<<");
+                // Wait for the new endpoint to be created in server.py
+                const response = await fetch('/api/dashboard_published');
+                console.log(">>> AFTER FETCH, status: ", response.status);
+                if (!response.ok) return;
+                const data = await response.json();
+                
+                if (data.status === 'success') {
+                    globalDashboardData = data.published;
+                    
+                    // Populate filter dropdown
+                    const projects = new Set(globalDashboardData.map(item => item.project));
+                    const filterSelect = document.getElementById('dashboard-filter');
+                    filterSelect.innerHTML = '<option value="all">All Projects</option>';
+                    Array.from(projects).sort().forEach(p => {
+                        const opt = document.createElement('option');
+                        opt.value = p;
+                        opt.textContent = p;
+                        filterSelect.appendChild(opt);
+                    });
+                    
+                    renderGlobalDashboard();
+                }
+            } catch (e) { console.error('Error fetching global dashboard', e); }
+        }
+        
+        function filterDashboardGrid() {
+            renderGlobalDashboard();
+        }
+        
+        function sortDashboardGrid() {
+            renderGlobalDashboard();
+        }
+        
+        function toggleViewMode(mode) {
+            const grid = document.getElementById('dashboard-grid');
+            document.getElementById('btn-view-grid').classList.remove('active');
+            document.getElementById('btn-view-list').classList.remove('active');
+            
+            if (mode === 'list') {
+                grid.classList.remove('dashboard-grid');
+                grid.classList.add('dashboard-list');
+                document.getElementById('btn-view-list').classList.add('active');
+            } else {
+                grid.classList.remove('dashboard-list');
+                grid.classList.add('dashboard-grid');
+                document.getElementById('btn-view-grid').classList.add('active');
+            }
+        }
+        
+        function navigateToProjectPublish(project, timestamp) {
+            if (confirm("Navigate to the Publish(ed) section to view this insight in detail?")) {
+                window.location.hash = 'card-' + timestamp;
+                if (currentProject !== project) {
+                    const select = document.getElementById('project-selector');
+                    if (select) select.value = project;
+                    changeProject(project); 
+                } else {
+                    const targetId = 'card-' + timestamp;
+                    const el = document.getElementById(targetId);
+                    if (el) {
+                        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        el.style.transition = 'box-shadow 0.3s, background-color 0.3s';
+                        el.style.backgroundColor = '#fff';
+                        el.style.boxShadow = '0 0 0 3px rgba(59, 130, 246, 0.3)';
+                        setTimeout(() => {
+                            el.style.backgroundColor = '';
+                            el.style.boxShadow = 'none';
+                        }, 2500);
+                    }
+                }
+                switchTab('publish');
+            }
+        }
+        
+        function renderGlobalDashboard() {
+            const grid = document.getElementById('dashboard-grid');
+            const emptyState = document.getElementById('global-dashboard-empty');
+            
+            const searchTerm = document.getElementById('dashboard-search').value.toLowerCase();
+            const filterProject = document.getElementById('dashboard-filter').value;
+            const sortMethod = document.getElementById('dashboard-sort').value;
+            
+            let filteredData = globalDashboardData.filter(item => {
+                const matchesSearch = !searchTerm || 
+                    (item.subject && item.subject.toLowerCase().includes(searchTerm)) || 
+                    (item.bull_case && item.bull_case.toLowerCase().includes(searchTerm)) || 
+                    (item.bear_case && item.bear_case.toLowerCase().includes(searchTerm));
+                
+                const matchesProject = filterProject === 'all' || item.project === filterProject;
+                
+                return matchesSearch && matchesProject;
+            });
+            
+            // Note: We only allow manual drag-and-drop if Custom Order is selected and no filters are active
+            const isCustomOrderActive = sortMethod === 'custom' && filterProject === 'all' && !searchTerm;
+            
+            if (sortMethod === 'newest') {
+                // stable sort by timestamp descending
+                filteredData.sort((a, b) => b.timestamp.localeCompare(a.timestamp));
+            } else if (sortMethod === 'oldest') {
+                filteredData.sort((a, b) => a.timestamp.localeCompare(b.timestamp));
+            } else {
+                // Custom order relies entirely on the native JSON array index.
+                // We leave it exactly as-is to allow unconstrained drag-and-drop.
+            }
+            
+            if (filteredData.length === 0) {
+                grid.style.display = 'none';
+                emptyState.style.display = 'flex';
+                return;
+            }
+            
+            grid.style.display = ''; // Let css classes manage display (grid vs flex)
+            emptyState.style.display = 'none';
+            
+            grid.innerHTML = filteredData.map(item => {
+                const imgHash = Date.now(); // cache buster bypass for admin
+                const isPinned = (item.pinned === true) ? 'pinned' : '';
+                const pinActive = (item.pinned === true) ? 'active' : '';
+                
+                let targetImg = `insight-${item.timestamp}_twitter.png`;
+                if (item.published_takes === 'bull') targetImg = `pro-${item.timestamp}_twitter.png`; // Fallback for single take
+                else if (item.published_takes === 'bear') targetImg = `con-${item.timestamp}_twitter.png`;
+                
+                const previewImg = `/assets/shares/${targetImg}?t=${imgHash}`;
+                
+                // Calculate dynamic age (Time if < 24h, otherwise Date)
+                let dynamicAge = '';
+                let parsedDate = null;
+                const ts = item.timestamp;
+                if(ts && ts.length === 15) {
+                    const y = ts.substring(0,4);
+                    const mo = ts.substring(4,6) - 1;
+                    const d = ts.substring(6,8);
+                    const h = ts.substring(9,11);
+                    const min = ts.substring(11,13);
+                    parsedDate = new Date(y, mo, d, h, min);
+                }
+                
+                if (parsedDate) {
+                    const now = new Date();
+                    const diffMs = now - parsedDate;
+                    const diffHours = diffMs / (1000 * 60 * 60);
+                    
+                    if (diffHours < 24 && parsedDate.getDate() === now.getDate() && parsedDate.getMonth() === now.getMonth() && parsedDate.getFullYear() === now.getFullYear()) {
+                        // Today: just show time
+                        dynamicAge = parsedDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                    } else {
+                        // Older: show date
+                        dynamicAge = parsedDate.toLocaleDateString([], { month: 'short', day: 'numeric', year: 'numeric' });
+                    }
+                }
+                
+                const dateGridReadable = formatDateReadable(ts);
+                
+                return `
+                <div class="dashboard-card ${isPinned}" data-id="${item.timestamp}" data-project="${item.project}" onclick="navigateToProjectPublish('${item.project}', '${item.timestamp}')">
+                    <img src="${previewImg}" class="card-image" alt="Preview" onerror="this.src='/assets/brand-kit/pew256-logo.svg'; this.style.objectFit='contain'; this.style.padding='0.5rem';">
+                    
+                    <div class="card-content">
+                        <span class="card-tag">${item.project}</span>
+                        <h3 class="card-title" title="${item.subject || 'Untitiled Insight'}">${item.subject || 'Untitiled Insight'}</h3>
+                        
+                        <div class="card-inner-box">
+                            <p class="card-desc" title="${(!item.published_takes || item.published_takes === 'both' || item.published_takes === 'bull') ? (item.bull_case || '') : ''} ${(!item.published_takes || item.published_takes === 'both' || item.published_takes === 'bear') ? (item.bear_case || '') : ''}">
+                                ${(!item.published_takes || item.published_takes === 'both' || item.published_takes === 'bull') ? (item.bull_case || '') : ''}${(!item.published_takes || item.published_takes === 'both') && item.bull_case && item.bear_case ? '<br><br>' : ''}${(!item.published_takes || item.published_takes === 'both' || item.published_takes === 'bear') ? (item.bear_case || '') : ''}
+                            </p>
+                        </div>
+                        
+                        <!-- List only elements -->
+                        <span class="list-age">${dynamicAge}</span>
+                        
+                        <!-- Grid only elements -->
+                        <div class="card-meta">
+                            <span class="meta-label">Published:</span>
+                            <span class="card-date">${dateGridReadable}</span>
+                            <span class="meta-dot">●</span>
+                            <span class="meta-badge">${item.published_takes === 'both' ? 'Both' : (item.published_takes === 'bull' ? 'Pro' : 'Con')}</span>
+                        </div>
+                        <button class="pin-btn ${pinActive}" onclick="togglePin(event, '${item.timestamp}')" title="${item.pinned ? 'Unpin card' : 'Pin to top of feed'}">📌</button>
+                        <div class="card-footer">
+                            <span class="watermark">Precision in Blockchain</span>
+                        </div>
+                        <!-- End Grid only elements -->
+                    </div>
+                </div>
+                `;
+            }).join('');
+            
+            // Re-initialize SortableJS
+            if (sortableInstance) sortableInstance.destroy();
+            
+            if (isCustomOrderActive) {
+                grid.style.cursor = 'grab';
+                sortableInstance = new Sortable(grid, {
+                    animation: 150,
+                    ghostClass: 'sortable-ghost',
+                    onEnd: async function() {
+                        // Capture the new order array of timestamps visually displayed in DOM
+                        const newOrder = Array.from(grid.children).map(card => card.getAttribute('data-id'));
+                        
+                        try {
+                            const response = await fetch('/api/reorder_published', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({ new_order: newOrder })
+                            });
+                            
+                            if (response.ok) {
+                                // Refresh background data array to match the DOM exactly
+                                await fetchGlobalDashboard();
+                            }
+                        } catch(e) { console.error('Failed to save sort order', e); }
+                    }
+                });
+            } else {
+                grid.style.cursor = 'default';
+            }
+        }
+        
+        async function togglePin(event, timestamp) {
+            event.stopPropagation();
+            try {
+                const response = await fetch('/api/pin_published', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ timestamp })
+                });
+                
+                if (response.ok) {
+                    await fetchGlobalDashboard();
+                }
+            } catch(e) { console.error('Failed to pin item', e); }
+        }
+
         // Init
+        fetchGlobalDashboard();
         fetchProjects().then(() => {
             fetchDashboard();
             fetchSources();
