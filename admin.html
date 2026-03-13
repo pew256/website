@@ -123,23 +123,25 @@
         .dashboard-grid .card-footer { display: flex; justify-content: flex-end; margin-top: auto; padding: 0; border: none; }
         .dashboard-grid .watermark { font-size: 0.9rem; color: #94a3b8; font-weight: 600; }
 
-        /* Dashboard List Layout (Stacked Inbox Feed Style) */
-        .dashboard-list { display: flex; flex-direction: column; gap: 1rem; padding: 0.5rem; max-width: 1200px; margin: 0 auto; }
+        /* Dashboard List Layout (Aligned Table Style) */
+        .dashboard-list { display: flex; flex-direction: column; gap: 0.5rem; padding: 0.5rem; max-width: 1400px; margin: 0 auto; }
         .dashboard-list .dashboard-card { 
-            background: white; 
+            display: grid !important; 
+            grid-template-columns: 42px 140px minmax(200px, 300px) 1fr 100px; 
+            align-items: center; 
+            padding: 0.75rem 1rem; 
+            border-radius: 6px; 
             border: 1px solid var(--border); 
-            border-radius: 8px; 
-            padding: 1rem 1.25rem; 
-            display: flex; 
-            flex-direction: column; 
-            gap: 0.5rem; 
+            background: white; 
+            gap: 1.5rem; 
             transition: background 0.1s; 
             cursor: pointer; 
+            flex-direction: row;
         }
         .dashboard-list .dashboard-card:hover { background: #f8fafc; }
         .dashboard-list .dashboard-card.pinned { background: #fefce8; border-color: #fef08a; }
         
-        .dashboard-list .card-image { width: 42px; height: 42px; min-width: 42px; border-radius: 6px; border: 1px solid var(--border); aspect-ratio: 1/1; object-fit: cover; display: block; margin-bottom: 0.25rem; }
+        .dashboard-list .card-image { width: 42px; height: 42px; min-width: 42px; border-radius: 6px; border: 1px solid var(--border); aspect-ratio: 1/1; object-fit: cover; display: block; }
         
         /* Omit unneeded elements in list view */
         .dashboard-list .pin-btn,
@@ -150,18 +152,17 @@
         .dashboard-list .card-footer,
         .dashboard-list .card-meta { display: none; }
         
-        /* Elements stack naturally in column */
-        .dashboard-list .card-content { display: flex; flex-direction: column; gap: 0.25rem; } 
-        .dashboard-list .card-inner-box { display: block; }
+        /* Unwrap flex containers so child cells sit natively in the parent Grid template */
+        .dashboard-list .grid-content-wrapper { display: contents !important; }
         
-        .dashboard-list .card-tag { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; color: var(--primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; margin-top: 0.25rem; }
+        .dashboard-list .card-tag { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; color: var(--primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; }
         
-        .dashboard-list .card-title { font-size: 1rem; margin: 0; font-weight: 700; color: #0f172a; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .dashboard-list .card-title { font-size: 0.95rem; margin: 0; font-weight: 600; color: #0f172a; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
         
-        .dashboard-list .card-desc { font-size: 0.9rem; margin: 0; padding-top: 0.25rem; color: #475569; display: -webkit-box; -webkit-line-clamp: 3; line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.5; }
+        .dashboard-list .card-desc { font-size: 0.85rem; margin: 0; color: #64748b; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
         .dashboard-list .card-desc br { display: none; }
         
-        .dashboard-list .list-age { font-size: 0.8rem; font-weight: 500; color: #94a3b8; display: block; margin-top: 0.5rem; }
+        .dashboard-list .list-age { font-size: 0.85rem; color: #64748b; white-space: nowrap; text-align: right; }
 
         .view-toggle-btn { padding: 0.4rem 0.8rem; background: var(--surface); border: 1px solid var(--border); color: #64748b; font-size: 0.85rem; font-weight: 600; cursor: pointer; border-radius: 4px; transition: 0.2s; }
         .view-toggle-btn.active { background: #f1f5f9; color: var(--primary); border-color: var(--primary); }
@@ -1301,15 +1302,13 @@
                 <div class="dashboard-card ${isPinned}" data-id="${item.timestamp}" data-project="${item.project}" onclick="navigateToProjectPublish('${item.project}', '${item.timestamp}')">
                     <img src="${previewImg}" class="card-image" alt="Preview" onerror="this.src='/assets/brand-kit/pew256-logo.svg'; this.style.objectFit='contain'; this.style.padding='0.5rem';">
                     
-                    <div class="card-content">
+                    <div class="grid-content-wrapper" style="display: contents;">
                         <span class="card-tag">${item.project}</span>
                         <h3 class="card-title" title="${item.subject || 'Untitiled Insight'}">${item.subject || 'Untitiled Insight'}</h3>
                         
-                        <div class="card-inner-box">
-                            <p class="card-desc" title="${(!item.published_takes || item.published_takes === 'both' || item.published_takes === 'bull') ? (item.bull_case || '') : ''} ${(!item.published_takes || item.published_takes === 'both' || item.published_takes === 'bear') ? (item.bear_case || '') : ''}">
-                                ${(!item.published_takes || item.published_takes === 'both' || item.published_takes === 'bull') ? (item.bull_case || '') : ''}${(!item.published_takes || item.published_takes === 'both') && item.bull_case && item.bear_case ? '<br><br>' : ''}${(!item.published_takes || item.published_takes === 'both' || item.published_takes === 'bear') ? (item.bear_case || '') : ''}
-                            </p>
-                        </div>
+                        <p class="card-desc" title="${(!item.published_takes || item.published_takes === 'both' || item.published_takes === 'bull') ? (item.bull_case || '') : ''} ${(!item.published_takes || item.published_takes === 'both' || item.published_takes === 'bear') ? (item.bear_case || '') : ''}">
+                            ${(!item.published_takes || item.published_takes === 'both' || item.published_takes === 'bull') ? (item.bull_case || '') : ''}${(!item.published_takes || item.published_takes === 'both') && item.bull_case && item.bear_case ? '<br><br>' : ''}${(!item.published_takes || item.published_takes === 'both' || item.published_takes === 'bear') ? (item.bear_case || '') : ''}
+                        </p>
                         
                         <!-- List only elements -->
                         <span class="list-age">${dynamicAge}</span>
