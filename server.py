@@ -635,6 +635,14 @@ class AdminServer(SimpleHTTPRequestHandler):
 </html>"""
                             with open(f"insights/{plat}-{target_img_prefix}.html", "w") as f:
                                 f.write(html_template)
+                                
+                            # Strict structural validation to prevent regressions during publish
+                            if plat == "tx":
+                                if "name=\"twitter:card\"" not in html_template or "name=\"twitter:image\"" not in html_template:
+                                    raise ValueError(f"CRITICAL ERROR: Generated Twitter HTML Proxy {plat}-{target_img_prefix}.html is missing strictly required platform tags. Aborting deploy.")
+                            else:
+                                if "property=\"og:image\"" not in html_template:
+                                    raise ValueError(f"CRITICAL ERROR: Generated Standard HTML Proxy {plat}-{target_img_prefix}.html is missing strictly required property='og:image' tag. Aborting deploy.")
 
             else:
                 # Remove static assets if unpublishing
