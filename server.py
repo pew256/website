@@ -546,6 +546,10 @@ class AdminServer(SimpleHTTPRequestHandler):
                     if len(dynamic_desc.split()) > 60:
                         dynamic_desc = " ".join(dynamic_desc.split()[:55]) + "..."
                     
+                # Save updated active manifest to disk regardless of whether we are publishing or unpublishing
+                with open('assets/published_journal.json', 'w') as f:
+                    json.dump(pub_data, f, indent=2)
+
                 # Generate Platform-Specific Static HTMLs for crawlers
                 platforms = {
                     "x": f"{target_img_prefix}_twitter.png",
@@ -553,9 +557,6 @@ class AdminServer(SimpleHTTPRequestHandler):
                     "ig": f"{target_img_prefix}_vertical.png",
                 }
                 if publish_state_raw is not False and published_takes != 'none':
-                    with open('assets/published_journal.json', 'w') as f:
-                        json.dump(pub_data, f, indent=2)
-                    
                     # Sub-task: Generate Fallback HTML pages for Twitter / social media graph
                     # If a card contains 'both', users can still click the individual 'pro' or 'con' 
                     # share buttons inside it, so we must eagerly generate HTML targets for all three.
@@ -657,10 +658,17 @@ class AdminServer(SimpleHTTPRequestHandler):
                 # Need to remove all possible variants: tx-, og-, wechat-, ig- for each possible target_img_prefix
                 possible_prefixes = [f"insight-{timestamp}", f"pro-{timestamp}", f"con-{timestamp}"]
                 for prefix in possible_prefixes:
+                    # Remove HTML proxies
                     for plat_type in ["tx", "og", "wechat", "ig"]:
                         p_path = os.path.join(insights_dir, f"{plat_type}-{prefix}.html")
                         if os.path.exists(p_path):
                             os.remove(p_path)
+                            
+                    # Remove the screenshot images
+                    for plat_size in ["twitter", "og", "square", "vertical"]:
+                        img_path = os.path.join(os.getcwd(), "assets", "shares", f"{prefix}_{plat_size}.png")
+                        if os.path.exists(img_path):
+                            os.remove(img_path)
                 
                 # Try to remove old fallback
                 old_html = os.path.join(insights_dir, f"{timestamp}.html")
@@ -680,8 +688,8 @@ class AdminServer(SimpleHTTPRequestHandler):
             else:
                 # If unpublishing, perform the git operations immediately since no images need generating
                 try:
-                    subprocess.run("git add assets/published_journal.json insights/", shell=True, check=True)
-                    subprocess.run("git commit -m 'Unpublish insight HTML'", shell=True, check=True)
+                    subprocess.run("git add assets/published_journal.json insights/ assets/shares/", shell=True, check=True)
+                    subprocess.run("git commit -m 'Unpublish insight HTML and delete legacy screenshots'", shell=True, check=True)
                     subprocess.run("git push -u origin main", shell=True, check=True)
                 except Exception as e:
                     print(f"Git HTML unpublish error: {e}")
