@@ -288,6 +288,7 @@ class AdminServer(SimpleHTTPRequestHandler):
                 
                 # Update published_journal.json if it is already published
                 pub_file = "assets/published_journal.json"
+                published_str = "none"
                 if os.path.exists(pub_file):
                     with open(pub_file, "r") as f:
                         pub_data = json.load(f)
@@ -298,17 +299,33 @@ class AdminServer(SimpleHTTPRequestHandler):
                             if req.get('old_subject') != req.get('new_subject'): item["subject"] = req['new_subject']
                             if req.get('old_bull') != req.get('new_bull'): item["bull_case"] = req['new_bull']
                             if req.get('old_bear') != req.get('new_bear'): item["bear_case"] = req['new_bear']
+                            published_str = item.get("published_takes", "none")
                             changed = True
                             
                     if changed:
                         with open(pub_file, "w") as f:
                             json.dump(pub_data, f, indent=2)
                             
-                        # The diffusion asset generator below will handle all OG image creation natively
-                try:
-                    subprocess.Popen(["python3", "scripts/generate_diffusion_assets.py", "--id", str(timestamp), "--project", project_name])
-                except Exception as e:
-                    print(f"Failed to generate diffusion assets on edit: {e}")
+                # If the post is live, editing should trigger an atomic update of images
+                # NOTE: Editing does not currently rewrite the static HTML files since the 
+                # description is mostly truncated text, but it completely regenerates the images.
+                if published_str != "none":
+                    try:
+                        import sys
+                        gen_mode = 'all' if published_str == 'both' else published_str
+                        cmd = f"{sys.executable} scripts/generate_diffusion_assets.py --id {timestamp} --project '{project_name}' --mode {gen_mode} && git add assets/published_journal.json assets/shares/ assets/journal/ && git commit -m 'Auto-publish insight edit' && git push -u origin main"
+                        subprocess.Popen(cmd, shell=True)
+                    except Exception as e:
+                        print(f"Failed to generate diffusion assets on edit: {e}")
+                else:
+                    # If edited as private draft, just push JSON
+                    if changed:
+                        try:
+                            subprocess.run("git add assets/published_journal.json", shell=True, check=True)
+                            subprocess.run("git commit -m 'Edit private draft'", shell=True, check=True)
+                            subprocess.run("git push -u origin main", shell=True, check=True)
+                        except Exception as e:
+                            print(f"Git HTML edit error: {e}")
                     
                 self.send_response(200)
                 self.end_headers()
