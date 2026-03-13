@@ -548,7 +548,6 @@ class AdminServer(SimpleHTTPRequestHandler):
     <meta property="og:title" content="{subject} | pew256">
     <meta property="og:description" content="{dynamic_desc.replace('"', '&quot;')}">
     <meta property="og:image" content="https://pew256.com/assets/shares/{img_suffix}?v={int(time.time())}">
-    <meta property="og:url" content="https://pew256.com/insights/{plat}-{target_img_prefix}.html">
     <meta property="og:type" content="article">
     
     <!-- Twitter -->
