@@ -730,7 +730,7 @@
                                 <span style="color: #64748b; font-size: 0.85rem; white-space: nowrap; margin-left: 1rem;">${date}</span>
                             </div>
                             <div style="display: flex; align-items: center; justify-content: flex-end;">
-                                <button id="revert-btn-${item.timestamp}" onclick="revertDraft('${item.timestamp}', event)" style="display: none; background: #fee2e2; border: 1px solid #fca5a5; padding: 0.25rem 0.75rem; border-radius: 4px; cursor: pointer; font-size: 0.85rem; color: #ef4444; margin-right: 0.5rem; transition: background 0.2s, color 0.2s;">Revert to Default</button>
+                                <button id="revert-btn-${item.timestamp}" onclick="revertDraft('${item.timestamp}', '${item.project}', event)" style="display: none; background: #fee2e2; border: 1px solid #fca5a5; padding: 0.25rem 0.75rem; border-radius: 4px; cursor: pointer; font-size: 0.85rem; color: #ef4444; margin-right: 0.5rem; transition: background 0.2s, color 0.2s;">Revert to Default</button>
                                 <button onclick="toggleEditMode('${item.timestamp}', this, event)" style="background: var(--surface); border: 1px solid var(--border); padding: 0.25rem 0.75rem; border-radius: 4px; cursor: pointer; font-size: 0.85rem; color: #64748b; margin-right: 1rem; transition: background 0.2s, color 0.2s;">Edit</button>
                                 <span id="publish-status-${item.timestamp}" style="font-size: 0.85rem; margin-right: 0.75rem; color: ${(item.published_takes && item.published_takes !== 'none') ? '#10b981' : '#64748b'}; font-weight: 600;">${(item.published_takes && item.published_takes !== 'none') ? 'Published' : 'Private'}</span>
                             </div>
@@ -892,7 +892,7 @@
             }
         }
 
-        function revertDraft(timestamp, event) {
+        function revertDraft(timestamp, project, event) {
             event.stopPropagation();
             if(!confirm("Are you sure you want to revert to the original AI-generated text? This will overwrite your current edits in the fields below.")) return;
             
@@ -904,7 +904,7 @@
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    project: document.getElementById('project-selector').value,
+                    project: project,
                     timestamp: timestamp
                 })
             }).then(r => r.json()).then(data => {
