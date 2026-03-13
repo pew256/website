@@ -149,16 +149,19 @@ def generate_html(formatted_date, project, subject, bull, bear, mode, target_wid
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 50px;
+        padding: 0px; /* Removed outer padding so card fills entirely */
     }}
     .journal-card {{
         background: #FFFFFF;
-        border: 1px solid #E2E8F0;
-        border-radius: 8px;
-        padding: 2.5rem;
-        box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.05);
+        border: 2px solid #E2E8F0;
+        border-radius: 24px; /* increased rounding for sleek corners */
+        padding: 4rem 5rem; /* Massive internal padding since there is no external padding */
+        box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08); /* slightly deepened shadow */
         width: 100%;
-        max-width: {card_max_width};
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }}
     }}
     .journal-header {{
