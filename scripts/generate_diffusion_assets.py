@@ -96,7 +96,7 @@ def fetch_content_for_id(target_id, project):
         
     return timestamp, formatted_date, project, subject, bull, bear
 
-def generate_html(formatted_date, project, subject, bull, bear, mode, is_square=False):
+def generate_html(formatted_date, project, subject, bull, bear, mode, target_width, target_height):
     
     content_class = "single-column" if mode in ['bull', 'bear'] else ""
     bull_html = ""
@@ -122,7 +122,8 @@ def generate_html(formatted_date, project, subject, bull, bear, mode, is_square=
         </div>
         """
         
-    square_css = "max-width: 650px;" if is_square else "max-width: 900px;"
+    # Dynamically size the inner card based on the container aspect ratio
+    card_max_width = "900px" if target_width > target_height else "650px"
 
     return f"""
     <!DOCTYPE html>
@@ -133,14 +134,22 @@ def generate_html(formatted_date, project, subject, bull, bear, mode, is_square=
     <style>
     * {{ box-sizing: border-box; margin: 0; padding: 0; }}
     body {{
-        background: #f8fafc;
-        padding: 50px;
+        background: #000000; /* dark outer for contrast debug */
         display: flex;
-        justify-content: center;
-        align-items: center;
+        justify-content: flex-start;
+        align-items: flex-start;
         min-height: 100vh;
         font-family: 'Lato', -apple-system, sans-serif;
         color: #506684;
+    }}
+    #capture-frame {{
+        width: {target_width}px;
+        height: {target_height}px;
+        background: #f8fafc;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 50px;
     }}
     .journal-card {{
         background: #FFFFFF;
@@ -149,7 +158,8 @@ def generate_html(formatted_date, project, subject, bull, bear, mode, is_square=
         padding: 2.5rem;
         box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.05);
         width: 100%;
-        {square_css}
+        max-width: {card_max_width};
+    }}
     }}
     .journal-header {{
         margin-bottom: 2rem;
@@ -205,19 +215,21 @@ def generate_html(formatted_date, project, subject, bull, bear, mode, is_square=
     </style>
     </head>
     <body>
-        <div class="journal-card" id="card">
-            <div class="journal-header">
-                <h3 class="journal-title">{subject}</h3>
-                <div class="journal-meta">
-                    <span>Published: {formatted_date} &nbsp;&bull;&nbsp; {project}</span>
+        <div id="capture-frame">
+            <div class="journal-card" id="card">
+                <div class="journal-header">
+                    <h3 class="journal-title">{subject}</h3>
+                    <div class="journal-meta">
+                        <span>Published: {formatted_date} &nbsp;&bull;&nbsp; {project}</span>
+                    </div>
                 </div>
-            </div>
-            <div class="journal-content {content_class}">
-                {bull_html}
-                {bear_html}
-            </div>
-            <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #E2E8F0; color: #94a3b8; font-size: 0.95rem; font-weight: 600; font-family: 'Montserrat', sans-serif; text-align: right;">
-                Precision in Blockchain
+                <div class="journal-content {content_class}">
+                    {bull_html}
+                    {bear_html}
+                </div>
+                <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #E2E8F0; color: #94a3b8; font-size: 0.95rem; font-weight: 600; font-family: 'Montserrat', sans-serif; text-align: right;">
+                    Precision in Blockchain
+                </div>
             </div>
         </div>
     </body>
@@ -253,7 +265,7 @@ def apply_diagonal_watermark(base_img):
             base_img.paste(wm, (wm_x, wm_y), wm)
     return base_img
 
-def process_image(timestamp, mode, raw_natural_path, raw_square_path):
+def process_image(timestamp, mode, raw_twitter, raw_og, raw_square, raw_vertical):
     if mode == 'both':
         file_prefix = f"insight-{timestamp}"
     elif mode == 'bull':
@@ -264,12 +276,7 @@ def process_image(timestamp, mode, raw_natural_path, raw_square_path):
         file_prefix = f"{mode}-{timestamp}"
     
     shares_dir = os.path.join(os.getcwd(), "assets/shares")
-    journal_dir = os.path.join(os.getcwd(), "assets/journal")
     os.makedirs(shares_dir, exist_ok=True)
-    os.makedirs(journal_dir, exist_ok=True)
-    
-    out_natural = os.path.join(journal_dir, f"{file_prefix}_natural.png")
-    out_square_raw = os.path.join(journal_dir, f"{file_prefix}_square.png")
     
     out_landscape = os.path.join(shares_dir, f"{file_prefix}_og.png")
     out_twitter = os.path.join(shares_dir, f"{file_prefix}_twitter.png")
@@ -277,39 +284,29 @@ def process_image(timestamp, mode, raw_natural_path, raw_square_path):
     out_vertical = os.path.join(shares_dir, f"{file_prefix}_vertical.png")
 
     try:
-        # 1. Natural Raw Journal Asset
-        with Image.open(raw_natural_path) as img:
+        # 1. Twitter 16:9
+        with Image.open(raw_twitter) as img:
             img = img.convert("RGBA")
-            
-            # Apply diagonal watermark directly to the tightly cropped card
             img = apply_diagonal_watermark(img)
-            img.save(out_natural, "PNG")
+            img.save(out_twitter, "PNG")
 
-        # 2. Square Raw Journal Asset (using the new sq html capture)
-        with Image.open(raw_square_path) as sq_img_raw:
-            square_img = sq_img_raw.convert("RGBA")
+        # 2. LinkedIn / OG 1.91:1
+        with Image.open(raw_og) as img:
+            img = img.convert("RGBA")
+            img = apply_diagonal_watermark(img)
+            img.save(out_landscape, "PNG")
             
-            # Apply diagonal watermark directly to the tightly cropped card
-            square_img = apply_diagonal_watermark(square_img)
-            square_img.save(out_square_raw, "PNG")
-
-            # --- DIFFUSION CROP ASSETS --- #
-            # We want to scale the tightly cropped natural image for landscape social shares, and the square image for square/vertical.
-            # Twitter 16:9 (1200x675) -> letterbox the natural landscape
-            twit_img = fit_contain(img, 1200, 675)
-            twit_img.save(out_twitter, "PNG")
+        # 3. Instagram Square 1:1
+        with Image.open(raw_square) as img:
+            img = img.convert("RGBA")
+            img = apply_diagonal_watermark(img)
+            img.save(out_square, "PNG")
             
-            # LinkedIn / OG 1.91:1 (1200x630) -> letterbox the natural landscape
-            og_img = fit_contain(img, 1200, 630)
-            og_img.save(out_landscape, "PNG")
-            
-            # Instagram Square (1080x1080) -> letterbox the square image
-            ig_sq = fit_contain(square_img, 1080, 1080)
-            ig_sq.save(out_square, "PNG")
-            
-            # Instagram Vertical 9:16 (1080x1920) -> letterbox the square image
-            vert_img = fit_contain(square_img, 1080, 1920)
-            vert_img.save(out_vertical, "PNG")
+        # 4. Instagram Vertical 9:16
+        with Image.open(raw_vertical) as img:
+            img = img.convert("RGBA")
+            img = apply_diagonal_watermark(img)
+            img.save(out_vertical, "PNG")
             
         return True
     except Exception as e:
@@ -339,34 +336,37 @@ def main():
         for mode in modes_to_run:
             print(f"Generating preview for mode: {mode}...")
             
-            # --- 1. Natural Capture ---
-            html_natural = generate_html(formatted_date, project, subject, bull, bear, mode, is_square=False)
-            page.goto("http://localhost:8085/404.html", wait_until="domcontentloaded")
-            page.set_content(html_natural)
-            page.evaluate("document.fonts.ready")
-            page.wait_for_timeout(500)
+            # The 4 specific social platform explicit aspect ratios we need images for
+            platform_sizes = {
+                "twitter": (1200, 675),
+                "og": (1200, 630),
+                "square": (1080, 1080),
+                "vertical": (1080, 1920)
+            }
             
-            card = page.locator("#card")
-            temp_path_nat = os.path.join(os.getcwd(), f"temp_{timestamp}_{mode}_nat.png")
-            card.screenshot(path=temp_path_nat, type="png")
+            temp_paths = {}
+            for plat, (width, height) in platform_sizes.items():
+                print(f" > Rendering exact CSS {width}x{height} capture frame for {plat}...")
+                html_rendered = generate_html(formatted_date, project, subject, bull, bear, mode, target_width=width, target_height=height)
+                
+                # Navigate to blank slate then apply content
+                page.goto("http://localhost:8085/404.html", wait_until="domcontentloaded")
+                page.set_content(html_rendered)
+                page.evaluate("document.fonts.ready")
+                page.wait_for_timeout(500)
+                
+                # Snapshot the wrapper containing the perfect padding natively 
+                frame = page.locator("#capture-frame")
+                temp_paths[plat] = os.path.join(os.getcwd(), f"temp_{timestamp}_{mode}_{plat}.png")
+                frame.screenshot(path=temp_paths[plat], type="png")
             
-            # --- 2. Square Tile Capture ---
-            html_square = generate_html(formatted_date, project, subject, bull, bear, mode, is_square=True)
-            page.set_content(html_square)
-            page.evaluate("document.fonts.ready")
-            page.wait_for_timeout(500)
-            
-            temp_path_sq = os.path.join(os.getcwd(), f"temp_{timestamp}_{mode}_sq.png")
-            card.screenshot(path=temp_path_sq, type="png")
-            
-            print(f"Captured clean screenshots. Watermarking and cropping diffusion assets for {mode}...")
-            process_image(timestamp, mode, temp_path_nat, temp_path_sq)
+            print(f"Captured perfectly dimensioned screenshots. Watermarking and saving assets for {mode}...")
+            process_image(timestamp, mode, temp_paths["twitter"], temp_paths["og"], temp_paths["square"], temp_paths["vertical"])
             
             # Purge temp frames
-            if os.path.exists(temp_path_nat):
-                os.remove(temp_path_nat)
-            if os.path.exists(temp_path_sq):
-                os.remove(temp_path_sq)
+            for path in temp_paths.values():
+                if os.path.exists(path):
+                    os.remove(path)
                 
         browser.close()
         print(f"Successfully generated all raw and diffusion assets for {timestamp}!")
