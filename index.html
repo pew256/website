@@ -1018,13 +1018,14 @@
                 imgPrefix = `pro-${timestamp}`;
             }
             
+            const v = '?v=' + Date.now();
             const urls = {
-                x: encodeURIComponent(base + 'x-' + imgPrefix + '.html'),
-                in: encodeURIComponent(base + 'og-' + imgPrefix + '.html'),
-                wa: encodeURIComponent(base + 'og-' + imgPrefix + '.html'),
-                tg: encodeURIComponent(base + 'og-' + imgPrefix + '.html'),
-                wc: base + 'wechat-' + imgPrefix + '.html',
-                ig: base + 'ig-' + imgPrefix + '.html'
+                x: encodeURIComponent(base + 'x-' + imgPrefix + '.html' + v),
+                in: encodeURIComponent(base + 'og-' + imgPrefix + '.html' + v),
+                wa: encodeURIComponent(base + 'og-' + imgPrefix + '.html' + v),
+                tg: encodeURIComponent(base + 'og-' + imgPrefix + '.html' + v),
+                wc: base + 'wechat-' + imgPrefix + '.html' + v,
+                ig: base + 'ig-' + imgPrefix + '.html' + v
             };
             
             // Truncate quote for preview

@@ -1,6 +1,7 @@
 import json
 import os
 import subprocess
+import time
 from http.server import SimpleHTTPRequestHandler, HTTPServer
 from urllib.parse import urlparse, parse_qs
 
@@ -546,7 +547,7 @@ class AdminServer(SimpleHTTPRequestHandler):
     <!-- OpenGraph / LinkedIn / WeChat / WhatsApp -->
     <meta property="og:title" content="{subject} | pew256">
     <meta property="og:description" content="{dynamic_desc.replace('"', '&quot;')}">
-    <meta property="og:image" content="https://pew256.com/assets/shares/{img_suffix}">
+    <meta property="og:image" content="https://pew256.com/assets/shares/{img_suffix}?v={int(time.time())}">
     <meta property="og:url" content="https://pew256.com/insights/{plat}-{target_img_prefix}.html">
     <meta property="og:type" content="article">
     
@@ -554,7 +555,7 @@ class AdminServer(SimpleHTTPRequestHandler):
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{subject} | pew256">
     <meta name="twitter:description" content="{dynamic_desc.replace('"', '&quot;')}">
-    <meta name="twitter:image" content="https://pew256.com/assets/shares/{img_suffix}">
+    <meta name="twitter:image" content="https://pew256.com/assets/shares/{img_suffix}?v={int(time.time())}">
     
     <script>
         // Redirect human visitors to the correct section of the main app
