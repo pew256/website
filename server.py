@@ -306,7 +306,6 @@ class AdminServer(SimpleHTTPRequestHandler):
                             
                         # The diffusion asset generator below will handle all OG image creation natively
                 try:
-                    import subprocess
                     subprocess.Popen(["python3", "scripts/generate_diffusion_assets.py", "--id", str(timestamp), "--project", project_name])
                 except Exception as e:
                     print(f"Failed to generate diffusion assets on edit: {e}")
@@ -447,9 +446,12 @@ class AdminServer(SimpleHTTPRequestHandler):
             
             # publish_state is now a string: 'bull', 'bear', 'both', or 'none' (or boolean true/false for legacy)
             publish_state_raw = req.get('publish_state')
-            published_takes = req.get('published_takes', 'both')
-            if publish_state_raw is False or published_takes == 'none':
-                published_takes = 'none'
+            if isinstance(publish_state_raw, str):
+                published_takes = publish_state_raw
+            else:
+                published_takes = req.get('published_takes', 'both')
+                if publish_state_raw is False or published_takes == 'none':
+                    published_takes = 'none'
             
             pub_file = "assets/published_journal.json"
             insights_dir = "insights"
@@ -580,6 +582,7 @@ class AdminServer(SimpleHTTPRequestHandler):
     <meta property="og:title" content="{subject} | pew256">
     <meta property="og:description" content="{dynamic_desc.replace('"', '&quot;')}">
     <meta property="og:image" content="https://pew256.com/assets/shares/{actual_image}?v={int(time.time())}">
+    <meta property="og:image" content="https://pew256.com/assets/brand-kit/og_social_preview_1.png">
     <meta property="og:type" content="article">
     
     <!-- Twitter -->
@@ -624,7 +627,6 @@ class AdminServer(SimpleHTTPRequestHandler):
             # Generate diffusion assets (4K, Square, Vertical, Twitter, OG) organically
             if published_takes and published_takes != 'none':
                 try:
-                    import subprocess
                     subprocess.Popen(["python3", "scripts/generate_diffusion_assets.py", "--id", str(timestamp), "--project", project_name, "--mode", published_takes])
                 except Exception as e:
                     print(f"Failed to generate diffusion assets: {e}")

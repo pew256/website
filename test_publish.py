@@ -1,60 +1,117 @@
-import json, os, subprocess, re
+import urllib.request
+import json
+import uuid
+import sys
+import os
+import shutil
 
-project_name = "Bitcoin trends"
-timestamp = "20260312_145429"
-published_takes = "bull"
-pub_file = os.path.join("assets", "published_journal.json")
+URL = "http://localhost:8085/api/publish"
 
-def get_project_dir(name):
-    # Mock
-    return os.path.join("projects", name if name != "default" else "default")
-
-with open(pub_file, "r") as f:
-    pub_data = json.load(f)
-
-pub_data = [item for item in pub_data if str(item.get("timestamp")) != str(timestamp)]
-
-proj_dir = get_project_dir(project_name)
-draft_path = os.path.join(proj_dir, "journal", f"draft-auto-{timestamp}.md")
-subject = "Contrarian Draft"
-bull_case = ""
-bear_case = ""
-
-print(f"draft_path: {draft_path}")
-print(f"exists? {os.path.exists(draft_path)}")
-
-try:
-    with open(draft_path, "r") as f:
-        content = f.read()
-        subject_match = re.search(r'^Subject:\s*(.*)$', content, re.MULTILINE)
-        if subject_match:
-            subject = subject_match.group(1).strip()
+def test_publish_toggle(target_state):
+    print(f"Testing publish toggle with state: '{target_state}'...")
+    
+    dummy_timestamp = "test_" + str(uuid.uuid4())[:8]
+    
+    data = {"project": "Bitcoin trends", "timestamp": dummy_timestamp, "publish_state": target_state}
+    req = urllib.request.Request(URL, method="POST", headers={'Content-Type': 'application/json'}, data=json.dumps(data).encode('utf-8'))
+    
+    try:
+        response = urllib.request.urlopen(req)
+        body = response.read().decode('utf-8')
+        json_resp = json.loads(body)
+        
+        if json_resp.get("status") != "success":
+            print(f"❌ Failed! API error: {json_resp}")
+            return False
             
-        print(f"found subject: {subject}")
-        matches = re.findall(r'> \*\*Atomic Answer:\*\*(.*?)(?=\n\n|\Z)', content, re.DOTALL)
-        if matches and len(matches) >= 2:
-            bull_case = matches[0].strip()
-            bear_case = matches[1].strip()
-        else:
-            ans1 = content.split('**Atomic Answer 1:**', 1)[1].strip().split('\n\n')[0] if '**Atomic Answer 1:**' in content else ''
-            ans2 = content.split('**Atomic Answer 2:**', 1)[1].strip().split('\n\n')[0] if '**Atomic Answer 2:**' in content else ''
-            bull_case = ans1
-            bear_case = ans2
-except Exception as e:
-    print(f"Error: {e}")
+    except Exception as e:
+        print(f"❌ Request failed with error: {e}")
+        return False
 
-print(f"bull_case length: {len(bull_case)}")
+    # VERIFY HTML FILES
+    if target_state == "none":
+        # Ensure no html files are present for this dummy_timestamp
+        if os.path.exists("insights"):
+            for f in os.listdir("insights"):
+                if dummy_timestamp in f:
+                    print(f"❌ Failed! Found {f} but state is none.")
+                    return False
+        print(f"✅ Success! Files properly deleted for 'none'.")
+        return True
 
-pub_data.append({
-    "timestamp": timestamp,
-    "project": project_name,
-    "subject": subject,
-    "bull_case": bull_case,
-    "bear_case": bear_case,
-    "published_takes": published_takes
-})
+    # determine expected file prefixes
+    expected_prefixes = []
+    if target_state == "both":
+        expected_prefixes = [f"insight-{dummy_timestamp}", f"pro-{dummy_timestamp}", f"con-{dummy_timestamp}"]
+    elif target_state == "bull":
+        expected_prefixes = [f"pro-{dummy_timestamp}"]
+    elif target_state == "bear":
+        expected_prefixes = [f"con-{dummy_timestamp}"]
 
-with open("/tmp/test_out.json", "w") as f:
-    json.dump(pub_data, f, indent=2)
+    plat_configs = {"tx": "_twitter.png", "x": "_twitter.png", "og": "_og.png", "wechat": "_square.png", "ig": "_vertical.png"}
 
-print("done")
+    for prefix in expected_prefixes:
+        for plat, suffix in plat_configs.items():
+            html_path = f"insights/{plat}-{prefix}.html"
+            if not os.path.exists(html_path):
+                print(f"❌ Failed! Missing expected HTML file: {html_path}")
+                return False
+                
+            with open(html_path, "r") as f:
+                content = f.read()
+                expected_image = f"{prefix}{suffix}"
+                
+                # Check for primary image from shares/
+                shares_img_idx = content.find(f"https://pew256.com/assets/shares/{expected_image}")
+                if shares_img_idx == -1:
+                    print(f"❌ Failed! {html_path} missing matching image {expected_image}")
+                    return False
+                    
+                # Check for default brand kit image as fallback
+                brand_img_idx = content.find("https://pew256.com/assets/brand-kit/og_social_preview_1.png")
+                if brand_img_idx == -1:
+                    print(f"❌ Failed! {html_path} missing default brand-kit image")
+                    return False
+                    
+                # Ensure shares/ image comes BEFORE brand-kit image (secondary choice)
+                if shares_img_idx > brand_img_idx:
+                    print(f"❌ Failed! {html_path} has incorrect ordering. assets/shares must be the primary (first) og:image, but brand-kit was found first.")
+                    return False
+
+    print(f"✅ Success! HTML files & images generated correctly for '{target_state}'.")
+    return True
+
+if __name__ == "__main__":
+    print("Running Publishing Tests...")
+    print("----------------------------\n")
+    
+    tests = ["bull", "bear", "both", "none"]
+    all_passed = True
+    
+    for state in tests:
+        if not test_publish_toggle(state):
+            all_passed = False
+    
+    print("\n----------------------------")
+    if all_passed:
+        print("🎉 ALL TESTS PASSED! The toggle logic and social images are correct.")
+        
+        # Cleanup dummy files
+        for f in os.listdir("insights"):
+            if "test_" in f:
+                os.remove(os.path.join("insights", f))
+                
+        # Also clean up from published_journal.json
+        try:
+            with open("assets/published_journal.json", "r") as f:
+                data = json.load(f)
+            data = [i for i in data if not str(i.get("timestamp", "")).startswith("test_")]
+            with open("assets/published_journal.json", "w") as f:
+                json.dump(data, f, indent=2)
+        except:
+            pass
+                
+        sys.exit(0)
+    else:
+        print("🚨 SOME TESTS FAILED.")
+        sys.exit(1)

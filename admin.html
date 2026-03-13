@@ -287,6 +287,14 @@
     <script>
         let currentProject = "Bitcoin trends";
 
+        window.addEventListener('beforeunload', function (e) {
+            const modal = document.getElementById('loading-modal');
+            if (modal && modal.style.display === 'flex') {
+                e.preventDefault();
+                e.returnValue = 'The extraction engine is currently running. Leaving this page will interrupt the process. Are you sure you want to leave?';
+            }
+        });
+
         async function fetchProjects() {
             try {
                 const response = await fetch('/api/projects');
@@ -491,7 +499,7 @@
                     status.className = 'success';
                     status.style.display = 'block';
                     await fetchHistory();
-                    switchTab('takes'); // Auto-switch to see results
+                    switchTab('dashboard'); // Auto-switch to see results
                 } else {
                     status.textContent = `Error: ${result.error}`;
                     status.className = 'error';
