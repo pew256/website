@@ -156,7 +156,7 @@ def generate_html(formatted_date, project, subject, bull, bear, mode, target_wid
         background: #FFFFFF;
         border: 2px solid #E2E8F0;
         border-radius: 24px; /* increased rounding for sleek corners */
-        padding: clamp(1rem, 4cqh, 4rem) clamp(2rem, 5cqw, 5rem); /* Dynamic padding to prevent overflow */
+        padding: clamp(0.5rem, 2cqh, 2rem) clamp(1rem, 3cqw, 3rem); /* Minimized padding to maximize usable card space */
         box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08); /* slightly deepened shadow */
         width: 100%;
         height: 100%;
@@ -165,14 +165,14 @@ def generate_html(formatted_date, project, subject, bull, bear, mode, target_wid
         justify-content: center;
     }}
     .journal-header {{
-        margin-bottom: clamp(1rem, 3cqh, 2rem);
+        margin-bottom: clamp(0.5rem, 1.5cqh, 1rem);
     }}
     .journal-title {{
         font-size: clamp(1.5rem, 5cqmin, 3rem);
         font-weight: 700;
         line-height: 1.2;
         color: #506684;
-        margin-bottom: clamp(0.5rem, 1.5cqh, 1rem);
+        margin-bottom: 0.25rem;
         font-family: 'Montserrat', sans-serif;
     }}
     .journal-meta {{
@@ -185,7 +185,7 @@ def generate_html(formatted_date, project, subject, bull, bear, mode, target_wid
     .journal-content {{
         display: grid;
         grid-template-columns: { '1fr' if mode in ['bull', 'bear'] else '1fr 1fr' };
-        gap: clamp(0.5rem, 2cqmin, 1.5rem);
+        gap: clamp(0.5rem, 1.5cqmin, 1rem);
         flex: 1;
         overflow: hidden; /* Prevent spillage if scaling fails */
     }}
@@ -196,7 +196,7 @@ def generate_html(formatted_date, project, subject, bull, bear, mode, target_wid
         width: 100%;
     }}
     .take-box {{
-        padding: clamp(1rem, 3cqh, 2.5rem) clamp(1rem, 3cqw, 2.5rem);
+        padding: clamp(0.75rem, 2cqh, 1.5rem) clamp(0.75rem, 2cqw, 1.5rem);
         border-radius: 16px;
         border: 1px solid #E2E8F0;
         background: #f8fafc;
@@ -252,8 +252,8 @@ def generate_html(formatted_date, project, subject, bull, bear, mode, target_wid
                     let h4 = box.querySelector('h4');
                     if (!p || !h4) return;
                     
-                    let pSize = 2.0; // Start comfortably large (rem)
-                    let h4Size = 2.2;
+                    let pSize = 2.8; // Start comfortably large (rem)
+                    let h4Size = 3.2;
                     p.style.fontSize = pSize + 'rem';
                     h4.style.fontSize = h4Size + 'rem';
                     
