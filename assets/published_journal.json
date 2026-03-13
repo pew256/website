@@ -30,5 +30,29 @@
     "bull_case": "While BlackRock's ETH ETF and SEC's tokenized security recommendations are lauded as crypto's mainstream arrival, they signal institutional capture, not liberation. This \"progress\" molds decentralized tech to traditional finance's control mechanisms, prioritizing surveillance-friendly efficiency over genuine financial autonomy. The system welcomes compliant layers while stifling the privacy tools that embody crypto's foundational ethos, creating a veneer of legitimacy over a fundamentally compromised vision.",
     "bear_case": "okidoki bear",
     "published_takes": "bear"
+  },
+  {
+    "timestamp": "test_f440e37f",
+    "project": "Bitcoin trends",
+    "subject": "Contrarian Draft",
+    "bull_case": "",
+    "bear_case": "",
+    "published_takes": "bull"
+  },
+  {
+    "timestamp": "test_0e524969",
+    "project": "Bitcoin trends",
+    "subject": "Contrarian Draft",
+    "bull_case": "",
+    "bear_case": "",
+    "published_takes": "bear"
+  },
+  {
+    "timestamp": "test_fed34439",
+    "project": "Bitcoin trends",
+    "subject": "Contrarian Draft",
+    "bull_case": "",
+    "bear_case": "",
+    "published_takes": "both"
   }
 ]
