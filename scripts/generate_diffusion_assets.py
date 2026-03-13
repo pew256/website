@@ -246,29 +246,53 @@ def generate_html(formatted_date, project, subject, bull, bear, mode, target_wid
         <script>
             // Native scaling algorithm to guarantee text perfectly fills but never overflows the space
             document.fonts.ready.then(() => {{
+                const card = document.getElementById('card');
+                const captureFrame = document.getElementById('capture-frame');
                 const boxes = document.querySelectorAll('.take-box');
+                
+                // Set initial maximum limits
+                let pSize = 2.8; // Start comfortably large (rem)
+                let h4Size = 3.2;
+                let titleSize = 3.0; // The top H3 subject header
+                
+                const titleEl = document.querySelector('.journal-title');
+                if (titleEl) titleEl.style.fontSize = titleSize + 'rem';
+                
                 boxes.forEach(box => {{
                     let p = box.querySelector('p');
                     let h4 = box.querySelector('h4');
-                    if (!p) return;
                     
-                    let pSize = 2.8; // Start comfortably large (rem)
-                    let h4Size = 3.2;
-                    p.style.fontSize = pSize + 'rem';
+                    if (p) p.style.fontSize = pSize + 'rem';
                     if (h4) h4.style.fontSize = h4Size + 'rem';
-                    
-                    // Iteratively shrink until there is no vertical overflow
-                    while (box.scrollHeight > box.clientHeight && pSize > 0.5) {{
-                        pSize -= 0.05;
-                        p.style.fontSize = pSize + 'rem';
-                        if (h4) {{
-                            h4Size -= 0.05;
-                            h4.style.fontSize = h4Size + 'rem';
-                        }}
-                    }}
                 }});
                 
-                // Signal to Playwright that scaling is complete
+                // Iteratively shrink everything synchronously until NOTHING overflows
+                // Check both the total card overflowing the hardware capture frame AND the internal text overflowing its box
+                function isOverflowing() {{
+                    const cardOverflows = card.scrollHeight > captureFrame.clientHeight || card.clientHeight > captureFrame.clientHeight;
+                    let boxOverflows = false;
+                    boxes.forEach(box => {{
+                        if (box.scrollHeight > box.clientHeight) boxOverflows = true;
+                    }});
+                    return cardOverflows || boxOverflows;
+                }}
+                
+                while (isOverflowing() && pSize > 0.5) {{
+                    pSize -= 0.05;
+                    h4Size -= 0.05;
+                    titleSize -= 0.05;
+                    
+                    if (titleEl && titleSize >= 1.2) titleEl.style.fontSize = titleSize + 'rem';
+                    
+                    boxes.forEach(box => {{
+                        let p = box.querySelector('p');
+                        let h4 = box.querySelector('h4');
+                        if (p) p.style.fontSize = pSize + 'rem';
+                        if (h4) h4.style.fontSize = h4Size + 'rem';
+                    }});
+                }}
+                
+                // Signal to Playwright that scaling is complete safely
                 window.textScalingComplete = true;
             }});
         </script>
