@@ -185,7 +185,7 @@ def generate_html(formatted_date, project, subject, bull, bear, mode, target_wid
     .journal-content {{
         display: grid;
         grid-template-columns: { '1fr' if mode in ['bull', 'bear'] else '1fr 1fr' };
-        gap: clamp(1rem, 3cqmin, 2rem);
+        gap: clamp(0.5rem, 2cqmin, 1.5rem);
         flex: 1;
         overflow: hidden; /* Prevent spillage if scaling fails */
     }}
@@ -204,6 +204,7 @@ def generate_html(formatted_date, project, subject, bull, bear, mode, target_wid
         display: flex;
         flex-direction: column;
         justify-content: center;
+        overflow: hidden;
     }}
     .bull-case {{ border-top: 3px solid #10b981; }}
     .bear-case {{ border-top: 3px solid #ef4444; }}
@@ -211,7 +212,7 @@ def generate_html(formatted_date, project, subject, bull, bear, mode, target_wid
 
     .take-box h4 {{
         margin-bottom: 1rem;
-        font-size: clamp(1.2rem, 6cqi, 2rem);
+        font-size: 1.8rem;
         font-family: 'Montserrat', sans-serif;
     }}
     .bull-case h4 {{ color: #10b981; }}
@@ -220,7 +221,7 @@ def generate_html(formatted_date, project, subject, bull, bear, mode, target_wid
     .take-box p {{
         color: #334155;
         line-height: 1.6;
-        font-size: clamp(1.05rem, 4.5cqi, 1.8rem);
+        font-size: 1.4rem;
     }}
     </style>
     </head>
@@ -242,6 +243,33 @@ def generate_html(formatted_date, project, subject, bull, bear, mode, target_wid
                 </div>
             </div>
         </div>
+        <script>
+            // Native scaling algorithm to guarantee text perfectly fills but never overflows the space
+            document.fonts.ready.then(() => {{
+                const boxes = document.querySelectorAll('.take-box');
+                boxes.forEach(box => {{
+                    let p = box.querySelector('p');
+                    let h4 = box.querySelector('h4');
+                    if (!p || !h4) return;
+                    
+                    let pSize = 2.0; // Start comfortably large (rem)
+                    let h4Size = 2.2;
+                    p.style.fontSize = pSize + 'rem';
+                    h4.style.fontSize = h4Size + 'rem';
+                    
+                    // Iteratively shrink until there is no vertical overflow
+                    while (box.scrollHeight > box.clientHeight && pSize > 0.5) {{
+                        pSize -= 0.05;
+                        h4Size -= 0.05;
+                        p.style.fontSize = pSize + 'rem';
+                        h4.style.fontSize = h4Size + 'rem';
+                    }}
+                }});
+                
+                // Signal to Playwright that scaling is complete
+                window.textScalingComplete = true;
+            }});
+        </script>
     </body>
     </html>
     """
@@ -363,7 +391,10 @@ def main():
                 page.goto("http://localhost:8085/404.html", wait_until="domcontentloaded")
                 page.set_content(html_rendered)
                 page.evaluate("document.fonts.ready")
-                page.wait_for_timeout(500)
+                
+                # Explicitly wait for the JS font-scaling algorithm to finish layout constraints
+                page.wait_for_function("window.textScalingComplete === true", timeout=2000)
+                page.wait_for_timeout(100) # tiny visual flush buffer
                 
                 # Snapshot the wrapper containing the perfect padding natively 
                 frame = page.locator("#capture-frame")
