@@ -629,7 +629,7 @@ class AdminServer(SimpleHTTPRequestHandler):
     
     <script>
         // Redirect human visitors to the correct section of the main app
-        window.location.replace('https://pew256.com/index.html#insight-{timestamp}');
+        window.location.replace('https://pew256.com/index.html#{target_img_prefix}');
         setTimeout(function() {{
             window.location.replace('https://pew256.com/');
         }}, 2500);
@@ -637,7 +637,7 @@ class AdminServer(SimpleHTTPRequestHandler):
 </head>
 <body>
     <p>Redirecting to the journal...</p>
-    <p>If you are not redirected automatically, <a href="https://pew256.com/index.html#insight-{timestamp}">click here to read the insight</a>.</p>
+    <p>If you are not redirected automatically, <a href="https://pew256.com/index.html#{target_img_prefix}">click here to read the insight</a>.</p>
 </body>
 </html>"""
                             with open(f"insights/{plat}-{target_img_prefix}.html", "w") as f:

@@ -119,6 +119,11 @@ def test_publish_toggle(target_state):
                     print(f"❌ Failed! {html_path} has incorrect ordering. assets/shares must be the primary (first) image, but brand-kit was found first.")
                     return False
 
+                # Ensure the redirect anchor is perfectly matched to the specific target resource ID
+                if f"window.location.replace('https://pew256.com/index.html#{prefix}')" not in content:
+                    print(f"❌ Failed! {html_path} redirects to the wrong anchor link (Expected #{prefix})")
+                    return False
+
                 # Platform specific assertions
                 # These tests guarantee the layout structure is perfectly maintained for bots
                 # 1. Twitter ('tx') proxies must explicitly declare 'twitter:card' and 'twitter:image'
