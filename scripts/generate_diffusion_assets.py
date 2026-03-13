@@ -156,7 +156,7 @@ def generate_html(formatted_date, project, subject, bull, bear, mode, is_square=
     }}
     .journal-content {{
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: { '1fr' if mode in ['bull', 'bear'] else '1fr 1fr' };
         gap: 2rem;
     }}
     .single-column {{
@@ -236,8 +236,14 @@ def apply_diagonal_watermark(base_img):
     return base_img
 
 def process_image(timestamp, mode, raw_natural_path, raw_square_path):
-    # Prefix files with mode-timestamp
-    file_prefix = f"insight-{timestamp}" if mode == 'both' else f"{mode}-{timestamp}"
+    if mode == 'both':
+        file_prefix = f"insight-{timestamp}"
+    elif mode == 'bull':
+        file_prefix = f"pro-{timestamp}"
+    elif mode == 'bear':
+        file_prefix = f"con-{timestamp}"
+    else:
+        file_prefix = f"{mode}-{timestamp}"
     
     shares_dir = os.path.join(os.getcwd(), "assets/shares")
     journal_dir = os.path.join(os.getcwd(), "assets/journal")

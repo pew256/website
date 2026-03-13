@@ -446,10 +446,8 @@ class AdminServer(SimpleHTTPRequestHandler):
             
             # publish_state is now a string: 'bull', 'bear', 'both', or 'none' (or boolean true/false for legacy)
             publish_state_raw = req.get('publish_state')
-            published_takes = publish_state_raw
-            if publish_state_raw is True:
-                published_takes = 'both'
-            elif publish_state_raw is False:
+            published_takes = req.get('published_takes', 'both')
+            if publish_state_raw is False or published_takes == 'none':
                 published_takes = 'none'
             
             pub_file = "assets/published_journal.json"
