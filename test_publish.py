@@ -84,8 +84,24 @@ def test_publish_toggle(target_state):
                     
                 # Ensure shares/ image comes BEFORE brand-kit image (secondary choice)
                 if shares_img_idx > brand_img_idx:
-                    print(f"❌ Failed! {html_path} has incorrect ordering. assets/shares must be the primary (first) og:image, but brand-kit was found first.")
+                    print(f"❌ Failed! {html_path} has incorrect ordering. assets/shares must be the primary (first) image, but brand-kit was found first.")
                     return False
+
+                # Platform specific assertions
+                if plat == "tx":
+                    if "name=\"twitter:card\"" not in content:
+                        print(f"❌ Failed! {html_path} is missing twitter:card meta tag")
+                        return False
+                    if "name=\"twitter:image\"" not in content:
+                        print(f"❌ Failed! {html_path} is missing twitter:image meta tag")
+                        return False
+                else:
+                    if "property=\"og:image\"" not in content:
+                        print(f"❌ Failed! {html_path} is missing og:image meta tag")
+                        return False
+                    if "name=\"twitter:image\"" not in content:
+                        print(f"❌ Failed! {html_path} should still contain twitter:image as fallback, but doesn't")
+                        return False
 
     print(f"✅ Success! HTML files & images generated correctly for '{target_state}'.")
     return True
