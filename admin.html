@@ -127,7 +127,7 @@
         .dashboard-list { display: flex; flex-direction: column; gap: 0.5rem; padding: 0.5rem; max-width: 1400px; margin: 0 auto; }
         .dashboard-list .dashboard-card { 
             display: grid !important; 
-            grid-template-columns: 42px 140px minmax(200px, 300px) 1fr 100px; 
+            grid-template-columns: auto 130px minmax(200px, 300px) 1fr 100px; 
             align-items: center; 
             padding: 0.75rem 1rem; 
             border-radius: 6px; 
@@ -141,7 +141,18 @@
         .dashboard-list .dashboard-card:hover { background: #f8fafc; }
         .dashboard-list .dashboard-card.pinned { background: #fefce8; border-color: #fef08a; }
         
-        .dashboard-list .card-image { width: 42px; height: 42px; min-width: 42px; border-radius: 6px; border: 1px solid var(--border); aspect-ratio: 1/1; object-fit: cover; display: block; }
+        .dashboard-list .card-image { 
+            align-self: stretch; 
+            height: auto; 
+            width: auto; 
+            min-height: 70px;
+            max-height: 120px;
+            aspect-ratio: 16/9; 
+            border-radius: 6px; 
+            border: 1px solid var(--border); 
+            object-fit: cover; 
+            display: block; 
+        }
         
         /* Omit unneeded elements in list view */
         .dashboard-list .pin-btn,
@@ -157,9 +168,9 @@
         
         .dashboard-list .card-tag { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; color: var(--primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; }
         
-        .dashboard-list .card-title { font-size: 0.95rem; margin: 0; font-weight: 600; color: #0f172a; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .dashboard-list .card-title { font-size: 1rem; line-height: 1.4; margin: 0; font-weight: 700; color: #0f172a; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
         
-        .dashboard-list .card-desc { font-size: 0.85rem; margin: 0; color: #64748b; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .dashboard-list .card-desc { font-size: 11pt; line-height: 1.5; margin: 0; color: #475569; display: -webkit-box; -webkit-line-clamp: 3; line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
         .dashboard-list .card-desc br { display: none; }
         
         .dashboard-list .list-age { font-size: 0.85rem; color: #64748b; white-space: nowrap; text-align: right; }
