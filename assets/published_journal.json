@@ -1,5 +1,32 @@
 [
   {
+    "timestamp": "test_3ae82602",
+    "project": "Bitcoin trends",
+    "subject": "Contrarian Draft",
+    "bull_case": "",
+    "bear_case": "",
+    "published_takes": "both",
+    "pinned": false
+  },
+  {
+    "timestamp": "test_43e07ef6",
+    "project": "Bitcoin trends",
+    "subject": "Contrarian Draft",
+    "bull_case": "",
+    "bear_case": "",
+    "published_takes": "bear",
+    "pinned": false
+  },
+  {
+    "timestamp": "test_376eaf03",
+    "project": "Bitcoin trends",
+    "subject": "Contrarian Draft",
+    "bull_case": "",
+    "bear_case": "",
+    "published_takes": "bull",
+    "pinned": false
+  },
+  {
     "timestamp": "20260312_130026",
     "project": "News",
     "subject": "Oil Crisis Is Deeper",
