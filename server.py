@@ -621,27 +621,25 @@ class AdminServer(SimpleHTTPRequestHandler):
                 old_html = os.path.join(insights_dir, f"{timestamp}.html")
                 if os.path.exists(old_html): os.remove(old_html)
 
-            with open(pub_file, "w") as f:
-                json.dump(pub_data, f, indent=2)
-
-            # Git operations for the JSON and HTML immediately
-            try:
-                subprocess.run("git add assets/published_journal.json insights/", shell=True, check=True)
-                subprocess.run("git commit -m 'Auto-publish insight HTML'", shell=True, check=True)
-                subprocess.run("git push -u origin main", shell=True, check=True)
-            except Exception as e:
-                print(f"Git HTML error: {e}")
-
             # Generate diffusion assets (4K, Square, Vertical, Twitter, OG) organically
-            # And push them to GitHub once they are done generating!
+            # And push ALL assets (HTML, JSON, Images) to GitHub AT THE SAME TIME once they are done generating!
+            # This prevents Twitter from scraping the HTML before the images are live and permanently caching a 404.
             if published_takes and published_takes != 'none':
                 try:
                     import sys
                     gen_mode = 'all' if published_takes == 'both' else published_takes
-                    cmd = f"{sys.executable} scripts/generate_diffusion_assets.py --id {timestamp} --project '{project_name}' --mode {gen_mode} && git add assets/shares/ assets/journal/ && git commit -m 'Auto-publish insight Images' && git push -u origin main"
+                    cmd = f"{sys.executable} scripts/generate_diffusion_assets.py --id {timestamp} --project '{project_name}' --mode {gen_mode} && git add assets/published_journal.json insights/ assets/shares/ assets/journal/ && git commit -m 'Auto-publish insight HTML and Images atomically' && git push -u origin main"
                     subprocess.Popen(cmd, shell=True)
                 except Exception as e:
                     print(f"Failed to kick off async asset generation: {e}")
+            else:
+                # If unpublishing, perform the git operations immediately since no images need generating
+                try:
+                    subprocess.run("git add assets/published_journal.json insights/", shell=True, check=True)
+                    subprocess.run("git commit -m 'Unpublish insight HTML'", shell=True, check=True)
+                    subprocess.run("git push -u origin main", shell=True, check=True)
+                except Exception as e:
+                    print(f"Git HTML unpublish error: {e}")
 
             self.send_response(200)
             self.end_headers()
