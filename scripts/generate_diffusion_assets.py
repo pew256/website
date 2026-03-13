@@ -250,19 +250,21 @@ def generate_html(formatted_date, project, subject, bull, bear, mode, target_wid
                 boxes.forEach(box => {{
                     let p = box.querySelector('p');
                     let h4 = box.querySelector('h4');
-                    if (!p || !h4) return;
+                    if (!p) return;
                     
                     let pSize = 2.8; // Start comfortably large (rem)
                     let h4Size = 3.2;
                     p.style.fontSize = pSize + 'rem';
-                    h4.style.fontSize = h4Size + 'rem';
+                    if (h4) h4.style.fontSize = h4Size + 'rem';
                     
                     // Iteratively shrink until there is no vertical overflow
                     while (box.scrollHeight > box.clientHeight && pSize > 0.5) {{
                         pSize -= 0.05;
-                        h4Size -= 0.05;
                         p.style.fontSize = pSize + 'rem';
-                        h4.style.fontSize = h4Size + 'rem';
+                        if (h4) {{
+                            h4Size -= 0.05;
+                            h4.style.fontSize = h4Size + 'rem';
+                        }}
                     }}
                 }});
                 
