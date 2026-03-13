@@ -48,7 +48,12 @@ def test_publish_toggle(target_state):
     elif target_state == "bear":
         expected_prefixes = [f"con-{dummy_timestamp}"]
 
-    plat_configs = {"tx": "_twitter.png", "x": "_twitter.png", "og": "_og.png", "wechat": "_square.png", "ig": "_vertical.png"}
+    plat_configs = {
+        "tx": "_twitter.png",
+        "og": "_og.png",
+        "wechat": "_square.png",
+        "ig": "_vertical.png"
+    }
 
     for prefix in expected_prefixes:
         for plat, suffix in plat_configs.items():

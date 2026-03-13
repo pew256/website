@@ -579,7 +579,6 @@ class AdminServer(SimpleHTTPRequestHandler):
                         
                         plat_configs = {
                             "tx": "_twitter.png",
-                            "x": "_twitter.png",
                             "og": "_og.png",
                             "wechat": "_square.png",
                             "ig": "_vertical.png"
@@ -595,18 +594,31 @@ class AdminServer(SimpleHTTPRequestHandler):
     <title>{subject} | pew256 Journal</title>
     <meta name="description" content="{dynamic_desc.replace('"', '&quot;')}">
     
-    <!-- OpenGraph / LinkedIn / WeChat / WhatsApp -->
+    <!-- OpenGraph Shared Context -->
     <meta property="og:title" content="{subject} | pew256">
     <meta property="og:description" content="{dynamic_desc.replace('"', '&quot;')}">
-    <meta property="og:image" content="https://pew256.com/assets/shares/{actual_image}?v={int(time.time())}">
-    <meta property="og:image" content="https://pew256.com/assets/brand-kit/og_social_preview_1.png">
     <meta property="og:type" content="article">
     
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
+    <!-- Platform Specific Image Prioritization -->
+"""
+                            
+                            # Custom layout optimizations based on platform
+                            if plat == "tx":
+                                html_template += f"""    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{subject} | pew256">
     <meta name="twitter:description" content="{dynamic_desc.replace('"', '&quot;')}">
     <meta name="twitter:image" content="https://pew256.com/assets/shares/{actual_image}?v={int(time.time())}">
+    <meta property="og:image" content="https://pew256.com/assets/shares/{actual_image}?v={int(time.time())}">
+"""
+                            else:
+                                # For LinkedIn, TG, Whatsapp, WeChat, IG
+                                html_template += f"""    <meta property="og:image" content="https://pew256.com/assets/shares/{actual_image}?v={int(time.time())}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://pew256.com/assets/shares/{actual_image}?v={int(time.time())}">
+"""
+                            
+                            # Always include the fallback brand-kit image AFTER the primary targeted asset
+                            html_template += f"""    <meta property="og:image" content="https://pew256.com/assets/brand-kit/og_social_preview_1.png">
     
     <script>
         // Redirect human visitors to the correct section of the main app
