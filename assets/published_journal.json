@@ -9,21 +9,21 @@
     "pinned": false
   },
   {
-    "timestamp": "20260312_130026",
-    "project": "News",
-    "subject": "Oil Crisis Is Deeper",
-    "bull_case": "The unprecedented release of 400 million barrels of oil reserves, intended to stabilize markets post-Iran conflict, has conspicuously failed to prevent oil prices from surging over 7%. This stark inefficiency signals that market anxieties are rooted deeper than immediate supply disruptions. It exposes a fundamental doubt in the efficacy of traditional interventions and highlights persistent underlying supply-demand imbalances, suggesting the crisis is structural, not merely event-driven.",
-    "bear_case": "Public discourse fixates on the \"Iran war\" as the sole driver of looming inflation and food price shocks. While conflict exacerbates costs, this narrative conveniently overlooks pre-existing global inflationary pressures and fragile supply chains. The \"war\" provides a convenient, visible scapegoat for economic woes that were already brewing, potentially distracting from long-term systemic vulnerabilities that require deeper, non-military policy interventions.",
-    "published_takes": "both",
-    "pinned": false
-  },
-  {
     "timestamp": "20260313_163926",
     "project": "Bitcoin trends",
     "subject": "Privacy Jailed: Market Gains Are Superficial",
     "bull_case": "The celebrated institutional embrace of crypto, from BlackRock ETFs to CashApp integrations, directly obscures the escalating war on privacy-preserving tools. While Wall Street profits, developers like Samourai Wallet's Keonne Rodriguez are imprisoned for upholding digital sovereignty. This isn't market maturity; it's the co-option of a revolutionary technology, where \"legitimacy\" demands the explicit sacrifice of fundamental individual financial privacy.",
     "bear_case": "Hallo",
     "published_takes": "bear",
+    "pinned": false
+  },
+  {
+    "timestamp": "20260312_130026",
+    "project": "News",
+    "subject": "Oil Crisis Is Deeper",
+    "bull_case": "The unprecedented release of 400 million barrels of oil reserves, intended to stabilize markets post-Iran conflict, has conspicuously failed to prevent oil prices from surging over 7%. This stark inefficiency signals that market anxieties are rooted deeper than immediate supply disruptions. It exposes a fundamental doubt in the efficacy of traditional interventions and highlights persistent underlying supply-demand imbalances, suggesting the crisis is structural, not merely event-driven.",
+    "bear_case": "Public discourse fixates on the \"Iran war\" as the sole driver of looming inflation and food price shocks. While conflict exacerbates costs, this narrative conveniently overlooks pre-existing global inflationary pressures and fragile supply chains. The \"war\" provides a convenient, visible scapegoat for economic woes that were already brewing, potentially distracting from long-term systemic vulnerabilities that require deeper, non-military policy interventions.",
+    "published_takes": "both",
     "pinned": false
   }
 ]
