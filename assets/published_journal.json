@@ -54,5 +54,29 @@
     "bull_case": "",
     "bear_case": "",
     "published_takes": "both"
+  },
+  {
+    "timestamp": "test_34bed4fd",
+    "project": "Bitcoin trends",
+    "subject": "Contrarian Draft",
+    "bull_case": "",
+    "bear_case": "",
+    "published_takes": "bull"
+  },
+  {
+    "timestamp": "test_2548dac3",
+    "project": "Bitcoin trends",
+    "subject": "Contrarian Draft",
+    "bull_case": "",
+    "bear_case": "",
+    "published_takes": "bear"
+  },
+  {
+    "timestamp": "test_f979ee7a",
+    "project": "Bitcoin trends",
+    "subject": "Contrarian Draft",
+    "bull_case": "",
+    "bear_case": "",
+    "published_takes": "both"
   }
 ]
