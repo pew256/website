@@ -63,6 +63,33 @@ async def run_legibility_audit():
             
         print("✅ Space Legibility: The text card maximizes the 100% boundary stretch limit.")
         
+        # RULE 6: Absolute Bounds Enforcement (No Text Clipping Allowed)
+        # We explicitly calculate if any text elements physically overflowed their visible containers
+        # which would cause cut-off text in the final PNG screenshot.
+        overflow_check = await page.evaluate('''() => {
+            const card = document.getElementById('card');
+            const frame = document.getElementById('capture-frame');
+            
+            if (card.scrollHeight > frame.clientHeight || card.clientHeight > frame.clientHeight) {
+                return "Card overflows the physical capture frame boundary!";
+            }
+            
+            const boxes = document.querySelectorAll('.take-box');
+            for (let i = 0; i < boxes.length; i++) {
+                if (boxes[i].scrollHeight > boxes[i].clientHeight) {
+                    return "A take-box has internal vertically clipped text!";
+                }
+            }
+            return "PASS";
+        }''')
+        
+        if overflow_check != "PASS":
+            print(f"❌ FAILURE: Text Clipping Detected -> {overflow_check}")
+            sys.exit(1)
+            
+        print("✅ Overflow Protection: All text fits perfectly within visible hardware boundaries without clipping.")
+
+        
         
         # FINAL COMPUTATION: Legibility Verification
         # Check the font size to ensure it did not shrink past an illegible threshold
