@@ -550,9 +550,6 @@ class AdminServer(SimpleHTTPRequestHandler):
                         targets_to_generate = [(published_takes, f"{mode_prefix}-{timestamp}")]
                         
                     for mode, target_img_prefix in targets_to_generate:
-                        img_suffix = f"{target_img_prefix}_twit.png" # Using _twit.png temporarily in URL for cache debug, actual file on disk is _twitter.png
-                        actual_image = target_img_prefix + "_twitter.png"
-                        
                         # Fetch text payloads for the specific mode
                         if mode == 'both':
                             dynamic_desc = bear_case if bear_case else "Read the latest insights."
@@ -561,7 +558,18 @@ class AdminServer(SimpleHTTPRequestHandler):
                         elif mode == 'bear':
                             dynamic_desc = bear_case if bear_case else "Read the bear case."
                         
-                        html_template = f"""<!DOCTYPE html>
+                        plat_configs = {
+                            "tx": "_twitter.png",
+                            "x": "_twitter.png",
+                            "og": "_og.png",
+                            "wechat": "_square.png",
+                            "ig": "_vertical.png"
+                        }
+                        
+                        for plat, suffix in plat_configs.items():
+                            actual_image = f"{target_img_prefix}{suffix}"
+                            
+                            html_template = f"""<!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns#">
 <head>
     <meta charset="utf-8">
@@ -593,16 +601,8 @@ class AdminServer(SimpleHTTPRequestHandler):
     <p>If you are not redirected automatically, <a href="https://pew256.com/index.html#insight-{timestamp}">click here to read the insight</a>.</p>
 </body>
 </html>"""
-                        with open(f"insights/tx-{target_img_prefix}.html", "w") as f:
-                            f.write(html_template)
-                        with open(f"insights/x-{target_img_prefix}.html", "w") as f:
-                            f.write(html_template)
-                        with open(f"insights/og-{target_img_prefix}.html", "w") as f:
-                            f.write(html_template)
-                        with open(f"insights/wechat-{target_img_prefix}.html", "w") as f:
-                            f.write(html_template)
-                        with open(f"insights/ig-{target_img_prefix}.html", "w") as f:
-                            f.write(html_template)
+                            with open(f"insights/{plat}-{target_img_prefix}.html", "w") as f:
+                                f.write(html_template)
 
             else:
                 # Remove static assets if unpublishing
