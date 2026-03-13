@@ -636,8 +636,9 @@ class AdminServer(SimpleHTTPRequestHandler):
             # And push them to GitHub once they are done generating!
             if published_takes and published_takes != 'none':
                 try:
+                    import sys
                     gen_mode = 'all' if published_takes == 'both' else published_takes
-                    cmd = f"python3 scripts/generate_diffusion_assets.py --id {timestamp} --project '{project_name}' --mode {gen_mode} && git add assets/shares/ assets/journal/ && git commit -m 'Auto-publish insight Images' && git push -u origin main"
+                    cmd = f"{sys.executable} scripts/generate_diffusion_assets.py --id {timestamp} --project '{project_name}' --mode {gen_mode} && git add assets/shares/ assets/journal/ && git commit -m 'Auto-publish insight Images' && git push -u origin main"
                     subprocess.Popen(cmd, shell=True)
                 except Exception as e:
                     print(f"Failed to kick off async asset generation: {e}")
