@@ -108,15 +108,10 @@ def test_publish_toggle(target_state):
                     print(f"❌ Failed! {html_path} missing matching image {expected_image}")
                     return False
                     
-                # Check for default brand kit image as fallback
+                # Ensure the fallback brand kit image is NEVER included to prevent scraper confusion
                 brand_img_idx = content.find("https://pew256.com/assets/brand-kit/og_social_preview_1.png")
-                if brand_img_idx == -1:
-                    print(f"❌ Failed! {html_path} missing default brand-kit image")
-                    return False
-                    
-                # Ensure shares/ image comes BEFORE brand-kit image (secondary choice)
-                if shares_img_idx > brand_img_idx:
-                    print(f"❌ Failed! {html_path} has incorrect ordering. assets/shares must be the primary (first) image, but brand-kit was found first.")
+                if brand_img_idx != -1:
+                    print(f"❌ Failed! {html_path} incorrectly contains the brand-kit image. It must be strictly excluded so crawlers only see the generated asset.")
                     return False
 
                 # Ensure the redirect anchor is perfectly matched to the specific target resource ID

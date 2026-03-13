@@ -238,6 +238,19 @@ class AdminServer(SimpleHTTPRequestHandler):
                 
             self.wfile.write(json.dumps({"status": "success", "history": history}).encode())
 
+        elif parsed_url.path == '/api/dashboard_published':
+            self.send_response(200)
+            self.send_header('Content-type', 'application/json')
+            self.end_headers()
+            
+            try:
+                with open("assets/published_journal.json", "r") as f:
+                    pub_data = json.load(f)
+                    valid_published = [x for x in pub_data if x.get("published_takes", "none") != "none"]
+                    self.wfile.write(json.dumps({"status": "success", "published": valid_published}).encode())
+            except Exception as e:
+                self.wfile.write(json.dumps({"status": "error", "message": str(e)}).encode())
+
         else:
             # Fall back to serving static files (index.html, admin.html, css, etc.)
             super().do_GET()
@@ -523,14 +536,23 @@ class AdminServer(SimpleHTTPRequestHandler):
                 except Exception:
                     pass
                     
-                pub_data.append({
+                new_item = {
                     "timestamp": timestamp,
                     "project": project_name,
                     "subject": subject,
                     "bull_case": bull_case,
                     "bear_case": bear_case,
-                    "published_takes": published_takes
-                })
+                    "published_takes": published_takes,
+                    "pinned": False
+                }
+                
+                # Insert at top (index 0) or right underneath pinned items
+                last_pinned_idx = -1
+                for idx, item in enumerate(pub_data):
+                    if item.get("pinned", False):
+                        last_pinned_idx = idx
+                        
+                pub_data.insert(last_pinned_idx + 1, new_item)
                 
                 # The new Playwright asset generator handles OpenGraph image creation natively (called below)
                 # Determine specific image path to use based on target take
@@ -624,9 +646,8 @@ class AdminServer(SimpleHTTPRequestHandler):
     <meta name="twitter:image" content="https://pew256.com/assets/shares/{actual_image}?v={int(time.time())}">
 """
                             
-                            # Always include the fallback brand-kit image AFTER the primary targeted asset
-                            html_template += f"""    <meta property="og:image" content="https://pew256.com/assets/brand-kit/og_social_preview_1.png">
-    
+                            # Do not include the brand-kit fallback image to ensure scrapers MUST use the targeted asset
+                            html_template += f"""    
     <script>
         // Redirect human visitors to the correct section of the main app
         window.location.replace('https://pew256.com/index.html#{target_img_prefix}');
@@ -745,6 +766,127 @@ class AdminServer(SimpleHTTPRequestHandler):
                     "bull": bull_case,
                     "bear": bear_case
                 }).encode())
+            except Exception as e:
+                self.send_response(500)
+                self.end_headers()
+                self.wfile.write(json.dumps({"status": "error", "message": str(e)}).encode())
+
+
+        elif parsed_url.path == '/api/reorder_published':
+            post_data = self.rfile.read(content_length)
+            if not post_data:
+                self.send_error(400, "Empty payload")
+                return
+                
+            req = json.loads(post_data.decode('utf-8'))
+            new_order = req.get('new_order', [])
+            
+            try:
+                with open("assets/published_journal.json", "r") as f:
+                    pub_data = json.load(f)
+                    
+                # Create a lookup map for existing items
+                item_map = {str(item["timestamp"]): item for item in pub_data}
+                reordered_data = []
+                
+                # Rebuild array safely using the new order
+                for ts in new_order:
+                    if str(ts) in item_map:
+                        reordered_data.append(item_map[str(ts)])
+                        del item_map[str(ts)]
+                        
+                # Append any remaining items that weren't in the new_order request (safety net)
+                for item in item_map.values():
+                    reordered_data.append(item)
+                    
+                with open("assets/published_journal.json", "w") as f:
+                    json.dump(reordered_data, f, indent=2)
+                    
+                # Auto-commit and push the new order to github without blocking the UI
+                def background_auto_push():
+                    try:
+                        subprocess.run("git add assets/published_journal.json", shell=True)
+                        subprocess.run("git commit -m 'Auto-publish: Reordered dashboard feed'", shell=True)
+                        subprocess.run("git push -u origin main", shell=True)
+                    except Exception as e:
+                        print(f"Background git push failed: {e}")
+                
+                import threading
+                threading.Thread(target=background_auto_push).start()
+                    
+                self.send_response(200)
+                self.end_headers()
+                self.wfile.write(json.dumps({"status": "success"}).encode())
+                
+            except Exception as e:
+                self.send_response(500)
+                self.end_headers()
+                self.wfile.write(json.dumps({"status": "error", "message": str(e)}).encode())
+
+        elif parsed_url.path == '/api/pin_published':
+            post_data = self.rfile.read(content_length)
+            if not post_data:
+                self.send_error(400, "Empty payload")
+                return
+                
+            req = json.loads(post_data.decode('utf-8'))
+            target_ts = str(req.get('timestamp'))
+            
+            try:
+                with open("assets/published_journal.json", "r") as f:
+                    pub_data = json.load(f)
+                    
+                target_item = None
+                target_idx = -1
+                
+                for idx, item in enumerate(pub_data):
+                    if str(item.get("timestamp")) == target_ts:
+                        target_item = item
+                        target_idx = idx
+                        break
+                        
+                if target_item:
+                    # Toggle pinning
+                    current_pin_status = target_item.get("pinned", False)
+                    target_item["pinned"] = not current_pin_status
+                    
+                    # Remove from current position
+                    pub_data.pop(target_idx)
+                    
+                    if target_item["pinned"]:
+                        # Move to absolute top
+                        pub_data.insert(0, target_item)
+                    else:
+                        # If unpinning, find the last pinned item and insert right after it
+                        last_pinned_idx = -1
+                        for idx, item in enumerate(pub_data):
+                            if item.get("pinned", False):
+                                last_pinned_idx = idx
+                        
+                        pub_data.insert(last_pinned_idx + 1, target_item)
+                        
+                    with open("assets/published_journal.json", "w") as f:
+                        json.dump(pub_data, f, indent=2)
+                        
+                    def background_auto_push_pin():
+                        try:
+                            subprocess.run("git add assets/published_journal.json", shell=True)
+                            subprocess.run("git commit -m 'Auto-publish: Toggled pinned dashboard item'", shell=True)
+                            subprocess.run("git push -u origin main", shell=True)
+                        except Exception as e:
+                            print(f"Background git push failed: {e}")
+                    
+                    import threading
+                    threading.Thread(target=background_auto_push_pin).start()
+                        
+                    self.send_response(200)
+                    self.end_headers()
+                    self.wfile.write(json.dumps({"status": "success", "pinned": target_item["pinned"]}).encode())
+                else:
+                    self.send_response(404)
+                    self.end_headers()
+                    self.wfile.write(json.dumps({"status": "error", "message": "Item not found"}).encode())
+                    
             except Exception as e:
                 self.send_response(500)
                 self.end_headers()
