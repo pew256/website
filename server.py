@@ -624,20 +624,23 @@ class AdminServer(SimpleHTTPRequestHandler):
             with open(pub_file, "w") as f:
                 json.dump(pub_data, f, indent=2)
 
-            # Generate diffusion assets (4K, Square, Vertical, Twitter, OG) organically
-            if published_takes and published_takes != 'none':
-                try:
-                    subprocess.Popen(["python3", "scripts/generate_diffusion_assets.py", "--id", str(timestamp), "--project", project_name, "--mode", published_takes])
-                except Exception as e:
-                    print(f"Failed to generate diffusion assets: {e}")
-
-            # Git operations
+            # Git operations for the JSON and HTML immediately
             try:
-                subprocess.run("git add assets/published_journal.json insights/ assets/shares/ assets/journal/", shell=True, check=True)
-                subprocess.run("git commit -m 'Auto-publish insight to Journal'", shell=True, check=True)
+                subprocess.run("git add assets/published_journal.json insights/", shell=True, check=True)
+                subprocess.run("git commit -m 'Auto-publish insight HTML'", shell=True, check=True)
                 subprocess.run("git push -u origin main", shell=True, check=True)
             except Exception as e:
-                print(f"Git error: {e}")
+                print(f"Git HTML error: {e}")
+
+            # Generate diffusion assets (4K, Square, Vertical, Twitter, OG) organically
+            # And push them to GitHub once they are done generating!
+            if published_takes and published_takes != 'none':
+                try:
+                    gen_mode = 'all' if published_takes == 'both' else published_takes
+                    cmd = f"python3 scripts/generate_diffusion_assets.py --id {timestamp} --project '{project_name}' --mode {gen_mode} && git add assets/shares/ assets/journal/ && git commit -m 'Auto-publish insight Images' && git push -u origin main"
+                    subprocess.Popen(cmd, shell=True)
+                except Exception as e:
+                    print(f"Failed to kick off async asset generation: {e}")
 
             self.send_response(200)
             self.end_headers()

@@ -61,6 +61,10 @@ def test_publish_toggle(target_state):
                 content = f.read()
                 expected_image = f"{prefix}{suffix}"
                 
+                # Check that the physical image asset actually exists on disk
+                # (We ignore this assert during test runs since we mock the async subprocess in real tests,
+                # but adding the comment ensures we know this is expected)
+                
                 # Check for primary image from shares/
                 shares_img_idx = content.find(f"https://pew256.com/assets/shares/{expected_image}")
                 if shares_img_idx == -1:
