@@ -216,6 +216,9 @@ def generate_html(formatted_date, project, subject, bull, bear, mode, is_square=
                 {bull_html}
                 {bear_html}
             </div>
+            <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #E2E8F0; color: #94a3b8; font-size: 0.95rem; font-weight: 600; font-family: 'Montserrat', sans-serif;">
+                Precision in Blockchain
+            </div>
         </div>
     </body>
     </html>
@@ -238,7 +241,7 @@ def apply_diagonal_watermark(base_img):
             
             # Reduce opacity
             alpha = wm.split()[3]
-            alpha = alpha.point(lambda p: p * 0.08)
+            alpha = alpha.point(lambda p: p * 0.12)
             wm.putalpha(alpha)
             
             # Calculate rotation angle based on image dimensions
@@ -277,37 +280,27 @@ def process_image(timestamp, mode, raw_natural_path, raw_square_path):
         # 1. Natural Raw Journal Asset
         with Image.open(raw_natural_path) as img:
             img = img.convert("RGBA")
-
-            new_width = img.width + 100
-            new_height = img.height + 100
-            padded_img = Image.new("RGBA", (new_width, new_height), (248, 250, 252, 255))
-            padded_img.paste(img, (50, 50), img)
             
-            # Apply diagonal watermark
-            padded_img = apply_diagonal_watermark(padded_img)
-            padded_img.save(out_natural, "PNG")
+            # Apply diagonal watermark directly to the tightly cropped card
+            img = apply_diagonal_watermark(img)
+            img.save(out_natural, "PNG")
 
         # 2. Square Raw Journal Asset (using the new sq html capture)
         with Image.open(raw_square_path) as sq_img_raw:
-            sq_img_raw = sq_img_raw.convert("RGBA")
-            sq_size = max(sq_img_raw.width, sq_img_raw.height) + 100
-            square_img = Image.new("RGBA", (sq_size, sq_size), (248, 250, 252, 255))
-            sq_x = (sq_size - sq_img_raw.width) // 2
-            sq_y = (sq_size - sq_img_raw.height) // 2
-            square_img.paste(sq_img_raw, (sq_x, sq_y), sq_img_raw)
+            square_img = sq_img_raw.convert("RGBA")
             
-            # Apply diagonal watermark
+            # Apply diagonal watermark directly to the tightly cropped card
             square_img = apply_diagonal_watermark(square_img)
             square_img.save(out_square_raw, "PNG")
 
             # --- DIFFUSION CROP ASSETS --- #
-            # We want to scale the natural padded image for landscape social shares, and the square image for square/vertical.
+            # We want to scale the tightly cropped natural image for landscape social shares, and the square image for square/vertical.
             # Twitter 16:9 (1200x675) -> letterbox the natural landscape
-            twit_img = fit_contain(padded_img, 1200, 675)
+            twit_img = fit_contain(img, 1200, 675)
             twit_img.save(out_twitter, "PNG")
             
             # LinkedIn / OG 1.91:1 (1200x630) -> letterbox the natural landscape
-            og_img = fit_contain(padded_img, 1200, 630)
+            og_img = fit_contain(img, 1200, 630)
             og_img.save(out_landscape, "PNG")
             
             # Instagram Square (1080x1080) -> letterbox the square image
