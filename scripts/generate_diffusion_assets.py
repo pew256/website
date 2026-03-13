@@ -104,20 +104,20 @@ def generate_html(formatted_date, project, subject, bull, bear, mode, target_wid
     
     if mode in ['both', 'bull']:
         css_class = "single-take" if mode == 'bull' else "bull-case"
-        title_text = "The Bull Case (Pro)" if mode == 'both' else "The Contrarian Take"
+        bull_header = "<h4>The Bull Case (Pro)</h4>" if mode == 'both' else ""
         bull_html = f"""
         <div class="take-box {css_class}">
-            <h4>{title_text}</h4>
+            {bull_header}
             <p>{bull}</p>
         </div>
         """
         
     if mode in ['both', 'bear']:
         css_class = "single-take" if mode == 'bear' else "bear-case"
-        title_text = "The Bear Case (Con)" if mode == 'both' else "The Contrarian Take"
+        bear_header = "<h4>The Bear Case (Con)</h4>" if mode == 'both' else ""
         bear_html = f"""
         <div class="take-box {css_class}">
-            <h4>{title_text}</h4>
+            {bear_header}
             <p>{bear}</p>
         </div>
         """
