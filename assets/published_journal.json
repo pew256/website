@@ -32,51 +32,11 @@
     "published_takes": "bull"
   },
   {
-    "timestamp": "test_5c6edec2",
+    "timestamp": "test_08dd2a76",
     "project": "Bitcoin trends",
     "subject": "Contrarian Draft",
     "bull_case": "",
     "bear_case": "",
     "published_takes": "bull"
-  },
-  {
-    "timestamp": "test_fc7fa179",
-    "project": "Bitcoin trends",
-    "subject": "Contrarian Draft",
-    "bull_case": "",
-    "bear_case": "",
-    "published_takes": "bear"
-  },
-  {
-    "timestamp": "test_6ad9c691",
-    "project": "Bitcoin trends",
-    "subject": "Contrarian Draft",
-    "bull_case": "",
-    "bear_case": "",
-    "published_takes": "both"
-  },
-  {
-    "timestamp": "test_c06dcb97",
-    "project": "Bitcoin trends",
-    "subject": "Contrarian Draft",
-    "bull_case": "",
-    "bear_case": "",
-    "published_takes": "bull"
-  },
-  {
-    "timestamp": "test_77e6b4dc",
-    "project": "Bitcoin trends",
-    "subject": "Contrarian Draft",
-    "bull_case": "",
-    "bear_case": "",
-    "published_takes": "bear"
-  },
-  {
-    "timestamp": "test_88a817b3",
-    "project": "Bitcoin trends",
-    "subject": "Contrarian Draft",
-    "bull_case": "",
-    "bear_case": "",
-    "published_takes": "both"
   }
 ]
