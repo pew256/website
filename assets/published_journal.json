@@ -16,19 +16,19 @@
     "published_takes": "bull"
   },
   {
-    "timestamp": "20260312_145429",
-    "project": "Bitcoin trends",
-    "subject": "Unified Regulation: Chokehold, Not Clarity",
-    "bull_case": "The SEC and CFTC's \"unified crypto oversight\" isn't a boon for market clarity but a shrewd power play. By coordinating enforcement and approvals, these agencies form a regulatory cartel, effectively building a controlled on-ramp for traditional finance while sidelining decentralized innovation. This consolidation curates rather than unleashes, transforming crypto's disruptive potential into a regulated product for incumbents.",
-    "bear_case": "Papa ou t'es",
-    "published_takes": "both"
-  },
-  {
     "timestamp": "20260312_010304",
     "project": "Bitcoin trends",
     "subject": "On the surface, the narrative is focused on Bitcoin mining m...",
     "bull_case": "While the market is distracted by the 20 millionth Bitcoin mined and new bank stablecoins, smart money is focusing on infrastructural defense. The merge of BIP 360 for quantum resistance indicates a massive shift toward long-term base-layer security hardening, making superficial token narratives irrelevant.",
     "bear_case": "Contrary to consensus regarding simple retail holding strategies, the real inflection point is enterprise-grade security structure. The push for fully open-source hardware integration into 2-of-3 multisig collaborative custody vaults demonstrates that true capital will only deploy where sovereign yet distributed security models exist.",
+    "published_takes": "both"
+  },
+  {
+    "timestamp": "20260312_145429",
+    "project": "Bitcoin trends",
+    "subject": "Unified Regulation: Chokehold, Not Clarity",
+    "bull_case": "The SEC and CFTC's \"unified crypto oversight\" isn't a boon for market clarity but a shrewd power play. By coordinating enforcement and approvals, these agencies form a regulatory cartel, effectively building a controlled on-ramp for traditional finance while sidelining decentralized innovation. This consolidation curates rather than unleashes, transforming crypto's disruptive potential into a regulated product for incumbents.",
+    "bear_case": "Papa ou t'es",
     "published_takes": "both"
   }
 ]
