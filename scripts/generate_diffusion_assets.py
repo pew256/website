@@ -7,12 +7,27 @@ from datetime import datetime
 from playwright.sync_api import sync_playwright
 from PIL import Image, ImageOps
 
-def crop_center(pil_img, crop_width, crop_height):
-    img_width, img_height = pil_img.size
-    return pil_img.crop(((img_width - crop_width) // 2,
-                         (img_height - crop_height) // 2,
-                         (img_width + crop_width) // 2,
-                         (img_height + crop_height) // 2))
+def fit_contain(pil_img, target_width, target_height, bg_color=(248, 250, 252, 255)):
+    # Calculate scale to fit inside target entirely
+    img_ratio = pil_img.width / pil_img.height
+    target_ratio = target_width / target_height
+    
+    if img_ratio > target_ratio:
+        # Fits to width
+        new_w = target_width
+        new_h = int(target_width / img_ratio)
+    else:
+        # Fits to height
+        new_h = target_height
+        new_w = int(target_height * img_ratio)
+        
+    scaled_img = pil_img.resize((new_w, new_h), Image.Resampling.LANCZOS)
+    
+    new_img = Image.new("RGBA", (target_width, target_height), bg_color)
+    paste_x = (target_width - new_w) // 2
+    paste_y = (target_height - new_h) // 2
+    new_img.paste(scaled_img, (paste_x, paste_y), scaled_img)
+    return new_img
 
 def parse_markdown_draft(filepath):
     try:
@@ -223,7 +238,7 @@ def apply_diagonal_watermark(base_img):
             
             # Reduce opacity
             alpha = wm.split()[3]
-            alpha = alpha.point(lambda p: p * 0.04)
+            alpha = alpha.point(lambda p: p * 0.08)
             wm.putalpha(alpha)
             
             # Calculate rotation angle based on image dimensions
@@ -286,29 +301,21 @@ def process_image(timestamp, mode, raw_natural_path, raw_square_path):
             square_img.save(out_square_raw, "PNG")
 
             # --- DIFFUSION CROP ASSETS --- #
-            # Twitter 16:9 (1200x675)
-            twit_img = crop_center(square_img, sq_size, int(sq_size * (675/1200)))
-            twit_img = twit_img.resize((1200, 675), Image.Resampling.LANCZOS)
+            # We want to scale the natural padded image for landscape social shares, and the square image for square/vertical.
+            # Twitter 16:9 (1200x675) -> letterbox the natural landscape
+            twit_img = fit_contain(padded_img, 1200, 675)
             twit_img.save(out_twitter, "PNG")
             
-            # LinkedIn / OG 1.91:1 (1200x630)
-            og_img = crop_center(square_img, sq_size, int(sq_size * (630/1200)))
-            og_img = og_img.resize((1200, 630), Image.Resampling.LANCZOS)
+            # LinkedIn / OG 1.91:1 (1200x630) -> letterbox the natural landscape
+            og_img = fit_contain(padded_img, 1200, 630)
             og_img.save(out_landscape, "PNG")
             
-            # Instagram Square (1080x1080)
-            ig_sq = square_img.resize((1080, 1080), Image.Resampling.LANCZOS)
+            # Instagram Square (1080x1080) -> letterbox the square image
+            ig_sq = fit_contain(square_img, 1080, 1080)
             ig_sq.save(out_square, "PNG")
             
-            # Instagram Vertical 9:16 (1080x1920)
-            target_h = int(sq_size * (1920/1080))
-            if target_h > square_img.height:
-                vert_img = Image.new("RGBA", (sq_size, target_h), (248, 250, 252, 255))
-                v_y = (target_h - square_img.height) // 2
-                vert_img.paste(square_img, (0, v_y), square_img)
-            else:
-                vert_img = crop_center(square_img, int(sq_size * (1080/1920)), sq_size)
-            vert_img = vert_img.resize((1080, 1920), Image.Resampling.LANCZOS)
+            # Instagram Vertical 9:16 (1080x1920) -> letterbox the square image
+            vert_img = fit_contain(square_img, 1080, 1920)
             vert_img.save(out_vertical, "PNG")
             
         return True
