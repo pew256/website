@@ -150,29 +150,29 @@ def generate_html(formatted_date, project, subject, bull, bear, mode, target_wid
         justify-content: center;
         align-items: center;
         padding: 0px; /* Removed outer padding so card fills entirely */
+        container-type: size;
     }}
     .journal-card {{
         background: #FFFFFF;
         border: 2px solid #E2E8F0;
         border-radius: 24px; /* increased rounding for sleek corners */
-        padding: 4rem 5rem; /* Massive internal padding since there is no external padding */
+        padding: clamp(1rem, 4cqh, 4rem) clamp(2rem, 5cqw, 5rem); /* Dynamic padding to prevent overflow */
         box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08); /* slightly deepened shadow */
         width: 100%;
         height: 100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        container-type: inline-size;
     }}
     .journal-header {{
-        margin-bottom: 2rem;
+        margin-bottom: clamp(1rem, 3cqh, 2rem);
     }}
     .journal-title {{
-        font-size: clamp(2rem, 5cqi, 3.5rem);
+        font-size: clamp(1.5rem, 5cqmin, 3rem);
         font-weight: 700;
         line-height: 1.2;
         color: #506684;
-        margin-bottom: 1rem;
+        margin-bottom: clamp(0.5rem, 1.5cqh, 1rem);
         font-family: 'Montserrat', sans-serif;
     }}
     .journal-meta {{
@@ -180,13 +180,14 @@ def generate_html(formatted_date, project, subject, bull, bear, mode, target_wid
         justify-content: flex-start;
         align-items: center;
         color: #64748b;
-        font-size: clamp(0.95rem, 2cqi, 1.2rem);
+        font-size: clamp(0.85rem, 2cqmin, 1.2rem);
     }}
     .journal-content {{
         display: grid;
         grid-template-columns: { '1fr' if mode in ['bull', 'bear'] else '1fr 1fr' };
-        gap: 2rem;
+        gap: clamp(1rem, 3cqmin, 2rem);
         flex: 1;
+        overflow: hidden; /* Prevent spillage if scaling fails */
     }}
     .single-column {{
         grid-template-columns: 1fr !important;
@@ -195,7 +196,7 @@ def generate_html(formatted_date, project, subject, bull, bear, mode, target_wid
         width: 100%;
     }}
     .take-box {{
-        padding: clamp(1.5rem, 4cqi, 3rem);
+        padding: clamp(1rem, 3cqh, 2.5rem) clamp(1rem, 3cqw, 2.5rem);
         border-radius: 16px;
         border: 1px solid #E2E8F0;
         background: #f8fafc;
@@ -203,7 +204,6 @@ def generate_html(formatted_date, project, subject, bull, bear, mode, target_wid
         display: flex;
         flex-direction: column;
         justify-content: center;
-        container-type: inline-size;
     }}
     .bull-case {{ border-top: 3px solid #10b981; }}
     .bear-case {{ border-top: 3px solid #ef4444; }}
