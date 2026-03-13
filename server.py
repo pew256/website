@@ -532,12 +532,36 @@ class AdminServer(SimpleHTTPRequestHandler):
                     "x": f"{target_img_prefix}_twitter.png",
                     "wechat": f"{target_img_prefix}_square.png",
                     "ig": f"{target_img_prefix}_vertical.png",
-                    "og": f"{target_img_prefix}_og.png"
                 }
-                
-                for plat, img_suffix in platforms.items():
-                    plat_html_path = os.path.join(insights_dir, f"{plat}-{target_img_prefix}.html")
-                    static_html = f'''<!DOCTYPE html>
+                if publish_state_raw is not False and published_takes != 'none':
+                    with open('assets/published_journal.json', 'w') as f:
+                        json.dump(pub_data, f, indent=2)
+                    
+                    # Sub-task: Generate Fallback HTML pages for Twitter / social media graph
+                    # If a card contains 'both', users can still click the individual 'pro' or 'con' 
+                    # share buttons inside it, so we must eagerly generate HTML targets for all three.
+                    os.makedirs("insights", exist_ok=True)
+                    
+                    targets_to_generate = []
+                    if published_takes == 'both':
+                        targets_to_generate = [('both', f"insight-{timestamp}"), ('bull', f"pro-{timestamp}"), ('bear', f"con-{timestamp}")]
+                    elif published_takes in ['bull', 'bear']:
+                        mode_prefix = 'pro' if published_takes == 'bull' else 'con'
+                        targets_to_generate = [(published_takes, f"{mode_prefix}-{timestamp}")]
+                        
+                    for mode, target_img_prefix in targets_to_generate:
+                        img_suffix = f"{target_img_prefix}_twit.png" # Using _twit.png temporarily in URL for cache debug, actual file on disk is _twitter.png
+                        actual_image = target_img_prefix + "_twitter.png"
+                        
+                        # Fetch text payloads for the specific mode
+                        if mode == 'both':
+                            dynamic_desc = bear_case if bear_case else "Read the latest insights."
+                        elif mode == 'bull':
+                            dynamic_desc = bull_case if bull_case else "Read the pro case."
+                        elif mode == 'bear':
+                            dynamic_desc = bear_case if bear_case else "Read the bear case."
+                        
+                        html_template = f"""<!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns#">
 <head>
     <meta charset="utf-8">
@@ -547,18 +571,18 @@ class AdminServer(SimpleHTTPRequestHandler):
     <!-- OpenGraph / LinkedIn / WeChat / WhatsApp -->
     <meta property="og:title" content="{subject} | pew256">
     <meta property="og:description" content="{dynamic_desc.replace('"', '&quot;')}">
-    <meta property="og:image" content="https://pew256.com/assets/shares/{img_suffix}?v={int(time.time())}">
+    <meta property="og:image" content="https://pew256.com/assets/shares/{actual_image}?v={int(time.time())}">
     <meta property="og:type" content="article">
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{subject} | pew256">
     <meta name="twitter:description" content="{dynamic_desc.replace('"', '&quot;')}">
-    <meta name="twitter:image" content="https://pew256.com/assets/shares/{img_suffix}?v={int(time.time())}">
+    <meta name="twitter:image" content="https://pew256.com/assets/shares/{actual_image}?v={int(time.time())}">
     
     <script>
         // Redirect human visitors to the correct section of the main app
-        window.location.replace('https://pew256.com/index.html#{target_img_prefix}');
+        window.location.replace('https://pew256.com/index.html#insight-{timestamp}');
         setTimeout(function() {{
             window.location.replace('https://pew256.com/');
         }}, 2500);
@@ -566,17 +590,27 @@ class AdminServer(SimpleHTTPRequestHandler):
 </head>
 <body>
     <p>Redirecting to the journal...</p>
-    <p>If you are not redirected automatically, <a href="https://pew256.com/index.html#{target_img_prefix}">click here to read the insight</a>.</p>
+    <p>If you are not redirected automatically, <a href="https://pew256.com/index.html#insight-{timestamp}">click here to read the insight</a>.</p>
 </body>
-</html>'''
-                    with open(plat_html_path, "w") as f:
-                        f.write(static_html)
+</html>"""
+                        with open(f"insights/tx-{target_img_prefix}.html", "w") as f:
+                            f.write(html_template)
+                        with open(f"insights/og-{target_img_prefix}.html", "w") as f:
+                            f.write(html_template)
+                        with open(f"insights/wechat-{target_img_prefix}.html", "w") as f:
+                            f.write(html_template)
+                        with open(f"insights/ig-{target_img_prefix}.html", "w") as f:
+                            f.write(html_template)
 
             else:
                 # Remove static assets if unpublishing
-                for plat in ["x", "wechat", "ig", "og"]:
-                    p_path = os.path.join(insights_dir, f"{plat}-{timestamp}.html")
-                    if os.path.exists(p_path): os.remove(p_path)
+                # Need to remove all possible variants: tx-, og-, wechat-, ig- for each possible target_img_prefix
+                possible_prefixes = [f"insight-{timestamp}", f"pro-{timestamp}", f"con-{timestamp}"]
+                for prefix in possible_prefixes:
+                    for plat_type in ["tx", "og", "wechat", "ig"]:
+                        p_path = os.path.join(insights_dir, f"{plat_type}-{prefix}.html")
+                        if os.path.exists(p_path):
+                            os.remove(p_path)
                 
                 # Try to remove old fallback
                 old_html = os.path.join(insights_dir, f"{timestamp}.html")
