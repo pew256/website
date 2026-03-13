@@ -546,10 +546,6 @@ class AdminServer(SimpleHTTPRequestHandler):
                     if len(dynamic_desc.split()) > 60:
                         dynamic_desc = " ".join(dynamic_desc.split()[:55]) + "..."
                     
-                # Save updated active manifest to disk regardless of whether we are publishing or unpublishing
-                with open('assets/published_journal.json', 'w') as f:
-                    json.dump(pub_data, f, indent=2)
-
                 # Generate Platform-Specific Static HTMLs for crawlers
                 platforms = {
                     "x": f"{target_img_prefix}_twitter.png",
@@ -673,6 +669,10 @@ class AdminServer(SimpleHTTPRequestHandler):
                 # Try to remove old fallback
                 old_html = os.path.join(insights_dir, f"{timestamp}.html")
                 if os.path.exists(old_html): os.remove(old_html)
+
+            # Save updated active manifest to disk unconditionally
+            with open('assets/published_journal.json', 'w') as f:
+                json.dump(pub_data, f, indent=2)
 
             # Generate diffusion assets (4K, Square, Vertical, Twitter, OG) organically
             # And push ALL assets (HTML, JSON, Images) to GitHub AT THE SAME TIME once they are done generating!
