@@ -595,6 +595,8 @@ class AdminServer(SimpleHTTPRequestHandler):
 </html>"""
                         with open(f"insights/tx-{target_img_prefix}.html", "w") as f:
                             f.write(html_template)
+                        with open(f"insights/x-{target_img_prefix}.html", "w") as f:
+                            f.write(html_template)
                         with open(f"insights/og-{target_img_prefix}.html", "w") as f:
                             f.write(html_template)
                         with open(f"insights/wechat-{target_img_prefix}.html", "w") as f:
