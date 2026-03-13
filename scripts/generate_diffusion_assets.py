@@ -216,7 +216,7 @@ def generate_html(formatted_date, project, subject, bull, bear, mode, is_square=
                 {bull_html}
                 {bear_html}
             </div>
-            <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #E2E8F0; color: #94a3b8; font-size: 0.95rem; font-weight: 600; font-family: 'Montserrat', sans-serif;">
+            <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #E2E8F0; color: #94a3b8; font-size: 0.95rem; font-weight: 600; font-family: 'Montserrat', sans-serif; text-align: right;">
                 Precision in Blockchain
             </div>
         </div>
