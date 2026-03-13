@@ -272,6 +272,12 @@ class AdminServer(SimpleHTTPRequestHandler):
             draft_path = os.path.join(proj_dir, "journal", f"draft-auto-{timestamp}.md")
             
             try:
+                # Create backup of Original if it doesn't already exist
+                orig_path = draft_path + ".orig"
+                if not os.path.exists(orig_path) and os.path.exists(draft_path):
+                    import shutil
+                    shutil.copy2(draft_path, orig_path)
+
                 with open(draft_path, "r") as f:
                     content = f.read()
                 
@@ -697,6 +703,52 @@ class AdminServer(SimpleHTTPRequestHandler):
             self.send_response(200)
             self.end_headers()
             self.wfile.write(json.dumps({"status": "success", "published_takes": published_takes}).encode())
+
+        elif parsed_url.path == '/api/get_original_content':
+            post_data = self.rfile.read(content_length)
+            req = json.loads(post_data.decode('utf-8'))
+            project_name = req.get('project', 'default')
+            timestamp = req.get('timestamp')
+            
+            proj_dir = get_project_dir(project_name)
+            draft_path = os.path.join(proj_dir, "journal", f"draft-auto-{timestamp}.md")
+            orig_path = draft_path + ".orig"
+            
+            target_file = orig_path if os.path.exists(orig_path) else draft_path
+            
+            subject = "Contrarian Draft"
+            bull_case = ""
+            bear_case = ""
+            try:
+                with open(target_file, "r") as f:
+                    content = f.read()
+                    import re
+                    subject_match = re.search(r'^Subject:\s*(.*)$', content, re.MULTILINE)
+                    if subject_match:
+                        subject = subject_match.group(1).strip()
+                    
+                    matches = re.findall(r'> \*\*Atomic Answer:\*\*(.*?)(?=\n\n|\Z)', content, re.DOTALL)
+                    if matches and len(matches) >= 2:
+                        bull_case = matches[0].strip()
+                        bear_case = matches[1].strip()
+                    else:
+                        ans1 = content.split('**Atomic Answer 1:**', 1)[1].strip().split('\\n\\n')[0] if '**Atomic Answer 1:**' in content else ''
+                        ans2 = content.split('**Atomic Answer 2:**', 1)[1].strip().split('\\n\\n')[0] if '**Atomic Answer 2:**' in content else ''
+                        bull_case = ans1
+                        bear_case = ans2
+                        
+                self.send_response(200)
+                self.end_headers()
+                self.wfile.write(json.dumps({
+                    "status": "success",
+                    "subject": subject,
+                    "bull": bull_case,
+                    "bear": bear_case
+                }).encode())
+            except Exception as e:
+                self.send_response(500)
+                self.end_headers()
+                self.wfile.write(json.dumps({"status": "error", "message": str(e)}).encode())
 
         else:
             self.send_response(404)
