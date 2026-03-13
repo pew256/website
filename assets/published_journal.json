@@ -1,95 +1,5 @@
 [
   {
-    "timestamp": "test_2476db7a",
-    "project": "Bitcoin trends",
-    "subject": "Contrarian Draft",
-    "bull_case": "",
-    "bear_case": "",
-    "published_takes": "both",
-    "pinned": false
-  },
-  {
-    "timestamp": "test_3deeecf5",
-    "project": "Bitcoin trends",
-    "subject": "Contrarian Draft",
-    "bull_case": "",
-    "bear_case": "",
-    "published_takes": "bear",
-    "pinned": false
-  },
-  {
-    "timestamp": "test_fe2daef4",
-    "project": "Bitcoin trends",
-    "subject": "Contrarian Draft",
-    "bull_case": "",
-    "bear_case": "",
-    "published_takes": "bull",
-    "pinned": false
-  },
-  {
-    "timestamp": "test_89a57d12",
-    "project": "Bitcoin trends",
-    "subject": "Contrarian Draft",
-    "bull_case": "",
-    "bear_case": "",
-    "published_takes": "both",
-    "pinned": false
-  },
-  {
-    "timestamp": "test_01df0de9",
-    "project": "Bitcoin trends",
-    "subject": "Contrarian Draft",
-    "bull_case": "",
-    "bear_case": "",
-    "published_takes": "bear",
-    "pinned": false
-  },
-  {
-    "timestamp": "test_7319e49c",
-    "project": "Bitcoin trends",
-    "subject": "Contrarian Draft",
-    "bull_case": "",
-    "bear_case": "",
-    "published_takes": "bull",
-    "pinned": false
-  },
-  {
-    "timestamp": "test_3ae82602",
-    "project": "Bitcoin trends",
-    "subject": "Contrarian Draft",
-    "bull_case": "",
-    "bear_case": "",
-    "published_takes": "both",
-    "pinned": false
-  },
-  {
-    "timestamp": "test_43e07ef6",
-    "project": "Bitcoin trends",
-    "subject": "Contrarian Draft",
-    "bull_case": "",
-    "bear_case": "",
-    "published_takes": "bear",
-    "pinned": false
-  },
-  {
-    "timestamp": "test_376eaf03",
-    "project": "Bitcoin trends",
-    "subject": "Contrarian Draft",
-    "bull_case": "",
-    "bear_case": "",
-    "published_takes": "bull",
-    "pinned": false
-  },
-  {
-    "timestamp": "20260312_130026",
-    "project": "News",
-    "subject": "Oil Crisis Is Deeper",
-    "bull_case": "The unprecedented release of 400 million barrels of oil reserves, intended to stabilize markets post-Iran conflict, has conspicuously failed to prevent oil prices from surging over 7%. This stark inefficiency signals that market anxieties are rooted deeper than immediate supply disruptions. It exposes a fundamental doubt in the efficacy of traditional interventions and highlights persistent underlying supply-demand imbalances, suggesting the crisis is structural, not merely event-driven.",
-    "bear_case": "Public discourse fixates on the \"Iran war\" as the sole driver of looming inflation and food price shocks. While conflict exacerbates costs, this narrative conveniently overlooks pre-existing global inflationary pressures and fragile supply chains. The \"war\" provides a convenient, visible scapegoat for economic woes that were already brewing, potentially distracting from long-term systemic vulnerabilities that require deeper, non-military policy interventions",
-    "published_takes": "both",
-    "pinned": false
-  },
-  {
     "timestamp": "20260313_163926",
     "project": "Bitcoin trends",
     "subject": "Privacy Jailed: Market Gains Are Superficial",
@@ -99,11 +9,20 @@
     "pinned": false
   },
   {
+    "timestamp": "20260312_130026",
+    "project": "News",
+    "subject": "Oil Release Flops: Crisis Is Deeper",
+    "bull_case": "The unprecedented release of 400 million barrels of oil reserves, intended to stabilize markets post-Iran conflict, has conspicuously failed to prevent oil prices from surging over 7%. This stark inefficiency signals that market anxieties are rooted deeper than immediate supply disruptions. It exposes a fundamental doubt in the efficacy of traditional interventions and highlights persistent underlying supply-demand imbalances, suggesting the crisis is structural, not merely event-driven.",
+    "bear_case": "Public discourse fixates on the \"Iran war\" as the sole driver of looming inflation and food price shocks. While conflict exacerbates costs, this narrative conveniently overlooks pre-existing global inflationary pressures and fragile supply chains. The \"war\" provides a convenient, visible scapegoat for economic woes that were already brewing, potentially distracting from long-term systemic vulnerabilities that require deeper, non-military policy interventions.",
+    "published_takes": "both",
+    "pinned": false
+  },
+  {
     "timestamp": "20260313_132904",
     "project": "Bitcoin trends",
     "subject": "Regulation's Fa\u00e7ade: Freedom's Iron Cage",
     "bull_case": "While BlackRock's ETH ETF and SEC's tokenized security recommendations are lauded as crypto's mainstream arrival, they signal institutional capture, not liberation. This \"progress\" molds decentralized tech to traditional finance's control mechanisms, prioritizing surveillance-friendly efficiency over genuine financial autonomy. The system welcomes compliant layers while stifling the privacy tools that embody crypto's foundational ethos, creating a veneer of legitimacy over a fundamentally compromised vision.",
-    "bear_case": "While the mainstream narrative celebrates cryptocurrency's growing institutional adoption and technical scaling, the foundational promise of digital sovereignty and privacy is undergoing a severe and intentional assault. The incarceration of Samourai Wallet's developer, Keonne Rodriguez, for building privacy-enhancing software, alongside increasing regulatory clampdowns and sanctions, reveals a stark reality: the state\u2019s power to control and surveil transcends technological advancement. The \"progress\" hailed by ETFs and payment integrations merely masks an escalating war on the very ethos of censorship resistance and individual financial liberty. This apparent paradox\u2014market capitalization soaring while privacy advocates are jailed\u2014is not a sign of maturity but rather the co-option and domestication of a revolutionary technology. Institutions and governments are shaping crypto into a compliant, traceable system, fundamentally at odds with its original cypherpunk vision. The enthusiasm for Layer-2 solutions and mainstream integration blinds many to the chilling effect these state actions have on decentralized innovation and the fundamental right to financial privacy, suggesting that genuine freedom is being sacrificed for perceived legitimacy.",
+    "bear_case": "I am testing hungrily! my tummy is...",
     "published_takes": "bear",
     "pinned": false
   }
