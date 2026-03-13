@@ -946,7 +946,7 @@
                         </div>
                         <div class="journal-content" style="${(item.published_takes === 'bull' || item.published_takes === 'bear') ? 'grid-template-columns: 1fr; max-width: 800px; margin: 0 auto;' : ''}">
                             ${(item.published_takes === 'both' || item.published_takes === 'bull' || !item.published_takes) ? `
-                            <div class="take-box ${(item.published_takes === 'bull' || item.published_takes === 'bear') ? 'single-take' : 'bull-case'}" id="pro-${item.timestamp}">
+                            <div class="take-box bull-case" id="pro-${item.timestamp}">
                                 ${(item.published_takes === 'both' || !item.published_takes) ? `
                                 <h4 style="display: flex; justify-content: space-between; align-items: center;">
                                     The Bull Case (Pro)
@@ -964,7 +964,7 @@
                             ` : ''}
                             
                             ${(item.published_takes === 'both' || item.published_takes === 'bear' || !item.published_takes) ? `
-                            <div class="take-box ${(item.published_takes === 'bull' || item.published_takes === 'bear') ? 'single-take' : 'bear-case'}" id="con-${item.timestamp}">
+                            <div class="take-box bear-case" id="con-${item.timestamp}">
                                 ${(item.published_takes === 'both' || !item.published_takes) ? `
                                 <h4 style="display: flex; justify-content: space-between; align-items: center;">
                                     The Bear Case (Con)

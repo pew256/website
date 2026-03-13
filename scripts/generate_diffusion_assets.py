@@ -156,7 +156,7 @@ def generate_html(formatted_date, project, subject, bull, bear, mode, is_square=
     }}
     .journal-content {{
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: { '1fr' if mode in ['bull', 'bear'] else '1fr 1fr' };
         gap: 2rem;
     }}
     .single-column {{
@@ -172,7 +172,6 @@ def generate_html(formatted_date, project, subject, bull, bear, mode, is_square=
     }}
     .bull-case {{ border-top: 3px solid #10b981; }}
     .bear-case {{ border-top: 3px solid #ef4444; }}
-    .single-take {{ border-top: 3px solid #506684 !important; }}
 
     .take-box h4 {{
         margin-bottom: 1rem;
@@ -181,7 +180,6 @@ def generate_html(formatted_date, project, subject, bull, bear, mode, is_square=
     }}
     .bull-case h4 {{ color: #10b981; }}
     .bear-case h4 {{ color: #ef4444; }}
-    .single-take h4 {{ color: #506684 !important; }}
     .take-box p {{
         color: #334155;
         line-height: 1.7;
@@ -236,8 +234,14 @@ def apply_diagonal_watermark(base_img):
     return base_img
 
 def process_image(timestamp, mode, raw_natural_path, raw_square_path):
-    # Prefix files with mode-timestamp
-    file_prefix = f"insight-{timestamp}" if mode == 'both' else f"{mode}-{timestamp}"
+    if mode == 'both':
+        file_prefix = f"insight-{timestamp}"
+    elif mode == 'bull':
+        file_prefix = f"pro-{timestamp}"
+    elif mode == 'bear':
+        file_prefix = f"con-{timestamp}"
+    else:
+        file_prefix = f"{mode}-{timestamp}"
     
     shares_dir = os.path.join(os.getcwd(), "assets/shares")
     journal_dir = os.path.join(os.getcwd(), "assets/journal")
