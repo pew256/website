@@ -28,7 +28,7 @@ def test_publish_toggle(target_state):
         print(f"❌ Request failed with error: {e}")
         return False
 
-    # VERIFY HTML FILES
+    # VERIFY HTML FILES & JSON STATE
     if target_state == "none":
         # Ensure no html files are present for this dummy_timestamp
         if os.path.exists("insights"):
@@ -36,8 +36,40 @@ def test_publish_toggle(target_state):
                 if dummy_timestamp in f:
                     print(f"❌ Failed! Found {f} but state is none.")
                     return False
-        print(f"✅ Success! Files properly deleted for 'none'.")
+                    
+        # Verify json array does not contain the timestamp
+        try:
+            with open("assets/published_journal.json", "r") as f:
+                pub_data = json.load(f)
+                for item in pub_data:
+                    if str(item.get("timestamp")) == str(dummy_timestamp):
+                        print(f"❌ Failed! Found {dummy_timestamp} in published_journal.json but state is none.")
+                        return False
+        except Exception as e:
+            print(f"❌ Failed to read published_journal.json: {e}")
+            return False
+            
+        print(f"✅ Success! Files properly deleted and JSON state cleared for 'none'.")
         return True
+        
+    # Verify json array contains the active timestamp with the correct state
+    try:
+        with open("assets/published_journal.json", "r") as f:
+            pub_data = json.load(f)
+            found = False
+            for item in pub_data:
+                if str(item.get("timestamp")) == str(dummy_timestamp):
+                    found = True
+                    if item.get("published_takes") != target_state:
+                        print(f"❌ Failed! JSON has state '{item.get('published_takes')}' but expected '{target_state}'")
+                        return False
+                    break
+            if not found:
+                print(f"❌ Failed! {dummy_timestamp} not found in published_journal.json")
+                return False
+    except Exception as e:
+        print(f"❌ Failed to read published_journal.json: {e}")
+        return False
 
     # determine expected file prefixes
     expected_prefixes = []
