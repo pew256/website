@@ -795,7 +795,7 @@
             event.stopPropagation();
             // Generate link to the specific insights HTML file designed for Twitter/X sharing.
             // Using the live domain explicitly ensures it works for social media bots even if copied from local admin testing.
-            const url = 'https://pew256.com/insights/x-' + id + '.html';
+            const url = 'https://pew256.com/insights/tx-' + id + '.html';
             navigator.clipboard.writeText(url).then(() => {
                 const btn = event.currentTarget;
                 const originalText = btn.innerHTML;
