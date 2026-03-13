@@ -186,17 +186,23 @@ def generate_html(formatted_date, project, subject, bull, bear, mode, target_wid
         display: grid;
         grid-template-columns: { '1fr' if mode in ['bull', 'bear'] else '1fr 1fr' };
         gap: 2rem;
+        flex: 1;
     }}
     .single-column {{
         grid-template-columns: 1fr !important;
         max-width: 800px;
         margin: 0 auto;
+        width: 100%;
     }}
     .take-box {{
-        padding: 1.5rem;
-        border-radius: 8px;
+        padding: 2.5rem;
+        border-radius: 16px;
         border: 1px solid #E2E8F0;
         background: #f8fafc;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }}
     .bull-case {{ border-top: 3px solid #10b981; }}
     .bear-case {{ border-top: 3px solid #ef4444; }}
