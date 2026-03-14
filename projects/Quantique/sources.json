@@ -1,0 +1,11 @@
+{
+  "twitter_profiles": [],
+  "twitter_lists": [],
+  "web_crawls": [],
+  "rss_feeds": [],
+  "mailing_lists": [],
+  "pdf_files": [],
+  "notes": [
+    "Hashing should not be broken, but traditional public key cryptography should. That means Bitcoin is safe, your bitcoins are not, yet.\nThank you BIP 360 as if it was the all rounder;-)"
+  ]
+}

@@ -2,7 +2,7 @@ import json
 import os
 import subprocess
 import time
-from http.server import SimpleHTTPRequestHandler, HTTPServer
+from http.server import SimpleHTTPRequestHandler, HTTPServer, ThreadingHTTPServer
 from urllib.parse import urlparse, parse_qs
 
 PORT = 8085
@@ -63,10 +63,16 @@ class AdminServer(SimpleHTTPRequestHandler):
             os.makedirs(proj_dir, exist_ok=True)
             if not os.path.exists(sources_file):
                 with open(sources_file, 'w') as f:
-                    json.dump({"twitter_profiles": [], "twitter_lists": [], "web_crawls": [], "rss_feeds": [], "mailing_lists": []}, f)
+                    json.dump({"twitter_profiles": [], "twitter_lists": [], "web_crawls": [], "rss_feeds": [], "mailing_lists": [], "pdf_files": [], "notes": []}, f)
             
             with open(sources_file, 'r') as f:
-                self.wfile.write(f.read().encode())
+                data = json.load(f)
+                
+            # Backwards compatibility for existing projects
+            if 'pdf_files' not in data: data['pdf_files'] = []
+            if 'notes' not in data: data['notes'] = []
+            
+            self.wfile.write(json.dumps(data).encode())
 
         elif parsed_url.path == '/api/latest':
             self.send_response(200)
@@ -251,6 +257,25 @@ class AdminServer(SimpleHTTPRequestHandler):
             except Exception as e:
                 self.wfile.write(json.dumps({"status": "error", "message": str(e)}).encode())
 
+        elif parsed_url.path == '/api/engine_status':
+            self.send_response(200)
+            self.send_header('Content-type', 'application/json')
+            self.end_headers()
+            
+            project_name = qs.get('project', ['Bitcoin trends'])[0]
+            proj_dir = get_project_dir(project_name)
+            status_file = os.path.join(proj_dir, "engine_status.txt")
+            
+            status_text = "Starting extraction engine..."
+            try:
+                if os.path.exists(status_file):
+                    with open(status_file, "r") as f:
+                        status_text = f.read().strip()
+            except Exception:
+                pass
+                
+            self.wfile.write(json.dumps({"status": "success", "status_text": status_text}).encode())
+
         else:
             # Fall back to serving static files (index.html, admin.html, css, etc.)
             super().do_GET()
@@ -269,7 +294,7 @@ class AdminServer(SimpleHTTPRequestHandler):
             sources_file = os.path.join(proj_dir, 'sources.json')
             if not os.path.exists(sources_file):
                 with open(sources_file, 'w') as f:
-                    json.dump({"twitter_profiles": [], "twitter_lists": [], "web_crawls": [], "rss_feeds": [], "mailing_lists": []}, f)
+                    json.dump({"twitter_profiles": [], "twitter_lists": [], "web_crawls": [], "rss_feeds": [], "mailing_lists": [], "pdf_files": [], "notes": []}, f)
                     
             self.send_response(200)
             self.end_headers()
@@ -366,10 +391,14 @@ class AdminServer(SimpleHTTPRequestHandler):
             if not os.path.exists(sources_file):
                 os.makedirs(proj_dir, exist_ok=True)
                 with open(sources_file, 'w') as f:
-                    json.dump({"twitter_profiles": [], "twitter_lists": [], "web_crawls": [], "rss_feeds": [], "mailing_lists": []}, f)
+                    json.dump({"twitter_profiles": [], "twitter_lists": [], "web_crawls": [], "rss_feeds": [], "mailing_lists": [], "pdf_files": [], "notes": []}, f)
             
             with open(sources_file, 'r') as f:
                 data = json.load(f)
+
+            # Backwards compatibility for existing projects
+            if 'pdf_files' not in data: data['pdf_files'] = []
+            if 'notes' not in data: data['notes'] = []
             
             list_type = req.get('type')
             item = req.get('item')
@@ -401,6 +430,61 @@ class AdminServer(SimpleHTTPRequestHandler):
                 with open(sources_file, 'w') as f:
                     json.dump(data, f, indent=2)
 
+            self.send_response(200)
+            self.end_headers()
+            self.wfile.write(b'{"status":"success"}')
+
+        elif parsed_url.path == '/api/upload_pdf':
+            post_data = self.rfile.read(content_length)
+            req = json.loads(post_data.decode('utf-8'))
+            
+            project_name = req.get('project', 'Bitcoin trends')
+            filename = req.get('filename')
+            filedata_b64 = req.get('filedata')  # base64 encoded pdf
+            
+            if not filename or not filedata_b64:
+                self.send_response(400)
+                self.end_headers()
+                self.wfile.write(b'{"status":"error", "message":"Missing filename or filedata"}')
+                return
+                
+            proj_dir = get_project_dir(project_name)
+            pdfs_dir = os.path.join(proj_dir, 'pdfs')
+            os.makedirs(pdfs_dir, exist_ok=True)
+            
+            # Save the PDF file
+            import base64
+            file_path = os.path.join(pdfs_dir, filename)
+            try:
+                base64_data = filedata_b64
+                if "," in base64_data:
+                    base64_data = base64_data.split(",")[1]
+                with open(file_path, 'wb') as f:
+                    f.write(base64.b64decode(base64_data))
+            except Exception as e:
+                self.send_response(500)
+                self.end_headers()
+                self.wfile.write(json.dumps({"status": "error", "message": f"Failed to save PDF: {str(e)}"}).encode())
+                return
+                
+            # Add to sources.json
+            sources_file = os.path.join(proj_dir, 'sources.json')
+            if not os.path.exists(sources_file):
+                with open(sources_file, 'w') as f:
+                    json.dump({"twitter_profiles": [], "twitter_lists": [], "web_crawls": [], "rss_feeds": [], "mailing_lists": [], "pdf_files": [], "notes": []}, f)
+                    
+            with open(sources_file, 'r') as f:
+                data = json.load(f)
+                
+            if 'pdf_files' not in data:
+                data['pdf_files'] = []
+                
+            if filename not in data['pdf_files']:
+                data['pdf_files'].append(filename)
+                
+            with open(sources_file, 'w') as f:
+                json.dump(data, f, indent=2)
+                
             self.send_response(200)
             self.end_headers()
             self.wfile.write(b'{"status":"success"}')
@@ -472,7 +556,11 @@ class AdminServer(SimpleHTTPRequestHandler):
             except subprocess.CalledProcessError as e:
                 self.send_response(500)
                 self.end_headers()
-                self.wfile.write(json.dumps({"status": "error", "error": e.stderr}).encode())
+                error_msg = e.stderr if e.stderr else e.stdout
+                if "No data sources configured" in error_msg:
+                    self.wfile.write(json.dumps({"status": "error", "error": "No data sources configured for this project. Please add sources before running the engine."}).encode())
+                else:
+                    self.wfile.write(json.dumps({"status": "error", "error": error_msg}).encode())
 
         elif parsed_url.path == '/api/publish':
             post_data = self.rfile.read(content_length)
@@ -898,7 +986,7 @@ class AdminServer(SimpleHTTPRequestHandler):
 
 if __name__ == '__main__':
     os.makedirs('projects/Bitcoin trends', exist_ok=True)
-    with HTTPServer(('', PORT), AdminServer) as httpd:
+    with ThreadingHTTPServer(('', PORT), AdminServer) as httpd:
         print(f"Serving at port {PORT}")
         print(f"Admin Panel: http://localhost:{PORT}/admin.html")
         httpd.serve_forever()

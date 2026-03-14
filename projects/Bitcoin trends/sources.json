@@ -17,5 +17,7 @@
     "https://bitcoincore.org/en/releasesrss.xml",
     "https://bitcoincore.org/en/rss.xml"
   ],
-  "mailing_lists": []
+  "mailing_lists": [],
+  "pdf_files": [],
+  "notes": []
 }

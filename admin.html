@@ -178,6 +178,17 @@
         .view-toggle-btn { padding: 0.4rem 0.8rem; background: var(--surface); border: 1px solid var(--border); color: #64748b; font-size: 0.85rem; font-weight: 600; cursor: pointer; border-radius: 4px; transition: 0.2s; }
         .view-toggle-btn.active { background: #f1f5f9; color: var(--primary); border-color: var(--primary); }
         .view-toggle-group { display: flex; gap: 0.5rem; }
+
+        /* Data Sources Bento Grid */
+        .data-sources-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem; }
+        .data-sources-grid .panel-section { margin-bottom: 0; box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.05); transition: box-shadow 0.2s; }
+        .data-sources-grid .panel-section:hover { box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.08); }
+        .pdf-panel-wrapper { grid-column: 1 / -1; }
+        .btn-upload-browse { background: #3b82f6; color: white; padding: 0.6rem 1.25rem; border-radius: 6px; border: none; font-weight: 500; cursor: pointer; transition: background 0.2s; display: inline-flex; align-items: center; justify-content: center; margin-top: 1rem; }
+        .btn-upload-browse:hover { background: #2563eb; }
+        .dropzone-text-primary { font-size: 1.1rem; font-weight: 600; color: #0f172a; margin: 0.5rem 0; }
+        .dropzone-divider { display: flex; align-items: center; justify-content: center; color: #94a3b8; font-size: 0.85rem; font-weight: 600; margin: 1rem 0; gap: 1rem; }
+        .dropzone-divider::before, .dropzone-divider::after { content: ""; height: 1px; background: #e2e8f0; width: 60px; }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
@@ -227,7 +238,10 @@
 
     <div class="main-content">
         <div class="top-bar">
-            <h2 id="page-title" style="margin: 0; font-size: 1.25rem;">Dashboard</h2>
+            <div style="display: flex; flex-direction: column; gap: 0.2rem;">
+                <h2 id="page-title" style="margin: 0; font-size: 1.5rem; color: #0f172a;">Data Sources</h2>
+                <div style="font-size: 1rem; color: #64748b; font-weight: 500;">Manage Your Ingestion Pipeline</div>
+            </div>
             <button id="run-engine" class="btn btn-primary btn-high-contrast" onclick="runEngine()">Run Extraction Engine &nbsp; ⚡</button>
         </div>
         
@@ -289,77 +303,125 @@
                         <!-- JS populated feed -->
                     </div>
                 </div>
-            </div>
-            
+
             <!-- SOURCES TAB -->
             <div id="section-sources" class="tab-section">
-                <div class="panel-section" id="panel-web">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-                        <h3 style="margin: 0;">Web Crawls</h3>
-                        <button class="remove-btn" style="font-size: 0.85rem;" onclick="clearSources('web_crawls')">Clear All</button>
-                    </div>
-                    <div class="add-form" style="margin-top: 0; margin-bottom: 1.5rem;">
-                        <input type="text" id="new-web" placeholder="e.g. blog.example.com" onkeypress="if(event.key === 'Enter') this.nextElementSibling.click()">
-                        <button class="btn btn-primary" onclick="addSource('web_crawls', 'new-web')">Add Site</button>
-                    </div>
-                    <div class="source-table-header">
-                        <div>Source URL</div>
-                        <div>Status</div>
-                        <div style="text-align: right;">Actions</div>
-                    </div>
-                    <ul id="web-list" class="source-list"></ul>
+                <div style="display: flex; justify-content: flex-end; margin-bottom: 1rem;">
+                    <div style="color: var(--primary); font-weight: 600; font-size: 0.95rem; background: #ffffff; padding: 0.5rem 1rem; border-radius: 6px; border: 1px solid var(--border); box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);" id="sources-count-badge">0 Data Sources Connected</div>
                 </div>
 
-                <div class="panel-section" id="panel-rss">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-                        <h3 style="margin: 0;">RSS Feeds</h3>
-                        <button class="remove-btn" style="font-size: 0.85rem;" onclick="clearSources('rss_feeds')">Clear All</button>
+                <div class="data-sources-grid">
+                    <div class="panel-section" id="panel-web">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <h3 style="margin: 0;">Web Links</h3>
+                            <button class="remove-btn" style="font-size: 0.85rem;" onclick="clearSources('web_crawls')">Clear All</button>
+                        </div>
+                        <div class="add-form" style="margin-top: 0; margin-bottom: 1.5rem; display: flex; gap: 0.5rem;">
+                            <input type="text" id="new-web" placeholder="Enter website URL" style="flex: 1; padding: 0.5rem 1rem; border: 1px solid var(--border); border-radius: 6px;" onkeypress="if(event.key === 'Enter') this.nextElementSibling.click()">
+                            <button class="btn-upload-browse" style="margin-top: 0; padding: 0.5rem 1rem;" onclick="addSource('web_crawls', 'new-web')">+ Add Link</button>
+                        </div>
+                        <div class="source-table-header">
+                            <div>Source URL</div>
+                            <div>Status</div>
+                            <div style="text-align: right;">Actions</div>
+                        </div>
+                        <ul id="web-list" class="source-list"></ul>
                     </div>
-                    <div class="add-form" style="margin-top: 0; margin-bottom: 1.5rem;">
-                        <input type="text" id="new-rss" placeholder="e.g. blog.example.com/feed.xml" onkeypress="if(event.key === 'Enter') this.nextElementSibling.click()">
-                        <button class="btn btn-primary" onclick="addSource('rss_feeds', 'new-rss')">Add Feed</button>
-                    </div>
-                    <div class="source-table-header">
-                        <div>Source Feed</div>
-                        <div>Status</div>
-                        <div style="text-align: right;">Actions</div>
-                    </div>
-                    <ul id="rss-list" class="source-list"></ul>
-                </div>
 
-                <div class="panel-section" id="panel-twitter">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-                        <h3 style="margin: 0;">Twitter / X Profiles</h3>
-                        <button class="remove-btn" style="font-size: 0.85rem;" onclick="clearSources('twitter_profiles')">Clear All</button>
+                    <div class="panel-section" id="panel-rss">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <h3 style="margin: 0;">RSS Feed Manager</h3>
+                            <button class="remove-btn" style="font-size: 0.85rem;" onclick="clearSources('rss_feeds')">Clear All</button>
+                        </div>
+                        <div class="add-form" style="margin-top: 0; margin-bottom: 1.5rem; display: flex; gap: 0.5rem;">
+                            <input type="text" id="new-rss" placeholder="Enter RSS URL" style="flex: 1; padding: 0.5rem 1rem; border: 1px solid var(--border); border-radius: 6px;" onkeypress="if(event.key === 'Enter') this.nextElementSibling.click()">
+                            <button class="btn-upload-browse" style="margin-top: 0; padding: 0.5rem 1rem;" onclick="addSource('rss_feeds', 'new-rss')">+ Add Feed</button>
+                        </div>
+                        <div class="source-table-header">
+                            <div>Source Feed</div>
+                            <div>Status</div>
+                            <div style="text-align: right;">Actions</div>
+                        </div>
+                        <ul id="rss-list" class="source-list"></ul>
                     </div>
-                    <div class="add-form" style="margin-top: 0; margin-bottom: 1.5rem;">
-                        <input type="text" id="new-twitter" placeholder="e.g. @OpenAI or username" onkeypress="if(event.key === 'Enter') this.nextElementSibling.click()">
-                        <button class="btn btn-primary" onclick="addSource('twitter_profiles', 'new-twitter')">Add Profile</button>
-                    </div>
-                    <div class="source-table-header">
-                        <div>X Profile Handle</div>
-                        <div>Status</div>
-                        <div style="text-align: right;">Actions</div>
-                    </div>
-                    <ul id="twitter-list" class="source-list"></ul>
-                </div>
 
-                <div class="panel-section" id="panel-lists">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-                        <h3 style="margin: 0;">Twitter / X Lists</h3>
-                        <button class="remove-btn" style="font-size: 0.85rem;" onclick="clearSources('twitter_lists')">Clear All</button>
+                    <div class="panel-section" id="panel-twitter">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <h3 style="margin: 0;">Twitter / X Profiles</h3>
+                            <button class="remove-btn" style="font-size: 0.85rem;" onclick="clearSources('twitter_profiles')">Clear All</button>
+                        </div>
+                        <div class="add-form" style="margin-top: 0; margin-bottom: 1.5rem; display: flex; gap: 0.5rem;">
+                            <input type="text" id="new-twitter" placeholder="e.g. @OpenAI" style="flex: 1; padding: 0.5rem 1rem; border: 1px solid var(--border); border-radius: 6px;" onkeypress="if(event.key === 'Enter') this.nextElementSibling.click()">
+                            <button class="btn-upload-browse" style="margin-top: 0; padding: 0.5rem 1rem;" onclick="addSource('twitter_profiles', 'new-twitter')">+ Profile</button>
+                        </div>
+                        <div class="source-table-header">
+                            <div>X Profile Handle</div>
+                            <div>Status</div>
+                            <div style="text-align: right;">Actions</div>
+                        </div>
+                        <ul id="twitter-list" class="source-list"></ul>
                     </div>
-                    <p style="font-size: 0.9em; color: #64748b; margin-top: 0; margin-bottom: 1rem;">Extracts all list members and grabs their past 7 days of tweets.</p>
-                    <div class="add-form" style="margin-top: 0; margin-bottom: 1.5rem;">
-                        <input type="text" id="new-twitter-list" placeholder="e.g. https://x.com/i/lists/1546029449191342080" onkeypress="if(event.key === 'Enter') this.nextElementSibling.click()">
-                        <button class="btn btn-primary" onclick="addSource('twitter_lists', 'new-twitter-list')">Add List</button>
+
+                    <div class="panel-section" id="panel-lists">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                            <h3 style="margin: 0;">Twitter / X Lists</h3>
+                            <button class="remove-btn" style="font-size: 0.85rem;" onclick="clearSources('twitter_lists')">Clear All</button>
+                        </div>
+                        <p style="font-size: 0.9em; color: #64748b; margin-top: 0; margin-bottom: 1rem;">Extracts all list members and grabs past 7 days of tweets.</p>
+                        <div class="add-form" style="margin-top: 0; margin-bottom: 1.5rem; display: flex; gap: 0.5rem;">
+                            <input type="text" id="new-twitter-list" placeholder="List URL" style="flex: 1; padding: 0.5rem 1rem; border: 1px solid var(--border); border-radius: 6px;" onkeypress="if(event.key === 'Enter') this.nextElementSibling.click()">
+                            <button class="btn-upload-browse" style="margin-top: 0; padding: 0.5rem 1rem;" onclick="addSource('twitter_lists', 'new-twitter-list')">+ List</button>
+                        </div>
+                        <div class="source-table-header">
+                            <div>X List URL</div>
+                            <div>Status</div>
+                            <div style="text-align: right;">Actions</div>
+                        </div>
+                        <ul id="twitter-lists-list" class="source-list"></ul>
                     </div>
-                    <div class="source-table-header">
-                        <div>X List URL</div>
-                        <div>Status</div>
-                        <div style="text-align: right;">Actions</div>
+
+                    <div class="panel-section pdf-panel-wrapper" id="panel-pdf">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                            <h3 style="margin: 0;">PDF Upload Area</h3>
+                            <button class="remove-btn" style="font-size: 0.85rem;" onclick="clearSources('pdf_files')">Clear All</button>
+                        </div>
+                        <div id="pdf-dropzone" style="border: 2px dashed #cbd5e1; border-radius: 12px; padding: 3rem; text-align: center; margin-bottom: 1.5rem; background: #f8fafc; cursor: pointer; transition: all 0.2s;" onclick="document.getElementById('pdf-file-input').click()" ondragover="event.preventDefault(); this.style.background='#f1f5f9'; this.style.borderColor='#3b82f6';" ondragleave="event.preventDefault(); this.style.background='#f8fafc'; this.style.borderColor='#cbd5e1';" ondrop="event.preventDefault(); this.style.background='#f8fafc'; this.style.borderColor='#cbd5e1'; handlePDFUpload(event.dataTransfer.files[0])">
+                            <input type="file" id="pdf-file-input" accept=".pdf,.txt,.docx" style="display: none;" onchange="if(this.files.length) handlePDFUpload(this.files[0]); this.value='';">
+                            
+                            <!-- Large Document Icon -->
+                            <div style="background: white; width: 64px; height: 64px; border-radius: 12px; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); margin-bottom: 1rem; color: #3b82f6;">
+                                <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m6.75 12l-3-3m0 0l-3 3m3-3v6m-1.5-15H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"></path></svg>
+                            </div>
+                            
+                            <div class="dropzone-text-primary">Drag & drop PDF files to train your AI agent</div>
+                            <div class="dropzone-divider">OR</div>
+                            <button class="btn-upload-browse" onclick="event.stopPropagation(); document.getElementById('pdf-file-input').click();">Browse Files (PDF, DOCX)</button>
+                            <div id="pdf-upload-text" style="color: #64748b; font-size: 0.85rem; margin-top: 1rem;">Max 50MB per file.</div>
+                        </div>
+                        <div class="source-table-header">
+                            <div>PDF Filename</div>
+                            <div>Status</div>
+                            <div style="text-align: right;">Actions</div>
+                        </div>
+                        <ul id="pdf-list" class="source-list"></ul>
                     </div>
-                    <ul id="twitter-lists-list" class="source-list"></ul>
+
+                    <div class="panel-section pdf-panel-wrapper" id="panel-notes">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <h3 style="margin: 0;">Notes / Custom Text</h3>
+                            <button class="remove-btn" style="font-size: 0.85rem;" onclick="clearSources('notes')">Clear All</button>
+                        </div>
+                        <div class="add-form" style="margin-top: 0; margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                            <textarea id="new-note" placeholder="Paste custom knowledge or research notes here..." rows="4" style="width: 100%; border-radius: 6px; border: 1px solid var(--border); padding: 0.75rem; font-family: inherit; resize: vertical; box-sizing: border-box;"></textarea>
+                            <button class="btn-upload-browse" style="align-self: flex-end;" onclick="addSource('notes', 'new-note')">+ Add Note</button>
+                        </div>
+                        <div class="source-table-header">
+                            <div>Note Text</div>
+                            <div>Status</div>
+                            <div style="text-align: right;">Actions</div>
+                        </div>
+                        <ul id="notes-list" class="source-list"></ul>
+                    </div>
                 </div>
             </div>
 
@@ -411,7 +473,7 @@
     </div>
 
     <script>
-        let currentProject = "Bitcoin trends";
+        let currentProject = localStorage.getItem('pew256_currentProject') || "Bitcoin trends";
 
         window.addEventListener('beforeunload', function (e) {
             const modal = document.getElementById('loading-modal');
@@ -432,9 +494,18 @@
                         const opt = document.createElement('option');
                         opt.value = p;
                         opt.textContent = p;
-                        if(p === currentProject) opt.selected = true;
+                        if(p === currentProject) {
+                            opt.selected = true;
+                        }
                         select.appendChild(opt);
                     });
+                    
+                    // Fallback to "Bitcoin trends" if the project in localStorage no longer exists
+                    if (!data.projects.includes(currentProject) && data.projects.includes("Bitcoin trends")) {
+                        currentProject = "Bitcoin trends";
+                        localStorage.setItem('pew256_currentProject', currentProject);
+                        select.value = currentProject;
+                    }
                 }
             } catch(e) { console.error(e); }
         }
@@ -448,6 +519,7 @@
                     body: JSON.stringify({name: name.trim()})
                 });
                 currentProject = name.trim();
+                localStorage.setItem('pew256_currentProject', currentProject);
                 await fetchProjects();
                 refreshData();
             }
@@ -455,6 +527,7 @@
 
         function changeProject(proj) {
             currentProject = proj;
+            localStorage.setItem('pew256_currentProject', currentProject);
             refreshData();
         }
 
@@ -540,10 +613,25 @@
             try {
                 const response = await fetch('/api/sources?project=' + encodeURIComponent(currentProject));
                 const data = await response.json();
+                
+                const totalSources = (data.twitter_profiles?.length || 0) + 
+                                     (data.twitter_lists?.length || 0) + 
+                                     (data.web_crawls?.length || 0) + 
+                                     (data.rss_feeds?.length || 0) + 
+                                     (data.pdf_files?.length || 0) + 
+                                     (data.notes?.length || 0);
+                
+                const badge = document.getElementById('sources-count-badge');
+                if (badge) {
+                    badge.textContent = `${totalSources} Data Source${totalSources === 1 ? '' : 's'} Connected`;
+                }
+
                 renderList('twitter-list', data.twitter_profiles, 'twitter_profiles');
                 renderList('twitter-lists-list', data.twitter_lists || [], 'twitter_lists');
                 renderList('web-list', data.web_crawls, 'web_crawls');
                 renderList('rss-list', data.rss_feeds, 'rss_feeds');
+                renderList('pdf-list', data.pdf_files || [], 'pdf_files');
+                renderList('notes-list', data.notes || [], 'notes');
             } catch (e) { console.error('Error fetching sources', e); }
         }
 
@@ -622,14 +710,67 @@
             }
         }
 
+        async function handlePDFUpload(file) {
+            if (!file || file.type !== 'application/pdf') {
+                alert("Please select a valid PDF file.");
+                return;
+            }
+            
+            const dropzoneText = document.getElementById('pdf-upload-text');
+            const origText = dropzoneText.innerHTML;
+            dropzoneText.innerHTML = "Uploading " + file.name + "...";
+            
+            const reader = new FileReader();
+            reader.onload = async function(e) {
+                try {
+                    const base64Data = e.target.result;
+                    const response = await fetch('/api/upload_pdf', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            project: currentProject,
+                            filename: file.name,
+                            filedata: base64Data
+                        })
+                    });
+                    
+                    if (response.ok) {
+                        fetchSources();
+                    } else {
+                        const res = await response.json();
+                        alert("Upload failed: " + res.message);
+                    }
+                } catch(err) {
+                    console.error("PDF upload error:", err);
+                    alert("Upload error.");
+                } finally {
+                    dropzoneText.innerHTML = origText;
+                }
+            };
+            reader.readAsDataURL(file);
+        }
+
         async function runEngine() {
             const status = document.getElementById('status-msg');
             const btn = document.getElementById('run-engine');
             const modal = document.getElementById('loading-modal');
+            const subtitle = modal.querySelector('.modal-subtitle');
             
             modal.style.display = 'flex';
             btn.disabled = true;
             status.style.display = 'none'; // hide old message text
+            subtitle.textContent = "Starting extraction engine...";
+
+            // Poll the server for status updates
+            const statusInterval = setInterval(async () => {
+                try {
+                    const res = await fetch('/api/engine_status?project=' + encodeURIComponent(currentProject));
+                    const data = await res.json();
+                    if (data.status === 'success' && data.status_text) {
+                        subtitle.textContent = data.status_text;
+                    }
+                } catch(e) {}
+            }, 2000);
 
             try {
                 const response = await fetch('/api/run', { 
@@ -639,6 +780,7 @@
                 });
                 const result = await response.json();
                 
+                clearInterval(statusInterval);
                 modal.style.display = 'none';
                 
                 if (response.ok) {
@@ -646,7 +788,7 @@
                     status.className = 'success';
                     status.style.display = 'block';
                     await fetchHistory();
-                    switchTab('dashboard'); // Auto-switch to see results
+                    switchTab('publish'); // Auto-switch to see results
                 } else {
                     status.textContent = `Error: ${result.error}`;
                     status.className = 'error';
@@ -654,6 +796,7 @@
                     btn.disabled = false;
                 }
             } catch (e) {
+                clearInterval(statusInterval);
                 modal.style.display = 'none';
                 status.textContent = 'Network or server error running the engine.';
                 status.className = 'error';

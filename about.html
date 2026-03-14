@@ -68,12 +68,26 @@
 <body>
     <nav>
         <div class="container nav-content">
-            <a href="index.html" class="logo"><img src="assets/brand-kit/pew256-logo.svg" alt="pew256 logo"></a>
-            <div class="nav-links">
-                <a href="index.html#journal" style="color: var(--primary); font-weight: 700;">Journal</a>
-                <a href="about.html">About</a>
-                <a href="index.html#services">Services</a>
-                <a href="index.html#contact" class="nav-btn">Contact</a>
+            <a href="index.html" class="logo"><img src="assets/brand-kit/pew256-logo.svg"
+                    alt="pew256 logo - Resilient Bridge icon for institutional blockchain infrastructure." width="375"
+                    height="75" style="width: 375px; height: auto; max-width: 100%; object-fit: contain;"></a>
+            <button class="mobile-menu-toggle" aria-label="Toggle navigation" onclick="document.getElementById('main-nav-links').classList.toggle('active')">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+            <div class="nav-links" id="main-nav-links">
+                <a href="index.html#journal" style="color: var(--primary); font-weight: 700;" onclick="document.getElementById('main-nav-links').classList.remove('active')">Journal</a>
+                <a href="about.html" onclick="document.getElementById('main-nav-links').classList.remove('active')">About</a>
+                <a href="index.html#services" onclick="document.getElementById('main-nav-links').classList.remove('active')">Services</a>
+                <script>
+                    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                        document.write('<a href="admin.html" onclick="document.getElementById(\'main-nav-links\').classList.remove(\'active\')">Dashboard</a>');
+                    }
+                </script>
+                <a href="index.html#contact" class="nav-btn" onclick="document.getElementById('main-nav-links').classList.remove('active'); if(typeof openModal === 'function') { openModal(); return false; }">Contact</a>
             </div>
         </div>
     </nav>
