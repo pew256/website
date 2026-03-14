@@ -1,5 +1,23 @@
 [
   {
+    "timestamp": "20260314_014946",
+    "project": "Quantique",
+    "subject": "Quantum Threat: Your Keys Only, No Threat to the Chain",
+    "bull_case": "The prevailing wisdom that \"Bitcoin is safe\" against quantum threats is a dangerous oversimplification. While its foundational hashing is largely quantum-resistant, the public-key cryptography securing *individual wallet transactions* is fundamentally vulnerable. This means the network's integrity can remain, yet your personal holdings are directly exposed to instantaneous compromise, making the system's resilience irrelevant to the dispossessed.",
+    "bear_case": "Relying on unrelated protocol improvements or incremental upgrades as quantum-resistance measures is a profound miscalculation, cultivating a perilous illusion of security. Dismissively invoking mechanisms like BIP 360 as an \"all-rounder\" against quantum threats exemplifies a dangerous complacency, diverting attention from the urgent, dedicated architectural overhauls required to protect individual digital assets.",
+    "published_takes": "bear",
+    "pinned": false
+  },
+  {
+    "timestamp": "20260314_011758",
+    "project": "Quantique",
+    "subject": "Bitcoin is safe, bitcoins are not! Yet!",
+    "bull_case": "Bitcoin's core weakness: your coins, not the chain. The Bitcoin *network* is indeed fortified by resilient hashing, which is not at risk. Yet, *individual bitcoin holdings* are secured by traditional public key cryptography, a system flagged as inherently breakable. This means the chain may persist, but the keys protecting personal wealth face an inevitable compromise, revealing a dangerous fissure in perceived safety. Luckily, BIP 360!",
+    "bear_case": "The true existential threat isn't hashing but traditional public key cryptography's predicted demise. Bitcoin's protocol relies on secure hash functions, yet user wallet security hinges on vulnerable public key algorithms. This foreshadows a future where private keys are easily derived, exposing individual assets. Current holdings are thus only *temporarily* safe without widespread adoption of quantum-resistant solutions, challenging lasting digital asset security assumptions unless you implement quantum resistant algorithms.",
+    "published_takes": "both",
+    "pinned": false
+  },
+  {
     "timestamp": "20260313_163926",
     "project": "Bitcoin trends",
     "subject": "Privacy Jailed: Market Gains Are Superficial",
@@ -12,7 +30,7 @@
     "timestamp": "20260312_130026",
     "project": "News",
     "subject": "Oil Release Flops: Crisis Is Deeper",
-    "bull_case": "The unprecedented release of 400 million barrels of oil reserves, intended to stabilize markets post-Iran conflict, has conspicuously failed to prevent oil prices from surging over 7%. This stark inefficiency signals that market anxieties are rooted deeper than immediate supply disruptions. It exposes a fundamental doubt in the efficacy of traditional interventions and highlights persistent underlying supply-demand imbalances, suggesting the crisis is structural, not merely event-driven.",
+    "bull_case": "The unprecedented release of 400 million barrels of oil reserves, intended to stabilize markets post-Iran conflict, has conspicuously failed to prevent oil prices from surging over 7%. This stark inefficiency signals that market anxieties are rooted deeper than immediate supply disruptions. It exposes a fundamental doubt in the efficacy of traditional interventions and highlights persistent underlying supply-demand imbalances, suggesting the crisis is structural, not merely event-driven",
     "bear_case": "Public discourse fixates on the \"Iran war\" as the sole driver of looming inflation and food price shocks. While conflict exacerbates costs, this narrative conveniently overlooks pre-existing global inflationary pressures and fragile supply chains. The \"war\" provides a convenient, visible scapegoat for economic woes that were already brewing, potentially distracting from long-term systemic vulnerabilities that require deeper, non-military policy interventions.",
     "published_takes": "both",
     "pinned": false
