@@ -94,37 +94,37 @@
 
     <main>
         <div class="container" style="padding-top: 2rem;">
-            <a href="index.html" class="back-link"
+            <a href="index.html" class="back-link" id="about_back_btn"
                 style="color: var(--primary); text-decoration: none; font-weight: 500;">&larr; Back to Home</a>
         </div>
 
         <section id="about" class="bio-section" style="padding: 60px 0; background-color: var(--card-bg);">
             <div class="container" style="max-width: 900px; margin-bottom: 4rem;">
                 <div style="text-align: center;">
-                    <h2>Meet the Founder</h2>
-                    <span class="box-tag"
+                    <h2 id="about_title">Meet the Founder</h2>
+                    <span class="box-tag" id="about_tag"
                         style="margin-bottom: 2rem; display: inline-block; font-weight: 700;">Pierre-Edouard Wahl (PE) |
                         Precision-Driven Blockchain Strategy</span>
                 </div>
 
                 <div class="bio-content" style="padding: 0 1rem;">
-                    <p class="bio-intro">Pierre-Edouard Wahl (PE) is a prominent figure in the blockchain industry,
+                    <p class="bio-intro" id="about_p1">Pierre-Edouard Wahl (PE) is a prominent figure in the blockchain industry,
                         with over a decade of experience driving innovation and progress in this transformative
                         space. He has held several leadership positions in top-tier companies, including Head of
                         Blockchain for PwC Switzerland and founder of the blockchain department at Credit Suisse.
                     </p>
 
-                    <p>PE has also co-founded a private investment office, dedicated to making positive impact
+                    <p id="about_p2">PE has also co-founded a private investment office, dedicated to making positive impact
                         investments in Blockchain, Food & Agri Tech, and Health & Wellbeing Sciences. His experience
                         in both fund structures and direct investments has given him a unique perspective on
                         investing and capital allocation.</p>
 
-                    <p>PE's passion for blockchain technology began in 2012 when he moved to Silicon Valley and
+                    <p id="about_p3">PE's passion for blockchain technology began in 2012 when he moved to Silicon Valley and
                         launched a B2B digital exchange. Since then, he has been a vocal advocate for the
                         transformative potential of blockchain, challenging the status quo, and working to enable
                         firms to create innovative, sustainable, trusted, and resilient business models.</p>
 
-                    <p>In 2022, PE founded pew256, a blockchain consultancy firm that provides strategic advisory
+                    <p id="about_p4">In 2022, PE founded pew256, a blockchain consultancy firm that provides strategic advisory
                         services to businesses seeking to leverage the power of blockchain technology. Through
                         pew256, PE continues to help clients unlock the full potential of this groundbreaking
                         technology, pushing the boundaries of what is possible in the blockchain space.</p>
@@ -150,8 +150,7 @@
                                 style="margin-right: 15px; flex-shrink: 0; margin-top: 2px;">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
-                            <span><strong>Ex-PwC</strong> <span style="opacity: 0.8;">(Head of Blockchain,
-                                    Switzerland)</span></span>
+                            <span id="about_cred1_full"><strong>Ex-PwC</strong> <span style="opacity: 0.8;" id="about_cred1_sub">(Head of Blockchain, Switzerland)</span></span>
                         </li>
                         <li style="margin-bottom: 1.5rem; display: flex; align-items: flex-start;">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#506684"
@@ -159,8 +158,7 @@
                                 style="margin-right: 15px; flex-shrink: 0; margin-top: 2px;">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
-                            <span><strong>Ex-Credit Suisse</strong> <span style="opacity: 0.8;">(Started the Blockchain
-                                    Practice in 2014)</span></span>
+                            <span id="about_cred2_full"><strong>Ex-Credit Suisse</strong> <span style="opacity: 0.8;" id="about_cred2_sub">(Started the Blockchain Practice in 2014)</span></span>
                         </li>
                         <li style="margin-bottom: 1.5rem; display: flex; align-items: flex-start;">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#506684"
@@ -168,13 +166,12 @@
                                 style="margin-right: 15px; flex-shrink: 0; margin-top: 2px;">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
-                            <span><strong>13+ Years</strong> <span style="opacity: 0.8;">(Active in Blockchain & Digital
-                                    Assets)</span></span>
+                            <span id="about_cred3_full"><strong>13+ Years</strong> <span style="opacity: 0.8;" id="about_cred3_sub">(Active in Blockchain & Digital Assets)</span></span>
                         </li>
                         <li
                             style="padding: 20px; background: rgba(80, 102, 132, 0.08); border-left: 4px solid #506684; border-radius: 4px; display: flex; align-items: flex-start; margin-top: 2rem;">
-                            <span style="font-weight: 700; color: #506684;">Expertise: <span
-                                    style="font-weight: 500; color: var(--text);">Custody, Payments and Tokenization
+                            <span style="font-weight: 700; color: #506684;" id="about_expertise_full">Expertise: <span
+                                    style="font-weight: 500; color: var(--text);" id="about_expertise_list">Custody, Payments and Tokenization
                                     Protocols, MiCA, VASP</span></span>
                         </li>
                     </ul>
@@ -187,12 +184,51 @@
     <footer>
         <div class="container footer-inner">
             <div class="footer-logo"><img src="assets/brand-kit/pew256-logo-knockout.svg" alt="pew256 logo"></div>
-            <p>&copy; 2026 pew256. Precision in Blockchain.</p>
-            <div class="footer-links">
-                <a href="#">Privacy</a>
-            </div>
+            <p id="footer_copy">&copy; 2026 pew256 GmbH. Precision in Blockchain.</p>
         </div>
     </footer>
-</body>
 
+    <script>
+        const detectLang = () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const urlLang = urlParams.get('lang');
+            
+            if (urlLang && ['en', 'fr', 'es', 'de'].includes(urlLang)) {
+                localStorage.setItem('pew256_lang', urlLang);
+                return urlLang;
+            }
+            
+            const storedLang = localStorage.getItem('pew256_lang');
+            if (storedLang && ['en', 'fr', 'es', 'de'].includes(storedLang)) return storedLang;
+
+            const browserLang = navigator.language.substring(0, 2);
+            if (['en', 'fr', 'es', 'de'].includes(browserLang)) return browserLang;
+            
+            return 'en';
+        };
+
+        const userLang = detectLang();
+
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch(`/api/config?lang=${userLang}`)
+                .then(res => res.json())
+                .then(config => {
+                    const keys = [
+                        'nav_journal', 'nav_about', 'nav_services', 'nav_contact',
+                        'footer_copy', 
+                        'about_back_btn', 'about_title', 'about_tag',
+                        'about_p1', 'about_p2', 'about_p3', 'about_p4',
+                        'about_cred1_full', 'about_cred2_full', 'about_cred3_full', 'about_expertise_full'
+                    ];
+                    
+                    keys.forEach(key => {
+                        if(config[key]) {
+                            const el = document.getElementById(key);
+                            if (el) el.innerHTML = config[key];
+                        }
+                    });
+                });
+        });
+    </script>
+</body>
 </html>

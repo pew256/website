@@ -7,3 +7,9 @@ data/
 briefings/
 journal/draft-*
 .env
+*.py
+.playwright_data/
+*test*.json
+*test*.html
+new_config.json
+translated_*.json
