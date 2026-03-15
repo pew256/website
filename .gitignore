@@ -1,15 +1,39 @@
-.agents/
-.venv/
-admin.html
-server.py
-server.log
-data/
-briefings/
-journal/draft-*
+# General ignores
+.DS_Store
 .env
-*.py
+.venv/
+.agents/
 .playwright_data/
-*test*.json
-*test*.html
-new_config.json
+__pycache__/
+
+# Python & Scripts
+*.py
+*.pyc
+*.sh
+scripts/
+
+# Backend & Admin
+admin.html
+server.log
+debug_css.js
+
+# Data & Content Generation
+data/
+projects/
+insights/
+briefings/
+journal/
+
+# Temp & Test Files
+temp*.json
+new_*.json
 translated_*.json
+rotated.json
+test_*.html
+*.orig
+*test*
+.*_history
+
+# Trash and Generated Social Media Images
+assets/trash/
+assets/shares/
