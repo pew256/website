@@ -1033,6 +1033,11 @@
                     }, 300);
                 }
                 
+                // Re-run the global asynchronous language translation injection for the new dynamic tags
+                if (window.applyTranslations) {
+                    window.applyTranslations();
+                }
+                
             } catch (err) {
                 console.error("Error loading journal:", err);
                 container.innerHTML = '<div class="empty-journal"><p>Failed to load published insights. Please try again later.</p></div>';
@@ -1204,65 +1209,41 @@ document.addEventListener('DOMContentLoaded', () => {
                 if(pow) pow.style.display = 'none';
             }
 
-            // Expanded keys (Iterate through all configuration string keys and map to DOM IDs if they exist)
-            const keys = [
-                'hero_badge', 'hero_headline', 'hero_subheadline', 'hero_btn1', 'hero_btn2',
-                'nav_journal', 'nav_about', 'nav_services', 'nav_contact',
-                'stats_title', 'stats_desc', 
-                'stat1_num', 'stat1_label', 'stat2_num', 'stat2_label', 'stat3_num', 'stat3_label', 'stat4_num', 'stat4_label',
-                'trust_heading', 'trust_badge1', 'trust_badge2', 'trust_badge3', 'trust_badge4', 'trust_badge5',
-                'services_main_title',
-                'svc1_title', 'svc1_desc', 'svc1_b1', 'svc1_b2', 'svc1_b3',
-                'svc2_title', 'svc2_desc', 'svc2_b1', 'svc2_b2', 'svc2_b3',
-                'svc3_title', 'svc3_desc', 'svc3_b1', 'svc3_b2', 'svc3_b3',
-                'svc4_title', 'svc4_desc', 'svc4_b1', 'svc4_b2', 'svc4_b3',
-                'partner1_title', 'partner1_desc', 'partner2_title', 'partner2_desc', 'partner2_btn',
-                'intel_tag', 'intel_title', 'intel_desc', 'intel_btn',
-                'rep1_title', 'rep1_t1', 'rep1_t2',
-                'rep2_title', 'rep2_teaser', 'rep3_title', 'rep3_teaser',
-                'rep4_title', 'rep4_teaser', 'rep5_title', 'rep5_teaser', 'rep6_title', 'rep6_teaser',
-                'media_title', 'journal_title', 'journal_tag', 'journal_loading',
-                'footer_copy', 'footer_link1', 'footer_link2', 'footer_link3', 'footer_link4',
-                
-                // Modal Keys
-                'modal_tag', 'modal_title', 'modal_desc',
-                'contact_name_label', 'contact_name_ph', 'contact_email_label', 'contact_email_ph',
-                'contact_org_label', 'contact_org_ph', 'contact_inquiry_label',
-                'contact_opt0', 'contact_opt1', 'contact_opt2', 'contact_opt3', 'contact_opt4', 'contact_opt5',
-                'contact_msg_label', 'contact_msg_ph', 'contact_submit',
-                'contact_success_title', 'contact_success_text', 'contact_back_btn',
-                
-                'rep_modal_tag', 'rep_modal_title', 'rep_modal_desc',
-                'rep_name_label', 'rep_name_ph', 'rep_email_label', 'rep_email_ph',
-                'rep_company_label', 'rep_company_ph', 'rep_submit', 
-                'rep_success_title', 'rep_success_text', 'rep_back_btn'
-            ];
+            // Bind to window for asynchronous access (e.g. Journal cards)
+            window.flattenedConfig = config;
             
-            keys.forEach(key => {
-                if(config[key]) {
-                    const el = document.getElementById(key);
-                    if (el && !key.endsWith('_ph')) {
-                        el.innerHTML = config[key];
+            window.applyTranslations = function() {
+                if (!window.flattenedConfig) return;
+                
+                // 1. Automatically translate all DOM elements with a data-i18n marker
+                document.querySelectorAll('[data-i18n]').forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    if (window.flattenedConfig[key]) {
+                        el.innerHTML = window.flattenedConfig[key];
                     }
-                    
-                    // Specific handling for inputs that use placeholders
-                    if (key.endsWith('_ph')) {
-                        const inputIdMap = {
-                            'contact_name_ph': 'name',
-                            'contact_email_ph': 'email',
-                            'contact_org_ph': 'organization',
-                            'contact_msg_ph': 'message',
-                            'rep_name_ph': 'reportName',
-                            'rep_email_ph': 'reportEmail',
-                            'rep_company_ph': 'reportCompany'
-                        };
-                        const targetInput = document.getElementById(inputIdMap[key]);
-                        if(targetInput) {
-                            targetInput.placeholder = config[key];
-                        }
+                });
+                
+                // 2. Safely translate specific input placeholders
+                const inputIdMap = {
+                    'contact_name_ph': 'name',
+                    'contact_email_ph': 'email',
+                    'contact_org_ph': 'organization',
+                    'contact_msg_ph': 'message',
+                    'rep_name_ph': 'reportName',
+                    'rep_email_ph': 'reportEmail',
+                    'rep_company_ph': 'reportCompany'
+                };
+                
+                for (const [key, id] of Object.entries(inputIdMap)) {
+                    if (window.flattenedConfig[key]) {
+                        const targetInput = document.getElementById(id);
+                        if (targetInput) targetInput.placeholder = window.flattenedConfig[key];
                     }
                 }
-            });
+            };
+            
+            // Execute primary translation pass for statically loaded DOM
+            window.applyTranslations();
             
             // Re-render unlock buttons
             const btns = document.querySelectorAll('.report-btn');
