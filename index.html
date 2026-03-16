@@ -1156,9 +1156,28 @@ document.addEventListener('DOMContentLoaded', () => {
          currentText.innerHTML = textMap[userLang] || 'English (EN)';
     }
 
-    fetch(`/api/config?lang=${userLang}`)
-        .then(res => res.json())
-        .then(config => {
+    new Promise(async (resolve) => {
+        try {
+            const res = await fetch(`/api/config?lang=${userLang}`);
+            if (res.ok) return resolve(await res.json());
+        } catch(e) {}
+        
+        try {
+            const res = await fetch(`/config.json?v=${new Date().getTime()}`);
+            const rawConfig = await res.json();
+            const flatConfig = {};
+            for (const [key, val] of Object.entries(rawConfig)) {
+                if (val && typeof val === 'object' && val.base_en) {
+                    flatConfig[key] = val[userLang] || val.base_en;
+                } else {
+                    flatConfig[key] = val;
+                }
+            }
+            resolve(flatConfig);
+        } catch(e) {
+            resolve({});
+        }
+    }).then(config => {
             // Apply RTL layout for Arabic
             if (userLang === 'ar') {
                 document.documentElement.dir = 'rtl';
