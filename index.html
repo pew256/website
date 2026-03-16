@@ -631,6 +631,9 @@
 <a class="lang-option" data-lang="en" href="?lang=en">
 <span class="flag-icon">🇬🇧</span> English (EN)
                         </a>
+<a class="lang-option" data-lang="ar" href="?lang=ar">
+<span class="flag-icon">🇦🇪</span> العربية (AR)
+                        </a>
 <a class="lang-option" data-lang="fr" href="?lang=fr">
 <span class="flag-icon">🇫🇷</span> Français (FR)
                         </a>
@@ -963,7 +966,7 @@
                     html += `
                     <div class="journal-card" id="insight-${item.timestamp}">
                         <div class="journal-header">
-                            <h3 class="journal-title">${item.subject}</h3>
+                            <h3 class="journal-title" data-i18n="take_${item.timestamp}_subject">${item.subject}</h3>
                             <div class="journal-meta">
                                 <span>Published: ${formattedDate} &nbsp;&bull;&nbsp; ${item.project}</span>
                                 <div class="share-actions">
@@ -986,7 +989,7 @@
                                     <button class="copy-link-btn" onclick="copyJournalLink(event, 'pro-${item.timestamp}')" title="Copy direct link">🔗</button>
                                 </div>
                                 `}
-                                <p>${item.bull_case}</p>
+                                <p data-i18n="take_${item.timestamp}_bull">${item.bull_case}</p>
                             </div>
                             ` : ''}
                             
@@ -1004,7 +1007,7 @@
                                     <button class="copy-link-btn" onclick="copyJournalLink(event, 'con-${item.timestamp}')" title="Copy direct link">🔗</button>
                                 </div>
                                 `}
-                                <p>${item.bear_case}</p>
+                                <p data-i18n="take_${item.timestamp}_bear">${item.bear_case}</p>
                             </div>
                             ` : ''}
                         </div>
@@ -1116,20 +1119,20 @@ const detectLang = () => {
     const urlLang = urlParams.get('lang');
     
     // 1. Explicit URL parameter overrides everything and saves choice
-    if (urlLang && ['en', 'fr', 'es', 'de'].includes(urlLang)) {
+    if (urlLang && ['en', 'fr', 'es', 'de', 'ar'].includes(urlLang)) {
         localStorage.setItem('pew256_lang', urlLang);
         return urlLang;
     }
     
     // 2. Previously saved preference
     const storedLang = localStorage.getItem('pew256_lang');
-    if (storedLang && ['en', 'fr', 'es', 'de'].includes(storedLang)) {
+    if (storedLang && ['en', 'fr', 'es', 'de', 'ar'].includes(storedLang)) {
         return storedLang;
     }
 
     // 3. Fallback to OS/Browser language if supported
     const browserLang = navigator.language.substring(0, 2);
-    if (['en', 'fr', 'es', 'de'].includes(browserLang)) {
+    if (['en', 'fr', 'es', 'de', 'ar'].includes(browserLang)) {
         return browserLang;
     }
     
@@ -1147,8 +1150,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentFlag = document.getElementById('current-lang-flag');
     const currentText = document.getElementById('current-lang-text');
     if (currentFlag && currentText && userLang !== 'en') {
-         const flagMap = {'fr': '🇫🇷', 'es': '🇪🇸', 'de': '🇩🇪'};
-         const textMap = {'fr': 'Français (FR)', 'es': 'Español (ES)', 'de': 'Deutsch (DE)'};
+         const flagMap = {'fr': '🇫🇷', 'es': '🇪🇸', 'de': '🇩🇪', 'ar': '🇦🇪'};
+         const textMap = {'fr': 'Français (FR)', 'es': 'Español (ES)', 'de': 'Deutsch (DE)', 'ar': 'العربية (AR)'};
          currentFlag.innerHTML = flagMap[userLang] || '🇬🇧';
          currentText.innerHTML = textMap[userLang] || 'English (EN)';
     }
@@ -1156,6 +1159,15 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch(`/api/config?lang=${userLang}`)
         .then(res => res.json())
         .then(config => {
+            // Apply RTL layout for Arabic
+            if (userLang === 'ar') {
+                document.documentElement.dir = 'rtl';
+                document.body.classList.add('rtl-layout');
+            } else {
+                document.documentElement.dir = 'ltr';
+                document.body.classList.remove('rtl-layout');
+            }
+
             if(config.primary_color) {
                 document.documentElement.style.setProperty('--primary', config.primary_color);
             }
