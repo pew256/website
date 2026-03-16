@@ -42,14 +42,14 @@
         "ar": "\u062a\u0648\u0641\u0631 \u0627\u0644\u0628\u0646\u064a\u0629 \u0627\u0644\u062a\u062d\u062a\u064a\u0629 \u0627\u0644\u0645\u0624\u0633\u0633\u064a\u0629 \u0644\u0640 blockchain \u0623\u0645\u0627\u0646 \u0627\u0644\u062a\u0634\u0641\u064a\u0631 \u0639\u0644\u0649 \u0645\u0633\u062a\u0648\u0649 \u0627\u0644\u0645\u0624\u0633\u0633\u0629 \u0648\u0628\u0648\u0627\u0628\u0627\u062a \u0627\u0644\u062d\u0641\u0638 \u0648\u0637\u0628\u0642\u0627\u062a \u0627\u0644\u0627\u0645\u062a\u062b\u0627\u0644 \u0627\u0644\u0625\u0644\u0632\u0627\u0645\u064a\u0629 (\u0645\u062b\u0644 MiCA \u0648DAC8) \u0627\u0644\u0645\u0637\u0644\u0648\u0628\u0629 \u0644\u0644\u0628\u0646\u0648\u0643 \u0627\u0644\u0639\u0627\u0644\u0645\u064a\u0629. \u0641\u0647\u0648 \u064a\u0636\u0645\u0646 \u062a\u0643\u0627\u0645\u0644 \u0628\u0631\u0648\u062a\u0648\u0643\u0648\u0644 \u0627\u0644\u0637\u0628\u0642\u0629 \u0627\u0644\u062b\u0627\u0646\u064a\u0629 \u0628\u062f\u0648\u0646 \u062a\u0648\u0642\u0641 \u0623\u062b\u0646\u0627\u0621 \u0627\u0644\u0639\u0645\u0644 \u0643\u062e\u0646\u062f\u0642 \u0648\u0642\u0627\u0626\u064a \u0633\u064a\u0627\u062f\u064a \u0636\u062f \u0645\u062e\u0627\u0637\u0631 \u0627\u0644\u0633\u064a\u0648\u0644\u0629 \u0627\u0644\u062e\u0627\u0631\u062c\u064a\u0629."
     },
     "stat1_num": {
-        "base_en": "5+",
-        "fr": "5+",
-        "es": "5+",
-        "de": "5+",
+        "base_en": "5<span style=\"color: #10b981;\">+</span>",
+        "fr": "5<span style=\"color: #10b981;\">+</span>",
+        "es": "5<span style=\"color: #10b981;\">+</span>",
+        "de": "5<span style=\"color: #10b981;\">+</span>",
         "sync_lock_fr": false,
         "sync_lock_es": false,
         "sync_lock_de": false,
-        "ar": "5+"
+        "ar": "5<span style=\"color: #10b981;\">+</span>"
     },
     "stat1_label": {
         "base_en": "Banks Engaged",
@@ -62,14 +62,14 @@
         "ar": "\u0627\u0644\u0628\u0646\u0648\u0643 \u062a\u0634\u0627\u0631\u0643"
     },
     "stat2_num": {
-        "base_en": "10+",
-        "fr": "10+",
-        "es": "10+",
-        "de": "10+",
+        "base_en": "10<span style=\"color: #10b981;\">+</span>",
+        "fr": "10<span style=\"color: #10b981;\">+</span>",
+        "es": "10<span style=\"color: #10b981;\">+</span>",
+        "de": "10<span style=\"color: #10b981;\">+</span>",
         "sync_lock_fr": false,
         "sync_lock_es": false,
         "sync_lock_de": false,
-        "ar": "10+"
+        "ar": "10<span style=\"color: #10b981;\">+</span>"
     },
     "stat2_label": {
         "base_en": "Years in Blockchain",
@@ -82,14 +82,14 @@
         "ar": "\u0633\u0646\u0648\u0627\u062a \u0641\u064a Blockchain"
     },
     "stat3_num": {
-        "base_en": "25+",
-        "fr": "25+",
-        "es": "25+",
-        "de": "25+",
+        "base_en": "25<span style=\"color: #10b981;\">+</span>",
+        "fr": "25<span style=\"color: #10b981;\">+</span>",
+        "es": "25<span style=\"color: #10b981;\">+</span>",
+        "de": "25<span style=\"color: #10b981;\">+</span>",
         "sync_lock_fr": false,
         "sync_lock_es": false,
         "sync_lock_de": false,
-        "ar": "25+"
+        "ar": "25<span style=\"color: #10b981;\">+</span>"
     },
     "stat3_label": {
         "base_en": "Global Customers",
@@ -102,14 +102,14 @@
         "ar": "\u0627\u0644\u0639\u0645\u0644\u0627\u0621 \u0627\u0644\u0639\u0627\u0644\u0645\u064a\u064a\u0646"
     },
     "stat4_num": {
-        "base_en": "$500M+",
-        "fr": "500 millions de dollars +",
-        "es": "$500 millones+",
-        "de": "500 Millionen US-Dollar+",
+        "base_en": "$500M<span style=\"color: #10b981;\">+</span>",
+        "fr": "500 millions de dollars<span style=\"color: #10b981;\">+</span>",
+        "es": "500 millones de d\u00f3lares<span style=\"color: #10b981;\">+</span>",
+        "de": "500 Mio. $<span style=\"color: #10b981;\">+</span>",
         "sync_lock_fr": false,
         "sync_lock_es": false,
         "sync_lock_de": false,
-        "ar": "500 \u0645\u0644\u064a\u0648\u0646 \u062f\u0648\u0644\u0627\u0631+"
+        "ar": "500 \u0645\u0644\u064a\u0648\u0646 \u062f\u0648\u0644\u0627\u0631<span style=\"color: #10b981;\">+</span>"
     },
     "stat4_label": {
         "base_en": "Supported Investment",
@@ -133,7 +133,7 @@
     },
     "trust_badge1": {
         "base_en": "Banking &amp; Capital Markets",
-        "fr": "Banque et march\u00e9s des capitaux",
+        "fr": "Banque et march\u00e9s de capitaux",
         "es": "Banca y Mercados de Capitales",
         "de": "Bankwesen und Kapitalm\u00e4rkte",
         "sync_lock_fr": false,
@@ -212,34 +212,34 @@
         "ar": "\u0646\u0638\u0631\u064b\u0627 \u0644\u0623\u0646 \u0627\u0644\u0623\u0635\u0648\u0644 \u0627\u0644\u0631\u0642\u0645\u064a\u0629 \u0623\u0635\u0628\u062d\u062a \u0645\u0643\u0648\u0646\u064b\u0627 \u0642\u064a\u0627\u0633\u064a\u064b\u0627 \u0644\u0644\u0645\u062d\u0641\u0638\u0629\u060c \u0641\u0625\u0646\u0646\u0627 \u0646\u062a\u0631\u062c\u0645 \u0627\u0644\u0628\u0646\u0649 \u0627\u0644\u0644\u0627\u0645\u0631\u0643\u0632\u064a\u0629 \u0627\u0644\u0645\u0639\u0642\u062f\u0629 \u0625\u0644\u0649 \u062e\u0631\u0627\u0626\u0637 \u0637\u0631\u064a\u0642 \u0645\u0624\u0633\u0633\u064a\u0629 \u0642\u0627\u0628\u0644\u0629 \u0644\u0644\u062a\u0646\u0641\u064a\u0630. \u0639\u0627\u0645 2026 \u0647\u0648 \u0627\u0644\u0639\u0627\u0645 \u0627\u0644\u0630\u064a \u064a\u062a\u062d\u0631\u0643 \u0641\u064a\u0647 \u0627\u0644\u062a\u0628\u0646\u064a \u0627\u0644\u0645\u0624\u0633\u0633\u064a \"\u0639\u0645\u0648\u062f\u064a\u064b\u0627\"\u060c \u062d\u064a\u062b \u062a\u062e\u0637\u0637 59\u066a \u0645\u0646 \u0627\u0644\u0645\u0624\u0633\u0633\u0627\u062a \u0644\u062a\u062e\u0635\u064a\u0635 \u0645\u0628\u0627\u0644\u063a \u0643\u0628\u064a\u0631\u0629 \u0644\u0644\u0623\u0635\u0648\u0644 \u0627\u0644\u0631\u0642\u0645\u064a\u0629. \u0646\u062d\u0646 \u0646\u0633\u0627\u0639\u062f\u0643 \u0639\u0644\u0649 \u0627\u062c\u062a\u064a\u0627\u0632 \u0647\u0630\u0627 \u0627\u0644\u062a\u062d\u0648\u0644 \u0645\u0646 \u062e\u0644\u0627\u0644 \u0645\u0648\u0627\u0621\u0645\u0629 \u0627\u0644\u0628\u0646\u064a\u0629 \u0627\u0644\u062a\u062d\u062a\u064a\u0629 \u0644\u0640 blockchain \u0645\u0639 \u0627\u0644\u0623\u0647\u062f\u0627\u0641 \u0627\u0644\u0645\u0624\u0633\u0633\u064a\u0629."
     },
     "svc1_b1": {
-        "base_en": "Ecosystem Design: Incentive engineering and tokenomics for private and public liquidity pools.",
-        "fr": "Conception de l'\u00e9cosyst\u00e8me\u00a0: ing\u00e9nierie incitative et tokenomique pour les pools de liquidit\u00e9s priv\u00e9s et publics.",
-        "es": "Dise\u00f1o de ecosistemas: ingenier\u00eda de incentivos y token\u00f3mica para fondos de liquidez p\u00fablicos y privados.",
-        "de": "\u00d6kosystemdesign: Incentive Engineering und Tokenomics f\u00fcr private und \u00f6ffentliche Liquidit\u00e4tspools.",
+        "base_en": "<strong>Ecosystem Design:</strong> Incentive engineering and tokenomics for private and public liquidity pools.",
+        "fr": "<strong>Conception de l'\u00e9cosyst\u00e8me\u00a0:</strong> Ing\u00e9nierie incitative et tokenomique pour les pools de liquidit\u00e9s priv\u00e9s et publics.",
+        "es": "<strong>Dise\u00f1o de ecosistemas:</strong> Ingenier\u00eda de incentivos y token\u00f3mica para fondos de liquidez p\u00fablicos y privados.",
+        "de": "<strong>\u00d6kosystemdesign:</strong> Incentive Engineering und Tokenomics f\u00fcr private und \u00f6ffentliche Liquidit\u00e4tspools.",
         "sync_lock_fr": false,
         "sync_lock_es": false,
         "sync_lock_de": false,
-        "ar": "\u062a\u0635\u0645\u064a\u0645 \u0627\u0644\u0646\u0638\u0627\u0645 \u0627\u0644\u0628\u064a\u0626\u064a: \u0647\u0646\u062f\u0633\u0629 \u0627\u0644\u062d\u0648\u0627\u0641\u0632 \u0648\u0627\u0644\u0627\u0642\u062a\u0635\u0627\u062f \u0627\u0644\u0631\u0645\u0632\u064a \u0644\u0645\u062c\u0645\u0648\u0639\u0627\u062a \u0627\u0644\u0633\u064a\u0648\u0644\u0629 \u0627\u0644\u062e\u0627\u0635\u0629 \u0648\u0627\u0644\u0639\u0627\u0645\u0629."
+        "ar": "<strong>\u062a\u0635\u0645\u064a\u0645 \u0627\u0644\u0646\u0638\u0627\u0645 \u0627\u0644\u0628\u064a\u0626\u064a:</strong> \u0647\u0646\u062f\u0633\u0629 \u0627\u0644\u062d\u0648\u0627\u0641\u0632 \u0648\u0627\u0644\u0627\u0642\u062a\u0635\u0627\u062f \u0627\u0644\u0631\u0645\u0632\u064a \u0644\u0645\u062c\u0645\u0648\u0639\u0627\u062a \u0627\u0644\u0633\u064a\u0648\u0644\u0629 \u0627\u0644\u062e\u0627\u0635\u0629 \u0648\u0627\u0644\u0639\u0627\u0645\u0629."
     },
     "svc1_b2": {
-        "base_en": "Business Model Transformation: Identifying high-yield, regulatory-ready asset classes for your specific market niche.",
-        "fr": "Transformation du mod\u00e8le \u00e9conomique\u00a0: identification de classes d'actifs \u00e0 haut rendement et pr\u00eates \u00e0 \u00eatre r\u00e9glement\u00e9es pour votre niche de march\u00e9 sp\u00e9cifique.",
-        "es": "Transformaci\u00f3n del modelo de negocio: identificaci\u00f3n de clases de activos de alto rendimiento y preparados para la regulaci\u00f3n para su nicho de mercado espec\u00edfico.",
-        "de": "Transformation des Gesch\u00e4ftsmodells: Identifizierung hochrentierlicher, aufsichtsrechtlich geeigneter Anlageklassen f\u00fcr Ihre spezifische Marktnische.",
+        "base_en": "<strong>Business Model Transformation:</strong> Identifying high-yield, regulatory-ready asset classes for your specific market niche.",
+        "fr": "<strong>Transformation du mod\u00e8le \u00e9conomique</strong>\u00a0: identification de classes d'actifs \u00e0 haut rendement et pr\u00eates \u00e0 \u00eatre r\u00e9glement\u00e9es pour votre niche de march\u00e9 sp\u00e9cifique.",
+        "es": "<strong>Transformaci\u00f3n del modelo de negocio:</strong> Identificaci\u00f3n de clases de activos de alto rendimiento y preparados para la regulaci\u00f3n para su nicho de mercado espec\u00edfico.",
+        "de": "<strong>Transformation des Gesch\u00e4ftsmodells:</strong> Identifizierung hochrentierlicher, aufsichtsrechtlicher Anlageklassen f\u00fcr Ihre spezifische Marktnische.",
         "sync_lock_fr": false,
         "sync_lock_es": false,
         "sync_lock_de": false,
-        "ar": "\u062a\u062d\u0648\u064a\u0644 \u0646\u0645\u0648\u0630\u062c \u0627\u0644\u0623\u0639\u0645\u0627\u0644: \u062a\u062d\u062f\u064a\u062f \u0641\u0626\u0627\u062a \u0627\u0644\u0623\u0635\u0648\u0644 \u0630\u0627\u062a \u0627\u0644\u0639\u0627\u0626\u062f \u0627\u0644\u0645\u0631\u062a\u0641\u0639 \u0648\u0627\u0644\u062c\u0627\u0647\u0632\u0629 \u0644\u0644\u062a\u0646\u0638\u064a\u0645 \u0644\u0642\u0637\u0627\u0639 \u0627\u0644\u0633\u0648\u0642 \u0627\u0644\u062e\u0627\u0635 \u0628\u0643."
+        "ar": "<strong>\u062a\u062d\u0648\u064a\u0644 \u0646\u0645\u0648\u0630\u062c \u0627\u0644\u0623\u0639\u0645\u0627\u0644:</strong> \u062a\u062d\u062f\u064a\u062f \u0641\u0626\u0627\u062a \u0627\u0644\u0623\u0635\u0648\u0644 \u0630\u0627\u062a \u0627\u0644\u0639\u0627\u0626\u062f \u0627\u0644\u0645\u0631\u062a\u0641\u0639 \u0648\u0627\u0644\u062c\u0627\u0647\u0632\u0629 \u0644\u0644\u062a\u0646\u0638\u064a\u0645 \u0644\u0642\u0637\u0627\u0639 \u0627\u0644\u0633\u0648\u0642 \u0627\u0644\u0645\u062d\u062f\u062f \u0627\u0644\u062e\u0627\u0635 \u0628\u0643."
     },
     "svc1_b3": {
-        "base_en": "Legacy Integration: Developing \"Bridge-to-Blockchain\" strategies that connect your core banking systems to decentralized rails without disrupting existing operations.",
-        "fr": "Int\u00e9gration h\u00e9rit\u00e9e\u00a0: d\u00e9velopper des strat\u00e9gies \u00ab Bridge-to-Blockchain \u00bb qui connectent vos syst\u00e8mes bancaires de base aux rails d\u00e9centralis\u00e9s sans perturber les op\u00e9rations existantes.",
-        "es": "Integraci\u00f3n heredada: desarrollo de estrategias de \"puente a cadena de bloques\" que conecten sus sistemas bancarios centrales a rieles descentralizados sin interrumpir las operaciones existentes.",
-        "de": "Legacy-Integration: Entwicklung von \u201eBridge-to-Blockchain\u201c-Strategien, die Ihre Kernbankensysteme mit dezentralen Schienen verbinden, ohne bestehende Abl\u00e4ufe zu st\u00f6ren.",
+        "base_en": "<strong>Legacy Integration:</strong> Developing \"Bridge-to-Blockchain\" strategies that connect your core banking systems to decentralized rails without disrupting existing operations.",
+        "fr": "<strong>Int\u00e9gration h\u00e9rit\u00e9e\u00a0:</strong> D\u00e9velopper des strat\u00e9gies \u00ab Bridge-to-Blockchain \u00bb qui connectent vos syst\u00e8mes bancaires de base aux rails d\u00e9centralis\u00e9s sans perturber les op\u00e9rations existantes.",
+        "es": "<strong>Integraci\u00f3n heredada:</strong> Desarrollar estrategias \"Bridge-to-Blockchain\" que conecten sus sistemas bancarios centrales a rieles descentralizados sin interrumpir las operaciones existentes.",
+        "de": "<strong>Legacy-Integration:</strong> Entwicklung von \u201eBridge-to-Blockchain\u201c-Strategien, die Ihre Kernbankensysteme mit dezentralen Schienen verbinden, ohne bestehende Abl\u00e4ufe zu st\u00f6ren.",
         "sync_lock_fr": false,
         "sync_lock_es": false,
         "sync_lock_de": false,
-        "ar": "\u0627\u0644\u062a\u0643\u0627\u0645\u0644 \u0627\u0644\u0642\u062f\u064a\u0645: \u062a\u0637\u0648\u064a\u0631 \u0627\u0633\u062a\u0631\u0627\u062a\u064a\u062c\u064a\u0627\u062a \"Bridge-to-Blockchain\" \u0627\u0644\u062a\u064a \u062a\u0631\u0628\u0637 \u0623\u0646\u0638\u0645\u062a\u0643 \u0627\u0644\u0645\u0635\u0631\u0641\u064a\u0629 \u0627\u0644\u0623\u0633\u0627\u0633\u064a\u0629 \u0628\u0627\u0644\u0642\u0636\u0628\u0627\u0646 \u0627\u0644\u0644\u0627\u0645\u0631\u0643\u0632\u064a\u0629 \u062f\u0648\u0646 \u062a\u0639\u0637\u064a\u0644 \u0627\u0644\u0639\u0645\u0644\u064a\u0627\u062a \u0627\u0644\u062d\u0627\u0644\u064a\u0629."
+        "ar": "<strong>\u0627\u0644\u062a\u0643\u0627\u0645\u0644 \u0627\u0644\u0642\u062f\u064a\u0645:</strong> \u062a\u0637\u0648\u064a\u0631 \u0625\u0633\u062a\u0631\u0627\u062a\u064a\u062c\u064a\u0627\u062a \"Bridge to-Blockchain\" \u0627\u0644\u062a\u064a \u062a\u0631\u0628\u0637 \u0623\u0646\u0638\u0645\u062a\u0643 \u0627\u0644\u0645\u0635\u0631\u0641\u064a\u0629 \u0627\u0644\u0623\u0633\u0627\u0633\u064a\u0629 \u0628\u0627\u0644\u0642\u0636\u0628\u0627\u0646 \u0627\u0644\u0644\u0627\u0645\u0631\u0643\u0632\u064a\u0629 \u062f\u0648\u0646 \u062a\u0639\u0637\u064a\u0644 \u0627\u0644\u0639\u0645\u0644\u064a\u0627\u062a \u0627\u0644\u062d\u0627\u0644\u064a\u0629."
     },
     "svc2_title": {
         "base_en": "Custody &amp; Transaction Solutions: Secure Market Access",
@@ -262,34 +262,34 @@
         "ar": "\u0627\u0644\u062d\u0636\u0627\u0646\u0629 \u0627\u0644\u0622\u0645\u0646\u0629 \u0647\u064a \"\u0639\u062c\u0644\u0629 \u0627\u0644\u0642\u064a\u0627\u062f\u0629\" \u0644\u0644\u062a\u0641\u0627\u0639\u0644 \u0645\u0639 blockchain. \u0646\u062d\u0646 \u0646\u0635\u0645\u0645 \u0628\u0646\u064a\u0627\u062a \u062d\u0631\u0627\u0633\u0629 \u0639\u0627\u0644\u064a\u0629 \u0627\u0644\u0636\u0645\u0627\u0646 \u062a\u0639\u0637\u064a \u0627\u0644\u0623\u0648\u0644\u0648\u064a\u0629 \u0644\u0633\u0644\u0627\u0645\u0629 \u0627\u0644\u0623\u0635\u0648\u0644 \u0648\u0633\u0631\u0639\u0629 \u0627\u0644\u062a\u0634\u063a\u064a\u0644."
     },
     "svc2_b1": {
-        "base_en": "Institutional Wallet Architecture: High-assurance architectures prioritizing safety and operational velocity. Utilizing multisignatures and hardware-level security to eliminate single points of failure.",
-        "fr": "Architecture de portefeuille institutionnel\u00a0: architectures \u00e0 haute assurance donnant la priorit\u00e9 \u00e0 la s\u00e9curit\u00e9 et \u00e0 la rapidit\u00e9 op\u00e9rationnelle. Utiliser des signatures multiples et une s\u00e9curit\u00e9 au niveau mat\u00e9riel pour \u00e9liminer les points de d\u00e9faillance uniques.",
-        "es": "Arquitectura de billetera institucional: arquitecturas de alta seguridad que priorizan la seguridad y la velocidad operativa. Utilizar firmas m\u00faltiples y seguridad a nivel de hardware para eliminar puntos \u00fanicos de falla.",
-        "de": "Institutionelle Wallet-Architektur: Architekturen mit hoher Sicherheit, bei denen Sicherheit und Betriebsgeschwindigkeit im Vordergrund stehen. Nutzung von Multisignaturen und Sicherheit auf Hardwareebene zur Eliminierung einzelner Fehlerquellen.",
+        "base_en": "<strong>Institutional Wallet Architecture:</strong> High-assurance architectures prioritizing safety and operational velocity. Utilizing multisignatures and hardware-level security to eliminate single points of failure.",
+        "fr": "<strong>Architecture de portefeuille institutionnel\u00a0:</strong> architectures \u00e0 haute assurance donnant la priorit\u00e9 \u00e0 la s\u00e9curit\u00e9 et \u00e0 la rapidit\u00e9 op\u00e9rationnelle. Utiliser des signatures multiples et une s\u00e9curit\u00e9 au niveau mat\u00e9riel pour \u00e9liminer les points de d\u00e9faillance uniques.",
+        "es": "<strong>Arquitectura de billetera institucional:</strong> arquitecturas de alta seguridad que priorizan la seguridad y la velocidad operativa. Utilizar firmas m\u00faltiples y seguridad a nivel de hardware para eliminar puntos \u00fanicos de falla.",
+        "de": "<strong>Institutionelle Wallet-Architektur:</strong> Architekturen mit hoher Sicherheit, bei denen Sicherheit und Betriebsgeschwindigkeit im Vordergrund stehen. Nutzung von Multisignaturen und Sicherheit auf Hardwareebene zur Eliminierung einzelner Fehlerquellen.",
         "sync_lock_fr": false,
         "sync_lock_es": false,
         "sync_lock_de": false,
-        "ar": "\u0628\u0646\u064a\u0629 \u0627\u0644\u0645\u062d\u0641\u0638\u0629 \u0627\u0644\u0645\u0624\u0633\u0633\u064a\u0629: \u0628\u0646\u064a\u0627\u062a \u0639\u0627\u0644\u064a\u0629 \u0627\u0644\u0636\u0645\u0627\u0646 \u062a\u0639\u0637\u064a \u0627\u0644\u0623\u0648\u0644\u0648\u064a\u0629 \u0644\u0644\u0633\u0644\u0627\u0645\u0629 \u0648\u0633\u0631\u0639\u0629 \u0627\u0644\u062a\u0634\u063a\u064a\u0644. \u0627\u0633\u062a\u062e\u062f\u0627\u0645 \u0627\u0644\u062a\u0648\u0642\u064a\u0639\u0627\u062a \u0627\u0644\u0645\u062a\u0639\u062f\u062f\u0629 \u0648\u0627\u0644\u0623\u0645\u0627\u0646 \u0639\u0644\u0649 \u0645\u0633\u062a\u0648\u0649 \u0627\u0644\u0623\u062c\u0647\u0632\u0629 \u0644\u0644\u062a\u062e\u0644\u0635 \u0645\u0646 \u0646\u0642\u0627\u0637 \u0627\u0644\u0641\u0634\u0644 \u0627\u0644\u0641\u0631\u062f\u064a\u0629."
+        "ar": "<strong>\u0628\u0646\u064a\u0629 \u0627\u0644\u0645\u062d\u0641\u0638\u0629 \u0627\u0644\u0645\u0624\u0633\u0633\u064a\u0629:</strong> \u0628\u0646\u064a\u0627\u062a \u0639\u0627\u0644\u064a\u0629 \u0627\u0644\u0636\u0645\u0627\u0646 \u062a\u0639\u0637\u064a \u0627\u0644\u0623\u0648\u0644\u0648\u064a\u0629 \u0644\u0644\u0633\u0644\u0627\u0645\u0629 \u0648\u0633\u0631\u0639\u0629 \u0627\u0644\u062a\u0634\u063a\u064a\u0644. \u0627\u0633\u062a\u062e\u062f\u0627\u0645 \u0627\u0644\u062a\u0648\u0642\u064a\u0639\u0627\u062a \u0627\u0644\u0645\u062a\u0639\u062f\u062f\u0629 \u0648\u0627\u0644\u0623\u0645\u0627\u0646 \u0639\u0644\u0649 \u0645\u0633\u062a\u0648\u0649 \u0627\u0644\u0623\u062c\u0647\u0632\u0629 \u0644\u0644\u062a\u062e\u0644\u0635 \u0645\u0646 \u0646\u0642\u0627\u0637 \u0627\u0644\u0641\u0634\u0644 \u0627\u0644\u0641\u0631\u062f\u064a\u0629."
     },
     "svc2_b2": {
-        "base_en": "Self-Custody &amp; Vaulting: Designing robust custodial frameworks for institutions requiring direct control over their digital balance sheets.",
-        "fr": "Auto-conservation et stockage\u00a0: conception de cadres de conservation robustes pour les institutions n\u00e9cessitant un contr\u00f4le direct sur leurs bilans num\u00e9riques.",
-        "es": "Autocustodia y b\u00f3veda: dise\u00f1o de marcos de custodia s\u00f3lidos para instituciones que requieren control directo sobre sus balances digitales.",
-        "de": "Selbstverwahrung und Vaulting: Entwicklung robuster Verwahrungsrahmen f\u00fcr Institutionen, die eine direkte Kontrolle \u00fcber ihre digitalen Bilanzen ben\u00f6tigen.",
+        "base_en": "<strong>Self-Custody &amp; Vaulting:</strong> Designing robust custodial frameworks for institutions requiring direct control over their digital balance sheets.",
+        "fr": "<strong>Auto-conservation et stockage</strong>\u00a0: conception de cadres de conservation robustes pour les institutions n\u00e9cessitant un contr\u00f4le direct sur leurs bilans num\u00e9riques.",
+        "es": "<strong>Autocustodia y b\u00f3veda:</strong> Dise\u00f1o de marcos de custodia s\u00f3lidos para instituciones que requieren control directo sobre sus balances digitales.",
+        "de": "<strong>Selbstverwahrung und Vaulting:</strong> Entwicklung robuster Verwahrungsrahmen f\u00fcr Institutionen, die eine direkte Kontrolle \u00fcber ihre digitalen Bilanzen ben\u00f6tigen.",
         "sync_lock_fr": false,
         "sync_lock_es": false,
         "sync_lock_de": false,
-        "ar": "\u0627\u0644\u062d\u0641\u0638 \u0627\u0644\u0630\u0627\u062a\u064a \u0648\u0627\u0644\u062a\u062e\u0632\u064a\u0646: \u062a\u0635\u0645\u064a\u0645 \u0623\u0637\u0631 \u062d\u0641\u0638 \u0642\u0648\u064a\u0629 \u0644\u0644\u0645\u0624\u0633\u0633\u0627\u062a \u0627\u0644\u062a\u064a \u062a\u062a\u0637\u0644\u0628 \u0633\u064a\u0637\u0631\u0629 \u0645\u0628\u0627\u0634\u0631\u0629 \u0639\u0644\u0649 \u0645\u064a\u0632\u0627\u0646\u064a\u0627\u062a\u0647\u0627 \u0627\u0644\u0639\u0645\u0648\u0645\u064a\u0629 \u0627\u0644\u0631\u0642\u0645\u064a\u0629."
+        "ar": "<strong>\u0627\u0644\u062d\u0641\u0638 \u0627\u0644\u0630\u0627\u062a\u064a \u0648\u0627\u0644\u062a\u062e\u0632\u064a\u0646:</strong> \u062a\u0635\u0645\u064a\u0645 \u0623\u0637\u0631 \u062d\u0641\u0638 \u0642\u0648\u064a\u0629 \u0644\u0644\u0645\u0624\u0633\u0633\u0627\u062a \u0627\u0644\u062a\u064a \u062a\u062a\u0637\u0644\u0628 \u062a\u062d\u0643\u0645\u064b\u0627 \u0645\u0628\u0627\u0634\u0631\u064b\u0627 \u0641\u064a \u0645\u064a\u0632\u0627\u0646\u064a\u0627\u062a\u0647\u0627 \u0627\u0644\u0639\u0645\u0648\u0645\u064a\u0629 \u0627\u0644\u0631\u0642\u0645\u064a\u0629."
     },
     "svc2_b3": {
-        "base_en": "Real-Time Reconciliation: Continuous proof-of-reserves and attestation APIs to embed trust directly into your client-facing workflows.",
-        "fr": "R\u00e9conciliation en temps r\u00e9el\u00a0: API de preuve de r\u00e9serves et d'attestation continue pour int\u00e9grer la confiance directement dans vos flux de travail destin\u00e9s aux clients.",
-        "es": "Conciliaci\u00f3n en tiempo real: API de certificaci\u00f3n y prueba de reservas continuas para incorporar confianza directamente en los flujos de trabajo de cara al cliente.",
-        "de": "Abgleich in Echtzeit: Kontinuierlicher Reservenachweis und Bescheinigungs-APIs, um Vertrauen direkt in Ihre kundenorientierten Arbeitsabl\u00e4ufe einzubetten.",
+        "base_en": "<strong>Real-Time Reconciliation:</strong> Continuous proof-of-reserves and attestation APIs to embed trust directly into your client-facing workflows.",
+        "fr": "<strong>R\u00e9conciliation en temps r\u00e9el</strong>\u00a0: API de preuve de r\u00e9serve et d'attestation continue pour int\u00e9grer la confiance directement dans vos flux de travail destin\u00e9s aux clients.",
+        "es": "<strong>Conciliaci\u00f3n en tiempo real:</strong> Prueba de reservas continua y API de certificaci\u00f3n para incorporar confianza directamente en los flujos de trabajo de cara al cliente.",
+        "de": "<strong>Abstimmung in Echtzeit:</strong> Kontinuierlicher Reservenachweis und Bescheinigungs-APIs, um Vertrauen direkt in Ihre kundenorientierten Arbeitsabl\u00e4ufe einzubetten.",
         "sync_lock_fr": false,
         "sync_lock_es": false,
         "sync_lock_de": false,
-        "ar": "\u0627\u0644\u062a\u0633\u0648\u064a\u0629 \u0641\u064a \u0627\u0644\u0648\u0642\u062a \u0627\u0644\u0641\u0639\u0644\u064a: \u0625\u062b\u0628\u0627\u062a \u0645\u0633\u062a\u0645\u0631 \u0644\u0644\u0627\u062d\u062a\u064a\u0627\u0637\u064a\u0627\u062a \u0648\u0648\u0627\u062c\u0647\u0627\u062a \u0628\u0631\u0645\u062c\u0629 \u0627\u0644\u062a\u0637\u0628\u064a\u0642\u0627\u062a \u0644\u0644\u062a\u0635\u062f\u064a\u0642 \u0644\u062a\u0636\u0645\u064a\u0646 \u0627\u0644\u062b\u0642\u0629 \u0645\u0628\u0627\u0634\u0631\u0629 \u0641\u064a \u0633\u064a\u0631 \u0627\u0644\u0639\u0645\u0644 \u0627\u0644\u0630\u064a \u064a\u0648\u0627\u062c\u0647 \u0627\u0644\u0639\u0645\u064a\u0644."
+        "ar": "<strong>\u0627\u0644\u062a\u0633\u0648\u064a\u0629 \u0641\u064a \u0627\u0644\u0648\u0642\u062a \u0627\u0644\u0641\u0639\u0644\u064a:</strong> \u0648\u0627\u062c\u0647\u0627\u062a \u0628\u0631\u0645\u062c\u0629 \u0627\u0644\u062a\u0637\u0628\u064a\u0642\u0627\u062a \u0644\u0644\u0625\u062b\u0628\u0627\u062a \u0627\u0644\u0645\u0633\u062a\u0645\u0631 \u0644\u0644\u0627\u062d\u062a\u064a\u0627\u0637\u064a\u0627\u062a \u0648\u0627\u0644\u062a\u0635\u062f\u064a\u0642 \u0644\u062a\u0636\u0645\u064a\u0646 \u0627\u0644\u062b\u0642\u0629 \u0645\u0628\u0627\u0634\u0631\u0629 \u0641\u064a \u0633\u064a\u0631 \u0627\u0644\u0639\u0645\u0644 \u0627\u0644\u0630\u064a \u064a\u0648\u0627\u062c\u0647 \u0627\u0644\u0639\u0645\u064a\u0644."
     },
     "svc3_title": {
         "base_en": "Protocol Engineering: Tailored for Payment &amp; Asset Tokenization",
@@ -312,34 +312,34 @@
         "ar": "\u0627\u0644\u0627\u0645\u062a\u062b\u0627\u0644 \u0647\u0648 \u0645\u064a\u0632\u0629\u060c \u0648\u0644\u064a\u0633 \u0639\u0627\u0626\u0642\u0627. \u0646\u062d\u0646 \u0646\u0639\u0645\u0644 \u0643\u0645\u062a\u0631\u062c\u0645\u064a\u0646 \u062a\u0642\u0646\u064a\u064a\u0646 \u0628\u064a\u0646 \u0627\u0644\u062d\u062f\u0648\u062f \u0627\u0644\u0642\u0627\u0646\u0648\u0646\u064a\u0629 \u0648\u0627\u0644\u062b\u0628\u0627\u062a \u0639\u0644\u0649 \u0627\u0644\u0633\u0644\u0633\u0644\u0629."
     },
     "svc3_b1": {
-        "base_en": "Asset Tokenization: Engineering the lifecycle of tokenized Assets. From bonds to real estate, and private equity\u2014turning illiquid assets into fractionalized, tradable digital securities.",
-        "fr": "Tokenisation des actifs\u00a0: ing\u00e9nierie du cycle de vie des actifs tokenis\u00e9s. Des obligations \u00e0 l'immobilier, en passant par le capital-investissement, transformez les actifs illiquides en titres num\u00e9riques fractionn\u00e9s et n\u00e9gociables.",
-        "es": "Tokenizaci\u00f3n de activos: ingenier\u00eda del ciclo de vida de los activos tokenizados. Desde bonos hasta bienes ra\u00edces y capital privado: convertir activos il\u00edquidos en valores digitales negociables y fraccionados.",
-        "de": "Asset-Tokenisierung: Gestaltung des Lebenszyklus tokenisierter Assets. Von Anleihen \u00fcber Immobilien bis hin zu Private Equity \u2013 wir verwandeln illiquide Verm\u00f6genswerte in fraktionierte, handelbare digitale Wertpapiere.",
+        "base_en": "<strong>Asset Tokenization:</strong> Engineering the lifecycle of tokenized Assets. From bonds to real estate, and private equity\u2014turning illiquid assets into fractionalized, tradable digital securities.",
+        "fr": "<strong>Tok\u00e9nisation des actifs\u00a0:</strong> Ing\u00e9nierie du cycle de vie des actifs tokenis\u00e9s. Des obligations \u00e0 l'immobilier, en passant par le capital-investissement, transformez les actifs illiquides en titres num\u00e9riques fractionn\u00e9s et n\u00e9gociables.",
+        "es": "<strong>Tokenizaci\u00f3n de activos:</strong> Ingenier\u00eda del ciclo de vida de los activos tokenizados. Desde bonos hasta bienes ra\u00edces y capital privado: convertir activos il\u00edquidos en valores digitales negociables y fraccionados.",
+        "de": "<strong>Asset-Tokenisierung:</strong> Gestaltung des Lebenszyklus tokenisierter Assets. Von Anleihen \u00fcber Immobilien bis hin zu Private Equity \u2013 wir verwandeln illiquide Verm\u00f6genswerte in fraktionierte, handelbare digitale Wertpapiere.",
         "sync_lock_fr": false,
         "sync_lock_es": false,
         "sync_lock_de": false,
-        "ar": "\u062a\u0631\u0645\u064a\u0632 \u0627\u0644\u0623\u0635\u0648\u0644: \u0647\u0646\u062f\u0633\u0629 \u062f\u0648\u0631\u0629 \u062d\u064a\u0627\u0629 \u0627\u0644\u0623\u0635\u0648\u0644 \u0627\u0644\u0645\u0631\u0645\u0632\u0629. \u0645\u0646 \u0627\u0644\u0633\u0646\u062f\u0627\u062a \u0625\u0644\u0649 \u0627\u0644\u0639\u0642\u0627\u0631\u0627\u062a \u0648\u0627\u0644\u0623\u0633\u0647\u0645 \u0627\u0644\u062e\u0627\u0635\u0629 \u2013 \u062a\u062d\u0648\u064a\u0644 \u0627\u0644\u0623\u0635\u0648\u0644 \u063a\u064a\u0631 \u0627\u0644\u0633\u0627\u0626\u0644\u0629 \u0625\u0644\u0649 \u0623\u0648\u0631\u0627\u0642 \u0645\u0627\u0644\u064a\u0629 \u0631\u0642\u0645\u064a\u0629 \u0645\u062c\u0632\u0623\u0629 \u0648\u0642\u0627\u0628\u0644\u0629 \u0644\u0644\u062a\u062f\u0627\u0648\u0644."
+        "ar": "<strong>\u062a\u0631\u0645\u064a\u0632 \u0627\u0644\u0623\u0635\u0648\u0644:</strong> \u0647\u0646\u062f\u0633\u0629 \u062f\u0648\u0631\u0629 \u062d\u064a\u0627\u0629 \u0627\u0644\u0623\u0635\u0648\u0644 \u0627\u0644\u0645\u0631\u0645\u0632\u0629. \u0645\u0646 \u0627\u0644\u0633\u0646\u062f\u0627\u062a \u0625\u0644\u0649 \u0627\u0644\u0639\u0642\u0627\u0631\u0627\u062a \u0648\u0627\u0644\u0623\u0633\u0647\u0645 \u0627\u0644\u062e\u0627\u0635\u0629 \u2013 \u062a\u062d\u0648\u064a\u0644 \u0627\u0644\u0623\u0635\u0648\u0644 \u063a\u064a\u0631 \u0627\u0644\u0633\u0627\u0626\u0644\u0629 \u0625\u0644\u0649 \u0623\u0648\u0631\u0627\u0642 \u0645\u0627\u0644\u064a\u0629 \u0631\u0642\u0645\u064a\u0629 \u0645\u062c\u0632\u0623\u0629 \u0648\u0642\u0627\u0628\u0644\u0629 \u0644\u0644\u062a\u062f\u0627\u0648\u0644."
     },
     "svc3_b2": {
-        "base_en": "Programmable Payments: Building stablecoin settlement rails that enable 24/7 cross-border transactions and \"just-in-time\" treasury funding.",
-        "fr": "Paiements programmables\u00a0: cr\u00e9ation de rails de r\u00e8glement stables qui permettent des transactions transfrontali\u00e8res 24h/24 et 7j/7 et un financement de tr\u00e9sorerie \u00ab\u00a0juste \u00e0 temps\u00a0\u00bb.",
-        "es": "Pagos programables: creaci\u00f3n de v\u00edas de liquidaci\u00f3n de monedas estables que permitan transacciones transfronterizas las 24 horas del d\u00eda, los 7 d\u00edas de la semana y financiaci\u00f3n de tesorer\u00eda \"justo a tiempo\".",
-        "de": "Programmierbare Zahlungen: Aufbau von Stablecoin-Abwicklungsschienen, die grenz\u00fcberschreitende Transaktionen rund um die Uhr und \u201eJust-in-Time\u201c-Finanzierung erm\u00f6glichen.",
+        "base_en": "<strong>Programmable Payments:</strong> Building stablecoin settlement rails that enable 24/7 cross-border transactions and \"just-in-time\" treasury funding.",
+        "fr": "<strong>Paiements programmables</strong>\u00a0: cr\u00e9ation de rails de r\u00e8glement stables qui permettent des transactions transfrontali\u00e8res 24h/24 et 7j/7 et un financement de tr\u00e9sorerie \u00ab juste \u00e0 temps \u00bb.",
+        "es": "<strong>Pagos programables:</strong> Creaci\u00f3n de v\u00edas de liquidaci\u00f3n de monedas estables que permitan transacciones transfronterizas las 24 horas del d\u00eda, los 7 d\u00edas de la semana y financiaci\u00f3n de tesorer\u00eda \"justo a tiempo\".",
+        "de": "<strong>Programmierbare Zahlungen:</strong> Aufbau von Stablecoin-Abwicklungsschienen, die grenz\u00fcberschreitende Transaktionen rund um die Uhr und \u201eJust-in-Time\u201c-Finanzierung erm\u00f6glichen.",
         "sync_lock_fr": false,
         "sync_lock_es": false,
         "sync_lock_de": false,
-        "ar": "\u0627\u0644\u0645\u062f\u0641\u0648\u0639\u0627\u062a \u0627\u0644\u0642\u0627\u0628\u0644\u0629 \u0644\u0644\u0628\u0631\u0645\u062c\u0629: \u0628\u0646\u0627\u0621 \u0645\u0633\u0627\u0631\u0627\u062a \u062a\u0633\u0648\u064a\u0629 \u0644\u0644\u0639\u0645\u0644\u0627\u062a \u0627\u0644\u0645\u0633\u062a\u0642\u0631\u0629 \u0627\u0644\u062a\u064a \u062a\u0645\u0643\u0646 \u0627\u0644\u0645\u0639\u0627\u0645\u0644\u0627\u062a \u0639\u0628\u0631 \u0627\u0644\u062d\u062f\u0648\u062f \u0639\u0644\u0649 \u0645\u062f\u0627\u0631 \u0627\u0644\u0633\u0627\u0639\u0629 \u0637\u0648\u0627\u0644 \u0623\u064a\u0627\u0645 \u0627\u0644\u0623\u0633\u0628\u0648\u0639 \u0648\u062a\u0645\u0648\u064a\u0644 \u0627\u0644\u062e\u0632\u0627\u0646\u0629 \"\u0641\u064a \u0627\u0644\u0648\u0642\u062a \u0627\u0644\u0645\u0646\u0627\u0633\u0628\"."
+        "ar": "<strong>\u0627\u0644\u0645\u062f\u0641\u0648\u0639\u0627\u062a \u0627\u0644\u0642\u0627\u0628\u0644\u0629 \u0644\u0644\u0628\u0631\u0645\u062c\u0629:</strong> \u0625\u0646\u0634\u0627\u0621 \u0645\u0633\u0627\u0631\u0627\u062a \u062a\u0633\u0648\u064a\u0629 \u0644\u0644\u0639\u0645\u0644\u0627\u062a \u0627\u0644\u0645\u0633\u062a\u0642\u0631\u0629 \u062a\u062a\u064a\u062d \u0625\u062c\u0631\u0627\u0621 \u0627\u0644\u0645\u0639\u0627\u0645\u0644\u0627\u062a \u0639\u0628\u0631 \u0627\u0644\u062d\u062f\u0648\u062f \u0639\u0644\u0649 \u0645\u062f\u0627\u0631 \u0627\u0644\u0633\u0627\u0639\u0629 \u0637\u0648\u0627\u0644 \u0623\u064a\u0627\u0645 \u0627\u0644\u0623\u0633\u0628\u0648\u0639 \u0648\u062a\u0645\u0648\u064a\u0644 \u0627\u0644\u062e\u0632\u0627\u0646\u0629 \"\u0641\u064a \u0627\u0644\u0648\u0642\u062a \u0627\u0644\u0645\u0646\u0627\u0633\u0628\"."
     },
     "svc3_b3": {
-        "base_en": "Privacy-Preserving Tech: Implementing Zero-Knowledge (ZK) proofs to allow for institutional accountability while maintaining necessary transactional confidentiality.",
-        "fr": "Technologie pr\u00e9servant la confidentialit\u00e9\u00a0: mise en \u0153uvre de preuves Zero-Knowledge (ZK) pour permettre la responsabilit\u00e9 institutionnelle tout en maintenant la confidentialit\u00e9 transactionnelle n\u00e9cessaire.",
-        "es": "Tecnolog\u00eda que preserva la privacidad: Implementaci\u00f3n de pruebas de conocimiento cero (ZK) para permitir la responsabilidad institucional y al mismo tiempo mantener la confidencialidad transaccional necesaria.",
-        "de": "Technologie zur Wahrung der Privatsph\u00e4re: Implementierung von Zero-Knowledge (ZK)-Beweisen, um institutionelle Rechenschaftspflicht zu erm\u00f6glichen und gleichzeitig die notwendige Transaktionsvertraulichkeit zu wahren.",
+        "base_en": "<strong>Privacy-Preserving Tech:</strong> Implementing Zero-Knowledge (ZK) proofs to allow for institutional accountability while maintaining necessary transactional confidentiality.",
+        "fr": "<strong>Technologie pr\u00e9servant la confidentialit\u00e9\u00a0:</strong> mise en \u0153uvre de preuves Zero-Knowledge (ZK) pour permettre la responsabilit\u00e9 institutionnelle tout en pr\u00e9servant la confidentialit\u00e9 transactionnelle n\u00e9cessaire.",
+        "es": "<strong>Tecnolog\u00eda que preserva la privacidad:</strong> Implementaci\u00f3n de pruebas de conocimiento cero (ZK) para permitir la responsabilidad institucional y al mismo tiempo mantener la confidencialidad transaccional necesaria.",
+        "de": "<strong>Privacy-Preserving Tech:</strong> Implementierung von Zero-Knowledge (ZK)-Beweisen, um institutionelle Rechenschaftspflicht zu erm\u00f6glichen und gleichzeitig die notwendige Transaktionsvertraulichkeit zu wahren.",
         "sync_lock_fr": false,
         "sync_lock_es": false,
         "sync_lock_de": false,
-        "ar": "\u062a\u0642\u0646\u064a\u0629 \u0627\u0644\u062d\u0641\u0627\u0638 \u0639\u0644\u0649 \u0627\u0644\u062e\u0635\u0648\u0635\u064a\u0629: \u062a\u0646\u0641\u064a\u0630 \u0623\u062f\u0644\u0629 \u0627\u0644\u0645\u0639\u0631\u0641\u0629 \u0627\u0644\u0635\u0641\u0631\u064a\u0629 (ZK) \u0644\u0644\u0633\u0645\u0627\u062d \u0628\u0627\u0644\u0645\u0633\u0627\u0621\u0644\u0629 \u0627\u0644\u0645\u0624\u0633\u0633\u064a\u0629 \u0645\u0639 \u0627\u0644\u062d\u0641\u0627\u0638 \u0639\u0644\u0649 \u0633\u0631\u064a\u0629 \u0627\u0644\u0645\u0639\u0627\u0645\u0644\u0627\u062a \u0627\u0644\u0644\u0627\u0632\u0645\u0629."
+        "ar": "<strong>\u062a\u0642\u0646\u064a\u0629 \u0627\u0644\u062d\u0641\u0627\u0638 \u0639\u0644\u0649 \u0627\u0644\u062e\u0635\u0648\u0635\u064a\u0629:</strong> \u062a\u0646\u0641\u064a\u0630 \u0623\u062f\u0644\u0629 \u0627\u0644\u0645\u0639\u0631\u0641\u0629 \u0627\u0644\u0635\u0641\u0631\u064a\u0629 (ZK) \u0644\u0644\u0633\u0645\u0627\u062d \u0628\u0627\u0644\u0645\u0633\u0627\u0621\u0644\u0629 \u0627\u0644\u0645\u0624\u0633\u0633\u064a\u0629 \u0645\u0639 \u0627\u0644\u062d\u0641\u0627\u0638 \u0639\u0644\u0649 \u0633\u0631\u064a\u0629 \u0627\u0644\u0645\u0639\u0627\u0645\u0644\u0627\u062a \u0627\u0644\u0636\u0631\u0648\u0631\u064a\u0629."
     },
     "svc4_title": {
         "base_en": "Regulatory Compliance: The \"Compliance-by-Design\" Prerequisite",
@@ -362,34 +362,34 @@
         "ar": "\u0644\u0645 \u064a\u0639\u062f \u0627\u0644\u0627\u0645\u062a\u062b\u0627\u0644 \u0639\u0642\u0628\u0629 \u0642\u0627\u0646\u0648\u0646\u064a\u0629\u060c \u0628\u0644 \u0623\u0635\u0628\u062d \u0628\u0646\u064a\u0629 \u062a\u062d\u062a\u064a\u0629 \u0623\u0633\u0627\u0633\u064a\u0629. \u0648\u0645\u0639 \u062d\u0644\u0648\u0644 \u0627\u0644\u0645\u0648\u0639\u062f \u0627\u0644\u0646\u0647\u0627\u0626\u064a \u0644\u0625\u0646\u0641\u0627\u0630 \u0642\u0627\u0646\u0648\u0646 MiCA \u0641\u064a \u0627\u0644\u0623\u0648\u0644 \u0645\u0646 \u064a\u0648\u0644\u064a\u0648/\u062a\u0645\u0648\u0632 2026\u060c \u064a\u062a\u0639\u064a\u0646 \u0639\u0644\u0649 \u0627\u0644\u0645\u0624\u0633\u0633\u0627\u062a \u0623\u0646 \u062a\u0646\u0638\u0631 \u0625\u0644\u0649 \u0642\u0627\u0646\u0648\u0646 MiCA \u0644\u064a\u0633 \u0628\u0627\u0639\u062a\u0628\u0627\u0631\u0647 \u0639\u0627\u0626\u0642\u0627\u064b\u060c \u0628\u0644 \u0628\u0627\u0639\u062a\u0628\u0627\u0631\u0647 \u062e\u0646\u062f\u0642\u0627\u064b \u0648\u0642\u0627\u0626\u064a\u0627\u064b \u0633\u064a\u0627\u062f\u064a\u0627\u064b \u0636\u062f \u0627\u0633\u062a\u0646\u0632\u0627\u0641 \u0627\u0644\u0633\u064a\u0648\u0644\u0629 \u0641\u064a \u0627\u0644\u062e\u0627\u0631\u062c. \u0646\u062d\u0646 \u0646\u0646\u0641\u0630 \u0623\u0637\u0631 \u0639\u0645\u0644 \u062a\u0636\u0645\u0646 \u0623\u0646 \u0639\u0645\u0644\u064a\u0627\u062a \u0627\u0644\u0623\u0635\u0648\u0644 \u0627\u0644\u0631\u0642\u0645\u064a\u0629 \u0627\u0644\u062e\u0627\u0635\u0629 \u0628\u0643 \u062a\u0644\u0628\u064a \u0623\u0639\u0644\u0649 \u0627\u0644\u0645\u0639\u0627\u064a\u064a\u0631 \u0627\u0644\u0639\u0627\u0644\u0645\u064a\u0629 \u0645\u0646\u0630 \u0627\u0644\u064a\u0648\u0645 \u0627\u0644\u0623\u0648\u0644."
     },
     "svc4_b1": {
-        "base_en": "MiCA &amp; VASP Licensing: End-to-end support for obtaining and maintaining authorization in the EU and beyond.",
-        "fr": "Licences MiCA et VASP\u00a0: assistance de bout en bout pour l'obtention et le maintien d'une autorisation dans l'UE et au-del\u00e0.",
-        "es": "Licencias MiCA y VASP: soporte de extremo a extremo para obtener y mantener la autorizaci\u00f3n en la UE y m\u00e1s all\u00e1.",
-        "de": "MiCA- und VASP-Lizenzierung: End-to-End-Unterst\u00fctzung f\u00fcr die Erlangung und Aufrechterhaltung der Zulassung in der EU und dar\u00fcber hinaus.",
+        "base_en": "<strong>MiCA &amp; VASP Licensing:</strong> End-to-end support for obtaining and maintaining authorization in the EU and beyond.",
+        "fr": "<strong>Licences MiCA et VASP\u00a0:</strong> Assistance de bout en bout pour l'obtention et le maintien d'une autorisation dans l'UE et au-del\u00e0.",
+        "es": "<strong>Licencias MiCA y VASP:</strong> soporte de extremo a extremo para obtener y mantener la autorizaci\u00f3n en la UE y m\u00e1s all\u00e1.",
+        "de": "<strong>MiCA- und VASP-Lizenzierung:</strong> End-to-End-Unterst\u00fctzung f\u00fcr die Erlangung und Aufrechterhaltung der Zulassung in der EU und dar\u00fcber hinaus.",
         "sync_lock_fr": false,
         "sync_lock_es": false,
         "sync_lock_de": false,
-        "ar": "\u062a\u0631\u062e\u064a\u0635 MiCA \u0648VASP: \u062f\u0639\u0645 \u0634\u0627\u0645\u0644 \u0644\u0644\u062d\u0635\u0648\u0644 \u0639\u0644\u0649 \u0627\u0644\u062a\u0631\u062e\u064a\u0635 \u0648\u0627\u0644\u062d\u0641\u0627\u0638 \u0639\u0644\u064a\u0647 \u0641\u064a \u0627\u0644\u0627\u062a\u062d\u0627\u062f \u0627\u0644\u0623\u0648\u0631\u0648\u0628\u064a \u0648\u062e\u0627\u0631\u062c\u0647."
+        "ar": "<strong>\u062a\u0631\u062e\u064a\u0635 MiCA \u0648VASP:</strong> \u062f\u0639\u0645 \u0634\u0627\u0645\u0644 \u0644\u0644\u062d\u0635\u0648\u0644 \u0639\u0644\u0649 \u0627\u0644\u062a\u0631\u062e\u064a\u0635 \u0648\u0627\u0644\u062d\u0641\u0627\u0638 \u0639\u0644\u064a\u0647 \u0641\u064a \u0627\u0644\u0627\u062a\u062d\u0627\u062f \u0627\u0644\u0623\u0648\u0631\u0648\u0628\u064a \u0648\u062e\u0627\u0631\u062c\u0647."
     },
     "svc4_b2": {
-        "base_en": "Embedded AML/KYC: Integrating real-time transaction monitoring and \"Travel Rule\" compliance directly into the protocol layer.",
-        "fr": "AML/KYC int\u00e9gr\u00e9\u00a0: int\u00e9gration de la surveillance des transactions en temps r\u00e9el et de la conformit\u00e9 aux \u00ab\u00a0r\u00e8gles de voyage\u00a0\u00bb directement dans la couche protocolaire.",
-        "es": "AML/KYC integrado: integra el monitoreo de transacciones en tiempo real y el cumplimiento de las \"reglas de viaje\" directamente en la capa de protocolo.",
-        "de": "Eingebettetes AML/KYC: Integration der Echtzeit-Transaktions\u00fcberwachung und der Einhaltung von \u201eReiseregeln\u201c direkt in die Protokollschicht.",
+        "base_en": "<strong>Embedded AML/KYC:</strong> Integrating real-time transaction monitoring and \"Travel Rule\" compliance directly into the protocol layer.",
+        "fr": "<strong>AML/KYC int\u00e9gr\u00e9\u00a0:</strong> int\u00e9gration de la surveillance des transactions en temps r\u00e9el et de la conformit\u00e9 aux \u00ab\u00a0r\u00e8gles de voyage\u00a0\u00bb directement dans la couche protocolaire.",
+        "es": "<strong>AML/KYC integrado:</strong> integra el monitoreo de transacciones en tiempo real y el cumplimiento de las \"reglas de viaje\" directamente en la capa de protocolo.",
+        "de": "<strong>Eingebettete AML/KYC:</strong> Integration von Echtzeit-Transaktions\u00fcberwachung und Einhaltung von \u201eReiseregeln\u201c direkt in die Protokollschicht.",
         "sync_lock_fr": false,
         "sync_lock_es": false,
         "sync_lock_de": false,
-        "ar": "AML/KYC \u0627\u0644\u0645\u0636\u0645\u0646: \u062f\u0645\u062c \u0645\u0631\u0627\u0642\u0628\u0629 \u0627\u0644\u0645\u0639\u0627\u0645\u0644\u0627\u062a \u0641\u064a \u0627\u0644\u0648\u0642\u062a \u0627\u0644\u0641\u0639\u0644\u064a \u0648\u0627\u0644\u0627\u0645\u062a\u062b\u0627\u0644 \u0644\u0640 \"\u0642\u0627\u0639\u062f\u0629 \u0627\u0644\u0633\u0641\u0631\" \u0645\u0628\u0627\u0634\u0631\u0629 \u0641\u064a \u0637\u0628\u0642\u0629 \u0627\u0644\u0628\u0631\u0648\u062a\u0648\u0643\u0648\u0644."
+        "ar": "<strong>\u0645\u0643\u0627\u0641\u062d\u0629 \u063a\u0633\u064a\u0644 \u0627\u0644\u0623\u0645\u0648\u0627\u0644/\u0627\u0639\u0631\u0641 \u0639\u0645\u064a\u0644\u0643 (AML/KYC) \u0627\u0644\u0645\u0636\u0645\u0646\u0629:</strong> \u062f\u0645\u062c \u0645\u0631\u0627\u0642\u0628\u0629 \u0627\u0644\u0645\u0639\u0627\u0645\u0644\u0627\u062a \u0641\u064a \u0627\u0644\u0648\u0642\u062a \u0627\u0644\u0641\u0639\u0644\u064a \u0648\u0627\u0644\u0627\u0645\u062a\u062b\u0627\u0644 \u0644\u0640 \"\u0642\u0627\u0639\u062f\u0629 \u0627\u0644\u0633\u0641\u0631\" \u0645\u0628\u0627\u0634\u0631\u0629 \u0641\u064a \u0637\u0628\u0642\u0629 \u0627\u0644\u0628\u0631\u0648\u062a\u0648\u0643\u0648\u0644."
     },
     "svc4_b3": {
-        "base_en": "Tax &amp; Audit Readiness: Automated data-sharing frameworks compatible with DAC8 requirements for mandatory tax reporting.",
-        "fr": "Pr\u00e9paration \u00e0 la fiscalit\u00e9 et \u00e0 l'audit\u00a0: cadres de partage de donn\u00e9es automatis\u00e9s compatibles avec les exigences DAC8 en mati\u00e8re de d\u00e9claration fiscale obligatoire.",
-        "es": "Preparaci\u00f3n para impuestos y auditor\u00edas: marcos automatizados de intercambio de datos compatibles con los requisitos de DAC8 para la declaraci\u00f3n de impuestos obligatoria.",
-        "de": "Steuer- und Pr\u00fcfungsbereitschaft: Automatisierte Datenaustausch-Frameworks, die mit den DAC8-Anforderungen f\u00fcr die obligatorische Steuerberichterstattung kompatibel sind.",
+        "base_en": "<strong>Tax &amp; Audit Readiness:</strong> Automated data-sharing frameworks compatible with DAC8 requirements for mandatory tax reporting.",
+        "fr": "<strong>Pr\u00e9paration \u00e0 la fiscalit\u00e9 et \u00e0 l'audit</strong>\u00a0: cadres de partage de donn\u00e9es automatis\u00e9s compatibles avec les exigences DAC8 en mati\u00e8re de d\u00e9claration fiscale obligatoire.",
+        "es": "<strong>Preparaci\u00f3n para impuestos y auditor\u00edas:</strong> marcos de intercambio de datos automatizados compatibles con los requisitos de DAC8 para la declaraci\u00f3n de impuestos obligatoria.",
+        "de": "<strong>Steuer- und Pr\u00fcfungsbereitschaft:</strong> Automatisierte Datenaustausch-Frameworks, die mit den DAC8-Anforderungen f\u00fcr die obligatorische Steuerberichterstattung kompatibel sind.",
         "sync_lock_fr": false,
         "sync_lock_es": false,
         "sync_lock_de": false,
-        "ar": "\u062c\u0627\u0647\u0632\u064a\u0629 \u0627\u0644\u0636\u0631\u0627\u0626\u0628 \u0648\u0627\u0644\u062a\u062f\u0642\u064a\u0642: \u0623\u0637\u0631 \u0645\u0634\u0627\u0631\u0643\u0629 \u0627\u0644\u0628\u064a\u0627\u0646\u0627\u062a \u0627\u0644\u0622\u0644\u064a\u0629 \u0627\u0644\u0645\u062a\u0648\u0627\u0641\u0642\u0629 \u0645\u0639 \u0645\u062a\u0637\u0644\u0628\u0627\u062a DAC8 \u0644\u0625\u0639\u062f\u0627\u062f \u0627\u0644\u062a\u0642\u0627\u0631\u064a\u0631 \u0627\u0644\u0636\u0631\u064a\u0628\u064a\u0629 \u0627\u0644\u0625\u0644\u0632\u0627\u0645\u064a\u0629."
+        "ar": "<strong>\u0627\u0644\u0627\u0633\u062a\u0639\u062f\u0627\u062f \u0627\u0644\u0636\u0631\u064a\u0628\u064a \u0648\u0627\u0644\u062a\u062f\u0642\u064a\u0642:</strong> \u0623\u0637\u0631 \u0645\u0634\u0627\u0631\u0643\u0629 \u0627\u0644\u0628\u064a\u0627\u0646\u0627\u062a \u0627\u0644\u0622\u0644\u064a\u0629 \u0627\u0644\u0645\u062a\u0648\u0627\u0641\u0642\u0629 \u0645\u0639 \u0645\u062a\u0637\u0644\u0628\u0627\u062a DAC8 \u0644\u0625\u0639\u062f\u0627\u062f \u0627\u0644\u062a\u0642\u0627\u0631\u064a\u0631 \u0627\u0644\u0636\u0631\u064a\u0628\u064a\u0629 \u0627\u0644\u0625\u0644\u0632\u0627\u0645\u064a\u0629."
     },
     "intel_tag": {
         "base_en": "Strategic Research",
@@ -432,124 +432,124 @@
         "ar": "\u0637\u0644\u0628 \u0627\u0644\u062a\u0642\u0631\u064a\u0631 \u0627\u0644\u0643\u0627\u0645\u0644"
     },
     "rep1_title": {
-        "base_en": "Digital Assets: A RegTech Compliance Guide",
-        "fr": "Actifs num\u00e9riques : Un guide de conformit\u00e9 RegTech",
-        "es": "Activos digitales: una gu\u00eda de cumplimiento de RegTech",
-        "de": "Digitale Assets: Ein RegTech-Compliance-Leitfaden",
+        "base_en": "Digital Assets: Regulatory Compliance Guide",
+        "fr": "Actifs num\u00e9riques\u00a0: Guide de conformit\u00e9 r\u00e9glementaire",
+        "es": "Activos digitales: Gu\u00eda de cumplimiento normativo",
+        "de": "Digitale Verm\u00f6genswerte: Leitfaden zur Einhaltung gesetzlicher Vorschriften",
         "sync_lock_fr": false,
         "sync_lock_es": false,
         "sync_lock_de": false,
-        "ar": "\u0627\u0644\u0623\u0635\u0648\u0644 \u0627\u0644\u0631\u0642\u0645\u064a\u0629: \u062f\u0644\u064a\u0644 \u0627\u0644\u0627\u0645\u062a\u062b\u0627\u0644 RegTech"
+        "ar": "\u0627\u0644\u0623\u0635\u0648\u0644 \u0627\u0644\u0631\u0642\u0645\u064a\u0629: \u062f\u0644\u064a\u0644 \u0627\u0644\u0627\u0645\u062a\u062b\u0627\u0644 \u0627\u0644\u062a\u0646\u0638\u064a\u0645\u064a"
     },
     "rep1_t1": {
-        "base_en": "Banks face a trillion-dollar compliance gap navigating fragmented global crypto frameworks. An in-depth mapping of the technical pipelines required for complete automated auditing, tracking varying jurisdictional rulings.",
-        "fr": "Les banques sont confront\u00e9es \u00e0 un d\u00e9ficit de conformit\u00e9 de plusieurs milliards de dollars en raison de la fragmentation des cadres cryptographiques mondiaux. Une cartographie approfondie des pipelines techniques requis pour un audit automatis\u00e9 complet, en suivant les diff\u00e9rentes d\u00e9cisions juridictionnelles.",
-        "es": "Los bancos enfrentan una brecha de cumplimiento de billones de d\u00f3lares al navegar por marcos criptogr\u00e1ficos globales fragmentados. Un mapeo en profundidad de los procesos t\u00e9cnicos necesarios para una auditor\u00eda automatizada completa, rastreando diferentes fallos jurisdiccionales.",
-        "de": "Banken stehen bei der Bew\u00e4ltigung fragmentierter globaler Krypto-Frameworks vor einer Billionen-Dollar-Compliance-L\u00fccke. Eine detaillierte Abbildung der technischen Pipelines, die f\u00fcr eine vollst\u00e4ndige automatisierte Pr\u00fcfung erforderlich sind, um unterschiedliche Gerichtsentscheidungen zu verfolgen.",
+        "base_en": "The Pivot to Production: Operational Blueprints for the Post-Clarity Era.",
+        "fr": "Le pivot vers la production\u00a0: plans op\u00e9rationnels pour l\u2019\u00e8re post-clart\u00e9.",
+        "es": "El giro hacia la producci\u00f3n: planes operativos para la era de la posclaridad.",
+        "de": "Der Dreh- und Angelpunkt zur Produktion: Betriebspl\u00e4ne f\u00fcr die Post-Clarity-\u00c4ra.",
         "sync_lock_fr": false,
         "sync_lock_es": false,
         "sync_lock_de": false,
-        "ar": "\u062a\u0648\u0627\u062c\u0647 \u0627\u0644\u0628\u0646\u0648\u0643 \u0641\u062c\u0648\u0629 \u0627\u0645\u062a\u062b\u0627\u0644 \u062a\u0628\u0644\u063a \u0642\u064a\u0645\u062a\u0647\u0627 \u062a\u0631\u064a\u0644\u064a\u0648\u0646 \u062f\u0648\u0644\u0627\u0631 \u062a\u062a\u0646\u0642\u0644 \u0641\u064a \u0623\u0637\u0631 \u0639\u0645\u0644\u0627\u062a \u0645\u0634\u0641\u0631\u0629 \u0639\u0627\u0644\u0645\u064a\u0629 \u0645\u062c\u0632\u0623\u0629. \u0631\u0633\u0645 \u062e\u0631\u0627\u0626\u0637 \u0645\u062a\u0639\u0645\u0642 \u0644\u062e\u0637\u0648\u0637 \u0627\u0644\u0623\u0646\u0627\u0628\u064a\u0628 \u0627\u0644\u062a\u0642\u0646\u064a\u0629 \u0627\u0644\u0644\u0627\u0632\u0645\u0629 \u0644\u0644\u062a\u062f\u0642\u064a\u0642 \u0627\u0644\u0622\u0644\u064a \u0627\u0644\u0643\u0627\u0645\u0644\u060c \u0648\u062a\u062a\u0628\u0639 \u0627\u0644\u0623\u062d\u0643\u0627\u0645 \u0627\u0644\u0642\u0636\u0627\u0626\u064a\u0629 \u0627\u0644\u0645\u062e\u062a\u0644\u0641\u0629."
+        "ar": "\u0627\u0644\u0645\u062d\u0648\u0631 \u0646\u062d\u0648 \u0627\u0644\u0625\u0646\u062a\u0627\u062c: \u0627\u0644\u0645\u062e\u0637\u0637\u0627\u062a \u0627\u0644\u062a\u0634\u063a\u064a\u0644\u064a\u0629 \u0644\u0639\u0635\u0631 \u0645\u0627 \u0628\u0639\u062f \u0627\u0644\u0648\u0636\u0648\u062d."
     },
     "rep1_t2": {
-        "base_en": "Actionable technical architecture schemas to prepare institutional custody arms for the immediate implications of the European equivalent of MiCA globally.",
-        "fr": "Des sch\u00e9mas d'architecture technique exploitables pour pr\u00e9parer les services de garde institutionnels aux cons\u00e9quences imm\u00e9diates de l'\u00e9quivalent europ\u00e9en de MiCA \u00e0 l'\u00e9chelle mondiale.",
-        "es": "Esquemas de arquitectura t\u00e9cnica procesables para preparar los brazos de custodia institucional para las implicaciones inmediatas del equivalente europeo de MiCA a nivel mundial.",
-        "de": "Umsetzbare technische Architekturschemata zur Vorbereitung institutioneller Verwahrungsarme auf die unmittelbaren Auswirkungen des europ\u00e4ischen \u00c4quivalents von MiCA weltweit.",
+        "base_en": "Regulators are now issuing specific operational blueprints. This forecast covers the final MiCA implementation phase, the US GENIUS Act mandates amongst others.",
+        "fr": "Les r\u00e9gulateurs publient d\u00e9sormais des plans op\u00e9rationnels sp\u00e9cifiques. Ces pr\u00e9visions couvrent la phase finale de mise en \u0153uvre de MiCA, mandat\u00e9e entre autres par la loi am\u00e9ricaine GENIUS.",
+        "es": "Los reguladores ahora est\u00e1n publicando planes operativos espec\u00edficos. Esta previsi\u00f3n cubre la fase final de implementaci\u00f3n de MiCA, exigida entre otras cosas por la Ley GENIUS de EE. UU.",
+        "de": "Die Regulierungsbeh\u00f6rden geben nun konkrete Betriebspl\u00e4ne heraus. Diese Prognose deckt die letzte MiCA-Implementierungsphase ab, die unter anderem der US-amerikanische GENIUS Act vorschreibt.",
         "sync_lock_fr": false,
         "sync_lock_es": false,
         "sync_lock_de": false,
-        "ar": "\u0645\u062e\u0637\u0637\u0627\u062a \u0645\u0639\u0645\u0627\u0631\u064a\u0629 \u062a\u0642\u0646\u064a\u0629 \u0642\u0627\u0628\u0644\u0629 \u0644\u0644\u062a\u0646\u0641\u064a\u0630 \u0644\u0625\u0639\u062f\u0627\u062f \u0623\u0630\u0631\u0639 \u0627\u0644\u062d\u0636\u0627\u0646\u0629 \u0627\u0644\u0645\u0624\u0633\u0633\u064a\u0629 \u0644\u0644\u0622\u062b\u0627\u0631 \u0627\u0644\u0645\u0628\u0627\u0634\u0631\u0629 \u0644\u0644\u0645\u0639\u0627\u062f\u0644 \u0627\u0644\u0623\u0648\u0631\u0648\u0628\u064a \u0644\u0640 MiCA \u0639\u0627\u0644\u0645\u064a\u064b\u0627."
+        "ar": "\u0648\u064a\u0642\u0648\u0645 \u0627\u0644\u0645\u0646\u0638\u0645\u0648\u0646 \u0627\u0644\u0622\u0646 \u0628\u0625\u0635\u062f\u0627\u0631 \u0645\u062e\u0637\u0637\u0627\u062a \u062a\u0634\u063a\u064a\u0644\u064a\u0629 \u0645\u062d\u062f\u062f\u0629. \u062a\u063a\u0637\u064a \u0647\u0630\u0647 \u0627\u0644\u062a\u0648\u0642\u0639\u0627\u062a \u0627\u0644\u0645\u0631\u062d\u0644\u0629 \u0627\u0644\u0646\u0647\u0627\u0626\u064a\u0629 \u0644\u062a\u0646\u0641\u064a\u0630 MiCA\u060c \u0648\u0627\u0644\u062a\u064a \u064a\u0641\u0631\u0636\u0647\u0627 \u0642\u0627\u0646\u0648\u0646 GENIUS \u0627\u0644\u0623\u0645\u0631\u064a\u0643\u064a \u0645\u0646 \u0628\u064a\u0646 \u0623\u0645\u0648\u0631 \u0623\u062e\u0631\u0649."
     },
     "rep2_title": {
-        "base_en": "Tokenizing Illiquid Private Markets",
-        "fr": "Tokenisation des march\u00e9s priv\u00e9s illiquides",
-        "es": "Tokenizaci\u00f3n de mercados privados il\u00edquidos",
-        "de": "Tokenisierung illiquider Privatm\u00e4rkte",
+        "base_en": "The 2026 Legacy-to-Cloud Integration Audit",
+        "fr": "L\u2019audit d\u2019int\u00e9gration Legacy-to-Cloud 2026",
+        "es": "La auditor\u00eda de integraci\u00f3n del legado a la nube de 2026",
+        "de": "Das Legacy-to-Cloud-Integrationsaudit 2026",
         "sync_lock_fr": false,
         "sync_lock_es": false,
         "sync_lock_de": false,
-        "ar": "\u062a\u0631\u0645\u064a\u0632 \u0627\u0644\u0623\u0633\u0648\u0627\u0642 \u0627\u0644\u062e\u0627\u0635\u0629 \u063a\u064a\u0631 \u0627\u0644\u0633\u0627\u0626\u0644\u0629"
+        "ar": "\u062a\u062f\u0642\u064a\u0642 \u0627\u0644\u062a\u0643\u0627\u0645\u0644 \u0628\u064a\u0646 \u0627\u0644\u0625\u0631\u062b \u0648\u0627\u0644\u0633\u062d\u0627\u0628\u0629 \u0644\u0639\u0627\u0645 2026"
     },
     "rep2_teaser": {
-        "base_en": "Exploring the friction points blocking the mainstream adoption of RWA (Real World Asset) tokenization, with a spotlight on legal wrappers, secondary liquidity pools, and oracle integration for real-time asset pricing.",
-        "fr": "Exploration des points de friction bloquant l'adoption g\u00e9n\u00e9ralis\u00e9e de la tokenisation RWA (Real World Asset), avec un accent sur les enveloppes juridiques, les pools de liquidit\u00e9 secondaires et l'int\u00e9gration d'oracle pour la tarification des actifs en temps r\u00e9el.",
-        "es": "Explorando los puntos de fricci\u00f3n que bloquean la adopci\u00f3n generalizada de la tokenizaci\u00f3n RWA (Real World Asset), con especial atenci\u00f3n en los envoltorios legales, los fondos de liquidez secundarios y la integraci\u00f3n de Oracle para la fijaci\u00f3n de precios de activos en tiempo real.",
-        "de": "Erkundung der Reibungspunkte, die die allgemeine Einf\u00fchrung der RWA-Tokenisierung (Real World Asset) blockieren, mit Schwerpunkt auf rechtlichen Wrappern, sekund\u00e4ren Liquidit\u00e4tspools und Oracle-Integration f\u00fcr die Preisgestaltung von Verm\u00f6genswerten in Echtzeit.",
+        "base_en": "Examine the critical vulnerabilities and latency bottlenecks when bridging legacy mainframes to decentralized cloud infrastructures. This report provides a blueprint for zero-downtime integration.",
+        "fr": "Examinez les vuln\u00e9rabilit\u00e9s critiques et les goulots d\u2019\u00e9tranglement de latence lors du pontage des mainframes existants vers des infrastructures cloud d\u00e9centralis\u00e9es. Ce rapport fournit un mod\u00e8le d\u2019int\u00e9gration sans temps d\u2019arr\u00eat.",
+        "es": "Examine las vulnerabilidades cr\u00edticas y los cuellos de botella de latencia al conectar mainframes heredados con infraestructuras de nube descentralizadas. Este informe proporciona un modelo para la integraci\u00f3n sin tiempo de inactividad.",
+        "de": "Untersuchen Sie die kritischen Schwachstellen und Latenzengp\u00e4sse bei der \u00dcberbr\u00fcckung \u00e4lterer Mainframes mit dezentralen Cloud-Infrastrukturen. Dieser Bericht bietet eine Blaupause f\u00fcr die Integration ohne Ausfallzeiten.",
         "sync_lock_fr": false,
         "sync_lock_es": false,
         "sync_lock_de": false,
-        "ar": "\u0627\u0633\u062a\u0643\u0634\u0627\u0641 \u0646\u0642\u0627\u0637 \u0627\u0644\u0627\u062d\u062a\u0643\u0627\u0643 \u0627\u0644\u062a\u064a \u062a\u0639\u064a\u0642 \u0627\u0644\u0627\u0639\u062a\u0645\u0627\u062f \u0627\u0644\u0633\u0627\u0626\u062f \u0644\u0631\u0645\u0648\u0632 RWA (\u0623\u0635\u0648\u0644 \u0627\u0644\u0639\u0627\u0644\u0645 \u0627\u0644\u062d\u0642\u064a\u0642\u064a)\u060c \u0645\u0639 \u062a\u0633\u0644\u064a\u0637 \u0627\u0644\u0636\u0648\u0621 \u0639\u0644\u0649 \u0627\u0644\u0623\u063a\u0644\u0641\u0629 \u0627\u0644\u0642\u0627\u0646\u0648\u0646\u064a\u0629\u060c \u0648\u0645\u062c\u0645\u0648\u0639\u0627\u062a \u0627\u0644\u0633\u064a\u0648\u0644\u0629 \u0627\u0644\u062b\u0627\u0646\u0648\u064a\u0629\u060c \u0648\u062a\u0643\u0627\u0645\u0644 Oracle \u0644\u062a\u0633\u0639\u064a\u0631 \u0627\u0644\u0623\u0635\u0648\u0644 \u0641\u064a \u0627\u0644\u0648\u0642\u062a \u0627\u0644\u0641\u0639\u0644\u064a."
+        "ar": "\u0627\u0641\u062d\u0635 \u0646\u0642\u0627\u0637 \u0627\u0644\u0636\u0639\u0641 \u0627\u0644\u062d\u0631\u062c\u0629 \u0648\u0627\u062e\u062a\u0646\u0627\u0642\u0627\u062a \u0632\u0645\u0646 \u0627\u0644\u0627\u0633\u062a\u062c\u0627\u0628\u0629 \u0639\u0646\u062f \u0631\u0628\u0637 \u0627\u0644\u062d\u0648\u0627\u0633\u064a\u0628 \u0627\u0644\u0645\u0631\u0643\u0632\u064a\u0629 \u0627\u0644\u0642\u062f\u064a\u0645\u0629 \u0628\u0627\u0644\u0628\u0646\u0649 \u0627\u0644\u062a\u062d\u062a\u064a\u0629 \u0627\u0644\u0633\u062d\u0627\u0628\u064a\u0629 \u0627\u0644\u0644\u0627\u0645\u0631\u0643\u0632\u064a\u0629. \u064a\u0648\u0641\u0631 \u0647\u0630\u0627 \u0627\u0644\u062a\u0642\u0631\u064a\u0631 \u0645\u062e\u0637\u0637\u064b\u0627 \u0644\u0644\u062a\u0643\u0627\u0645\u0644 \u0628\u062f\u0648\u0646 \u062a\u0648\u0642\u0641."
     },
     "rep3_title": {
-        "base_en": "The Sovereign Infrastructure Thesis",
-        "fr": "s",
-        "es": "La tesis de la infraestructura soberana",
-        "de": "Die These zur souver\u00e4nen Infrastruktur",
+        "base_en": "Edge Computing & AI Inference for S7-300 Workflows",
+        "fr": "Edge Computing et inf\u00e9rence IA pour les flux de travail S7-300",
+        "es": "Edge Computing e inferencia de IA para flujos de trabajo S7-300",
+        "de": "Edge Computing und KI-Inferenz f\u00fcr S7-300-Workflows",
         "sync_lock_fr": false,
         "sync_lock_es": false,
         "sync_lock_de": false,
-        "ar": "\u0623\u0637\u0631\u0648\u062d\u0629 \u0627\u0644\u0628\u0646\u064a\u0629 \u0627\u0644\u062a\u062d\u062a\u064a\u0629 \u0627\u0644\u0633\u064a\u0627\u062f\u064a\u0629"
+        "ar": "\u062d\u0648\u0633\u0628\u0629 \u0627\u0644\u062d\u0627\u0641\u0629 \u0648\u0627\u0633\u062a\u062f\u0644\u0627\u0644 \u0627\u0644\u0630\u0643\u0627\u0621 \u0627\u0644\u0627\u0635\u0637\u0646\u0627\u0639\u064a \u0644\u0633\u064a\u0631 \u0639\u0645\u0644 S7-300"
     },
     "rep3_teaser": {
-        "base_en": "Our structural breakdown of why nation-states are quietly transitioning base-layer operations to custom protocol deployments to bypass legacy monetary rails.",
-        "fr": "Notre analyse structurelle des raisons pour lesquelles les \u00c9tats-nations transf\u00e8rent discr\u00e8tement les op\u00e9rations de la couche de base vers des d\u00e9ploiements de protocoles personnalis\u00e9s afin de contourner les syst\u00e8mes mon\u00e9taires traditionnels.",
-        "es": "Nuestro desglose estructural de por qu\u00e9 los estados-naci\u00f3n est\u00e1n haciendo una transici\u00f3n silenciosa de las operaciones de capa base a implementaciones de protocolos personalizados para evitar las barreras monetarias heredadas.",
-        "de": "Unsere strukturelle Aufschl\u00fcsselung, warum Nationalstaaten stillschweigend Basisschichtoperationen auf benutzerdefinierte Protokollbereitstellungen umstellen, um alte W\u00e4hrungsschienen zu umgehen.",
+        "base_en": "An analysis of deploying lightweight LLMs and deterministic AI Inference models directly on edge devices to optimize the classic Siemens S7-300 logic cycle.",
+        "fr": "Une analyse du d\u00e9ploiement de LLM l\u00e9gers et de mod\u00e8les d'inf\u00e9rence d'IA d\u00e9terministes directement sur les appareils de p\u00e9riph\u00e9rie pour optimiser le cycle logique classique du Siemens S7-300.",
+        "es": "Un an\u00e1lisis de la implementaci\u00f3n de LLM livianos y modelos deterministas de inferencia de IA directamente en dispositivos de borde para optimizar el ciclo l\u00f3gico cl\u00e1sico de Siemens S7-300.",
+        "de": "Eine Analyse des Einsatzes leichter LLMs und deterministischer KI-Inferenzmodelle direkt auf Edge-Ger\u00e4ten zur Optimierung des klassischen Siemens S7-300-Logikzyklus.",
         "sync_lock_fr": false,
         "sync_lock_es": false,
         "sync_lock_de": false,
-        "ar": "\u062a\u0641\u0635\u064a\u0644\u0646\u0627 \u0627\u0644\u0647\u064a\u0643\u0644\u064a \u0644\u0633\u0628\u0628 \u0642\u064a\u0627\u0645 \u0627\u0644\u062f\u0648\u0644 \u0627\u0644\u0642\u0648\u0645\u064a\u0629 \u0628\u0646\u0642\u0644 \u0639\u0645\u0644\u064a\u0627\u062a \u0627\u0644\u0637\u0628\u0642\u0629 \u0627\u0644\u0623\u0633\u0627\u0633\u064a\u0629 \u0628\u0647\u062f\u0648\u0621 \u0625\u0644\u0649 \u0639\u0645\u0644\u064a\u0627\u062a \u0646\u0634\u0631 \u0627\u0644\u0628\u0631\u0648\u062a\u0648\u0643\u0648\u0644 \u0627\u0644\u0645\u062e\u0635\u0635 \u0644\u062a\u062c\u0627\u0648\u0632 \u0627\u0644\u0642\u0636\u0628\u0627\u0646 \u0627\u0644\u0646\u0642\u062f\u064a\u0629 \u0627\u0644\u0642\u062f\u064a\u0645\u0629."
+        "ar": "\u062a\u062d\u0644\u064a\u0644 \u0644\u0646\u0634\u0631 LLMs \u062e\u0641\u064a\u0641\u0629 \u0627\u0644\u0648\u0632\u0646 \u0648\u0646\u0645\u0627\u0630\u062c \u0627\u0633\u062a\u062f\u0644\u0627\u0644 \u0627\u0644\u0630\u0643\u0627\u0621 \u0627\u0644\u0627\u0635\u0637\u0646\u0627\u0639\u064a \u0627\u0644\u062d\u062a\u0645\u064a\u0629 \u0645\u0628\u0627\u0634\u0631\u0629 \u0639\u0644\u0649 \u0627\u0644\u0623\u062c\u0647\u0632\u0629 \u0627\u0644\u0637\u0631\u0641\u064a\u0629 \u0644\u062a\u062d\u0633\u064a\u0646 \u062f\u0648\u0631\u0629 \u0627\u0644\u0645\u0646\u0637\u0642 \u0627\u0644\u0643\u0644\u0627\u0633\u064a\u0643\u064a\u0629 Siemens S7-300."
     },
     "rep4_title": {
-        "base_en": "Zero-Knowledge Rollups: Executive Briefing",
-        "fr": "Rappels sur les r\u00e9seaux Zero-Knowledge : compte rendu \u00e0 l'intention des cadres",
-        "es": "Res\u00famenes de conocimiento cero: informe ejecutivo",
-        "de": "Zero-Knowledge-Rollups: Executive Briefing",
+        "base_en": "Preemptive Cybersecurity for Industrial Modules",
+        "fr": "Cybers\u00e9curit\u00e9 pr\u00e9ventive pour les modules industriels",
+        "es": "Ciberseguridad preventiva para m\u00f3dulos industriales",
+        "de": "Pr\u00e4ventive Cybersicherheit f\u00fcr Industriemodule",
         "sync_lock_fr": false,
         "sync_lock_es": false,
         "sync_lock_de": false,
-        "ar": "\u0645\u062c\u0645\u0648\u0639\u0627\u062a \u0627\u0644\u0645\u0639\u0631\u0641\u0629 \u0627\u0644\u0635\u0641\u0631\u064a\u0629: \u0627\u0644\u0625\u062d\u0627\u0637\u0629 \u0627\u0644\u062a\u0646\u0641\u064a\u0630\u064a\u0629"
+        "ar": "\u0627\u0644\u0623\u0645\u0646 \u0627\u0644\u0633\u064a\u0628\u0631\u0627\u0646\u064a \u0627\u0644\u0648\u0642\u0627\u0626\u064a \u0644\u0644\u0648\u062d\u062f\u0627\u062a \u0627\u0644\u0635\u0646\u0627\u0639\u064a\u0629"
     },
     "rep4_teaser": {
-        "base_en": "Cutting through the academic jargon. A board-level explanation of how ZK tech effectively bridges the privacy gap between public ledgers and banking secrecy laws.",
-        "fr": "R\u00e9duire le jargon universitaire. Explication au niveau de la direction sur l'int\u00e9r\u00eat des technologies ZK de mani\u00e8re g\u00e9n\u00e9rale sur la d\u00e9faillance de confidentialit\u00e9 existante entre les d\u00e9penses communes et les param\u00e8tres li\u00e9s au secret bancaire.",
-        "es": "Cortando la jerga acad\u00e9mica. Una explicaci\u00f3n a nivel de junta directiva de c\u00f3mo la tecnolog\u00eda ZK cierra efectivamente la brecha de privacidad entre los libros p\u00fablicos y las leyes de secreto bancario.",
-        "de": "Den akademischen Jargon durchbrechen. Eine Erkl\u00e4rung auf Vorstandsebene, wie ZK Tech die Datenschutzl\u00fccke zwischen \u00f6ffentlichen Hauptb\u00fcchern und den Gesetzen zum Bankgeheimnis effektiv schlie\u00dft.",
+        "base_en": "A review of quantum-resistant cryptographic standards and zero-trust verification models necessary to secure modular industrial deployments against next-gen threats.",
+        "fr": "Un examen des normes cryptographiques \u00e0 r\u00e9sistance quantique et des mod\u00e8les de v\u00e9rification Zero Trust n\u00e9cessaires pour s\u00e9curiser les d\u00e9ploiements industriels modulaires contre les menaces de nouvelle g\u00e9n\u00e9ration.",
+        "es": "Una revisi\u00f3n de los est\u00e1ndares criptogr\u00e1ficos resistentes a los cu\u00e1nticos y los modelos de verificaci\u00f3n de confianza cero necesarios para proteger las implementaciones industriales modulares contra las amenazas de pr\u00f3xima generaci\u00f3n.",
+        "de": "Eine \u00dcberpr\u00fcfung quantenresistenter kryptografischer Standards und Zero-Trust-Verifizierungsmodelle, die zum Schutz modularer industrieller Bereitstellungen vor Bedrohungen der n\u00e4chsten Generation erforderlich sind.",
         "sync_lock_fr": false,
         "sync_lock_es": false,
         "sync_lock_de": false,
-        "ar": "\u0642\u0637\u0639 \u0645\u0646 \u062e\u0644\u0627\u0644 \u0627\u0644\u0645\u0635\u0637\u0644\u062d\u0627\u062a \u0627\u0644\u0623\u0643\u0627\u062f\u064a\u0645\u064a\u0629. \u0634\u0631\u062d \u0639\u0644\u0649 \u0645\u0633\u062a\u0648\u0649 \u0645\u062c\u0644\u0633 \u0627\u0644\u0625\u062f\u0627\u0631\u0629 \u0644\u0643\u064a\u0641\u064a\u0629 \u0633\u062f ZK tech \u0628\u0634\u0643\u0644 \u0641\u0639\u0627\u0644 \u0641\u062c\u0648\u0629 \u0627\u0644\u062e\u0635\u0648\u0635\u064a\u0629 \u0628\u064a\u0646 \u062f\u0641\u0627\u062a\u0631 \u0627\u0644\u0623\u0633\u062a\u0627\u0630 \u0627\u0644\u0639\u0627\u0645\u0629 \u0648\u0642\u0648\u0627\u0646\u064a\u0646 \u0627\u0644\u0633\u0631\u064a\u0629 \u0627\u0644\u0645\u0635\u0631\u0641\u064a\u0629."
+        "ar": "\u0645\u0631\u0627\u062c\u0639\u0629 \u0645\u0639\u0627\u064a\u064a\u0631 \u0627\u0644\u062a\u0634\u0641\u064a\u0631 \u0627\u0644\u0645\u0642\u0627\u0648\u0645\u0629 \u0644\u0644\u0643\u0645 \u0648\u0646\u0645\u0627\u0630\u062c \u0627\u0644\u062a\u062d\u0642\u0642 \u0645\u0646 \u0627\u0644\u062b\u0642\u0629 \u0627\u0644\u0645\u0639\u062f\u0648\u0645\u0629 \u0627\u0644\u0644\u0627\u0632\u0645\u0629 \u0644\u062a\u0623\u0645\u064a\u0646 \u0639\u0645\u0644\u064a\u0627\u062a \u0627\u0644\u0646\u0634\u0631 \u0627\u0644\u0635\u0646\u0627\u0639\u064a\u0629 \u0627\u0644\u0645\u0639\u064a\u0627\u0631\u064a\u0629 \u0636\u062f \u062a\u0647\u062f\u064a\u062f\u0627\u062a \u0627\u0644\u062c\u064a\u0644 \u0627\u0644\u062a\u0627\u0644\u064a."
     },
     "rep5_title": {
-        "base_en": "The Future of OTC Institutional Trading",
-        "fr": "Avenir des \u00e9missions OTC des op\u00e9rateurs au cours m\u00e9trique",
-        "es": "El futuro del comercio institucional OTC",
-        "de": "Die Zukunft des institutionellen OTC-Handels",
+        "base_en": "The Agentic Reality in PLC Programming",
+        "fr": "La r\u00e9alit\u00e9 agentique dans la programmation API",
+        "es": "La realidad agente en la programaci\u00f3n de PLC",
+        "de": "Die Agentenrealit\u00e4t in der SPS-Programmierung",
         "sync_lock_fr": false,
         "sync_lock_es": false,
         "sync_lock_de": false,
-        "ar": "\u0645\u0633\u062a\u0642\u0628\u0644 \u0627\u0644\u062a\u062f\u0627\u0648\u0644 \u0627\u0644\u0645\u0624\u0633\u0633\u064a \u062e\u0627\u0631\u062c \u0627\u0644\u0628\u0648\u0631\u0635\u0629"
+        "ar": "\u0627\u0644\u0648\u0627\u0642\u0639 \u0627\u0644\u0648\u0643\u064a\u0644 \u0641\u064a \u0628\u0631\u0645\u062c\u0629 PLC"
     },
     "rep5_teaser": {
-        "base_en": "Analyzing the shift toward dark pools and proprietary atomic settlement engines for managing nine-figure digital asset blocks.",
-        "fr": "Analyser de mani\u00e8re empirique l'adaptation menant logiquement \u00e0 la r\u00e9alisation de pools peu apparentes en conformit\u00e9 au transfert sur blocs dont les montants pourraient avoisiner ne serait-ce que par centaines les neuf cent millions d\u2019US.",
-        "es": "Analizar el cambio hacia grupos oscuros y motores de liquidaci\u00f3n at\u00f3mica patentados para gestionar bloques de activos digitales de nueve cifras.",
-        "de": "Analyse der Verlagerung hin zu Dark Pools und propriet\u00e4ren Atom-Settlement-Engines zur Verwaltung von digitalen Asset-Bl\u00f6cken im neunstelligen Bereich.",
+        "base_en": "Discover how autonomous AI agents are transitioning from code-assistants to primary controllers, rewriting Programmable Logic Controller paradigms in real-time.",
+        "fr": "D\u00e9couvrez comment les agents d'IA autonomes passent d'assistants de code \u00e0 contr\u00f4leurs principaux, r\u00e9\u00e9crivant les paradigmes des contr\u00f4leurs logiques programmables en temps r\u00e9el.",
+        "es": "Descubra c\u00f3mo los agentes aut\u00f3nomos de IA est\u00e1n pasando de ser asistentes de c\u00f3digo a controladores primarios, reescribiendo paradigmas de controladores l\u00f3gicos programables en tiempo real.",
+        "de": "Entdecken Sie, wie autonome KI-Agenten von Code-Assistenten zu prim\u00e4ren Controllern werden und die Paradigmen speicherprogrammierbarer Steuerungen in Echtzeit neu schreiben.",
         "sync_lock_fr": false,
         "sync_lock_es": false,
         "sync_lock_de": false,
-        "ar": "\u062a\u062d\u0644\u064a\u0644 \u0627\u0644\u062a\u062d\u0648\u0644 \u0646\u062d\u0648 \u0627\u0644\u0645\u062c\u0645\u0639\u0627\u062a \u0627\u0644\u0645\u0638\u0644\u0645\u0629 \u0648\u0645\u062d\u0631\u0643\u0627\u062a \u0627\u0644\u062a\u0633\u0648\u064a\u0629 \u0627\u0644\u0630\u0631\u064a\u0629 \u0627\u0644\u062e\u0627\u0635\u0629 \u0644\u0625\u062f\u0627\u0631\u0629 \u0643\u062a\u0644 \u0627\u0644\u0623\u0635\u0648\u0644 \u0627\u0644\u0631\u0642\u0645\u064a\u0629 \u0627\u0644\u0645\u0643\u0648\u0646\u0629 \u0645\u0646 \u062a\u0633\u0639\u0629 \u0623\u0631\u0642\u0627\u0645."
+        "ar": "\u0627\u0643\u062a\u0634\u0641 \u0643\u064a\u0641 \u064a\u0646\u062a\u0642\u0644 \u0648\u0643\u0644\u0627\u0621 \u0627\u0644\u0630\u0643\u0627\u0621 \u0627\u0644\u0627\u0635\u0637\u0646\u0627\u0639\u064a \u0627\u0644\u0645\u0633\u062a\u0642\u0644\u0648\u0646 \u0645\u0646 \u0645\u0633\u0627\u0639\u062f\u064a \u0627\u0644\u062a\u0639\u0644\u064a\u0645\u0627\u062a \u0627\u0644\u0628\u0631\u0645\u062c\u064a\u0629 \u0625\u0644\u0649 \u0648\u062d\u062f\u0627\u062a \u0627\u0644\u062a\u062d\u0643\u0645 \u0627\u0644\u0623\u0633\u0627\u0633\u064a\u0629\u060c \u0648\u064a\u0639\u064a\u062f\u0648\u0646 \u0643\u062a\u0627\u0628\u0629 \u0646\u0645\u0627\u0630\u062c \u0648\u062d\u062f\u0629 \u0627\u0644\u062a\u062d\u0643\u0645 \u0627\u0644\u0645\u0646\u0637\u0642\u064a\u0629 \u0627\u0644\u0642\u0627\u0628\u0644\u0629 \u0644\u0644\u0628\u0631\u0645\u062c\u0629 \u0641\u064a \u0627\u0644\u0648\u0642\u062a \u0627\u0644\u0641\u0639\u0644\u064a."
     },
     "rep6_title": {
-        "base_en": "Spatial Computing &amp; Edge Diagnostics",
-        "fr": "Calcul spatial et r\u00e9solution en mati\u00e8re p\u00e9riph\u00e9rique",
-        "es": "Computaci\u00f3n espacial y diagn\u00f3stico de borde",
-        "de": "Spatial Computing und Edge-Diagnose",
+        "base_en": "Labor Shift: The Augmented Technician",
+        "fr": "Changement de main-d'\u0153uvre\u00a0: le technicien augment\u00e9",
+        "es": "Turno Laboral: El T\u00e9cnico Aumentado",
+        "de": "Arbeitsschicht: Der erweiterte Techniker",
         "sync_lock_fr": false,
         "sync_lock_es": false,
         "sync_lock_de": false,
-        "ar": "\u0627\u0644\u062d\u0648\u0633\u0628\u0629 \u0627\u0644\u0645\u0643\u0627\u0646\u064a\u0629 \u0648\u062a\u0634\u062e\u064a\u0635\u0627\u062a \u0627\u0644\u062d\u0627\u0641\u0629"
+        "ar": "\u062a\u062d\u0648\u0644 \u0627\u0644\u0639\u0645\u0644: \u0627\u0644\u0641\u0646\u064a \u0627\u0644\u0645\u0639\u0632\u0632"
     },
     "rep6_teaser": {
         "base_en": "A strategic forecast on the changing role of floor technicians as AR overlays and spatial computing become standard issue for complex diagnostic routines.",
@@ -866,7 +866,7 @@
         "sync_lock_fr": false,
         "fr": "Soumettre une demande strat\u00e9gique",
         "sync_lock_es": false,
-        "es": "Enviar consulta estrat\u00e9gica",
+        "es": "Submit Strategic Inquiry [ES]",
         "sync_lock_de": false,
         "de": "Senden Sie eine strategische Anfrage",
         "ar": "\u062a\u0642\u062f\u064a\u0645 \u0627\u0644\u0627\u0633\u062a\u0641\u0633\u0627\u0631 \u0627\u0644\u0627\u0633\u062a\u0631\u0627\u062a\u064a\u062c\u064a"
@@ -884,7 +884,7 @@
     "contact_success_text": {
         "base_en": "Thank you for reaching out. We have received your briefing regarding your organization. Our team is currently reviewing your requirements; you can expect a response from a senior advisor within 24\u201348 hours.",
         "sync_lock_fr": false,
-        "fr": "Merci de nous avoir contact\u00e9s. Nous avons re\u00e7u votre briefing concernant votre organisation. Notre \u00e9quipe examine actuellement vos besoins&nbsp;; vous pouvez vous attendre \u00e0 une r\u00e9ponse d\u2019un conseiller principal dans les 24 \u00e0 48 heures.",
+        "fr": "Merci de nous avoir contact\u00e9s. We have received your briefing regarding your organization. Notre \u00e9quipe examine actuellement vos besoins\u00a0; vous pouvez vous attendre \u00e0 une r\u00e9ponse d\u2019un conseiller principal dans les 24 \u00e0 48 heures.",
         "sync_lock_es": false,
         "es": "Gracias por comunicarte. Hemos recibido su informaci\u00f3n sobre su organizaci\u00f3n. Nuestro equipo est\u00e1 revisando actualmente sus requisitos; puede esperar una respuesta de un asesor senior dentro de 24 a 48 horas.",
         "sync_lock_de": false,
@@ -1104,7 +1104,7 @@
     "about_cred1_full": {
         "base_en": "<strong>Ex-PwC</strong> <span style=\"opacity: 0.8;\" id=\"about_cred1_sub\">(Head of Blockchain, Switzerland)</span>",
         "sync_lock_fr": false,
-        "fr": "<strong>Ex-PwC</strong> <span style=\"opacit\u00e9&nbsp;: 0,8&nbsp;;\" id=\"about_cred1_sub\">(Responsable de Blockchain, Suisse)</span>",
+        "fr": "<strong>Ex-PwC</strong> <span style=\"opacit\u00e9\u00a0: 0,8\u00a0;\" id=\"about_cred1_sub\">(Responsable de Blockchain, Suisse)</span>",
         "sync_lock_es": false,
         "es": "<strong>Ex-PwC</strong> <span style=\"opacity: 0.8;\" id=\"about_cred1_sub\">(Jefe de Blockchain, Suiza)</span>",
         "sync_lock_de": false,
@@ -1114,7 +1114,7 @@
     "about_cred2_full": {
         "base_en": "<strong>Ex-Credit Suisse</strong> <span style=\"opacity: 0.8;\" id=\"about_cred2_sub\">(Started the Blockchain Practice in 2014)</span>",
         "sync_lock_fr": false,
-        "fr": "<strong>Ex-Cr\u00e9dit Suisse</strong> <span style=\"opacit\u00e9&nbsp;: 0,8&nbsp;;\" id=\"about_cred2_sub\">(Lanc\u00e9 la pratique Blockchain en 2014)</span>",
+        "fr": "<strong>Ex-Cr\u00e9dit Suisse</strong> <span style=\"opacit\u00e9\u00a0: 0,8\u00a0;\" id=\"about_cred2_sub\">(Lanc\u00e9 la pratique Blockchain en 2014)</span>",
         "sync_lock_es": false,
         "es": "<strong>Ex-Credit Suisse</strong> <span style=\"opacity: 0.8;\" id=\"about_cred2_sub\">(Comenz\u00f3 la pr\u00e1ctica de Blockchain en 2014)</span>",
         "sync_lock_de": false,
@@ -1124,7 +1124,7 @@
     "about_cred3_full": {
         "base_en": "<strong>13+ Years</strong> <span style=\"opacity: 0.8;\" id=\"about_cred3_sub\">(Active in Blockchain & Digital Assets)</span>",
         "sync_lock_fr": false,
-        "fr": "<strong>13+ ans</strong> <span style=\"opacit\u00e9&nbsp;: 0,8&nbsp;;\" id=\"about_cred3_sub\">(Actif dans la blockchain et les actifs num\u00e9riques)</span>",
+        "fr": "<strong>13+ ans</strong> <span style=\"opacit\u00e9\u00a0: 0,8\u00a0;\" id=\"about_cred3_sub\">(Actif dans la blockchain et les actifs num\u00e9riques)</span>",
         "sync_lock_es": false,
         "es": "<strong>M\u00e1s de 13 a\u00f1os</strong> <span style=\"opacity: 0.8;\" id=\"about_cred3_sub\">(Activo en Blockchain y Activos Digitales)</span>",
         "sync_lock_de": false,
@@ -1134,7 +1134,7 @@
     "about_expertise_full": {
         "base_en": "Expertise: <span style=\"font-weight: 500; color: var(--text);\" id=\"about_expertise_list\">Custody, Payments and Tokenization Protocols, MiCA, VASP</span>",
         "sync_lock_fr": false,
-        "fr": "Expertise&nbsp;: <span style=\"font-weight: 500; color: var(--text);\" id=\"about_expertise_list\">Protocoles de garde, de paiement et de tokenisation, MiCA, VASP</span>",
+        "fr": "Expertise\u00a0: <span style=\"font-weight: 500; color: var(--text);\" id=\"about_expertise_list\">Protocoles de garde, de paiement et de tokenisation, MiCA, VASP</span>",
         "sync_lock_es": false,
         "es": "Experiencia: <span style=\"font-weight: 500; color: var(--text);\" id=\"about_expertise_list\">Protocolos de custodia, pagos y tokenizaci\u00f3n, MiCA, VASP</span>",
         "sync_lock_de": false,
@@ -1186,7 +1186,7 @@
         "sync_lock_fr": false,
         "base_en": "We don't just build technology; we build Institutional On-Ramps. By combining deep technical protocol engineering with a rigorous compliance-first mindset, we provide the infrastructure that makes digital asset adoption invisible, regulated, and scalable.",
         "es": "No s\u00f3lo construimos tecnolog\u00eda; construimos rampas de acceso institucionales. Al combinar una profunda ingenier\u00eda de protocolos t\u00e9cnicos con una mentalidad rigurosa que prioriza el cumplimiento, proporcionamos la infraestructura que hace que la adopci\u00f3n de activos digitales sea invisible, regulada y escalable.",
-        "de": "Wir bauen nicht nur Technologie; Wir bauen institutionelle Auffahrten. Durch die Kombination tiefgreifender technischer Protokollentwicklung mit einer strikten Compliance-First-Denkweise stellen wir die Infrastruktur bereit, die die Einf\u00fchrung digitaler Assets unsichtbar, reguliert und skalierbar macht.",
+        "de": "Wir bauen nicht nur Technologie; Wir bauen institutionelle Auffahrten. Durch die Kombination tiefgreifender technischer Protokollentwicklung mit einer strikten Compliance-orientierten Denkweise stellen wir die Infrastruktur bereit, die die Einf\u00fchrung digitaler Assets unsichtbar, reguliert und skalierbar macht.",
         "sync_lock_de": false,
         "sync_lock_es": false,
         "ar": "\u0646\u062d\u0646 \u0644\u0627 \u0646\u0628\u0646\u064a \u0627\u0644\u062a\u0643\u0646\u0648\u0644\u0648\u062c\u064a\u0627 \u0641\u062d\u0633\u0628\u061b \u0646\u062d\u0646 \u0646\u0628\u0646\u064a \u0645\u0646\u062d\u062f\u0631\u0627\u062a \u0645\u0624\u0633\u0633\u064a\u0629. \u0645\u0646 \u062e\u0644\u0627\u0644 \u0627\u0644\u062c\u0645\u0639 \u0628\u064a\u0646 \u0647\u0646\u062f\u0633\u0629 \u0627\u0644\u0628\u0631\u0648\u062a\u0648\u0643\u0648\u0644\u0627\u062a \u0627\u0644\u062a\u0642\u0646\u064a\u0629 \u0627\u0644\u0639\u0645\u064a\u0642\u0629 \u0648\u0639\u0642\u0644\u064a\u0629 \u0627\u0644\u0627\u0644\u062a\u0632\u0627\u0645 \u0627\u0644\u0635\u0627\u0631\u0645 \u0623\u0648\u0644\u0627\u064b\u060c \u0641\u0625\u0646\u0646\u0627 \u0646\u0648\u0641\u0631 \u0627\u0644\u0628\u0646\u064a\u0629 \u0627\u0644\u062a\u062d\u062a\u064a\u0629 \u0627\u0644\u062a\u064a \u062a\u062c\u0639\u0644 \u0627\u0639\u062a\u0645\u0627\u062f \u0627\u0644\u0623\u0635\u0648\u0644 \u0627\u0644\u0631\u0642\u0645\u064a\u0629 \u063a\u064a\u0631 \u0645\u0631\u0626\u064a \u0648\u0645\u0646\u0638\u0645 \u0648\u0642\u0627\u0628\u0644 \u0644\u0644\u062a\u0637\u0648\u064a\u0631."
@@ -1213,15 +1213,15 @@
         "ar": "\u0627\u0644\u062a\u0647\u062f\u064a\u062f \u0627\u0644\u0643\u0645\u064a: \u0645\u0641\u0627\u062a\u064a\u062d\u0643 \u0641\u0642\u0637\u060c \u0644\u0627 \u064a\u0648\u062c\u062f \u062a\u0647\u062f\u064a\u062f \u0644\u0644\u0633\u0644\u0633\u0644\u0629"
     },
     "take_20260314_014946_bull": {
-        "base_en": "The prevailing wisdom that \"Bitcoin is safe\" against quantum threats is a dangerous oversimplification. While its foundational hashing is largely quantum-resistant, the public-key cryptography securing *individual wallet transactions* is fundamentally vulnerable. This means the network's integrity can remain, yet your personal holdings are directly exposed to instantaneous compromise, making the system's resilience irrelevant to the dispossessed.",
+        "base_en": "The prevailing wisdom that \"Bitcoin is safe\" against quantum threats is a dangerous oversimplification. While its foundational hashing is largely quantum-resistant, the public-key cryptography securing TEST *individual wallet transactions* is fundamentally vulnerable. This means the network's integrity can remain, yet your personal holdings are directly exposed to instantaneous compromise, making the system's resilience irrelevant to the dispossessed.",
         "sync_lock_fr": false,
         "sync_lock_es": false,
         "sync_lock_de": false,
         "sync_lock_ar": false,
-        "fr": "L\u2019id\u00e9e dominante selon laquelle \u00ab Bitcoin est s\u00fbr \u00bb contre les menaces quantiques est une dangereuse simplification excessive. Bien que son hachage fondamental soit largement r\u00e9sistant aux quantiques, la cryptographie \u00e0 cl\u00e9 publique s\u00e9curisant les *transactions de portefeuille individuelles* est fondamentalement vuln\u00e9rable. Cela signifie que l'int\u00e9grit\u00e9 du r\u00e9seau peut rester, mais que vos avoirs personnels sont directement expos\u00e9s \u00e0 une compromission instantan\u00e9e, rendant la r\u00e9silience du syst\u00e8me sans importance pour les d\u00e9poss\u00e9d\u00e9s.",
-        "es": "La sabidur\u00eda predominante de que \"Bitcoin es seguro\" contra las amenazas cu\u00e1nticas es una simplificaci\u00f3n excesiva y peligrosa. Si bien su hash fundamental es en gran medida resistente a los cu\u00e1nticos, la criptograf\u00eda de clave p\u00fablica que protege las *transacciones de billeteras individuales* es fundamentalmente vulnerable. Esto significa que la integridad de la red puede permanecer, pero sus bienes personales est\u00e1n directamente expuestos a un compromiso instant\u00e1neo, lo que hace que la resistencia del sistema sea irrelevante para los despose\u00eddos.",
-        "de": "Die vorherrschende Meinung, dass \u201eBitcoin sicher\u201c gegen Quantenbedrohungen ist, ist eine gef\u00e4hrliche Vereinfachung. W\u00e4hrend sein grundlegendes Hashing weitgehend quantenresistent ist, ist die Public-Key-Kryptographie, die *einzelne Wallet-Transaktionen* sichert, grunds\u00e4tzlich anf\u00e4llig. Dies bedeutet, dass die Integrit\u00e4t des Netzwerks erhalten bleiben kann, Ihre pers\u00f6nlichen Besitzt\u00fcmer jedoch unmittelbar einer unmittelbaren Gef\u00e4hrdung ausgesetzt sind, wodurch die Widerstandsf\u00e4higkeit des Systems f\u00fcr die Besitzlosen irrelevant wird.",
-        "ar": "\u0625\u0646 \u0627\u0644\u062d\u0643\u0645\u0629 \u0627\u0644\u0633\u0627\u0626\u062f\u0629 \u0628\u0623\u0646 \"\u0627\u0644\u0628\u064a\u062a\u0643\u0648\u064a\u0646 \u0622\u0645\u0646\u0629\" \u0636\u062f \u0627\u0644\u062a\u0647\u062f\u064a\u062f\u0627\u062a \u0627\u0644\u0643\u0645\u0648\u0645\u064a\u0629 \u0647\u064a \u062a\u0628\u0633\u064a\u0637 \u062e\u0637\u064a\u0631. \u0641\u064a \u062d\u064a\u0646 \u0623\u0646 \u0627\u0644\u062a\u062c\u0632\u0626\u0629 \u0627\u0644\u0623\u0633\u0627\u0633\u064a\u0629 \u0627\u0644\u062e\u0627\u0635\u0629 \u0628\u0647\u0627 \u0645\u0642\u0627\u0648\u0645\u0629 \u0643\u0645\u064a\u064b\u0627 \u0625\u0644\u0649 \u062d\u062f \u0643\u0628\u064a\u0631\u060c \u0641\u0625\u0646 \u062a\u0634\u0641\u064a\u0631 \u0627\u0644\u0645\u0641\u062a\u0627\u062d \u0627\u0644\u0639\u0627\u0645 \u0627\u0644\u0630\u064a \u064a\u0624\u0645\u0646 *\u0645\u0639\u0627\u0645\u0644\u0627\u062a \u0627\u0644\u0645\u062d\u0641\u0638\u0629 \u0627\u0644\u0641\u0631\u062f\u064a\u0629* \u0636\u0639\u064a\u0641 \u0628\u0634\u0643\u0644 \u0623\u0633\u0627\u0633\u064a. \u0648\u0647\u0630\u0627 \u064a\u0639\u0646\u064a \u0623\u0646 \u0633\u0644\u0627\u0645\u0629 \u0627\u0644\u0634\u0628\u0643\u0629 \u064a\u0645\u0643\u0646 \u0623\u0646 \u062a\u0638\u0644 \u0642\u0627\u0626\u0645\u0629\u060c \u0648\u0645\u0639 \u0630\u0644\u0643 \u062a\u062a\u0639\u0631\u0636 \u0645\u0645\u062a\u0644\u0643\u0627\u062a\u0643 \u0627\u0644\u0634\u062e\u0635\u064a\u0629 \u0628\u0634\u0643\u0644 \u0645\u0628\u0627\u0634\u0631 \u0644\u062a\u0633\u0648\u064a\u0629 \u0641\u0648\u0631\u064a\u0629\u060c \u0645\u0645\u0627 \u064a\u062c\u0639\u0644 \u0645\u0631\u0648\u0646\u0629 \u0627\u0644\u0646\u0638\u0627\u0645 \u063a\u064a\u0631 \u0630\u0627\u062a \u0635\u0644\u0629 \u0628\u0627\u0644\u0645\u062d\u0631\u0648\u0645\u064a\u0646."
+        "fr": "L\u2019id\u00e9e dominante selon laquelle \u00ab Bitcoin est s\u00fbr \u00bb contre les menaces quantiques est une dangereuse simplification excessive. Bien que son hachage fondamental soit largement r\u00e9sistant aux quantiques, la cryptographie \u00e0 cl\u00e9 publique s\u00e9curisant TEST *les transactions de portefeuille individuel* est fondamentalement vuln\u00e9rable. Cela signifie que l'int\u00e9grit\u00e9 du r\u00e9seau peut rester, mais que vos avoirs personnels sont directement expos\u00e9s \u00e0 une compromission instantan\u00e9e, rendant la r\u00e9silience du syst\u00e8me sans importance pour les d\u00e9poss\u00e9d\u00e9s.",
+        "es": "La sabidur\u00eda predominante de que \"Bitcoin es seguro\" contra las amenazas cu\u00e1nticas es una simplificaci\u00f3n excesiva y peligrosa. Si bien su hash fundamental es en gran medida resistente a los cu\u00e1nticos, la criptograf\u00eda de clave p\u00fablica que protege las *transacciones de billeteras individuales* de TEST es fundamentalmente vulnerable. Esto significa que la integridad de la red puede permanecer, pero sus bienes personales est\u00e1n directamente expuestos a un compromiso instant\u00e1neo, lo que hace que la resistencia del sistema sea irrelevante para los despose\u00eddos.",
+        "de": "Die vorherrschende Meinung, dass \u201eBitcoin sicher\u201c gegen Quantenbedrohungen ist, ist eine gef\u00e4hrliche Vereinfachung. W\u00e4hrend sein grundlegendes Hashing weitgehend quantenresistent ist, ist die Public-Key-Kryptographie, die TEST *einzelne Wallet-Transaktionen* sichert, grunds\u00e4tzlich anf\u00e4llig. Dies bedeutet, dass die Integrit\u00e4t des Netzwerks erhalten bleiben kann, Ihre pers\u00f6nlichen Besitzt\u00fcmer jedoch unmittelbar einer unmittelbaren Gef\u00e4hrdung ausgesetzt sind, wodurch die Widerstandsf\u00e4higkeit des Systems f\u00fcr die Besitzlosen irrelevant wird.",
+        "ar": "\u0625\u0646 \u0627\u0644\u062d\u0643\u0645\u0629 \u0627\u0644\u0633\u0627\u0626\u062f\u0629 \u0628\u0623\u0646 \"\u0627\u0644\u0628\u064a\u062a\u0643\u0648\u064a\u0646 \u0622\u0645\u0646\u0629\" \u0636\u062f \u0627\u0644\u062a\u0647\u062f\u064a\u062f\u0627\u062a \u0627\u0644\u0643\u0645\u0648\u0645\u064a\u0629 \u0647\u064a \u062a\u0628\u0633\u064a\u0637 \u062e\u0637\u064a\u0631. \u0641\u064a \u062d\u064a\u0646 \u0623\u0646 \u0627\u0644\u062a\u062c\u0632\u0626\u0629 \u0627\u0644\u062a\u0623\u0633\u064a\u0633\u064a\u0629 \u0645\u0642\u0627\u0648\u0645\u0629 \u0644\u0644\u0643\u0645 \u0625\u0644\u0649 \u062d\u062f \u0643\u0628\u064a\u0631\u060c \u0641\u0625\u0646 \u062a\u0634\u0641\u064a\u0631 \u0627\u0644\u0645\u0641\u062a\u0627\u062d \u0627\u0644\u0639\u0627\u0645 \u0627\u0644\u0630\u064a \u064a\u0624\u0645\u0646 TEST *\u0645\u0639\u0627\u0645\u0644\u0627\u062a \u0627\u0644\u0645\u062d\u0641\u0638\u0629 \u0627\u0644\u0641\u0631\u062f\u064a\u0629* \u0636\u0639\u064a\u0641 \u0628\u0634\u0643\u0644 \u0623\u0633\u0627\u0633\u064a. \u0648\u0647\u0630\u0627 \u064a\u0639\u0646\u064a \u0623\u0646 \u0633\u0644\u0627\u0645\u0629 \u0627\u0644\u0634\u0628\u0643\u0629 \u064a\u0645\u0643\u0646 \u0623\u0646 \u062a\u0638\u0644 \u0642\u0627\u0626\u0645\u0629\u060c \u0648\u0645\u0639 \u0630\u0644\u0643 \u062a\u062a\u0639\u0631\u0636 \u0645\u0645\u062a\u0644\u0643\u0627\u062a\u0643 \u0627\u0644\u0634\u062e\u0635\u064a\u0629 \u0628\u0634\u0643\u0644 \u0645\u0628\u0627\u0634\u0631 \u0644\u062a\u0633\u0648\u064a\u0629 \u0641\u0648\u0631\u064a\u0629\u060c \u0645\u0645\u0627 \u064a\u062c\u0639\u0644 \u0645\u0631\u0648\u0646\u0629 \u0627\u0644\u0646\u0638\u0627\u0645 \u063a\u064a\u0631 \u0630\u0627\u062a \u0635\u0644\u0629 \u0628\u0627\u0644\u0645\u062d\u0631\u0648\u0645\u064a\u0646."
     },
     "take_20260314_014946_bear": {
         "base_en": "Relying on unrelated protocol improvements or incremental upgrades as quantum-resistance measures is a profound miscalculation, cultivating a perilous illusion of security. Dismissively invoking mechanisms like BIP 360 as an \"all-rounder\" against quantum threats exemplifies a dangerous complacency, diverting attention from the urgent, dedicated architectural overhauls required to protect individual digital assets.",
@@ -1301,5 +1301,176 @@
         "es": "El supuesto estatus de refugio seguro de Bitcoin, particularmente en medio de crecientes tensiones geopol\u00edticas, es una mala direcci\u00f3n. En lugar de ofrecer estabilidad, su precio reacciona violentamente a los cargos pol\u00edticos, los conflictos regionales y las conjeturas regulatorias, comport\u00e1ndose m\u00e1s como una apuesta especulativa que como un refugio confiable. Estos \"ensayos aleatorios\" de eventos globales exponen a Bitcoin como un instrumento extremadamente sensible, que amplifica el ruido externo y demuestra su profunda susceptibilidad a catalizadores impredecibles y no econ\u00f3micos.",
         "de": "Der angebliche Status von Bitcoin als sicherer Hafen, insbesondere angesichts der eskalierenden geopolitischen Spannungen, ist eine Fehlleitung. Anstatt Stabilit\u00e4t zu bieten, reagiert sein Preis heftig auf politische \u00c4mter, regionale Konflikte und regulatorische Mutma\u00dfungen und verh\u00e4lt sich eher wie eine spekulative Wette als wie ein verl\u00e4sslicher Zufluchtsort. Diese \u201ezuf\u00e4lligen Versuche\u201c globaler Ereignisse entlarven Bitcoin als \u00e4u\u00dferst sensibles Instrument, verst\u00e4rken den L\u00e4rm von au\u00dfen und demonstrieren seine hohe Anf\u00e4lligkeit f\u00fcr unvorhersehbare, nichtwirtschaftliche Katalysatoren.",
         "ar": "\u0625\u0646 \u0648\u0636\u0639 \u0627\u0644\u0628\u064a\u062a\u0643\u0648\u064a\u0646 \u0643\u0645\u0644\u0627\u0630 \u0622\u0645\u0646\u060c \u062e\u0627\u0635\u0629 \u0648\u0633\u0637 \u0627\u0644\u062a\u0648\u062a\u0631\u0627\u062a \u0627\u0644\u062c\u064a\u0648\u0633\u064a\u0627\u0633\u064a\u0629 \u0627\u0644\u0645\u062a\u0635\u0627\u0639\u062f\u0629\u060c \u064a\u0639\u062f \u0628\u0645\u062b\u0627\u0628\u0629 \u062a\u0648\u062c\u064a\u0647 \u062e\u0627\u0637\u0626. \u0648\u0628\u062f\u0644\u0627\u064b \u0645\u0646 \u062a\u0648\u0641\u064a\u0631 \u0627\u0644\u0627\u0633\u062a\u0642\u0631\u0627\u0631\u060c \u064a\u062a\u0641\u0627\u0639\u0644 \u0633\u0639\u0631\u0647 \u0628\u0639\u0646\u0641 \u0645\u0639 \u0627\u0644\u0645\u0646\u0627\u0635\u0628 \u0627\u0644\u0633\u064a\u0627\u0633\u064a\u0629\u060c \u0648\u0627\u0644\u0635\u0631\u0627\u0639\u0627\u062a \u0627\u0644\u0625\u0642\u0644\u064a\u0645\u064a\u0629\u060c \u0648\u0627\u0644\u062a\u062e\u0645\u064a\u0646\u0627\u062a \u0627\u0644\u062a\u0646\u0638\u064a\u0645\u064a\u0629\u060c \u0648\u064a\u062a\u0635\u0631\u0641 \u0648\u0643\u0623\u0646\u0647 \u0631\u0647\u0627\u0646 \u0645\u0636\u0627\u0631\u0628\u0629 \u0623\u0643\u062b\u0631 \u0645\u0646 \u0643\u0648\u0646\u0647 \u0645\u0644\u062c\u0623 \u064a\u0645\u0643\u0646 \u0627\u0644\u0627\u0639\u062a\u0645\u0627\u062f \u0639\u0644\u064a\u0647. \u0625\u0646 \u0647\u0630\u0647 \"\u0627\u0644\u062a\u062c\u0627\u0631\u0628 \u0627\u0644\u0639\u0634\u0648\u0627\u0626\u064a\u0629\" \u0644\u0644\u0623\u062d\u062f\u0627\u062b \u0627\u0644\u0639\u0627\u0644\u0645\u064a\u0629 \u062a\u0643\u0634\u0641 \u0639\u0646 \u0627\u0644\u0628\u064a\u062a\u0643\u0648\u064a\u0646 \u0643\u0623\u062f\u0627\u0629 \u062d\u0633\u0627\u0633\u0629 \u0644\u0644\u063a\u0627\u064a\u0629\u060c \u0645\u0645\u0627 \u064a\u0624\u062f\u064a \u0625\u0644\u0649 \u062a\u0636\u062e\u064a\u0645 \u0627\u0644\u0636\u0648\u0636\u0627\u0621 \u0627\u0644\u062e\u0627\u0631\u062c\u064a\u0629 \u0648\u0625\u0638\u0647\u0627\u0631 \u0642\u0627\u0628\u0644\u064a\u062a\u0647\u0627 \u0627\u0644\u0639\u0645\u064a\u0642\u0629 \u0644\u0645\u062d\u0641\u0632\u0627\u062a \u063a\u064a\u0631 \u0627\u0642\u062a\u0635\u0627\u062f\u064a\u0629 \u0644\u0627 \u064a\u0645\u0643\u0646 \u0627\u0644\u062a\u0646\u0628\u0624 \u0628\u0647\u0627."
+    },
+    "nav_admin": {
+        "base_en": "Dashboard",
+        "sync_lock_fr": false,
+        "sync_lock_es": false,
+        "sync_lock_de": false,
+        "sync_lock_ar": false,
+        "fr": "Tableau de bord",
+        "es": "Panel",
+        "de": "Armaturenbrett",
+        "ar": "\u0644\u0648\u062d\u0629 \u0627\u0644\u0642\u064a\u0627\u062f\u0629"
+    },
+    "rep_badge": {
+        "base_en": "REPORTS: 2026 FORECAST",
+        "sync_lock_fr": false,
+        "sync_lock_es": false,
+        "sync_lock_de": false,
+        "sync_lock_ar": false,
+        "fr": "RAPPORTS\u00a0: PR\u00c9VISIONS 2026",
+        "es": "INFORMES: PRON\u00d3STICOS PARA 2026",
+        "de": "BERICHTE: PROGNOSE 2026",
+        "ar": "\u0627\u0644\u062a\u0642\u0627\u0631\u064a\u0631: \u062a\u0648\u0642\u0639\u0627\u062a 2026"
+    },
+    "take_20260314_011758_subject": {
+        "base_en": "Bitcoin is safe, bitcoins are not! Yet!",
+        "sync_lock_fr": false,
+        "sync_lock_es": false,
+        "sync_lock_de": false,
+        "sync_lock_ar": false,
+        "fr": "Bitcoin est s\u00fbr, les bitcoins ne le sont pas\u00a0! Encore!",
+        "es": "\u00a1Bitcoin es seguro, los bitcoins no! \u00a1Todav\u00eda!",
+        "de": "Bitcoin ist sicher, Bitcoins nicht! Noch!",
+        "ar": "\u0627\u0644\u0628\u064a\u062a\u0643\u0648\u064a\u0646 \u0622\u0645\u0646\u0629\u060c \u0648\u0627\u0644\u0628\u064a\u062a\u0643\u0648\u064a\u0646 \u0644\u064a\u0633\u062a \u0643\u0630\u0644\u0643! \u062d\u062a\u0649 \u0627\u0644\u0622\u0646!"
+    },
+    "take_20260314_011758_bull": {
+        "base_en": "Bitcoin's core weakness: your coins, not the chain. The Bitcoin *network* is indeed fortified by resilient hashing, which is not at risk. Yet, *individual bitcoin holdings* are secured by traditional public key cryptography, a system flagged as inherently breakable. This means the chain may persist, but the keys protecting personal wealth face an inevitable compromise, revealing a dangerous fissure in perceived safety. Luckily, BIP 360!",
+        "sync_lock_fr": false,
+        "sync_lock_es": false,
+        "sync_lock_de": false,
+        "sync_lock_ar": false,
+        "fr": "La principale faiblesse du Bitcoin : vos pi\u00e8ces, pas la cha\u00eene. Le *r\u00e9seau* Bitcoin est en effet fortifi\u00e9 par un hachage r\u00e9silient, qui ne pr\u00e9sente aucun risque. Pourtant, les *avoirs individuels en bitcoins* sont s\u00e9curis\u00e9s par la cryptographie \u00e0 cl\u00e9 publique traditionnelle, un syst\u00e8me signal\u00e9 comme intrins\u00e8quement cassable. Cela signifie que la cha\u00eene peut persister, mais que les cl\u00e9s prot\u00e9geant la richesse personnelle sont in\u00e9vitablement compromises, r\u00e9v\u00e9lant une dangereuse fissure dans la s\u00e9curit\u00e9 per\u00e7ue. Heureusement, BIP 360\u00a0!",
+        "es": "La principal debilidad de Bitcoin: tus monedas, no la cadena. De hecho, la *red* Bitcoin est\u00e1 fortalecida por un hashing resistente, que no est\u00e1 en riesgo. Sin embargo, *las tenencias individuales de bitcoins* est\u00e1n protegidas por la criptograf\u00eda de clave p\u00fablica tradicional, un sistema se\u00f1alado como inherentemente fr\u00e1gil. Esto significa que la cadena puede persistir, pero las claves que protegen la riqueza personal enfrentan un compromiso inevitable, revelando una fisura peligrosa en la seguridad percibida. \u00a1Por suerte, BIP 360!",
+        "de": "Die gr\u00f6\u00dfte Schw\u00e4che von Bitcoin: Ihre M\u00fcnzen, nicht die Kette. Das Bitcoin-Netzwerk ist tats\u00e4chlich durch robustes Hashing gest\u00e4rkt, das nicht gef\u00e4hrdet ist. Dennoch werden *einzelne Bitcoin-Best\u00e4nde* durch traditionelle Public-Key-Kryptografie gesichert, ein System, das als von Natur aus zerbrechlich gilt. Das bedeutet, dass die Kette zwar bestehen bleibt, aber die Schl\u00fcssel zum Schutz des pers\u00f6nlichen Verm\u00f6gens vor einem unvermeidlichen Kompromiss stehen, der einen gef\u00e4hrlichen Riss in der wahrgenommenen Sicherheit offenbart. Zum Gl\u00fcck, BIP 360!",
+        "ar": "\u0646\u0642\u0637\u0629 \u0627\u0644\u0636\u0639\u0641 \u0627\u0644\u0623\u0633\u0627\u0633\u064a\u0629 \u0641\u064a \u0627\u0644\u0628\u064a\u062a\u0643\u0648\u064a\u0646: \u0639\u0645\u0644\u0627\u062a\u0643 \u0627\u0644\u0645\u0639\u062f\u0646\u064a\u0629\u060c \u0648\u0644\u064a\u0633 \u0627\u0644\u0633\u0644\u0633\u0644\u0629. \u0625\u0646 \u0634\u0628\u0643\u0629 *\u0627\u0644\u0628\u064a\u062a\u0643\u0648\u064a\u0646* \u0645\u062d\u0635\u0646\u0629 \u0628\u0627\u0644\u0641\u0639\u0644 \u0645\u0646 \u062e\u0644\u0627\u0644 \u0627\u0644\u062a\u062c\u0632\u0626\u0629 \u0627\u0644\u0645\u0631\u0646\u0629\u060c \u0648\u0627\u0644\u062a\u064a \u0644\u064a\u0633\u062a \u0641\u064a \u062e\u0637\u0631. \u0648\u0645\u0639 \u0630\u0644\u0643\u060c \u064a\u062a\u0645 \u062a\u0623\u0645\u064a\u0646 *\u0645\u0645\u062a\u0644\u0643\u0627\u062a \u0627\u0644\u0628\u064a\u062a\u0643\u0648\u064a\u0646 \u0627\u0644\u0641\u0631\u062f\u064a\u0629* \u0645\u0646 \u062e\u0644\u0627\u0644 \u062a\u0634\u0641\u064a\u0631 \u0627\u0644\u0645\u0641\u062a\u0627\u062d \u0627\u0644\u0639\u0627\u0645 \u0627\u0644\u062a\u0642\u0644\u064a\u062f\u064a\u060c \u0648\u0647\u0648 \u0646\u0638\u0627\u0645 \u062a\u0645 \u062a\u0635\u0646\u064a\u0641\u0647 \u0639\u0644\u0649 \u0623\u0646\u0647 \u0642\u0627\u0628\u0644 \u0644\u0644\u0643\u0633\u0631 \u0628\u0637\u0628\u064a\u0639\u062a\u0647. \u0648\u0647\u0630\u0627 \u064a\u0639\u0646\u064a \u0623\u0646 \u0627\u0644\u0633\u0644\u0633\u0644\u0629 \u0642\u062f \u062a\u0633\u062a\u0645\u0631\u060c \u0644\u0643\u0646 \u0627\u0644\u0645\u0641\u0627\u062a\u064a\u062d \u0627\u0644\u062a\u064a \u062a\u062d\u0645\u064a \u0627\u0644\u062b\u0631\u0648\u0629 \u0627\u0644\u0634\u062e\u0635\u064a\u0629 \u062a\u0648\u0627\u062c\u0647 \u062d\u0644\u0627\u064b \u0648\u0633\u0637\u0627\u064b \u0644\u0627 \u0645\u0641\u0631 \u0645\u0646\u0647\u060c \u0645\u0645\u0627 \u064a\u0643\u0634\u0641 \u0639\u0646 \u0635\u062f\u0639 \u062e\u0637\u064a\u0631 \u0641\u064a \u0627\u0644\u0623\u0645\u0627\u0646 \u0627\u0644\u0645\u062a\u0635\u0648\u0631. \u0644\u062d\u0633\u0646 \u0627\u0644\u062d\u0638\u060c BIP 360!"
+    },
+    "take_20260314_011758_bear": {
+        "base_en": "The true existential threat isn't hashing but traditional public key cryptography's predicted demise. Bitcoin's protocol relies on secure hash functions, yet user wallet security hinges on vulnerable public key algorithms. This foreshadows a future where private keys are easily derived, exposing individual assets. Current holdings are thus only *temporarily* safe without widespread adoption of quantum-resistant solutions, challenging lasting digital asset security assumptions unless you implement quantum resistant algorithms.",
+        "sync_lock_fr": false,
+        "sync_lock_es": false,
+        "sync_lock_de": false,
+        "sync_lock_ar": false,
+        "fr": "La v\u00e9ritable menace existentielle n\u2019est pas le hachage mais la disparition pr\u00e9vue de la cryptographie \u00e0 cl\u00e9 publique traditionnelle. Le protocole de Bitcoin repose sur des fonctions de hachage s\u00e9curis\u00e9es, mais la s\u00e9curit\u00e9 du portefeuille des utilisateurs repose sur des algorithmes \u00e0 cl\u00e9 publique vuln\u00e9rables. Cela pr\u00e9figure un avenir dans lequel les cl\u00e9s priv\u00e9es seront facilement d\u00e9riv\u00e9es, exposant ainsi les actifs individuels. Les avoirs actuels ne sont donc que *temporairement* s\u00fbrs sans l'adoption g\u00e9n\u00e9ralis\u00e9e de solutions r\u00e9sistantes aux quantiques, remettant en question les hypoth\u00e8ses durables de s\u00e9curit\u00e9 des actifs num\u00e9riques \u00e0 moins que vous ne mettiez en \u0153uvre des algorithmes r\u00e9sistants aux quantiques.",
+        "es": "La verdadera amenaza existencial no es el hash, sino la desaparici\u00f3n prevista de la criptograf\u00eda de clave p\u00fablica tradicional. El protocolo de Bitcoin se basa en funciones hash seguras, pero la seguridad de la billetera del usuario depende de algoritmos de clave p\u00fablica vulnerables. Esto presagia un futuro en el que las claves privadas se obtendr\u00e1n f\u00e1cilmente, exponiendo los activos individuales. Por lo tanto, las tenencias actuales solo est\u00e1n *temporalmente* seguras sin una adopci\u00f3n generalizada de soluciones resistentes a lo cu\u00e1ntico, lo que desaf\u00eda los supuestos duraderos de seguridad de los activos digitales a menos que se implementen algoritmos resistentes a lo cu\u00e1ntico.",
+        "de": "Die wahre existenzielle Bedrohung ist nicht das Hashing, sondern der vorhergesagte Untergang der traditionellen Public-Key-Kryptografie. Das Bitcoin-Protokoll basiert auf sicheren Hash-Funktionen, die Sicherheit der Benutzer-Wallets h\u00e4ngt jedoch von anf\u00e4lligen \u00f6ffentlichen Schl\u00fcsselalgorithmen ab. Dies deutet auf eine Zukunft hin, in der private Schl\u00fcssel leicht abgeleitet werden k\u00f6nnen und so einzelne Verm\u00f6genswerte offengelegt werden. Aktuelle Best\u00e4nde sind daher ohne weit verbreitete Einf\u00fchrung quantenresistenter L\u00f6sungen nur *vor\u00fcbergehend* sicher, was die Annahmen zur dauerhaften Sicherheit digitaler Verm\u00f6genswerte in Frage stellt, es sei denn, Sie implementieren quantenresistente Algorithmen.",
+        "ar": "\u0627\u0644\u062a\u0647\u062f\u064a\u062f \u0627\u0644\u0648\u062c\u0648\u062f\u064a \u0627\u0644\u062d\u0642\u064a\u0642\u064a \u0644\u064a\u0633 \u0627\u0644\u062a\u062c\u0632\u0626\u0629\u060c \u0628\u0644 \u0627\u0644\u0632\u0648\u0627\u0644 \u0627\u0644\u0645\u062a\u0648\u0642\u0639 \u0644\u062a\u0634\u0641\u064a\u0631 \u0627\u0644\u0645\u0641\u062a\u0627\u062d \u0627\u0644\u0639\u0627\u0645 \u0627\u0644\u062a\u0642\u0644\u064a\u062f\u064a. \u064a\u0639\u062a\u0645\u062f \u0628\u0631\u0648\u062a\u0648\u0643\u0648\u0644 \u0627\u0644\u0628\u064a\u062a\u0643\u0648\u064a\u0646 \u0639\u0644\u0649 \u0648\u0638\u0627\u0626\u0641 \u0627\u0644\u062a\u062c\u0632\u0626\u0629 \u0627\u0644\u0622\u0645\u0646\u0629\u060c \u0644\u0643\u0646 \u0623\u0645\u0627\u0646 \u0645\u062d\u0641\u0638\u0629 \u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645 \u064a\u062a\u0648\u0642\u0641 \u0639\u0644\u0649 \u062e\u0648\u0627\u0631\u0632\u0645\u064a\u0627\u062a \u0627\u0644\u0645\u0641\u062a\u0627\u062d \u0627\u0644\u0639\u0627\u0645 \u0627\u0644\u0636\u0639\u064a\u0641\u0629. \u0648\u0647\u0630\u0627 \u064a\u0646\u0630\u0631 \u0628\u0645\u0633\u062a\u0642\u0628\u0644 \u064a\u062a\u0645 \u0641\u064a\u0647 \u0627\u0633\u062a\u062e\u0644\u0627\u0635 \u0627\u0644\u0645\u0641\u0627\u062a\u064a\u062d \u0627\u0644\u062e\u0627\u0635\u0629 \u0628\u0633\u0647\u0648\u0644\u0629\u060c \u0645\u0645\u0627 \u064a\u0624\u062f\u064a \u0625\u0644\u0649 \u0643\u0634\u0641 \u0627\u0644\u0623\u0635\u0648\u0644 \u0627\u0644\u0641\u0631\u062f\u064a\u0629. \u0648\u0628\u0627\u0644\u062a\u0627\u0644\u064a \u0641\u0625\u0646 \u0627\u0644\u0645\u0645\u062a\u0644\u0643\u0627\u062a \u0627\u0644\u062d\u0627\u0644\u064a\u0629 \u062a\u0643\u0648\u0646 \u0622\u0645\u0646\u0629 *\u0645\u0624\u0642\u062a\u064b\u0627* \u0641\u0642\u0637 \u062f\u0648\u0646 \u0627\u0639\u062a\u0645\u0627\u062f \u0648\u0627\u0633\u0639 \u0627\u0644\u0646\u0637\u0627\u0642 \u0644\u0644\u062d\u0644\u0648\u0644 \u0627\u0644\u0645\u0642\u0627\u0648\u0645\u0629 \u0644\u0644\u0643\u0645\u060c \u0645\u0645\u0627 \u064a\u0634\u0643\u0644 \u062a\u062d\u062f\u064a\u064b\u0627 \u0644\u0627\u0641\u062a\u0631\u0627\u0636\u0627\u062a \u0623\u0645\u0627\u0646 \u0627\u0644\u0623\u0635\u0648\u0644 \u0627\u0644\u0631\u0642\u0645\u064a\u0629 \u0627\u0644\u062f\u0627\u0626\u0645\u0629 \u0645\u0627 \u0644\u0645 \u062a\u0642\u0645 \u0628\u062a\u0646\u0641\u064a\u0630 \u062e\u0648\u0627\u0631\u0632\u0645\u064a\u0627\u062a \u0645\u0642\u0627\u0648\u0645\u0629 \u0644\u0644\u0643\u0645."
+    },
+    "take_20260313_163926_subject": {
+        "base_en": "Privacy Jailed: Market Gains Are Superficial",
+        "sync_lock_fr": false,
+        "sync_lock_es": false,
+        "sync_lock_de": false,
+        "sync_lock_ar": false,
+        "fr": "La vie priv\u00e9e emprisonn\u00e9e\u00a0: les gains du march\u00e9 sont superficiels",
+        "es": "Privacidad encarcelada: las ganancias del mercado son superficiales",
+        "de": "Datenschutz eingesperrt: Marktgewinne sind oberfl\u00e4chlich",
+        "ar": "\u0627\u0644\u062e\u0635\u0648\u0635\u064a\u0629 \u0641\u064a \u0627\u0644\u0633\u062c\u0646: \u0645\u0643\u0627\u0633\u0628 \u0627\u0644\u0633\u0648\u0642 \u0633\u0637\u062d\u064a\u0629"
+    },
+    "take_20260313_163926_bull": {
+        "base_en": "The celebrated institutional embrace of crypto, from BlackRock ETFs to CashApp integrations, directly obscures the escalating war on privacy-preserving tools. While Wall Street profits, developers like Samourai Wallet's Keonne Rodriguez are imprisoned for upholding digital sovereignty. This isn't market maturity; it's the co-option of a revolutionary technology, where \"legitimacy\" demands the explicit sacrifice of fundamental individual financial privacy.",
+        "sync_lock_fr": false,
+        "sync_lock_es": false,
+        "sync_lock_de": false,
+        "sync_lock_ar": false,
+        "fr": "L\u2019adoption institutionnelle c\u00e9l\u00e8bre de la cryptographie, des ETF BlackRock aux int\u00e9grations CashApp, occulte directement l\u2019escalade de la guerre contre les outils de pr\u00e9servation de la vie priv\u00e9e. Alors que Wall Street profite, des d\u00e9veloppeurs comme Keonne Rodriguez de Samourai Wallet sont emprisonn\u00e9s pour avoir d\u00e9fendu la souverainet\u00e9 num\u00e9rique. Il ne s'agit pas ici de maturit\u00e9 du march\u00e9\u00a0; c'est la cooptation d'une technologie r\u00e9volutionnaire, o\u00f9 la \u00ab l\u00e9gitimit\u00e9 \u00bb exige le sacrifice explicite de la confidentialit\u00e9 financi\u00e8re individuelle fondamentale.",
+        "es": "La celebrada adopci\u00f3n institucional de las criptomonedas, desde los ETF de BlackRock hasta las integraciones de CashApp, oscurece directamente la escalada de la guerra contra las herramientas que preservan la privacidad. Mientras Wall Street obtiene ganancias, desarrolladores como Keonne Rodr\u00edguez, de Samourai Wallet, est\u00e1n encarcelados por defender la soberan\u00eda digital. Esto no es madurez del mercado; es la cooptaci\u00f3n de una tecnolog\u00eda revolucionaria, donde la \"legitimidad\" exige el sacrificio expl\u00edcito de la privacidad financiera individual fundamental.",
+        "de": "Die gefeierte institutionelle Akzeptanz von Krypto, von BlackRock-ETFs bis hin zu CashApp-Integrationen, verschleiert direkt den eskalierenden Krieg gegen Tools zum Schutz der Privatsph\u00e4re. W\u00e4hrend die Wall Street profitiert, werden Entwickler wie Keonne Rodriguez von Samourai Wallet wegen der Wahrung der digitalen Souver\u00e4nit\u00e4t inhaftiert. Das ist keine Marktreife; Es handelt sich um die \u00dcbernahme einer revolution\u00e4ren Technologie, bei der \u201eLegitimit\u00e4t\u201c den ausdr\u00fccklichen Verzicht auf die grundlegende finanzielle Privatsph\u00e4re des Einzelnen erfordert.",
+        "ar": "\u0625\u0646 \u0627\u0644\u0627\u062d\u062a\u0636\u0627\u0646 \u0627\u0644\u0645\u0624\u0633\u0633\u064a \u0627\u0644\u0634\u0647\u064a\u0631 \u0644\u0644\u0639\u0645\u0644\u0627\u062a \u0627\u0644\u0645\u0634\u0641\u0631\u0629\u060c \u0628\u062f\u0621\u064b\u0627 \u0645\u0646 \u0635\u0646\u0627\u062f\u064a\u0642 BlackRock ETFs \u0648\u062d\u062a\u0649 \u0639\u0645\u0644\u064a\u0627\u062a \u062a\u0643\u0627\u0645\u0644 CashApp\u060c \u064a\u062d\u062c\u0628 \u0628\u0634\u0643\u0644 \u0645\u0628\u0627\u0634\u0631 \u0627\u0644\u062d\u0631\u0628 \u0627\u0644\u0645\u062a\u0635\u0627\u0639\u062f\u0629 \u0639\u0644\u0649 \u0623\u062f\u0648\u0627\u062a \u0627\u0644\u062d\u0641\u0627\u0638 \u0639\u0644\u0649 \u0627\u0644\u062e\u0635\u0648\u0635\u064a\u0629. \u0648\u0628\u064a\u0646\u0645\u0627 \u062a\u062d\u0642\u0642 \u0648\u0648\u0644 \u0633\u062a\u0631\u064a\u062a \u0623\u0631\u0628\u0627\u062d\u064b\u0627\u060c \u064a\u062a\u0645 \u0633\u062c\u0646 \u0627\u0644\u0645\u0637\u0648\u0631\u064a\u0646 \u0645\u062b\u0644 Keonne Rodriguez \u0645\u0646 Samourai Wallet \u0628\u0633\u0628\u0628 \u062f\u0639\u0645\u0647\u0645 \u0644\u0644\u0633\u064a\u0627\u062f\u0629 \u0627\u0644\u0631\u0642\u0645\u064a\u0629. \u0647\u0630\u0627 \u0644\u064a\u0633 \u0646\u0636\u062c \u0627\u0644\u0633\u0648\u0642. \u0625\u0646\u0647 \u062e\u064a\u0627\u0631 \u0645\u0634\u062a\u0631\u0643 \u0644\u062a\u0643\u0646\u0648\u0644\u0648\u062c\u064a\u0627 \u062b\u0648\u0631\u064a\u0629\u060c \u062d\u064a\u062b \u062a\u062a\u0637\u0644\u0628 \"\u0627\u0644\u0634\u0631\u0639\u064a\u0629\" \u0627\u0644\u062a\u0636\u062d\u064a\u0629 \u0627\u0644\u0635\u0631\u064a\u062d\u0629 \u0628\u0627\u0644\u062e\u0635\u0648\u0635\u064a\u0629 \u0627\u0644\u0645\u0627\u0644\u064a\u0629 \u0627\u0644\u0641\u0631\u062f\u064a\u0629 \u0627\u0644\u0623\u0633\u0627\u0633\u064a\u0629."
+    },
+    "take_20260313_163926_bear": {
+        "base_en": "Hallo",
+        "sync_lock_fr": false,
+        "sync_lock_es": false,
+        "sync_lock_de": false,
+        "sync_lock_ar": false,
+        "fr": "Bonjour",
+        "es": "Hola",
+        "de": "Hallo",
+        "ar": "\u0645\u0631\u062d\u0628\u0627"
+    },
+    "take_20260312_130026_subject": {
+        "base_en": "Oil Release Flops: Crisis Is Deeper",
+        "sync_lock_fr": false,
+        "sync_lock_es": false,
+        "sync_lock_de": false,
+        "sync_lock_ar": false,
+        "fr": "Flops de lib\u00e9ration du p\u00e9trole\u00a0: la crise est plus profonde",
+        "es": "Fracasos en la liberaci\u00f3n de petr\u00f3leo: la crisis es m\u00e1s profunda",
+        "de": "\u00d6lfreisetzungsflops: Die Krise ist tiefer",
+        "ar": "\u064a\u062a\u062e\u0628\u0637 \u0625\u0637\u0644\u0627\u0642 \u0627\u0644\u0646\u0641\u0637: \u0627\u0644\u0623\u0632\u0645\u0629 \u0623\u0639\u0645\u0642"
+    },
+    "take_20260312_130026_bull": {
+        "base_en": "The unprecedented release of 400 million barrels of oil reserves, intended to stabilize markets post-Iran conflict, has conspicuously failed to prevent oil prices from surging over 7%. This stark inefficiency signals that market anxieties are rooted deeper than immediate supply disruptions. It exposes a fundamental doubt in the efficacy of traditional interventions and highlights persistent underlying supply-demand imbalances, suggesting the crisis is structural, not merely event-driven",
+        "sync_lock_fr": false,
+        "sync_lock_es": false,
+        "sync_lock_de": false,
+        "sync_lock_ar": false,
+        "fr": "La lib\u00e9ration sans pr\u00e9c\u00e9dent de 400 millions de barils de r\u00e9serves de p\u00e9trole, destin\u00e9e \u00e0 stabiliser les march\u00e9s apr\u00e8s le conflit iranien, n\u2019a visiblement pas r\u00e9ussi \u00e0 emp\u00eacher les prix du p\u00e9trole de grimper de plus de 7 %. Cette inefficacit\u00e9 flagrante indique que les inqui\u00e9tudes du march\u00e9 sont plus profond\u00e9ment enracin\u00e9es que les perturbations imm\u00e9diates de l\u2019approvisionnement. Il expose un doute fondamental quant \u00e0 l\u2019efficacit\u00e9 des interventions traditionnelles et met en \u00e9vidence des d\u00e9s\u00e9quilibres sous-jacents persistants entre l\u2019offre et la demande, sugg\u00e9rant que la crise est structurelle et non simplement \u00e9v\u00e9nementielle.",
+        "es": "La liberaci\u00f3n sin precedentes de 400 millones de barriles de reservas de petr\u00f3leo, destinada a estabilizar los mercados despu\u00e9s del conflicto con Ir\u00e1n, no ha logrado evitar que los precios del petr\u00f3leo aumenten m\u00e1s del 7%. Esta marcada ineficiencia indica que las ansiedades del mercado est\u00e1n arraigadas m\u00e1s profundamente que las interrupciones inmediatas de la oferta. Expone una duda fundamental sobre la eficacia de las intervenciones tradicionales y resalta los persistentes desequilibrios subyacentes entre la oferta y la demanda, sugiriendo que la crisis es estructural, no meramente impulsada por eventos.",
+        "de": "Die beispiellose Freigabe von 400 Millionen Barrel \u00d6lreserven, die die M\u00e4rkte nach dem Iran-Konflikt stabilisieren sollte, konnte offensichtlich nicht verhindern, dass die \u00d6lpreise um \u00fcber 7 % stiegen. Diese eklatante Ineffizienz signalisiert, dass die Markt\u00e4ngste tiefer wurzeln als unmittelbare Versorgungsunterbrechungen. Es legt grundlegende Zweifel an der Wirksamkeit traditioneller Interventionen offen und zeigt anhaltende zugrunde liegende Ungleichgewichte zwischen Angebot und Nachfrage auf, was darauf hindeutet, dass die Krise strukturell und nicht nur ereignisgesteuert ist",
+        "ar": "\u0625\u0646 \u0627\u0644\u0625\u0641\u0631\u0627\u062c \u063a\u064a\u0631 \u0627\u0644\u0645\u0633\u0628\u0648\u0642 \u0639\u0646 400 \u0645\u0644\u064a\u0648\u0646 \u0628\u0631\u0645\u064a\u0644 \u0645\u0646 \u0627\u062d\u062a\u064a\u0627\u0637\u064a\u0627\u062a \u0627\u0644\u0646\u0641\u0637\u060c \u0628\u0647\u062f\u0641 \u062a\u062d\u0642\u064a\u0642 \u0627\u0644\u0627\u0633\u062a\u0642\u0631\u0627\u0631 \u0641\u064a \u0627\u0644\u0623\u0633\u0648\u0627\u0642 \u0628\u0639\u062f \u0627\u0644\u0635\u0631\u0627\u0639 \u0645\u0639 \u0625\u064a\u0631\u0627\u0646\u060c \u0641\u0634\u0644 \u0628\u0634\u0643\u0644 \u0648\u0627\u0636\u062d \u0641\u064a \u0645\u0646\u0639 \u0623\u0633\u0639\u0627\u0631 \u0627\u0644\u0646\u0641\u0637 \u0645\u0646 \u0627\u0644\u0627\u0631\u062a\u0641\u0627\u0639 \u0628\u0646\u0633\u0628\u0629 \u062a\u0632\u064a\u062f \u0639\u0646 7\u066a. \u064a\u0634\u064a\u0631 \u0647\u0630\u0627 \u0627\u0644\u0646\u0642\u0635 \u0627\u0644\u0635\u0627\u0631\u062e \u0641\u064a \u0627\u0644\u0643\u0641\u0627\u0621\u0629 \u0625\u0644\u0649 \u0623\u0646 \u062c\u0630\u0648\u0631 \u0645\u062e\u0627\u0648\u0641 \u0627\u0644\u0633\u0648\u0642 \u0623\u0639\u0645\u0642 \u0645\u0646 \u0627\u0646\u0642\u0637\u0627\u0639 \u0627\u0644\u0625\u0645\u062f\u0627\u062f\u0627\u062a \u0627\u0644\u0641\u0648\u0631\u064a. \u0641\u0647\u0648 \u064a\u0643\u0634\u0641 \u0639\u0646 \u0634\u0643\u0648\u0643 \u062c\u0648\u0647\u0631\u064a\u0629 \u0641\u064a \u0641\u0639\u0627\u0644\u064a\u0629 \u0627\u0644\u062a\u062f\u062e\u0644\u0627\u062a \u0627\u0644\u062a\u0642\u0644\u064a\u062f\u064a\u0629 \u0648\u064a\u0633\u0644\u0637 \u0627\u0644\u0636\u0648\u0621 \u0639\u0644\u0649 \u0627\u0644\u0627\u062e\u062a\u0644\u0627\u0644\u0627\u062a \u0627\u0644\u0643\u0627\u0645\u0646\u0629 \u0627\u0644\u0645\u0633\u062a\u0645\u0631\u0629 \u0628\u064a\u0646 \u0627\u0644\u0639\u0631\u0636 \u0648\u0627\u0644\u0637\u0644\u0628\u060c \u0645\u0645\u0627 \u064a\u0634\u064a\u0631 \u0625\u0644\u0649 \u0623\u0646 \u0627\u0644\u0623\u0632\u0645\u0629 \u0647\u064a\u0643\u0644\u064a\u0629 \u0648\u0644\u064a\u0633\u062a \u0645\u062c\u0631\u062f \u0623\u062d\u062f\u0627\u062b \u0645\u062f\u0641\u0648\u0639\u0629."
+    },
+    "take_20260312_130026_bear": {
+        "base_en": "Public discourse fixates on the \"Iran war\" as the sole driver of looming inflation and food price shocks. While conflict exacerbates costs, this narrative conveniently overlooks pre-existing global inflationary pressures and fragile supply chains. The \"war\" provides a convenient, visible scapegoat for economic woes that were already brewing, potentially distracting from long-term systemic vulnerabilities that require deeper, non-military policy interventions.",
+        "sync_lock_fr": false,
+        "sync_lock_es": false,
+        "sync_lock_de": false,
+        "sync_lock_ar": false,
+        "fr": "Le discours public se concentre sur la \u00ab guerre en Iran \u00bb comme seul moteur de l\u2019inflation imminente et des chocs des prix alimentaires. Alors que les conflits exacerbent les co\u00fbts, ce discours n\u00e9glige commod\u00e9ment les pressions inflationnistes mondiales pr\u00e9existantes et les cha\u00eenes d\u2019approvisionnement fragiles. La \u00ab guerre \u00bb constitue un bouc \u00e9missaire pratique et visible pour les malheurs \u00e9conomiques qui couvaient d\u00e9j\u00e0, d\u00e9tournant potentiellement l\u2019attention des vuln\u00e9rabilit\u00e9s syst\u00e9miques \u00e0 long terme qui n\u00e9cessitent des interventions politiques plus profondes et non militaires.",
+        "es": "El discurso p\u00fablico se centra en la \"guerra de Ir\u00e1n\" como el \u00fanico motor de la inflaci\u00f3n y los shocks de precios de los alimentos que se avecinan. Si bien los conflictos exacerban los costos, esta narrativa pasa por alto convenientemente las presiones inflacionarias globales preexistentes y las fr\u00e1giles cadenas de suministro. La \"guerra\" proporciona un chivo expiatorio conveniente y visible para los problemas econ\u00f3micos que ya se estaban gestando, lo que podr\u00eda distraer la atenci\u00f3n de las vulnerabilidades sist\u00e9micas a largo plazo que requieren intervenciones pol\u00edticas m\u00e1s profundas y no militares.",
+        "de": "Der \u00f6ffentliche Diskurs konzentriert sich auf den \u201eIran-Krieg\u201c als einzigen Treiber der drohenden Inflation und der Lebensmittelpreisschocks. W\u00e4hrend Konflikte die Kosten in die H\u00f6he treiben, \u00fcbersieht dieses Narrativ bequemerweise den bereits bestehenden globalen Inflationsdruck und die fragilen Lieferketten. Der \u201eKrieg\u201c stellt einen bequemen, sichtbaren S\u00fcndenbock f\u00fcr bereits aufkommende wirtschaftliche Probleme dar und lenkt m\u00f6glicherweise von langfristigen systemischen Schwachstellen ab, die tiefgreifendere, nichtmilit\u00e4rische politische Interventionen erfordern.",
+        "ar": "\u064a\u0631\u0643\u0632 \u0627\u0644\u062e\u0637\u0627\u0628 \u0627\u0644\u0639\u0627\u0645 \u0639\u0644\u0649 \"\u0627\u0644\u062d\u0631\u0628 \u0627\u0644\u0625\u064a\u0631\u0627\u0646\u064a\u0629\" \u0628\u0627\u0639\u062a\u0628\u0627\u0631\u0647\u0627 \u0627\u0644\u0645\u062d\u0631\u0643 \u0627\u0644\u0648\u062d\u064a\u062f \u0644\u0644\u062a\u0636\u062e\u0645 \u0627\u0644\u0648\u0634\u064a\u0643 \u0648\u0635\u062f\u0645\u0627\u062a \u0623\u0633\u0639\u0627\u0631 \u0627\u0644\u0645\u0648\u0627\u062f \u0627\u0644\u063a\u0630\u0627\u0626\u064a\u0629. \u0648\u0641\u064a \u062d\u064a\u0646 \u064a\u0624\u062f\u064a \u0627\u0644\u0635\u0631\u0627\u0639 \u0625\u0644\u0649 \u062a\u0641\u0627\u0642\u0645 \u0627\u0644\u062a\u0643\u0627\u0644\u064a\u0641\u060c \u0641\u0625\u0646 \u0647\u0630\u0627 \u0627\u0644\u0633\u0631\u062f \u064a\u062a\u062c\u0627\u0647\u0644 \u0628\u0633\u0647\u0648\u0644\u0629 \u0627\u0644\u0636\u063a\u0648\u0637 \u0627\u0644\u062a\u0636\u062e\u0645\u064a\u0629 \u0627\u0644\u0639\u0627\u0644\u0645\u064a\u0629 \u0627\u0644\u0645\u0648\u062c\u0648\u062f\u0629 \u0645\u0633\u0628\u0642\u0627 \u0648\u0633\u0644\u0627\u0633\u0644 \u0627\u0644\u062a\u0648\u0631\u064a\u062f \u0627\u0644\u0647\u0634\u0629. \u0625\u0646 \"\u0627\u0644\u062d\u0631\u0628\" \u062a\u0648\u0641\u0631 \u0643\u0628\u0634 \u0641\u062f\u0627\u0621 \u0645\u0631\u064a\u062d\u0627\u064b \u0648\u0648\u0627\u0636\u062d\u0627\u064b \u0644\u0644\u0645\u0634\u0643\u0644\u0627\u062a \u0627\u0644\u0627\u0642\u062a\u0635\u0627\u062f\u064a\u0629 \u0627\u0644\u062a\u064a \u0643\u0627\u0646\u062a \u062a\u062e\u062a\u0645\u0631 \u0628\u0627\u0644\u0641\u0639\u0644\u060c \u0648\u0627\u0644\u062a\u064a \u0645\u0646 \u0627\u0644\u0645\u062d\u062a\u0645\u0644 \u0623\u0646 \u062a\u0635\u0631\u0641 \u0627\u0644\u0627\u0646\u062a\u0628\u0627\u0647 \u0639\u0646 \u0646\u0642\u0627\u0637 \u0627\u0644\u0636\u0639\u0641 \u0627\u0644\u0646\u0638\u0627\u0645\u064a\u0629 \u0627\u0644\u0637\u0648\u064a\u0644\u0629 \u0627\u0644\u0623\u0645\u062f \u0627\u0644\u062a\u064a \u062a\u062a\u0637\u0644\u0628 \u062a\u062f\u062e\u0644\u0627\u062a \u0633\u064a\u0627\u0633\u064a\u0629 \u0623\u0639\u0645\u0642 \u0648\u063a\u064a\u0631 \u0639\u0633\u0643\u0631\u064a\u0629."
+    },
+    "proj_Bitcoin trends": {
+        "base_en": "Bitcoin trends",
+        "ar": "\u0627\u062a\u062c\u0627\u0647\u0627\u062a \u0627\u0644\u0628\u064a\u062a\u0643\u0648\u064a\u0646",
+        "fr": "Tendances Bitcoin",
+        "es": "Tendencias de Bitcoin",
+        "de": "Bitcoin-Trends",
+        "sync_lock_fr": false,
+        "sync_lock_es": false,
+        "sync_lock_de": false
+    },
+    "proj_News": {
+        "base_en": "News",
+        "ar": "\u0623\u062e\u0628\u0627\u0631",
+        "fr": "Nouvelles",
+        "es": "Noticias",
+        "de": "Nachricht",
+        "sync_lock_fr": false,
+        "sync_lock_es": false,
+        "sync_lock_de": false
+    },
+    "proj_Quantique": {
+        "base_en": "Quantique",
+        "ar": "\u0643\u0648\u0627\u0646\u062a\u064a\u0643",
+        "fr": "Quantique",
+        "es": "cu\u00e1ntico",
+        "de": "Quantit\u00e4t",
+        "sync_lock_fr": false,
+        "sync_lock_es": false,
+        "sync_lock_de": false
+    },
+    "proj_Random trials": {
+        "base_en": "Random trials",
+        "ar": "\u0645\u062d\u0627\u0643\u0645\u0627\u062a \u0639\u0634\u0648\u0627\u0626\u064a\u0629",
+        "fr": "Essais al\u00e9atoires",
+        "es": "Ensayos aleatorios",
+        "de": "Zuf\u00e4llige Versuche",
+        "sync_lock_fr": false,
+        "sync_lock_es": false,
+        "sync_lock_de": false
+    },
+    "rep_unlock_btn": {
+        "base_en": "Unlock Report Summary",
+        "ar": "\u0641\u062a\u062d \u0645\u0644\u062e\u0635 \u0627\u0644\u062a\u0642\u0631\u064a\u0631",
+        "fr": "R\u00e9sum\u00e9 du rapport de d\u00e9verrouillage",
+        "es": "Resumen del informe de desbloqueo",
+        "de": "Berichtszusammenfassung freischalten",
+        "sync_lock_fr": false,
+        "sync_lock_es": false,
+        "sync_lock_de": false
     }
 }
