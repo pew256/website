@@ -214,15 +214,15 @@
 </svg>
 </button>
 <div class="nav-links" id="main-nav-links">
-<a href="index.html#journal" id="nav_journal" onclick="document.getElementById('main-nav-links').classList.remove('active')" style="color: var(--primary); font-weight: 700;">Journal</a>
-<a href="about.html" id="nav_about" onclick="document.getElementById('main-nav-links').classList.remove('active')">About</a>
-<a href="index.html#services" id="nav_services" onclick="document.getElementById('main-nav-links').classList.remove('active')">Services</a>
+<a href="index.html#journal" id="nav_journal" data-i18n="nav_journal" onclick="document.getElementById('main-nav-links').classList.remove('active')" style="color: var(--primary); font-weight: 700;">Journal</a>
+<a href="about.html" id="nav_about" data-i18n="nav_about" onclick="document.getElementById('main-nav-links').classList.remove('active')">About</a>
+<a href="index.html#services" id="nav_services" data-i18n="nav_services" onclick="document.getElementById('main-nav-links').classList.remove('active')">Services</a>
 <script>
                     if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
                         document.write('<a href="admin.html" onclick="document.getElementById(\'main-nav-links\').classList.remove(\'active\')">Dashboard</a>');
                     }
                 </script>
-<a class="nav-btn" href="index.html#contact" id="nav_contact" onclick="document.getElementById('main-nav-links').classList.remove('active'); if(typeof openModal === 'function') { openModal(); return false; }">Contact</a>
+<a class="nav-btn" href="index.html#contact" id="nav_contact" data-i18n="nav_contact" onclick="document.getElementById('main-nav-links').classList.remove('active'); if(typeof openModal === 'function') { openModal(); return false; }">Contact</a>
 </div>
 </div>
 </nav>
@@ -565,7 +565,7 @@
 </section>
 <section class="media-section" id="media">
 <div class="container">
-<div class="logo-strip-caption" id="media_title">FEATURED IN &amp; RECOGNIZED BY</div>
+<div class="logo-strip-caption" id="media_title" data-i18n="media_title">FEATURED IN &amp; RECOGNIZED BY</div>
 <div class="logo-strip">
 <a class="logo-strip-item techcrunch" href="https://techcrunch.com/" rel="noopener noreferrer" target="_blank">
 <svg height="30" viewbox="0 0 150 30" width="150">
@@ -968,7 +968,7 @@
                         <div class="journal-header">
                             <h3 class="journal-title" data-i18n="take_${item.timestamp}_subject">${item.subject}</h3>
                             <div class="journal-meta">
-                                <span>Published: ${formattedDate} &nbsp;&bull;&nbsp; ${item.project}</span>
+                                <span><span data-i18n="ui_published">${window.flattenedConfig ? window.flattenedConfig['ui_published'] : 'Published: '}</span>${formattedDate} &nbsp;&bull;&nbsp; ${item.project}</span>
                                 <div class="share-actions">
                                     ${renderShareIcons(item.timestamp, item.subject, item.published_takes === 'both' ? '' : (item.bull_case || item.bear_case || ''), item.published_takes)}
                                 </div>
@@ -979,7 +979,7 @@
                             <div class="take-box ${(item.published_takes === 'bull' || item.published_takes === 'bear') ? 'single-take' : 'bull-case'}" id="pro-${item.timestamp}">
                                 ${(item.published_takes === 'both' || !item.published_takes) ? `
                                 <h4 style="display: flex; justify-content: space-between; align-items: center;">
-                                    The Bull Case (Pro)
+                                    <span data-i18n="ui_bull_label">${window.flattenedConfig ? window.flattenedConfig['ui_bull_label'] : 'The Bull Case (Pro)'}</span>
                                     <div style="display: flex; align-items: center;">
                                         <button class="copy-link-btn" onclick="copyJournalLink(event, 'pro-${item.timestamp}')" title="Copy direct link">🔗</button>
                                     </div>
@@ -997,7 +997,7 @@
                             <div class="take-box ${(item.published_takes === 'bull' || item.published_takes === 'bear') ? 'single-take' : 'bear-case'}" id="con-${item.timestamp}">
                                 ${(item.published_takes === 'both' || !item.published_takes) ? `
                                 <h4 style="display: flex; justify-content: space-between; align-items: center;">
-                                    The Bear Case (Con)
+                                    <span data-i18n="ui_bear_label">${window.flattenedConfig ? window.flattenedConfig['ui_bear_label'] : 'The Bear Case (Con)'}</span>
                                     <div style="display: flex; align-items: center;">
                                         <button class="copy-link-btn" onclick="copyJournalLink(event, 'con-${item.timestamp}')" title="Copy direct link">🔗</button>
                                     </div>

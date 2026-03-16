@@ -1,11 +1,20 @@
 [
   {
+    "timestamp": "20260314_101343",
+    "project": "Random trials",
+    "subject": "Bitcoin: A Speculative Anomaly, Not Safe Haven",
+    "bull_case": "The endless cascade of expert predictions, from imminent multi-million-dollar valuations to catastrophic collapses, underscores a fundamental truth: forecasting Bitcoin's price is a fool's errand. Each pronouncement, whether bullish or bearish, merely highlights the market's inherent randomness, revealing a system driven by complex, emergent behavior rather than predictable cycles. The illusion of financial foresight only distracts from the asset's fundamentally stochastic nature.",
+    "bear_case": "Bitcoin's supposed safe-haven status, particularly amidst escalating geopolitical tensions, is a misdirection. Rather than offering stability, its price reacts violently to political posts, regional conflicts, and regulatory conjecture, behaving more like a speculative bet than a reliable refuge. These \"random trials\" of global events expose Bitcoin as an acutely sensitive instrument, amplifying external noise and demonstrating its deep susceptibility to unpredictable, non-economic catalysts.",
+    "published_takes": "both",
+    "pinned": false
+  },
+  {
     "timestamp": "20260314_014946",
     "project": "Quantique",
     "subject": "Quantum Threat: Your Keys Only, No Threat to the Chain",
     "bull_case": "The prevailing wisdom that \"Bitcoin is safe\" against quantum threats is a dangerous oversimplification. While its foundational hashing is largely quantum-resistant, the public-key cryptography securing *individual wallet transactions* is fundamentally vulnerable. This means the network's integrity can remain, yet your personal holdings are directly exposed to instantaneous compromise, making the system's resilience irrelevant to the dispossessed.",
     "bear_case": "Relying on unrelated protocol improvements or incremental upgrades as quantum-resistance measures is a profound miscalculation, cultivating a perilous illusion of security. Dismissively invoking mechanisms like BIP 360 as an \"all-rounder\" against quantum threats exemplifies a dangerous complacency, diverting attention from the urgent, dedicated architectural overhauls required to protect individual digital assets.",
-    "published_takes": "bear",
+    "published_takes": "both",
     "pinned": false
   },
   {

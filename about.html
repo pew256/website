@@ -79,30 +79,30 @@
                 </svg>
             </button>
             <div class="nav-links" id="main-nav-links">
-                <a href="index.html#journal" style="color: var(--primary); font-weight: 700;" onclick="document.getElementById('main-nav-links').classList.remove('active')">Journal</a>
-                <a href="about.html" onclick="document.getElementById('main-nav-links').classList.remove('active')">About</a>
-                <a href="index.html#services" onclick="document.getElementById('main-nav-links').classList.remove('active')">Services</a>
+                <a href="index.html#journal" data-i18n="nav_journal" style="color: var(--primary); font-weight: 700;" onclick="document.getElementById('main-nav-links').classList.remove('active')">Journal</a>
+                <a href="about.html" data-i18n="nav_about" onclick="document.getElementById('main-nav-links').classList.remove('active')">About</a>
+                <a href="index.html#services" data-i18n="nav_services" onclick="document.getElementById('main-nav-links').classList.remove('active')">Services</a>
                 <script>
                     if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
                         document.write('<a href="admin.html" onclick="document.getElementById(\'main-nav-links\').classList.remove(\'active\')">Dashboard</a>');
                     }
                 </script>
-                <a href="index.html#contact" class="nav-btn" onclick="document.getElementById('main-nav-links').classList.remove('active'); if(typeof openModal === 'function') { openModal(); return false; }">Contact</a>
+                <a href="index.html#contact" data-i18n="nav_contact" class="nav-btn" onclick="document.getElementById('main-nav-links').classList.remove('active'); if(typeof openModal === 'function') { openModal(); return false; }">Contact</a>
             </div>
         </div>
     </nav>
 
     <main>
         <div class="container" style="padding-top: 2rem;">
-            <a href="index.html" class="back-link" id="about_back_btn"
+            <a href="index.html" class="back-link" id="about_back_btn" data-i18n="about_back_btn"
                 style="color: var(--primary); text-decoration: none; font-weight: 500;">&larr; Back to Home</a>
         </div>
 
         <section id="about" class="bio-section" style="padding: 60px 0; background-color: var(--card-bg);">
             <div class="container" style="max-width: 900px; margin-bottom: 4rem;">
                 <div style="text-align: center;">
-                    <h2 id="about_title">Meet the Founder</h2>
-                    <span class="box-tag" id="about_tag"
+                    <h2 id="about_title" data-i18n="about_title">Meet the Founder</h2>
+                    <span class="box-tag" id="about_tag" data-i18n="about_tag"
                         style="margin-bottom: 2rem; display: inline-block; font-weight: 700;">Pierre-Edouard Wahl (PE) |
                         Precision-Driven Blockchain Strategy</span>
                 </div>
@@ -184,7 +184,7 @@
     <footer>
         <div class="container footer-inner">
             <div class="footer-logo"><img src="assets/brand-kit/pew256-logo-knockout.svg" alt="pew256 logo"></div>
-            <p id="footer_copy">&copy; 2026 pew256 GmbH. Precision in Blockchain.</p>
+            <p id="footer_copy" data-i18n="footer_copy">&copy; 2026 pew256 GmbH. Precision in Blockchain.</p>
         </div>
     </footer>
 
