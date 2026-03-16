@@ -572,14 +572,15 @@
         "ar": "<strong>\u00a9 2026 pew256 GmbH.</strong> \u0627\u0644\u062f\u0642\u0629 \u0641\u064a \u062a\u0642\u0646\u064a\u0629 Blockchain."
     },
     "nav_journal": {
-        "base_en": "Strategic Blockchain Infrastructure for the Institutional Era. TEST &lt;a&gt; &lt;/a&gt;",
-        "fr": "Infrastructure blockchain strat\u00e9gique pour l\u2019\u00e8re institutionnelle. TEST <a> </a>",
-        "es": "Infraestructura estrat\u00e9gica Blockchain para la era institucional. PRUEBA <a> </a>",
-        "de": "Strategische Blockchain-Infrastruktur f\u00fcr das institutionelle Zeitalter. TEST <a> </a>",
+        "base_en": "Strategic Blockchain Infrastructure for the Institutional Era. TEST &lt;a&gt;&nbsp; &lt;a&gt; &lt;/a&gt;&lt;/a&gt;",
+        "fr": "Infrastructure blockchain strat\u00e9gique pour l\u2019\u00e8re institutionnelle. TEST <a>\u00a0 <a> </a></a>",
+        "es": "Infraestructura estrat\u00e9gica Blockchain para la era institucional. PRUEBA <a>\u00a0 <a> </a></a>",
+        "de": "Strategische Blockchain-Infrastruktur f\u00fcr das institutionelle Zeitalter. TEST <a>\u00a0 <a> </a></a>",
         "sync_lock_fr": false,
         "sync_lock_es": false,
         "sync_lock_de": false,
-        "ar": "\u0627\u0644\u0628\u0646\u064a\u0629 \u0627\u0644\u062a\u062d\u062a\u064a\u0629 \u0627\u0644\u0627\u0633\u062a\u0631\u0627\u062a\u064a\u062c\u064a\u0629 \u0644\u0640 Blockchain \u0644\u0644\u0639\u0635\u0631 \u0627\u0644\u0645\u0624\u0633\u0633\u064a. \u0627\u062e\u062a\u0628\u0627\u0631 <a> </a>"
+        "ar": "\u0627\u0644\u0628\u0646\u064a\u0629 \u0627\u0644\u062a\u062d\u062a\u064a\u0629 \u0627\u0644\u0627\u0633\u062a\u0631\u0627\u062a\u064a\u062c\u064a\u0629 \u0644\u0640 Blockchain \u0644\u0644\u0639\u0635\u0631 \u0627\u0644\u0645\u0624\u0633\u0633\u064a. \u0627\u062e\u062a\u0628\u0627\u0631 <a>\u00a0 <a> </a></a>",
+        "sync_lock_ar": false
     },
     "nav_about": {
         "base_en": "About",
