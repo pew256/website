@@ -1,1 +1,47 @@
-[]
+[
+    {
+        "id": "block_hero_1773708096744",
+        "type": "hero",
+        "content": {
+            "title": "Building the Future of Finance",
+            "subtitle": "Protocol engineering and mathematical precision for global institutions.",
+            "buttonText": "Read the Whitepaper"
+        }
+    },
+    {
+        "id": "block_features_1773708106793",
+        "type": "features",
+        "content": {
+            "title": "Our Capabilities",
+            "items": [
+                {
+                    "title": "Deterministic Ledger",
+                    "desc": "High throughput architectural designs."
+                },
+                {
+                    "title": "Protocol Security",
+                    "desc": "Audited, mathematically proven structures."
+                },
+                {
+                    "title": "Tokenization",
+                    "desc": "Compliant asset mapping protocols."
+                }
+            ]
+        }
+    },
+    {
+        "id": "block_cta_1773708112376",
+        "type": "cta",
+        "content": {
+            "title": "Ready to build?",
+            "buttonText": "Contact Security Team"
+        }
+    },
+    {
+        "id": "block_text_1773708110112",
+        "type": "text",
+        "content": {
+            "body": "Leveraging next-generation infrastructure, we provide the foundational layer for decentralized scale."
+        }
+    }
+]
