@@ -1,47 +1,58 @@
 [
     {
-        "id": "block_hero_1773708096744",
+        "id": "block_hero_1",
         "type": "hero",
         "content": {
-            "title": "Building the Future of Finance",
-            "subtitle": "Protocol engineering and mathematical precision for global institutions.",
-            "buttonText": "Read the Whitepaper"
+            "badge": "Precision Blockchain Consulting & Engineering",
+            "title": "Deterministic Ledger Infrastructure for Mission-Critical Finance.",
+            "subtitle": "We provide protocol-level engineering and hardened middleware for global institutions. We treat MiCA and the GENIUS Act as technical specifications, building high-availability on-ramps that never go offline.",
+            "buttonText": "Request Consultation"
         }
     },
     {
-        "id": "block_features_1773708106793",
+        "id": "block_split_1773710153587",
+        "type": "split",
+        "content": {
+            "badge": "ARCHITECTURE",
+            "title": "High-Performance Settlement",
+            "subtitle": "Leveraging asynchronous state channels to ensure real-time execution with zero rollback velocity.",
+            "imageSrc": "https://images.unsplash.com/photo-1639762681485-074b7f4d2311?auto=format&fit=crop&q=80&w=800&h=600"
+        }
+    },
+    {
+        "id": "block_split_1773710144638",
+        "type": "split",
+        "content": {
+            "badge": "ARCHITECTURE",
+            "title": "High-Performance Settlement",
+            "subtitle": "Leveraging asynchronous state channels to ensure real-time execution with zero rollback velocity.",
+            "imageSrc": "https://images.unsplash.com/photo-1639762681485-074b7f4d2311?auto=format&fit=crop&q=80&w=800&h=600"
+        }
+    },
+    {
+        "id": "block_features_2",
         "type": "features",
         "content": {
-            "title": "Our Capabilities",
+            "title": "What Is Institutional Blockchain Infrastructure?",
+            "subtitle": "Institutional blockchain infrastructure provides the enterprise-grade cryptographic security, custody gateways, and mandatory compliance layers (such as MiCA and DAC8) required for global banks.",
             "items": [
                 {
-                    "title": "Deterministic Ledger",
-                    "desc": "High throughput architectural designs."
+                    "title": "5",
+                    "desc": "RANKS ENGAGED"
                 },
                 {
-                    "title": "Protocol Security",
-                    "desc": "Audited, mathematically proven structures."
+                    "title": "10",
+                    "desc": "YEARS IN BLOCKCHAIN"
                 },
                 {
-                    "title": "Tokenization",
-                    "desc": "Compliant asset mapping protocols."
+                    "title": "25",
+                    "desc": "GLOBAL CUSTOMERS"
+                },
+                {
+                    "title": "$500M",
+                    "desc": "SUPPORTED INVESTMENT"
                 }
             ]
-        }
-    },
-    {
-        "id": "block_cta_1773708112376",
-        "type": "cta",
-        "content": {
-            "title": "Ready to build?",
-            "buttonText": "Contact Security Team"
-        }
-    },
-    {
-        "id": "block_text_1773708110112",
-        "type": "text",
-        "content": {
-            "body": "Leveraging next-generation infrastructure, we provide the foundational layer for decentralized scale."
         }
     }
 ]
