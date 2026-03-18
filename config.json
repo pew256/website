@@ -1474,5 +1474,38 @@
         "sync_lock_fr": false,
         "sync_lock_es": false,
         "sync_lock_de": false
+    },
+    "page_404_title": {
+        "base_en": "404",
+        "fr": "404",
+        "de": "404",
+        "es": "404",
+        "ar": "404",
+        "sync_lock_fr": false,
+        "sync_lock_de": false,
+        "sync_lock_es": false,
+        "sync_lock_ar": false
+    },
+    "page_404_subtitle": {
+        "base_en": "The signal was lost. Redirecting you back to base...",
+        "fr": "",
+        "de": "",
+        "es": "",
+        "ar": "",
+        "sync_lock_fr": false,
+        "sync_lock_de": false,
+        "sync_lock_es": false,
+        "sync_lock_ar": false
+    },
+    "page_404_btn": {
+        "base_en": "Return to pew256.com",
+        "fr": "",
+        "de": "",
+        "es": "",
+        "ar": "",
+        "sync_lock_fr": false,
+        "sync_lock_de": false,
+        "sync_lock_es": false,
+        "sync_lock_ar": false
     }
 }

@@ -22,6 +22,7 @@
             margin-bottom: 0.5rem;
             background: linear-gradient(135deg, #f8fafc 0%, #94a3b8 100%);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         p {
@@ -52,8 +53,38 @@
     </script>
 </head>
 <body>
-    <h1>404</h1>
-    <p>The signal was lost. Redirecting you back to base...</p>
-    <a href="/" class="redirect-btn">Return to pew256.com</a>
+    <h1 id="page_404_title" data-i18n="page_404_title">404</h1>
+    <p id="page_404_subtitle" data-i18n="page_404_subtitle">The signal was lost. Redirecting you back to base...</p>
+    <a href="/" id="page_404_btn" data-i18n="page_404_btn" class="redirect-btn">Return to pew256.com</a>
+
+    <script>
+        const detectLang = () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const urlLang = urlParams.get('lang');
+            if (urlLang && ['en', 'fr', 'es', 'de', 'ar'].includes(urlLang)) {
+                localStorage.setItem('pew256_lang', urlLang);
+                return urlLang;
+            }
+            const storedLang = localStorage.getItem('pew256_lang');
+            if (storedLang && ['en', 'fr', 'es', 'de', 'ar'].includes(storedLang)) return storedLang;
+            const browserLang = navigator.language.substring(0, 2);
+            if (['en', 'fr', 'es', 'de', 'ar'].includes(browserLang)) return browserLang;
+            return 'en';
+        };
+        const userLang = detectLang();
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch(`/api/config?lang=${userLang}`)
+                .then(res => res.json())
+                .then(config => {
+                    const keys = ['page_404_title', 'page_404_subtitle', 'page_404_btn'];
+                    keys.forEach(key => {
+                        if(config[key]) {
+                            const el = document.getElementById(key);
+                            if (el) el.innerHTML = config[key];
+                        }
+                    });
+                });
+        });
+    </script>
 </body>
 </html>
