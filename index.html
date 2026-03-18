@@ -219,7 +219,7 @@
 <a href="index.html#services" id="nav_services" data-i18n="nav_services" onclick="document.getElementById('main-nav-links').classList.remove('active')">Services</a>
 <script>
                     if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-                        document.write('<a href="admin.html" onclick="document.getElementById(\'main-nav-links\').classList.remove(\'active\')">Dashboard</a>');
+                        document.write('<a href="admin.html" id="nav_admin" onclick="document.getElementById(\'main-nav-links\').classList.remove(\'active\')">Dashboard</a>');
                     }
                 </script>
 <a class="nav-btn" href="index.html#contact" id="nav_contact" data-i18n="nav_contact" onclick="document.getElementById('main-nav-links').classList.remove('active'); if(typeof openModal === 'function') { openModal(); return false; }">Contact</a>
@@ -457,9 +457,9 @@
 <div class="carousel-track" id="intelligenceTrack">
 <!-- High-Impact Item -->
 <div class="report-card">
-<span class="report-badge">Reports: 2026 Forecast</span>
+<span class="report-badge" data-i18n="rep_badge">Reports: 2026 Forecast</span>
 <h4 class="report-title" id="rep1_title">Digital Assets: Regulatory Compliance Guide</h4>
-<p class="report-teaser" style="font-style: italic; color: var(--secondary); margin-bottom: 0.5rem;">The
+<p class="report-teaser" id="rep1_t1" style="font-style: italic; color: var(--secondary); margin-bottom: 0.5rem;">The
                                         Pivot to
                                         Production: Operational Blueprints for the Post-Clarity Era.</p>
 <p class="report-teaser" id="rep1_t2">Regulators are now issuing specific operational blueprints.
@@ -474,12 +474,12 @@
 <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
 </path>
 </svg>
-                                        <span class="report-btn-text">Unlock Report Summary</span>
+                                        <span class="report-btn-text" data-i18n="rep_unlock_btn">Unlock Report Summary</span>
                                     </button>
 </div>
 <!-- Item 1 -->
 <div class="report-card">
-<span class="report-badge">Reports: 2026 Forecast</span>
+<span class="report-badge" data-i18n="rep_badge">Reports: 2026 Forecast</span>
 <h4 class="report-title" id="rep2_title">The 2026 Legacy-to-Cloud Integration Audit</h4>
 <p class="report-teaser" id="rep2_teaser">Examine the critical vulnerabilities and latency
                                         bottlenecks when
@@ -491,12 +491,12 @@
 <rect height="11" rx="2" ry="2" width="18" x="3" y="11"></rect>
 <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
 </svg>
-                                        <span class="report-btn-text">Unlock Report Summary</span>
+                                        <span class="report-btn-text" data-i18n="rep_unlock_btn">Unlock Report Summary</span>
                                     </button>
 </div>
 <!-- Item 2 -->
 <div class="report-card">
-<span class="report-badge">Reports: 2026 Forecast</span>
+<span class="report-badge" data-i18n="rep_badge">Reports: 2026 Forecast</span>
 <h4 class="report-title" id="rep3_title">Edge Computing &amp; AI Inference for S7-300 Workflows</h4>
 <p class="report-teaser" id="rep3_teaser">An analysis of deploying lightweight LLMs and deterministic
                                         AI Inference models directly on edge devices to optimize the classic Siemens
@@ -506,12 +506,12 @@
 <rect height="11" rx="2" ry="2" width="18" x="3" y="11"></rect>
 <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
 </svg>
-                                        <span class="report-btn-text">Unlock Report Summary</span>
+                                        <span class="report-btn-text" data-i18n="rep_unlock_btn">Unlock Report Summary</span>
                                     </button>
 </div>
 <!-- Item 3 -->
 <div class="report-card">
-<span class="report-badge">Reports: 2026 Forecast</span>
+<span class="report-badge" data-i18n="rep_badge">Reports: 2026 Forecast</span>
 <h4 class="report-title" id="rep4_title">Preemptive Cybersecurity for Industrial Modules</h4>
 <p class="report-teaser" id="rep4_teaser">A review of quantum-resistant cryptographic standards and
                                         zero-trust verification models necessary to secure modular industrial
@@ -522,12 +522,12 @@
 <rect height="11" rx="2" ry="2" width="18" x="3" y="11"></rect>
 <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
 </svg>
-                                        <span class="report-btn-text">Unlock Report Summary</span>
+                                        <span class="report-btn-text" data-i18n="rep_unlock_btn">Unlock Report Summary</span>
                                     </button>
 </div>
 <!-- Item 4 -->
 <div class="report-card">
-<span class="report-badge">Reports: 2026 Forecast</span>
+<span class="report-badge" data-i18n="rep_badge">Reports: 2026 Forecast</span>
 <h4 class="report-title" id="rep5_title">The Agentic Reality in PLC Programming</h4>
 <p class="report-teaser" id="rep5_teaser">Discover how autonomous AI agents are transitioning from
                                         code-assistants to primary controllers, rewriting Programmable Logic Controller
@@ -537,12 +537,12 @@
 <rect height="11" rx="2" ry="2" width="18" x="3" y="11"></rect>
 <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
 </svg>
-                                        <span class="report-btn-text">Unlock Report Summary</span>
+                                        <span class="report-btn-text" data-i18n="rep_unlock_btn">Unlock Report Summary</span>
                                     </button>
 </div>
 <!-- Item 5 -->
 <div class="report-card">
-<span class="report-badge">Reports: 2026 Forecast</span>
+<span class="report-badge" data-i18n="rep_badge">Reports: 2026 Forecast</span>
 <h4 class="report-title" id="rep6_title">Labor Shift: The Augmented Technician</h4>
 <p class="report-teaser" id="rep6_teaser">A strategic forecast on the changing role of floor
                                         technicians as
@@ -554,7 +554,7 @@
 <rect height="11" rx="2" ry="2" width="18" x="3" y="11"></rect>
 <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
 </svg>
-                                        <span class="report-btn-text">Unlock Report Summary</span>
+                                        <span class="report-btn-text" data-i18n="rep_unlock_btn">Unlock Report Summary</span>
                                     </button>
 </div>
 </div>
@@ -565,8 +565,8 @@
 </section>
 <section class="media-section" id="media">
 <div class="container">
-<div class="logo-strip-caption" id="media_title" data-i18n="media_title">FEATURED IN &amp; RECOGNIZED BY</div>
-<div class="logo-strip">
+<div class="logo-strip-caption">FEATURED IN &amp; RECOGNIZED BY</div>
+<div class="logo-strip" dir="ltr">
 <a class="logo-strip-item techcrunch" href="https://techcrunch.com/" rel="noopener noreferrer" target="_blank">
 <svg height="30" viewbox="0 0 150 30" width="150">
 <text fill="currentColor" font-family="'Inter', sans-serif" font-size="24" font-weight="900" x="0" y="24">TechCrunch</text>
@@ -934,6 +934,33 @@
             });
         });
 
+        // Admin Panel Cross-Origin Scroll Router
+        window.addEventListener('message', (event) => {
+            if (event.data && event.data.action === 'scrollTo' && event.data.targetId) {
+                let targetElement = null;
+                if (event.data.targetId === 'footer') {
+                    targetElement = document.querySelector('footer');
+                } else {
+                    targetElement = document.getElementById(event.data.targetId);
+                }
+
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    
+                    const originalBg = targetElement.style.backgroundColor || '';
+                    const originalTransition = targetElement.style.transition || '';
+                    
+                    targetElement.style.transition = 'background-color 0.4s ease';
+                    targetElement.style.backgroundColor = 'rgba(16, 185, 129, 0.15)'; 
+                    
+                    setTimeout(() => {
+                        targetElement.style.backgroundColor = originalBg;
+                        setTimeout(() => targetElement.style.transition = originalTransition, 400);
+                    }, 800);
+                }
+            }
+        });
+
         // Journal Logic
         document.addEventListener('DOMContentLoaded', async () => {
             const container = document.getElementById('journal-feed-container');
@@ -960,7 +987,7 @@
                         const mo = parseInt(ts.substring(4,6)) - 1;
                         const d = ts.substring(6,8);
                         const dateObj = new Date(y, mo, d);
-                        formattedDate = dateObj.toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' });
+                        formattedDate = dateObj.toLocaleDateString(userLang, { year: 'numeric', month: 'long', day: 'numeric' });
                     }
                     
                     html += `
@@ -968,7 +995,7 @@
                         <div class="journal-header">
                             <h3 class="journal-title" data-i18n="take_${item.timestamp}_subject">${item.subject}</h3>
                             <div class="journal-meta">
-                                <span><span data-i18n="ui_published">${window.flattenedConfig ? window.flattenedConfig['ui_published'] : 'Published: '}</span>${formattedDate} &nbsp;&bull;&nbsp; ${item.project}</span>
+                                <span><span data-i18n="ui_published">${window.flattenedConfig ? window.flattenedConfig['ui_published'] : 'Published: '}</span>${formattedDate} &nbsp;&bull;&nbsp; <span data-i18n="proj_${item.project}">${item.project}</span></span>
                                 <div class="share-actions">
                                     ${renderShareIcons(item.timestamp, item.subject, item.published_takes === 'both' ? '' : (item.bull_case || item.bear_case || ''), item.published_takes)}
                                 </div>
@@ -1222,6 +1249,16 @@ document.addEventListener('DOMContentLoaded', () => {
                         el.innerHTML = window.flattenedConfig[key];
                     }
                 });
+                
+                // 1.5. Universally translate any element whose EXACT ID matches a translation key
+                for (const key in window.flattenedConfig) {
+                    if (typeof window.flattenedConfig[key] === 'string') {
+                        const el = document.getElementById(key);
+                        if (el && !el.hasAttribute('data-i18n')) {
+                            el.innerHTML = window.flattenedConfig[key];
+                        }
+                    }
+                }
                 
                 // 2. Safely translate specific input placeholders
                 const inputIdMap = {
