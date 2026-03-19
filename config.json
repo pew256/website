@@ -1476,5 +1476,47 @@
         "sync_lock_fr": false,
         "sync_lock_es": false,
         "sync_lock_de": false
-    }
+    },
+    "_meta_languages": [
+        {
+            "code": "en",
+            "name": "English",
+            "flag": "\ud83c\uddec\ud83c\udde7"
+        },
+        {
+            "code": "ar",
+            "name": "\u0627\u0644\u0639\u0631\u0628\u064a\u0629",
+            "flag": "<img src=\"https://upload.wikimedia.org/wikipedia/commons/2/2b/Flag_of_the_Arab_League.svg\" style=\"height: 1em; vertical-align: middle; border-radius: 2px;\" alt=\"Arab League\"/>"
+        },
+        {
+            "code": "fr",
+            "name": "Fran\u00e7ais",
+            "flag": "\ud83c\uddeb\ud83c\uddf7"
+        },
+        {
+            "code": "de",
+            "name": "Deutsch",
+            "flag": "\ud83c\udde9\ud83c\uddea"
+        },
+        {
+            "code": "es",
+            "name": "Espa\u00f1ol",
+            "flag": "\ud83c\uddea\ud83c\uddf8"
+        },
+        {
+            "code": "hi",
+            "name": "Hindi",
+            "flag": "<img src=\"https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg\" style=\"height: 1em; vertical-align: middle; border-radius: 2px;\" alt=\"India\"/>"
+        },
+        {
+            "code": "sw",
+            "name": "Kiswahili",
+            "flag": "<img src=\"https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Kenya.svg\" style=\"height: 1em; vertical-align: middle; border-radius: 2px;\" alt=\"Kenya\"/>"
+        },
+        {
+            "code": "bn",
+            "name": "Bengali",
+            "flag": "<img src=\"https://upload.wikimedia.org/wikipedia/commons/f/f9/Flag_of_Bangladesh.svg\" style=\"height: 1em; vertical-align: middle; border-radius: 2px;\" alt=\"Bangladesh\"/>"
+        }
+    ]
 }

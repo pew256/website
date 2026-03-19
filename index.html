@@ -206,13 +206,6 @@
 <nav>
 <div class="container nav-content">
 <a class="logo" href="index.html"><img alt="pew256 logo - Resilient Bridge icon for institutional blockchain infrastructure." height="75" src="assets/brand-kit/pew256-logo.svg" style="width: 375px; height: auto; max-width: 100%; object-fit: contain;" width="375"/></a>
-<button aria-label="Toggle navigation" class="mobile-menu-toggle" onclick="document.getElementById('main-nav-links').classList.toggle('active')">
-<svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24">
-<line x1="3" x2="21" y1="12" y2="12"></line>
-<line x1="3" x2="21" y1="6" y2="6"></line>
-<line x1="3" x2="21" y1="18" y2="18"></line>
-</svg>
-</button>
 <div class="nav-links" id="main-nav-links">
 <a href="index.html#journal" id="nav_journal" data-i18n="nav_journal" onclick="document.getElementById('main-nav-links').classList.remove('active')" style="color: var(--primary); font-weight: 700;">Journal</a>
 <a href="about.html" id="nav_about" data-i18n="nav_about" onclick="document.getElementById('main-nav-links').classList.remove('active')">About</a>
@@ -628,21 +621,7 @@
 <svg fill="none" height="12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="margin-left: 0.25rem;" viewbox="0 0 24 24" width="12"><path d="M18 15l-6-6-6 6"></path></svg>
 </button>
 <div class="lang-dropdown-menu" id="footer-lang-menu">
-<a class="lang-option" data-lang="en" href="?lang=en">
-<span class="flag-icon">🇬🇧</span> English (EN)
-                        </a>
-<a class="lang-option" data-lang="ar" href="?lang=ar">
-<span class="flag-icon">🇦🇪</span> العربية (AR)
-                        </a>
-<a class="lang-option" data-lang="fr" href="?lang=fr">
-<span class="flag-icon">🇫🇷</span> Français (FR)
-                        </a>
-<a class="lang-option" data-lang="es" href="?lang=es">
-<span class="flag-icon">🇪🇸</span> Español (ES)
-                        </a>
-<a class="lang-option" data-lang="de" href="?lang=de">
-<span class="flag-icon">🇩🇪</span> Deutsch (DE)
-                        </a>
+<!-- Dynamically populated from config._meta_languages -->
 </div>
 </div>
 </div>
@@ -1151,20 +1130,20 @@ const detectLang = () => {
     const urlLang = urlParams.get('lang');
     
     // 1. Explicit URL parameter overrides everything and saves choice
-    if (urlLang && ['en', 'fr', 'es', 'de', 'ar'].includes(urlLang)) {
+    if (urlLang && urlLang.length >= 2) {
         localStorage.setItem('pew256_lang', urlLang);
         return urlLang;
     }
     
     // 2. Previously saved preference
     const storedLang = localStorage.getItem('pew256_lang');
-    if (storedLang && ['en', 'fr', 'es', 'de', 'ar'].includes(storedLang)) {
+    if (storedLang && storedLang.length >= 2) {
         return storedLang;
     }
 
     // 3. Fallback to OS/Browser language if supported
     const browserLang = navigator.language.substring(0, 2);
-    if (['en', 'fr', 'es', 'de', 'ar'].includes(browserLang)) {
+    if (browserLang && browserLang.length === 2) {
         return browserLang;
     }
     
@@ -1178,19 +1157,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Check if path has /journal/ prefix and avoid re-calling this if we are not at root
     const isJournal = window.location.pathname.startsWith('/journal/');
     
-    // Update footer dropdown visual
-    const currentFlag = document.getElementById('current-lang-flag');
-    const currentText = document.getElementById('current-lang-text');
-    if (currentFlag && currentText && userLang !== 'en') {
-         const flagMap = {'fr': '🇫🇷', 'es': '🇪🇸', 'de': '🇩🇪', 'ar': '🇦🇪'};
-         const textMap = {'fr': 'Français (FR)', 'es': 'Español (ES)', 'de': 'Deutsch (DE)', 'ar': 'العربية (AR)'};
-         currentFlag.innerHTML = flagMap[userLang] || '🇬🇧';
-         currentText.innerHTML = textMap[userLang] || 'English (EN)';
-    }
+    // Removed static footer dropdown visual override; deferred to asynchronous fetch.
 
     new Promise(async (resolve) => {
         try {
-            const res = await fetch(`/api/config?lang=${userLang}`);
+            const isDiff = new URLSearchParams(window.location.search).has('diff');
+            const targetUrl = isDiff ? `/api/config_diff?lang=${userLang}` : `/api/config?lang=${userLang}`;
+            const res = await fetch(targetUrl);
             if (res.ok) return resolve(await res.json());
         } catch(e) {}
         
@@ -1234,6 +1207,44 @@ document.addEventListener('DOMContentLoaded', () => {
             if(config.show_pow === false) {
                 const pow = document.querySelector('.hero-stats');
                 if(pow) pow.style.display = 'none';
+            }
+
+            // Dynamically build language switcher
+            const metaLangs = config._meta_languages || [
+                {code: 'en', name: 'English', flag: '🇬🇧'}, 
+                {code: 'ar', name: 'العربية', flag: '<img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Flag_of_the_Arab_League.svg" style="height: 1em; vertical-align: middle; border-radius: 2px;" alt="Arab League"/>'}, 
+                {code: 'fr', name: 'Français', flag: '🇫🇷'}, 
+                {code: 'de', name: 'Deutsch', flag: '🇩🇪'}, 
+                {code: 'es', name: 'Español', flag: '🇪🇸'}
+            ];
+            
+            // Valid fallback if userLang isn't strictly tracked natively
+            const currentLangObj = metaLangs.find(l => l.code === userLang) || metaLangs[0];
+            const currFlag = document.getElementById('current-lang-flag');
+            const currText = document.getElementById('current-lang-text');
+            const menuCont = document.getElementById('footer-lang-menu');
+            
+            if (currFlag && currText && menuCont) {
+                if (currentLangObj.flag) {
+                    currFlag.innerHTML = currentLangObj.flag;
+                    currFlag.style.display = 'inline-block';
+                    currText.style.display = 'none';
+                } else {
+                    currFlag.style.display = 'none';
+                    currText.innerHTML = currentLangObj.name;
+                    currText.style.display = 'inline-block';
+                    currText.style.fontWeight = '700';
+                    currText.style.fontSize = '0.9rem';
+                }
+                
+                let menuHtml = '';
+                metaLangs.forEach(lang => {
+                    const flagHtml = lang.flag ? `<span class="flag-icon">${lang.flag}</span> ` : '';
+                    menuHtml += `<a class="lang-option" data-lang="${lang.code}" href="?lang=${lang.code}">
+                        ${flagHtml}${lang.name} (${lang.code.toUpperCase()})
+                    </a>`;
+                });
+                menuCont.innerHTML = menuHtml;
             }
 
             // Bind to window for asynchronous access (e.g. Journal cards)
