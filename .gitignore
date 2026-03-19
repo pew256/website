@@ -13,6 +13,7 @@ __pycache__/
 scripts/
 
 # Backend & Admin
+pew256-admin/
 admin.html
 server.log
 debug_css.js
