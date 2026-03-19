@@ -58,7 +58,10 @@
     "rep6_title": "Labor Shift: The Augmented Technician",
     "rep6_teaser": "A strategic forecast on the changing role of floor technicians as AR overlays and spatial computing become standard issue for complex diagnostic routines.",
     "footer_copy": "<strong>\u00a9 2026 pew256 GmbH.</strong> Precision in Blockchain.",
-    "nav_journal": {},
+    "nav_journal": {
+        "bn": "Journal",
+        "sync_lock_bn": true
+    },
     "nav_about": "About",
     "nav_services": "Services",
     "nav_contact": "Contact",
