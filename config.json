@@ -213,7 +213,7 @@
     },
     "trust_badge4": {
         "base_en": "Web3 Infrastructure",
-        "fr": "Web3 Infrastructure [FR]",
+        "fr": "Infrastructure Web3",
         "es": "Infraestructura Web3",
         "de": "Web3-Infrastruktur",
         "sync_lock_fr": false,
@@ -241,7 +241,7 @@
         "base_en": "Institutional Blockchain Strategy",
         "fr": "Strat\u00e9gie Blockchain institutionnelle",
         "es": "Estrategia institucional de blockchain",
-        "de": "Institutional Blockchain Strategy [DE]",
+        "de": "Institutionelle Blockchain-Strategie",
         "sync_lock_fr": false,
         "sync_lock_es": false,
         "sync_lock_de": false,
