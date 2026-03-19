@@ -49,7 +49,28 @@ def test_server_api_get():
         print_fail("Is server.py running on port 8085?")
         return False
     except Exception as e:
-        print_fail(f"API Error: {e}")
+        print_fail(f"Local API Error: {e}")
+        return False
+
+def test_server_api_get_raw():
+    print("\n--- Test 2b: Local Server /api/config GET (Raw Multilingual) ---")
+    try:
+        url = "http://localhost:8085/api/config"
+        req = urllib.request.Request(url)
+        with urllib.request.urlopen(req) as response:
+            if response.status == 200:
+                data = json.loads(response.read().decode())
+                if 'hero_headline' in data and isinstance(data['hero_headline'], dict) and 'base_en' in data['hero_headline']:
+                    print_pass("/api/config correctly preserves and delivers the raw, un-flattened multidimensional dictionary when explicitly queried without a language target.")
+                    return True
+                else:
+                    print_fail(f"/api/config GET unexpectedly flattened the database dictionary! Expected a nested dict with 'base_en', but received: {type(data.get('hero_headline', None))}")
+                    return False
+            else:
+                print_fail("Server returned non-200")
+                return False
+    except Exception as e:
+        print_fail(f"Local API Error: {e}")
         return False
 
 def test_server_api_post():
@@ -234,6 +255,7 @@ if __name__ == '__main__':
     
     t1 = test_config_validity()
     t2 = test_server_api_get()
+    t2b = test_server_api_get_raw()
     t3 = test_server_api_post()
     t4 = test_git_diff_aggregate()
     t5 = test_git_push_configuration()
@@ -242,7 +264,7 @@ if __name__ == '__main__':
     t8 = test_preview_aggregate()
     
     print("\n========================================")
-    if all([t1, t2, t3, t4, t5, t6, t7, t8]):
+    if all([t1, t2, t2b, t3, t4, t5, t6, t7, t8]):
         print("\033[92mALL PIPELINE TESTS PASSED\033[0m")
         print("Your application state is structurally sound.")
     else:
