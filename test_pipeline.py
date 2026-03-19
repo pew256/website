@@ -116,6 +116,27 @@ def test_git_push_configuration():
                 print_fail("pew256-admin is NOT in .gitignore! Admin logic may leak to public repo.")
                 return False
                 
+        # Check that pew256-admin has its own correct origin
+        import os
+        if os.path.exists("pew256-admin/.git"):
+            admin_remote = subprocess.run(['git', 'remote', 'get-url', 'origin'], capture_output=True, text=True, check=True, cwd="pew256-admin").stdout.strip()
+            if 'pew256/pew256-admin' in admin_remote:
+                print_pass(f"Admin infrastructure correctly bound to private repo: {admin_remote}")
+            else:
+                print_fail(f"Admin infrastructure origin is incorrect! Expected pew256/pew256-admin, got: {admin_remote}")
+                return False
+        else:
+            print_fail("Admin infrastructure missing .git directory! Cannot push internally.")
+            return False
+            
+        # Check that server.py contains the dual-push logic
+        with open('pew256-admin/server.py', 'r') as f:
+            if 'admin core sync' in f.read():
+                print_pass("Server.py accurately contains the dual-tier automation to synchronize both repositories.")
+            else:
+                print_fail("Server.py is missing the dual-tier push logic!")
+                return False
+                
         return True
     except Exception as e:
         print_fail(f"Git configuration error: {e}")
