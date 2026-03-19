@@ -1172,7 +1172,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const rawConfig = await res.json();
             const flatConfig = {};
             for (const [key, val] of Object.entries(rawConfig)) {
-                if (val && typeof val === 'object' && val.base_en) {
+                if (val && typeof val === 'object' && 'base_en' in val) {
                     flatConfig[key] = val[userLang] || val.base_en;
                 } else {
                     flatConfig[key] = val;
