@@ -748,18 +748,18 @@
         "bn": "<strong>\u00a9 2026 pew256 GmbH\u0964</strong> \u09ac\u09cd\u09b2\u0995\u099a\u09c7\u0987\u09a8\u09c7 \u09af\u09a5\u09be\u09b0\u09cd\u09a5\u09a4\u09be\u0964"
     },
     "nav_journal": {
-        "base_en": "",
+        "base_en": "Journal",
         "fr": "Journal",
-        "es": "",
-        "de": "",
+        "es": "Diario",
+        "de": "Zeitschrift",
         "sync_lock_fr": true,
         "sync_lock_es": false,
         "sync_lock_de": false,
-        "ar": "",
+        "ar": "مجلة",
         "sync_lock_ar": false,
-        "hi": "",
-        "sw": "",
-        "bn": ""
+        "hi": "पत्रिका",
+        "sw": "Jarida",
+        "bn": "জার্নাল"
     },
     "nav_about": {
         "base_en": "About",
@@ -1929,8 +1929,8 @@
         },
         {
             "code": "ar",
-            "name": "\u0627\u0644\u0639\u0631\u0628\u064a\u0629",
-            "flag": "<img src=\"https://upload.wikimedia.org/wikipedia/commons/2/2b/Flag_of_the_Arab_League.svg\" style=\"height: 1em; vertical-align: middle; border-radius: 2px;\" alt=\"Arab League\"/>"
+            "name": "العربية",
+            "flag": "<img src=\"assets/arab-league.svg\" style=\"height: 1em; width: 1.33em; object-fit: contain; vertical-align: middle; border-radius: 2px;\" alt=\"Arab League\"/>"
         },
         {
             "code": "fr",
@@ -1949,18 +1949,18 @@
         },
         {
             "code": "hi",
-            "name": "Hindi",
-            "flag": "<img src=\"https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg\" style=\"height: 1em; vertical-align: middle; border-radius: 2px;\" alt=\"India\"/>"
+            "name": "हिंदी",
+            "flag": "🇮🇳"
         },
         {
             "code": "sw",
             "name": "Kiswahili",
-            "flag": "<img src=\"https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Kenya.svg\" style=\"height: 1em; vertical-align: middle; border-radius: 2px;\" alt=\"Kenya\"/>"
+            "flag": "🇰🇪"
         },
         {
             "code": "bn",
-            "name": "Bengali",
-            "flag": "<img src=\"https://upload.wikimedia.org/wikipedia/commons/f/f9/Flag_of_Bangladesh.svg\" style=\"height: 1em; vertical-align: middle; border-radius: 2px;\" alt=\"Bangladesh\"/>"
+            "name": "বাংলা",
+            "flag": "🇧🇩"
         }
     ]
 }

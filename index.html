@@ -206,6 +206,13 @@
 <nav>
 <div class="container nav-content">
 <a class="logo" href="index.html"><img alt="pew256 logo - Resilient Bridge icon for institutional blockchain infrastructure." height="75" src="assets/brand-kit/pew256-logo.svg" style="width: 375px; height: auto; max-width: 100%; object-fit: contain;" width="375"/></a>
+<button class="mobile-menu-toggle" aria-label="Toggle navigation" onclick="document.getElementById('main-nav-links').classList.toggle('active')">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+</button>
 <div class="nav-links" id="main-nav-links">
 <a href="index.html#journal" id="nav_journal" data-i18n="nav_journal" onclick="document.getElementById('main-nav-links').classList.remove('active')" style="color: var(--primary); font-weight: 700;">Journal</a>
 <a href="about.html" id="nav_about" data-i18n="nav_about" onclick="document.getElementById('main-nav-links').classList.remove('active')">About</a>

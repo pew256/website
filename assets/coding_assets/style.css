@@ -1237,4 +1237,66 @@ footer {
     .footer-logo img {
         height: 30px;
     }
+
+    /* Frontend Layout Compressions */
+    .hero {
+        padding: 60px 0 30px;
+    }
+    .radiant-hero {
+        min-height: auto;
+    }
+    .hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    .hero-sub {
+        margin-bottom: 2rem;
+    }
+    .trust-bar {
+        padding: 4rem 0 2rem;
+    }
+    .stats-section {
+        padding: 3rem 0;
+    }
+    .stat-item {
+        padding: 1.5rem 1rem;
+    }
+    .services-section {
+        padding: 3rem 0;
+    }
+    .why-partner-section {
+        padding: 2rem 1.5rem;
+        margin-top: 3rem;
+    }
+    .intelligence-suite-section {
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+    }
+    .media-section {
+        padding: 0 0 4rem 0;
+    }
+    .journal-section {
+        padding: 2rem 0;
+    }
+    .journal-content {
+        padding: 1rem;
+        grid-template-columns: 1fr;
+    }
+    .bio-section {
+        padding: 3rem 0 4rem;
+    }
+    .founder-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2.5rem !important;
+    }
+}
+
+.founder-grid {
+    display: grid;
+    grid-template-columns: minmax(300px, 1fr) 1.5fr;
+    gap: 4rem;
+    align-items: center;
+    max-width: 1000px;
+    padding: 0 1rem;
+    margin-bottom: 4rem;
 }
