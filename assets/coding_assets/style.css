@@ -1192,7 +1192,8 @@ footer {
     }
 
     .stats-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1rem !important;
     }
 
     .carousel-track {
@@ -1238,56 +1239,37 @@ footer {
         height: 30px;
     }
 
-    /* Frontend Layout Compressions */
-    .hero {
-        padding: 60px 0 30px;
-    }
-    .radiant-hero {
-        min-height: auto;
-    }
-    .hero h1 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-    }
-    .hero-sub {
-        margin-bottom: 2rem;
-    }
-    .trust-bar {
-        padding: 4rem 0 2rem;
-    }
-    .stats-section {
-        padding: 3rem 0;
-    }
-    .stat-item {
-        padding: 1.5rem 1rem;
-    }
-    .services-section {
-        padding: 3rem 0;
-    }
-    .why-partner-section {
-        padding: 2rem 1.5rem;
-        margin-top: 3rem;
-    }
-    .intelligence-suite-section {
-        margin-top: 3rem;
-        margin-bottom: 2rem;
-    }
-    .media-section {
-        padding: 0 0 4rem 0;
-    }
-    .journal-section {
-        padding: 2rem 0;
-    }
-    .journal-content {
-        padding: 1rem;
-        grid-template-columns: 1fr;
-    }
-    .bio-section {
-        padding: 3rem 0 4rem;
-    }
+    /* Frontend Layout Compressions - Clamped to max 1.5rem (0.75cm) */
+    .hero { padding: 1.5rem 1rem 0 !important; }
+    .radiant-hero { min-height: auto; }
+    .hero h1 { font-size: 2.2rem; margin-bottom: 1rem !important; margin-top: 0.5rem !important; }
+    .hero-sub { margin-bottom: 1rem !important; }
+    .hero-actions { margin-bottom: 0 !important; }
+    .trust-bar { padding: 1.5rem 1rem 1rem !important; }
+    
+    .stats-section { padding: 1.5rem 0 1.5rem !important; }
+    .stat-card { padding: 1.25rem 1rem !important; margin-bottom: 1rem !important; }
+    #stats_desc { margin-bottom: 1.5rem !important; padding: 0 1rem; }
+    #stats_title { margin-top: 0 !important; margin-bottom: 1rem !important; padding: 0 1rem; }
+    
+    .services-section { padding: 1.5rem 0 !important; }
+    .why-partner-section { padding: 1.5rem 1rem !important; margin-top: 1.5rem !important; margin-bottom: 1.5rem !important; }
+    
+    .intelligence-suite-section { margin-top: 1.5rem !important; margin-bottom: 1.5rem !important; padding: 0 1rem !important; }
+    #intel_title { margin-top: 0.5rem !important; margin-bottom: 1rem !important; }
+    #intel_desc { margin-bottom: 1.5rem !important; }
+    
+    .media-section { padding: 0 0 1.5rem 0 !important; }
+    .journal-section { padding: 1.5rem 0 !important; }
+    .journal-content { padding: 1rem !important; grid-template-columns: 1fr; }
+    .take-box { padding: 1rem !important; margin-bottom: 1rem !important; height: auto !important; }
+    
+    .bio-section { padding: 1.5rem 0 !important; }
     .founder-grid {
         grid-template-columns: 1fr !important;
-        gap: 2.5rem !important;
+        gap: 1.5rem !important;
+        margin-bottom: 1.5rem !important;
+        padding: 0 1rem !important;
     }
 }
 
