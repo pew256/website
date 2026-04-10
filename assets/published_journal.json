@@ -1,23 +1,5 @@
 [
   {
-    "timestamp": "20260314_025914",
-    "project": "test_news",
-    "subject": "Institutional Core Focus",
-    "bull_case": "The latest data on test_news reveals a massive shift. While surface metrics distract the market, true institutional alpha lies deep within blockchain operational infrastructure. The market is entirely mispricing the foundational layer.",
-    "bear_case": "The real inflection point regarding test_news is stral. Long-term decentralized finance depends entirely on how well the base-layer infrastructure scales to meet these new demands, not on superficial token narratives.",
-    "published_takes": "both",
-    "pinned": false
-  },
-  {
-    "timestamp": "20260314_011758",
-    "project": "Quantique",
-    "subject": "Bitcoin is safe, bitcoins are not! Yet!",
-    "bull_case": "Bitcoin's core weakness: your coins, not the chain. The Bitcoin *network* is indeed fortified by resilient hashing, which is not at risk. Yet, *individual bitcoin holdings* are secured by traditional public key cryptography, a system flagged as inherently breakable. This means the chain may persist, but the keys protecting personal wealth face an inevitable compromise, revealing a dangerous fissure in perceived safety. Luckily, BIP 360!",
-    "bear_case": "The true existential threat isn't hashing but traditional public key cryptography's predicted demise. Bitcoin's protocol relies on secure hash functions, yet user wallet security hinges on vulnerable public key algorithms. This foreshadows a future where private keys are easily derived, exposing individual assets. Current holdings are thus only *temporarily* safe without widespread adoption of quantum-resistant solutions, challenging lasting digital asset security assumptions unless you implement quantum resistant algorithms.",
-    "published_takes": "bull",
-    "pinned": false
-  },
-  {
     "timestamp": "20260314_014946",
     "project": "Quantique",
     "subject": "Quantum Threat: Your Keys Only, No Threat to the Chain",
@@ -32,6 +14,15 @@
     "subject": "Bitcoin: A Speculative Anomaly, Not Safe Haven",
     "bull_case": "The endless cascade of expert predictions, from imminent multi-million-dollar valuations to catastrophic collapses, underscores a fundamental truth: forecasting Bitcoin's price is a fool's errand. Each pronouncement, whether bullish or bearish, merely highlights the market's inherent randomness, revealing a system driven by complex, emergent behavior rather than predictable cycles. The illusion of financial foresight only distracts from the asset's fundamentally stochastic nature.",
     "bear_case": "Bitcoin's supposed safe-haven status, particularly amidst escalating geopolitical tensions, is a misdirection. Rather than offering stability, its price reacts violently to political posts, regional conflicts, and regulatory conjecture, behaving more like a speculative bet than a reliable refuge. These \"random trials\" of global events expose Bitcoin as an acutely sensitive instrument, amplifying external noise and demonstrating its deep susceptibility to unpredictable, non-economic catalysts.",
+    "published_takes": "bull",
+    "pinned": false
+  },
+  {
+    "timestamp": "20260314_011758",
+    "project": "Quantique",
+    "subject": "Bitcoin is safe, bitcoins are not! Yet!",
+    "bull_case": "Bitcoin's core weakness: your coins, not the chain. The Bitcoin *network* is indeed fortified by resilient hashing, which is not at risk. Yet, *individual bitcoin holdings* are secured by traditional public key cryptography, a system flagged as inherently breakable. This means the chain may persist, but the keys protecting personal wealth face an inevitable compromise, revealing a dangerous fissure in perceived safety. Luckily, BIP 360!",
+    "bear_case": "The true existential threat isn't hashing but traditional public key cryptography's predicted demise. Bitcoin's protocol relies on secure hash functions, yet user wallet security hinges on vulnerable public key algorithms. This foreshadows a future where private keys are easily derived, exposing individual assets. Current holdings are thus only *temporarily* safe without widespread adoption of quantum-resistant solutions, challenging lasting digital asset security assumptions unless you implement quantum resistant algorithms.",
     "published_takes": "bull",
     "pinned": false
   },
