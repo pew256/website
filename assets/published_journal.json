@@ -4,7 +4,7 @@
     "project": "Quantique",
     "subject": "Quantum Threat: Your Keys Only, No Threat to the Chain",
     "bull_case": "The prevailing wisdom that \"Bitcoin is safe\" against quantum threats is a dangerous oversimplification. While its foundational hashing is largely quantum-resistant, the public-key cryptography securing *individual wallet transactions* is fundamentally vulnerable. This means the network's integrity can remain, yet your personal holdings are directly exposed to instantaneous compromise, making the system's resilience irrelevant to the dispossessed.",
-    "bear_case": "Relying on unrelated protocol improvements or incremental upgrades as quantum-resistance measures is a profound miscalculation, cultivating a perilous illusion of security. Dismissively invoking mechanisms like BIP 360 as an \"all-rounder\" against quantum threats exemplifies a dangerous complacency, diverting attention from the urgent, dedicated architectural overhauls required to protect individual digital assets.",
+    "bear_case": "Relying on unrelated protocol improvements or incremental upgrades as quantum-resistance measures is a profound miscalculation, cultivating a perilous illusion of security. Dismissively invoking mechanisms like BIP 360 as an \"all-rounder\" against quantum threats exemplifies a dangerous complacency, diverting attention from the urgent, dedicated architectural overhauls required to protect individual digital assets!",
     "published_takes": "bear",
     "pinned": false
   },

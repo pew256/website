@@ -755,11 +755,11 @@
         "sync_lock_fr": true,
         "sync_lock_es": false,
         "sync_lock_de": false,
-        "ar": "مجلة",
+        "ar": "\u0645\u062c\u0644\u0629",
         "sync_lock_ar": false,
-        "hi": "पत्रिका",
+        "hi": "\u092a\u0924\u094d\u0930\u093f\u0915\u093e",
         "sw": "Jarida",
-        "bn": "জার্নাল"
+        "bn": "\u099c\u09be\u09b0\u09cd\u09a8\u09be\u09b2"
     },
     "nav_about": {
         "base_en": "About",
@@ -1929,7 +1929,7 @@
         },
         {
             "code": "ar",
-            "name": "العربية",
+            "name": "\u0627\u0644\u0639\u0631\u0628\u064a\u0629",
             "flag": "<img src=\"assets/arab-league.svg\" style=\"height: 1em; width: 1.33em; object-fit: contain; vertical-align: middle; border-radius: 2px;\" alt=\"Arab League\"/>"
         },
         {
@@ -1949,18 +1949,18 @@
         },
         {
             "code": "hi",
-            "name": "हिंदी",
-            "flag": "🇮🇳"
+            "name": "\u0939\u093f\u0902\u0926\u0940",
+            "flag": "\ud83c\uddee\ud83c\uddf3"
         },
         {
             "code": "sw",
             "name": "Kiswahili",
-            "flag": "🇰🇪"
+            "flag": "\ud83c\uddf0\ud83c\uddea"
         },
         {
             "code": "bn",
-            "name": "বাংলা",
-            "flag": "🇧🇩"
+            "name": "\u09ac\u09be\u0982\u09b2\u09be",
+            "flag": "\ud83c\udde7\ud83c\udde9"
         }
     ]
 }
