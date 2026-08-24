@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://formspree.io https://script.google.com https://script.googleusercontent.com; img-src 'self' data:; script-src 'self' 'unsafe-inline' https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/; frame-src 'self' https://www.google.com/recaptcha/ https://recaptcha.google.com/recaptcha/;" http-equiv="Content-Security-Policy"/>
+<meta content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://formspree.io https://script.google.com https://script.googleusercontent.com https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/; img-src 'self' data:; script-src 'self' 'unsafe-inline' https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/; frame-src 'self' https://www.google.com/recaptcha/ https://recaptcha.google.com/recaptcha/;" http-equiv="Content-Security-Policy"/>
 <meta content="strict-origin-when-cross-origin" name="referrer"/>
 <title>pew256 | Blockchain Infrastructure &amp; Protocol Engineering</title>
 <meta content="Deterministic ledger infrastructure for mission-critical finance. We provide protocol-level engineering and hardened middleware for global institutions." name="description"/>
@@ -32,7 +32,7 @@
 <link href="assets/brand-kit/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
 <link href="assets/brand-kit/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
 <link href="assets/brand-kit/apple-touch-icon.png" rel="apple-touch-icon"/>
-<script async="" defer="" src="https://www.google.com/recaptcha/api.js"></script>
+<script async="" defer="" src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoad&render=explicit"></script>
 <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -676,7 +676,7 @@
 <textarea id="message" name="message" placeholder="Describe your current infrastructure challenges or strategic goals..." required="" rows="4"></textarea>
 </div>
 </div>
-<div class="g-recaptcha" data-sitekey="6Ldqm4MsAAAAAAYXB1Ctw8K_AEl2Vm5aa2TqTgqm" style="margin: 0 auto; display: flex; justify-content: center; margin-bottom: 1rem;"></div>
+<div id="recaptcha-contact" style="margin: 0 auto; display: flex; justify-content: center; margin-bottom: 1rem;"></div>
 <div class="error-message" id="form-error" style="display: none; margin-bottom: 1rem; color: #ef4444; font-size: 0.9rem;">
                     Submission failed. Please try again or email directly.
                 </div>
@@ -721,7 +721,7 @@
 <label for="reportCompany" style="color: var(--primary); font-family: 'Montserrat', sans-serif;" id="rep_company_label">Company</label>
 <input id="reportCompany" name="company" placeholder="Acme Corp" required="" style="border: 1px solid #506684; border-radius: 4px; padding: 10px; width: 100%;" type="text"/>
 </div>
-<div class="g-recaptcha" data-sitekey="6Ldqm4MsAAAAAAYXB1Ctw8K_AEl2Vm5aa2TqTgqm" style="margin: 0 auto; display: flex; justify-content: center; margin-bottom: 1rem;"></div>
+<div id="recaptcha-report" style="margin: 0 auto; display: flex; justify-content: center; margin-bottom: 1rem;"></div>
 <button class="btn btn-primary full-width" id="rep_submit" style="margin-top: 1rem; background-color: #506684; border: none; font-family: 'Montserrat', sans-serif;" type="submit">Request Report</button>
 </form>
 <div class="success-state" id="reportSuccess" style="display: none;">
@@ -737,10 +737,41 @@
 </div>
 </div>
 <script>
+        // reCAPTCHA explicit rendering
+        var recaptchaReady = false;
+        var contactWidgetId = null;
+        var reportWidgetId = null;
+        var RECAPTCHA_SITE_KEY = '6Ldqm4MsAAAAAAYXB1Ctw8K_AEl2Vm5aa2TqTgqm';
+
+        function onRecaptchaLoad() {
+            recaptchaReady = true;
+        }
+
+        function ensureContactCaptcha() {
+            if (!recaptchaReady) return;
+            var container = document.getElementById('recaptcha-contact');
+            if (contactWidgetId === null && container) {
+                contactWidgetId = grecaptcha.render('recaptcha-contact', { sitekey: RECAPTCHA_SITE_KEY });
+            } else if (contactWidgetId !== null) {
+                try { grecaptcha.reset(contactWidgetId); } catch(e) {}
+            }
+        }
+
+        function ensureReportCaptcha() {
+            if (!recaptchaReady) return;
+            var container = document.getElementById('recaptcha-report');
+            if (reportWidgetId === null && container) {
+                reportWidgetId = grecaptcha.render('recaptcha-report', { sitekey: RECAPTCHA_SITE_KEY });
+            } else if (reportWidgetId !== null) {
+                try { grecaptcha.reset(reportWidgetId); } catch(e) {}
+            }
+        }
+
         // Contact Modal logic
         function openModal() {
             document.getElementById('contactModal').style.display = "flex";
-            document.body.style.overflow = "hidden"; // Prevent scroll
+            document.body.style.overflow = "hidden";
+            setTimeout(ensureContactCaptcha, 100);
         }
 
         function closeModal() {
@@ -772,6 +803,7 @@
 
             document.getElementById('reportRequestModal').style.display = "flex";
             document.body.style.overflow = "hidden";
+            setTimeout(ensureReportCaptcha, 100);
         }
 
         function closeReportModal() {
